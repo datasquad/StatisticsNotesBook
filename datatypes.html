@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>References – Statistics Notes</title>
+<title>2&nbsp; Data Types – Statistics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="prev">
+<link href="./summary.html" rel="next">
+<link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -89,6 +71,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="include/webex.css">
 </head>
@@ -102,7 +113,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./datatypes.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Types</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -141,7 +152,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datatypes.html" class="sidebar-item-text sidebar-link">
+  <a href="./datatypes.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Types</span></span></a>
   </div>
 </li>
@@ -153,7 +164,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -162,15 +173,30 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#types-of-data" id="toc-types-of-data" class="nav-link active" data-scroll-target="#types-of-data"><span class="header-section-number">2.1</span> Types of data</a>
+  <ul class="collapse">
+  <li><a href="#discrete-data" id="toc-discrete-data" class="nav-link" data-scroll-target="#discrete-data"><span class="header-section-number">2.1.1</span> Discrete data</a></li>
+  <li><a href="#continuous-data" id="toc-continuous-data" class="nav-link" data-scroll-target="#continuous-data"><span class="header-section-number">2.1.2</span> Continuous data</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">2.1.3</span> Additional resources</a></li>
+  <li><a href="#cross-section-data" id="toc-cross-section-data" class="nav-link" data-scroll-target="#cross-section-data"><span class="header-section-number">2.1.4</span> Cross-section data</a></li>
+  <li><a href="#time-series-data" id="toc-time-series-data" class="nav-link" data-scroll-target="#time-series-data"><span class="header-section-number">2.1.5</span> Time-series data</a></li>
+  </ul></li>
+  <li><a href="#population-and-sample-data" id="toc-population-and-sample-data" class="nav-link" data-scroll-target="#population-and-sample-data"><span class="header-section-number">2.2</span> Population and Sample Data</a></li>
+  <li><a href="#summary-data-types" id="toc-summary-data-types" class="nav-link" data-scroll-target="#summary-data-types"><span class="header-section-number">2.3</span> Summary Data Types</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Types</span></h1>
 </div>
 
 
@@ -187,10 +213,150 @@ div.csl-indent {
 </header>
 
 
+<section id="types-of-data" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="types-of-data"><span class="header-section-number">2.1</span> Types of data</h2>
+<p>Broadly speaking, by <strong>data</strong> we mean numerical values associated with some variable of interest. Different types of data may need special treatment when it comes to statistical analysis. For this reason, it is important to be able to distinguish a few key features. A variable can produce data that are either of continuous or discrete nature (see below for examples).</p>
+<p>Another level at which variables differ is whether they are sampled in time or in a cross-section.</p>
+<section id="discrete-data" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="discrete-data"><span class="header-section-number">2.1.1</span> Discrete data</h3>
+<p>The variable <span class="math inline">\(X\)</span> is said to be discrete if it can only ever yield isolated values some of which (if not all) are often repeated in the sample. It is, however, important to note that there are different types of discrete data:</p>
+<ul>
+<li><strong>ORDINAL</strong>. Here the categories have a natural ordering.<br>
+Examples: Football Leagues: Premier League, Championship, etc.</li>
+<li><strong>NOMINAL</strong>. Here there is no natural ordering to the categories.<br>
+Examples: Gender: Male, Female</li>
+<li><strong>COUNT</strong>. A variable that represents the counts of certain events.<br>
+Examples: Number of children in household: 0,1,2,3,etc.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Data collection is not always neutral
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before moving on from here it is important to understand that the mere process of collecting data may not be an innocent or totally neutral process. For instance the above note on gender. Traditionally you would indeed have found questions like “What is your gender?” with “Male” and “Female” being the only options. It is now widely recognised that for some people the gender they identify as is not the same as the sex they were born in. As a consequence of this you will now find that sometimes questions are split, one asking for the sex and the other for gender identification. Both public and private institutions think carefully about how to ask such questions as demonstrated by the guidance of the <a href="https://www.ons.gov.uk/census/censustransformationprogramme/questiondevelopment/genderidentity/guidanceforquestionsonsexgenderidentityandsexualorientationforthe2019censusrehearsalforthe2021census">Office for National Statistics (ONS)</a> and by <a href="https://www.surveymonkey.com/curiosity/ask-survey-questions-sexual-orientation-gender-identity/">Survey Monkey</a>.</p>
+</div>
+</div>
+</section>
+<section id="continuous-data" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="continuous-data"><span class="header-section-number">2.1.2</span> Continuous data</h3>
+<p>The variable <span class="math inline">\(Y\)</span> is said to be continuous if it can assume any value taken (more or less) from a continuum (a continuum is an interval, or range of numbers). A nice way to distinguish between a discrete and continuous variable is to consider the possibility of listing possible values. It is theoretically impossible to even <strong>begin</strong> listing all possible values that a continuous variable <span class="math inline">\(Y\)</span> could assume. However, this is not so with a discrete variable; you may not always be able to finish the list, but at least you can make a start.</p>
+<p>For example, the birth-weight of babies is an example of a continuous variable. There is no reason why a baby should not have a birth weight of <span class="math inline">\(2500.0234\)</span> grams, even though it wouldn’t be measured as such! Try to list all possible weights (in theory) bearing in mind that for any two weights that you write down, there will always be another possibility half way between these. We see, then, that for a continuous variable an <strong>observation</strong> is recorded, as the result of applying some measurement, but that this inevitably gives rise to a rounding (up or down) of the <strong>actual value</strong>. (No such rounding occurs when recording observations on a discrete variable.)</p>
+<p>A variable can be continuous even though it is defined on a limited scale. For instance the weight variable has a limited scale as weights cannot be negative.</p>
+<p>Finally, note that for a continuous variable, it is unlikely that values will be repeated frequently in the sample, unless rounding occurs.</p>
+<p>Other examples of continuous data include: heights of people; volume of water in a reservoir; and, to a workable approximation, Government Expenditure. One could argue that the last of these is discrete (due to the finite divisibility of monetary units). However, when the amounts involved are of the order of millions of pounds, changes at the level of individual pence are hardly discernible and so it is sensible to treat the variable as continuous.</p>
+</section>
+<section id="additional-resources" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">2.1.3</span> Additional resources</h3>
+<ul>
+<li>Khan Academy: <a href="https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/v/discrete-and-continuous-random-variables">Discusses example of continuous and discrete random variables.</a></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercises
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider if the following set of data is discrete or continuous:</p>
+<p><strong>The heights of your friends</strong></p>
+<p><select class="webex-select"><option value="blank"></option><option value="">Discrete</option><option value="answer">Continuous</option></select></p>
+<p><strong>The number of books on your bookcase</strong></p>
+<p><select class="webex-select"><option value="blank"></option><option value="answer">Discrete</option><option value="">Continuous</option></select></p>
+</div>
+</div>
+</section>
+<section id="cross-section-data" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="cross-section-data"><span class="header-section-number">2.1.4</span> Cross-section data</h3>
+<p>Cross-section data comprises observations on a particular variable taken at a single point in time. For example: annual crime figures recorded by Police regions for the year 1999; the birth-weight of babies born, in a particular maternity unit, during the month of April 1998; initial salaries of graduates from the University of Manchester, 2012.</p>
+<p>Note, the defining feature is that there is no natural ordering in the data you have. Say you have birth weights of babies Sarah, Lin, Max and Nikolai, then it doesn’t matter if you present that data in that order or if you re-order the data in any way, e.g.&nbsp;Nikola, Sarah, Max and Lin. This will be different for time-series data.</p>
+<section id="example" class="level4" data-number="2.1.4.1">
+<h4 data-number="2.1.4.1" class="anchored" data-anchor-id="example"><span class="header-section-number">2.1.4.1</span> Example</h4>
+<p>Exchange Rates: <a href="https://www1.oanda.com/currency/live-exchange-rates/">From Oanda.com</a></p>
+<p>Here you can see a lot of different exchange rates, all recorded at the same time. Note, however, that they are updated every 5 minutes. So you can see that whether you are dealing with cross-section or time-series data (see below) depends on your perspective.</p>
+</section>
+</section>
+<section id="time-series-data" class="level3" data-number="2.1.5">
+<h3 data-number="2.1.5" class="anchored" data-anchor-id="time-series-data"><span class="header-section-number">2.1.5</span> Time-series data</h3>
+<p>On the other hand, time-series data are observations on a particular variable recorded over a period of time, at regular intervals. For example personal crime figures for Greater Manchester recorded annually from 1980-2012; monthly household expenditure on food; the daily closing price of a certain stock. In this case, the data does have a natural ordering since they are measured from one time period to the next.</p>
+<section id="example-1" class="level4" data-number="2.1.5.1">
+<h4 data-number="2.1.5.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">2.1.5.1</span> Example</h4>
+<p>Exchange Rates: From <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html">USD v EURO exchange rate from the ECB</a></p>
+<p>An example for a time-series of an exchange rate, here USD/EUR.</p>
+<p><img src="images/USDEURO.png" id="fig-COVID19" class="img-fluid" alt="USD/Euro exchange rate"> ::: {.callout-important} ### Exercises</p>
+<p>Consider if the following set of data is discrete or continuous:</p>
+<p><strong>Study hours data from students responding to a survey after the 2nd week of semester.</strong></p>
+<p><select class="webex-select"><option value="blank"></option><option value="">Time-Series Data</option><option value="answer">Cross-Section Data</option></select></p>
+<p><strong>Temperatures at 8am on the 22 Jan 2026 from all British cities</strong></p>
+<p><select class="webex-select"><option value="blank"></option><option value="">Time-Series Data</option><option value="answer">Cross-Section Data</option></select></p>
+<p><strong>Temperatures at 8am in Manchester for all days in 2025</strong></p>
+<p><select class="webex-select"><option value="blank"></option><option value="answer">Time-Series Data</option><option value="">Cross-Section Data</option></select></p>
+<p>:::</p>
+</section>
+</section>
+</section>
+<section id="population-and-sample-data" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="population-and-sample-data"><span class="header-section-number">2.2</span> Population and Sample Data</h2>
+<p>When dealing with data we will have to be aware of what the difference between population and sample data are. The population represents all the data you are interested in. Imagine you have asked all households in your postcode area for their annual income. In case you are interested in the incomes in your postcode only, then your observations represent the population data. If however, you are really interested in the average household income of ALL households in Manchester, then the data you have collected in your postcode are a sample only. As you can see, the same set of observations can be either a sample or population, it really depends on the question you are asking.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Representative Sampling
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Briefly thinking about the example above where you collect all data from one postcode to be a sample for all of Manchester, it quickly becomes obvious that this would not be a good sampling strategy. If you were fortunate enough to live in a posh are (e.g.&nbsp;Hale Barns) it would be very obvious that the incomes you collected would not be very representative of the incomes across the whole of Manchester.</p>
+<p>If you want a <strong>representative</strong> sample you will have to be very careful in the way you design your sampling strategy to achieve that. This is super important. Here we will not cover any more details on this and when we use survey data we will assume that the data are representative. If you are interested in this topic a good resource is: Czaja, R. and Blair, J. (2013) Designing Surveys: a guide to decisions and procedures. 3rd ed.&nbsp;Sage, London.</p>
+</div>
+</div>
+<p>Given any particular question, we always prefer to have population data, however in most cases one will have to accept that one can only get sample data. Consider, for instance, a political analyst who is interested in the voting intentions of all eligible voters in the UK. As there are many millions voters it is virtually impossible to obtain population data. You will all be familiar with opinion polls who will be based on the basis of a sample of eligible voters (usually somewhere around 1000 voters).</p>
+<p>The interesting question is then the following: Given the analyst is really interested in the voting intention of ALL voters, how can the sample information be used to learn something about the population? This problem is at heart of the problem of <strong>statistical inference</strong>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercises
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider if the following set of data is discrete or continuous:</p>
+<p><strong>A safety inspector conducts air quality tests on a randomly selected group of 16 classrooms at a primary school.</strong></p>
+<div id="radio_GEXAWZHNAQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GEXAWZHNAQ" value="answer"> <span>The population is all classrooms in the primary school; the sample is the 16 classrooms</span></label><label><input type="radio" autocomplete="off" name="radio_GEXAWZHNAQ" value=""> <span>The population is all primary students in the school; the sample is the students in the 16 classrooms selected.</span></label><label><input type="radio" autocomplete="off" name="radio_GEXAWZHNAQ" value=""> <span>The population is all classrooms in the district; the sample is the 16 classrooms selected.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p>The population is the entire group of people or things we want to study.&nbsp;The sample is the part of the population that we actually collect data from.</p>
+<p>The safety inspector tested classrooms in the primary school, not students. Further, the safety inspector only tested classrooms in one school, not in all the schools in the district.&nbsp;So the safety inspector selected 16 classrooms.</p>
+<p>The population is all classrooms in the primary school; the sample is the 16&nbsp;classrooms selected.</p>
+</div>
+<p><strong>The Director of A High School surveyed a random sample of 200 of their juniors to see how juniors at the school felt about the lunch offering at the school’s cafeteria.</strong></p>
+<div id="radio_BPXPISAMCA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BPXPISAMCA" value="answer"> <span>The population is all high school juniors in the world; the sample is all of the juniors at A High.</span></label><label><input type="radio" autocomplete="off" name="radio_BPXPISAMCA" value=""> <span>The population is all students at A High; the sample is all of the juniors at A High</span></label><label><input type="radio" autocomplete="off" name="radio_BPXPISAMCA" value=""> <span>The population is all juniors at A High School; the sample is the 200 juniors surveyed.</span></label>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-data-types" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="summary-data-types"><span class="header-section-number">2.3</span> Summary Data Types</h2>
+<p>In this lesson you learned that there are different data types, discrete and continuous, cross-section and time-series data. You would learn later, that different data types require the application of different tools. These may be different descriptive tools but also different probability tools.</p>
 
 
-
-
+</section>
 
 </main> <!-- /main -->
 <script src="include/webex.js"></script>
@@ -596,11 +762,14 @@ div.csl-indent {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./summary.html" class="pagination-link" aria-label="Summary">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span>
+      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
