@@ -1,5 +1,5 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+Here are resources that are being used for the Advanced Statstics course taught to Economics Students at The University of Manchester
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+[Ralf Becker](https://datasquad.github.io/ralffbecker/index.html)

@@ -2,11 +2,12 @@ project:
   type: book
 book:
   title: Statistics Notes
-  author: Norah Jones
+  author: Ralf Becker
   date: 25/01/2026
   chapters:
   - index.qmd
   - intro.qmd
+  - datatypes.qmd
   - summary.qmd
   - references.qmd
 bibliography: references.bib
@@ -16,6 +17,5 @@ format:
     - cosmo
     - brand
     css: include/webex.css
-    include-after-body: include/webex.js
-  pdf:
-    documentclass: scrreprt
+    include-after-body:
+    - include/webex-after-body.html
