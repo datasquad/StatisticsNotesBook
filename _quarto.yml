@@ -8,6 +8,7 @@ book:
   - index.qmd
   - intro.qmd
   - datatypes.qmd
+  - graphical_descriptive.qmd
   - summary.qmd
   - references.qmd
 bibliography: references.bib

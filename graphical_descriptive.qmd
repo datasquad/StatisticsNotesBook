@@ -92,134 +92,100 @@ Now we can represent these results graphically. In fact you will sometimes see t
 
 This graph looks fairly similar to a bar chart, but note that the bars must be connected - **no spaces**. This reflects the fact that the data are continuous. On this occasion we chose 8 bins/classes. You could have created fewer or more, depending on how much detail you want to convey. But, unless you think they are informative, avoid constructing intervals, which contain no observations.
 
+## Time-Series data - Line Graph
+
+When we have time-series data we have observations for the same variable ordered in time and we want to display the data in a manner that illustrates this time aspect of the data. The way to do this is to create a line graph (or time-series graph) as in this example that uses growth rates for UK Gross Domestic Product Data (GDP). We often label this ($\Delta gdp\_{t}$).
+
+![Line graph, GDP Growth rate (IHYN). Source: Office of National Statistics, UK.](images/line.png)
+
+You can clearly see from this image that at the end of the sample (during the 2020 pandemic year) the drop and subsequent recovery of the UK's GDP was unprecedented.
+
+Creating such line graphs with two data series can be more tricky, if the two series you want to show in one graph are on different scales. For instance the level of GDP (measured in Billions of pounds) and GDP growth (measured in percentage points). The following clip explains how to handle such a situation.
+
+{{< video https://www.youtube.com/watch?v=_4zURnNMzrs title="How to produce line graphs with different scales (8min)">}}
+
+## Two and more variables: Line graphs and Scatter plots
+
+The graphical summaries, introduced above, are for summarising just one variable. An interesting question is whether two (or more) characteristics/random variables are inter-related. For example, referring to the previously used GDP growth data for which we have observations from Quarter 1 1955 to Quarter 1 2013. 
+
+### Two variables
+
+We can add the inflation series ($inf_{i}$) to the line graph of the GDP growth rate.
+
+![Line graph, GDP Growth rate (IHYN) and Inflation (L55O). Source: Office of National Statistics, UK.](images/line_2vars.png)
+
+Such graphs can be very revealing Although in this case it is not apparent that there is an obvious correlation between GDP growth and Inflation in the UK.
+
+A different type of graph often used to display how two variables are related to each other is a scatter plot. Below you can see two versions of a scatter plot displaying the same data shown in the above line graph.
+
+![Scatter plot, GDP Growth rate (IHYN) and Inflation (L55O). Source: Office of National Statistics, UK.](images/scatter_time.png)
+
+On the left hand side you can see the plot which shows all the data from 1989 (quarter 1) to 2021 (quarter 4). Each point represents one data point. For instance look at the one data point coloured in red in the South-West corner of the left scatter plot. That one point represents the observation from 2020 (Q2) in which GDP dropped by 13.1\% and annual inflation was measured to be 0.8\%.
+
+Perhaps you can see that the scale of this graph is driven by the very large GDP drop in Q2 2020 and the subsequent large reversal of 11.8\% growth in Q3 of 2020. This compresses the vast majority of the data in the centre. Sometimes it may be worth to exclude some extreme observations (here the observations from the Year 2020 and 2021 representing the Covid period). The scatter plot on the right only shows the data up to 2019. You can now see that there is perhaps a slight positive correlation between these two variables.
+
+This sort of diagram should not be viewed as way of detecting the precise nature of the relationship between the two variables and, in general, a lot of common sense is required as well. Rather, it merely illuminates the simplest, most basic, relation of whether larger $\Delta gdp_{t}$ values appear to be associated with larger (or smaller) values of the $inf_{t}$ variable; thereby signifying an underlying positive (respectively, inverse or negative) observed relationship between the two. This may be **suggestive** about the general relationship but is by no means conclusive. Nor does it inform us on general cause and effect. It is impossible to conclude whether changes in $inf_{t}$ actually cause changes in variable $\Delta gdp_{t}$ or vice versa. Indeed the two variables may not be related to each other at all. Therefore care must be taken in interpreting such a diagram.
+
+{{< video https://youtu.be/CgEWHQl9DJw title="How to produce a time series plot in Excel, YouTube (13min)">}}
+
+For that reason scatter plots are more common for cross-sectional data which do not have a time series dimension. To illustrate this we will revert to a new example, relating to data from the Covid-19 pandemic. Let's say we want to compare whether the case infection rates in countries at a particular point in time (say Week 10 in 2022) are in any way related to either how rich a country is (as measured by GDP per capita) or by how much a country spends on their Health System (as measured by the \% pf GDP spend on Health).
+
+Here is a snippet of the spreadsheet used for this exercise.
+
+![Table used for scatter diagram.](images/Table_CS.png)
+
+You can see that we have observations for different countries (in rows) which are all coming from the same time (2022-10). In columns we have different variables for each country, here the 14-day Covid-19 case rate (per 100,000), the Health expenditure (as a \% of GDP), the GDP per capita and the (natural) log of GDP per capita.
+
+We start by comparing the Covid case rate to the Health expenditure.
+
+![Scatter diagram, Health expenditure as percentage of GDP and 14-day Covid case rate, as per Week 10 in 2022.](images/scatter_covid_healthex.png)
+
+What you can see from such a scatter diagram is that there are only a few countries with very high case rates and there is no apparent correlation with the percentage of Health expenditure. Below we show scatter diagrams which relate the case rate to GDP per capita. In the left panel you can see GDP p.c. on the horizontal axis, and on the right panel you can see the same information, just that on the horizontal axis we now show the log of GDP p.c..
+
+![Scatter diagram, GDP per capita and 14-day Covid case rate, as per Week 10 in 2022.](images/scatter_covid_gdp.png)
+
+In the scatter diagram on the left hand side (x axis: GDP p.c.) you can mainly see that there are a few countries which are incredibly reach and and a whole bunch of countries which have very lo GDP p.c. (less than \$2,000 per year per person). When you have a variable on one of the axis which is so skewed, it can often be difficult to see interesting patterns. 
+
+A common tool used in such circumstances is to scale the respective axis. Here we calculate the log of GDP p.c. and then use that on the horizontal axis (right panel). This has the effect of stretching out the GDP p.c. values at the lower end. Values of \$500 and \$2,000 are equivalent to approximately 6.2 and 7.6 on the logarithmic scale (as $ln(500) = 6.21$ and $ln(2000)=7.60$). In this scatter diagram it is more apparent that there seems to be a positive correlation between income and covid case numbers.
+
+However, we ought to be careful and should not take these case numbers at face value. It may well be that poorer countries merely detect fewer of the existing cases.
+
+{{< video https://youtu.be/9tAFgLVHuxk title="How to create scatter plots in Excel, You Tube (10min).">}}
 
 
-# DELETE!!!!
+### More than two series
 
-## Types of data
+We shall illustrate another potential pitfall when comparing time series with line graphs. For this we look at some Covid infection data across a number of different countries (Argentina, China, Italy, South Africa, Sweden and the UK). Let us first look at a line chart which compares the number of Covid infections across in the timespan from the beginning of 2020 to early 2022.
 
-Broadly speaking, by **data** we mean numerical values associated with some variable of interest. Different types of data may need special treatment when it comes to statistical analysis. For this reason, it is important to be able to distinguish a few key features. A variable can produce data that are either of continuous or discrete nature (see below for examples).
+![Line graph. Weekly Covid cases. Source: European Center for Disease Control.](images/line_covid_cases.png)
 
-Another level at which variables differ is whether they are sampled in time or in a cross-section.
+From this line plot you can see that during the pandemic there were significant variations in registered Covid-19 cases across countries and across time. In particular it seems as if, for instance, the UK did fairly badly and Sweden and China did particularly well in terms of keeping the number of cases low. But you would be correct in interjecting that these countries have very different population sizes and therefore it may not be correct to compare these case numbers. It is for this reason that Covid-19 infections are usually reported as a case rate (infections per 100,000).
 
-### Discrete data
+The next line graph, therefore, compares these case rates.
 
-The variable $X$ is said to be discrete if it can only ever yield isolated values some of which (if not all) are often repeated in the sample. It is, however, important to note that there are different types of discrete data:
+![Line graph. Weekly Covid cases per 100,000. Source: European Center for Disease Control.](images/line_covid_cases_pc.png)
 
--   **ORDINAL**. Here the categories have a natural ordering.\
-    Examples: Football Leagues: Premier League, Championship, etc.
--   **NOMINAL**. Here there is no natural ordering to the categories.\
-    Examples: Gender: Male, Female
--   **COUNT**. A variable that represents the counts of certain events.\
-    Examples: Number of children in household: 0,1,2,3,etc.
+What we learn from here is quite different. It is still apparent that the officially reported case load in China is remarkably low. Sweden, however, cannot claim to have managed to keep the case load significantly lower than the other countries. The UK continues to have relatively high case rates. When looking at these data one also needs to keep in mind that the officially reported case numbers are significantly influenced by the testing regime. The late drop in UK cases at the beginning of 2022, for instance, is partly the result of the significant reduction in testing activity. May this be a reason for South Africa showing fairly modest infection rates across the entire Covid period?
 
-::: callout-warning
-### Data collection is not always neutral
+Let's look at the equivalent data for Deaths related to Covid-19. While there is still significant variation across countries in terms of recording these, it is widely understood that mortality statistics are more comparable.
 
-Before moving on from here it is important to understand that the mere process of collecting data may not be an innocent or totally neutral process. For instance the above note on gender. Traditionally you would indeed have found questions like "What is your gender?" with "Male" and "Female" being the only options. It is now widely recognised that for some people the gender they identify as is not the same as the sex they were born in. As a consequence of this you will now find that sometimes questions are split, one asking for the sex and the other for gender identification. Both public and private institutions think carefully about how to ask such questions as demonstrated by the guidance of the [Office for National Statistics (ONS)](https://www.ons.gov.uk/census/censustransformationprogramme/questiondevelopment/genderidentity/guidanceforquestionsonsexgenderidentityandsexualorientationforthe2019censusrehearsalforthe2021census) and by [Survey Monkey](https://www.surveymonkey.com/curiosity/ask-survey-questions-sexual-orientation-gender-identity/).
-:::
-
-### Continuous data
-
-The variable $Y$ is said to be continuous if it can assume any value taken (more or less) from a continuum (a continuum is an interval, or range of numbers). A nice way to distinguish between a discrete and continuous variable is to consider the possibility of listing possible values. It is theoretically impossible to even **begin** listing all possible values that a continuous variable $Y$ could assume. However, this is not so with a discrete variable; you may not always be able to finish the list, but at least you can make a start.
-
-For example, the birth-weight of babies is an example of a continuous variable. There is no reason why a baby should not have a birth weight of $2500.0234$ grams, even though it wouldn't be measured as such! Try to list all possible weights (in theory) bearing in mind that for any two weights that you write down, there will always be another possibility half way between these. We see, then, that for a continuous variable an **observation** is recorded, as the result of applying some measurement, but that this inevitably gives rise to a rounding (up or down) of the **actual value**. (No such rounding occurs when recording observations on a discrete variable.)
-
-A variable can be continuous even though it is defined on a limited scale. For instance the weight variable has a limited scale as weights cannot be negative.
-
-Finally, note that for a continuous variable, it is unlikely that values will be repeated frequently in the sample, unless rounding occurs.
-
-Other examples of continuous data include: heights of people; volume of water in a reservoir; and, to a workable approximation, Government Expenditure. One could argue that the last of these is discrete (due to the finite divisibility of monetary units). However, when the amounts involved are of the order of millions of pounds, changes at the level of individual pence are hardly discernible and so it is sensible to treat the variable as continuous.
-
-### Additional resources
-
--   Khan Academy: [Discusses example of continuous and discrete random variables.](https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/v/discrete-and-continuous-random-variables)
-
-::: callout-important
-### Exercises
-
-Consider if the following set of data is discrete or continuous:
-
-**The heights of your friends**
-
-`r mcq(c("Discrete", answer = "Continuous"))`
-
-**The number of books on your bookcase**
-
-`r mcq(c(answer = "Discrete", "Continuous"))`
-:::
-
-### Cross-section data
-
-Cross-section data comprises observations on a particular variable taken at a single point in time. For example: annual crime figures recorded by Police regions for the year 1999; the birth-weight of babies born, in a particular maternity unit, during the month of April 1998; initial salaries of graduates from the University of Manchester, 2012.
-
-Note, the defining feature is that there is no natural ordering in the data you have. Say you have birth weights of babies Sarah, Lin, Max and Nikolai, then it doesn't matter if you present that data in that order or if you re-order the data in any way, e.g. Nikola, Sarah, Max and Lin. This will be different for time-series data.
-
-#### Example
-
-Exchange Rates: [From Oanda.com](https://www1.oanda.com/currency/live-exchange-rates/)
-
-Here you can see a lot of different exchange rates, all recorded at the same time. Note, however, that they are updated every 5 minutes. So you can see that whether you are dealing with cross-section or time-series data (see below) depends on your perspective.
-
-### Time-series data
-
-On the other hand, time-series data are observations on a particular variable recorded over a period of time, at regular intervals. For example personal crime figures for Greater Manchester recorded annually from 1980-2012; monthly household expenditure on food; the daily closing price of a certain stock. In this case, the data does have a natural ordering since they are measured from one time period to the next.
-
-#### Example
-
-Exchange Rates: From [USD v EURO exchange rate from the ECB](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html)
-
-An example for a time-series of an exchange rate, here USD/EUR.
-
-![USD/Euro exchange rate](images/USDEURO.png){#fig-COVID19}
-
-::: callout-important
-### Exercises
-
-Consider if the following set of data is discrete or continuous:
-
-**Study hours data from students responding to a survey after the 2nd week of semester.**
-
-`r mcq(c("Time-Series Data", answer = "Cross-Section Data"))`
-
-**Temperatures at 8am on the 22 Jan 2026 from all British cities**
-
-`r mcq(c("Time-Series Data", answer = "Cross-Section Data"))`
-
-**Temperatures at 8am in Manchester for all days in 2025**
-
-`r mcq(c(answer = "Time-Series Data", "Cross-Section Data"))`
-:::
-
-## Population and Sample Data
-
-When dealing with data we will have to be aware of what the difference between population and sample data are. The population represents all the data you are interested in. Imagine you have asked all households in your postcode area for their annual income. In case you are interested in the incomes in your postcode only, then your observations represent the population data. If however, you are really interested in the average household income of ALL households in Manchester, then the data you have collected in your postcode are a sample only. As you can see, the same set of observations can be either a sample or population, it really depends on the question you are asking.
-
-::: callout-important
-### Representative Sampling
-
-Briefly thinking about the example above where you collect all data from one postcode to be a sample for all of Manchester, it quickly becomes obvious that this would not be a good sampling strategy. If you were fortunate enough to live in a posh are (e.g. Hale Barns) it would be very obvious that the incomes you collected would not be very representative of the incomes across the whole of Manchester.
-
-If you want a **representative** sample you will have to be very careful in the way you design your sampling strategy to achieve that. This is super important. Here we will not cover any more details on this and when we use survey data we will assume that the data are representative. If you are interested in this topic a good resource is: Czaja, R. and Blair, J. (2013) Designing Surveys: a guide to decisions and procedures. 3rd ed. Sage, London.
-:::
-
-Given any particular question, we always prefer to have population data, however in most cases one will have to accept that one can only get sample data. Consider, for instance, a political analyst who is interested in the voting intentions of all eligible voters in the UK. As there are many millions voters it is virtually impossible to obtain population data. You will all be familiar with opinion polls who will be based on the basis of a sample of eligible voters (usually somewhere around 1000 voters).
-
-The interesting question is then the following: Given the analyst is really interested in the voting intention of ALL voters, how can the sample information be used to learn something about the population? This problem is at heart of the problem of **statistical inference**.
+![ Line graph. Weekly Covid deaths per 100,000. Source: European Center for Disease Control.](images/line_covid_deaths_pc.png)
+ 
+When comparing these to the previous graphs it is apparent that fewer people are dying from Covid in late 2021 and 2022. This is due to significant vaccination rates. We can also see that South Africa has fairly comparable death rates compared to the other countries, indicating that the earlier infection rates may well be under-reported.
 
 ::: callout-important
 ### Exercises
 
-Consider if the following set of data is discrete or continuous:
+To conclude this section answer the following question.
 
-**A safety inspector conducts air quality tests on a randomly selected group of 16 classrooms at a primary school.**
+**Line graphs are an excellent tool to (multiple correct answers are possible)**
 
 ```{r}
 #| echo: false
 opts_p <- c(
-   answer = "The population is all classrooms in the primary school; the sample is the 16 classrooms",
-   "The population is all primary students in the school; the sample is the students in the 16 classrooms selected.",
-   "The population is all classrooms in the district; the sample is the 16 classrooms selected."
+   answer = "illustrate how a variable changes through time",
+   answer = "compare developments through time between a small number of units (like countries, states, companies, etc.)",
+   "compare developments through time between many units (like countries, states, companies, etc.)", "to protect yourself against comparison of units of unequal size"
 )
 ```
 
@@ -227,28 +193,14 @@ opts_p <- c(
 
 `r hide("Feedback")`
 
-The population is the entire group of people or things we want to study. The sample is the part of the population that we actually collect data from.
-
-The safety inspector tested classrooms in the primary school, not students. Further, the safety inspector only tested classrooms in one school, not in all the schools in the district. So the safety inspector selected 16 classrooms.
-
-The population is all classrooms in the primary school; the sample is the 16 classrooms selected.
+If you use too many units in a line plot it can quickly become impossible to read. In fact the six countries we used above are almost too many. Rarely is it useful to include more than 6 series in a time series plot. And you can actually use a line plot to make graphical comparisons which are not appropriate. We did so above when we looked at the absolute value of covid cases without adjusting for population size.
 
 `r unhide()`
 
-**The Director of A High School surveyed a random sample of 200 of their juniors to see how juniors at the school felt about the lunch offering at the school's cafeteria.**
-
-```{r}
-#| echo: false
-opts_p <- c(
-   answer = "The population is all high school juniors in the world; the sample is all of the juniors at A High.",
-   "The population is all students at A High; the sample is all of the juniors at A High",
-   "The population is all juniors at A High School; the sample is the 200 juniors surveyed."
-)
-```
-
-`r longmcq(opts_p)`
 :::
 
-## Summary Data Types
+## Additional Resource
 
-In this lesson you learned that there are different data types, discrete and continuous, cross-section and time-series data. You would learn later, that different data types require the application of different tools. These may be different descriptive tools but also different probability tools.
+To make this skill a skill that will help you when you come to apply for jobs you should practice creating such graphs yourself. All the graphs shown here can easily be created in Excel.
+How to create various plots in Excel: [Economics Study Skills Page](https://livemanchesterac.sharepoint.com/sites/UoM-HUMS-SOSS-EconStudySkills/SitePages/Data-Skills.aspx).
+

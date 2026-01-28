@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Graphical Descriptive Statistics – Statistics Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./summary.html" rel="next">
+<link href="./datatypes.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="include/webex.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./graphical_descriptive.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphical Descriptive Statistics</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistics Notes</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datatypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Types</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./graphical_descriptive.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphical Descriptive Statistics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
+  <li><a href="#graphical-data-representations" id="toc-graphical-data-representations" class="nav-link" data-scroll-target="#graphical-data-representations"><span class="header-section-number">3.2</span> Graphical Data Representations</a></li>
+  <li><a href="#discrete-data---bar-charts" id="toc-discrete-data---bar-charts" class="nav-link" data-scroll-target="#discrete-data---bar-charts"><span class="header-section-number">3.3</span> Discrete data - Bar Charts</a></li>
+  <li><a href="#continuous-data---histograms" id="toc-continuous-data---histograms" class="nav-link" data-scroll-target="#continuous-data---histograms"><span class="header-section-number">3.4</span> Continuous data - Histograms</a></li>
+  <li><a href="#time-series-data---line-graph" id="toc-time-series-data---line-graph" class="nav-link" data-scroll-target="#time-series-data---line-graph"><span class="header-section-number">3.5</span> Time-Series data - Line Graph</a></li>
+  <li><a href="#two-and-more-variables-line-graphs-and-scatter-plots" id="toc-two-and-more-variables-line-graphs-and-scatter-plots" class="nav-link" data-scroll-target="#two-and-more-variables-line-graphs-and-scatter-plots"><span class="header-section-number">3.6</span> Two and more variables: Line graphs and Scatter plots</a>
+  <ul class="collapse">
+  <li><a href="#two-variables" id="toc-two-variables" class="nav-link" data-scroll-target="#two-variables"><span class="header-section-number">3.6.1</span> Two variables</a></li>
+  <li><a href="#more-than-two-series" id="toc-more-than-two-series" class="nav-link" data-scroll-target="#more-than-two-series"><span class="header-section-number">3.6.2</span> More than two series</a></li>
+  </ul></li>
+  <li><a href="#additional-resource" id="toc-additional-resource" class="nav-link" data-scroll-target="#additional-resource"><span class="header-section-number">3.7</span> Additional Resource</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphical Descriptive Statistics</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
+<p>You will often be confronted with a huge amount of data, say around 50,000 road traffic accidents in Greater Manchester in 2022. Your boss (perhaps the Major of Manchester) wants to have an overview of the most important features of these accidents. It is obvious that you cannot just give him (him, as at the time of writing the Major of Manchester is Andy Burnham) the spreadsheet of the data. You need to summarise! You need to prepare some representations of the data that give a good overview of what is going on. That is what descriptive statistics do.</p>
+</section>
+<section id="graphical-data-representations" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="graphical-data-representations"><span class="header-section-number">3.2</span> Graphical Data Representations</h2>
+<p>We shall now describe some simple graphical displays, which provide visual summaries of the raw data. We consider just 4 types: those which can be used with discrete data - the <strong>relative frequency diagram</strong>, or <strong>bar chart</strong>; those for use with continuous data - the <strong>histogram</strong>; those that can be used to represent time-series data <strong>line graphs</strong>; and those which provide a summary of the possible relationship between two variables - the <strong>scatter plot</strong>. Each are introduced by means of a simple example.</p>
+<p>Our introduction here barely scratches the surface and the field of data visualisation has recently become more prominent. If you want to explore a huge variety of data visualisations (very few of which could be created with Excel) the following are a few useful links:</p>
+<ul>
+<li><a href="https://www.visualisingdata.com/">Visualisingdata</a>,</li>
+<li><a href="https://visme.co/blog/best-data-visualizations/">Visme</a> or,</li>
+<li>these examples discussed on the <a href="https://www.tableau.com/en-gb/learn/articles/best-beautiful-data-visualization-examples">Tableau webpage</a> including some truly iconic visualisations.</li>
+</ul>
+</section>
+<section id="discrete-data---bar-charts" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="discrete-data---bar-charts"><span class="header-section-number">3.3</span> Discrete data - Bar Charts</h2>
+<p>We will use the Titanic Data set which contains three discrete data sets, the class in which the passenger resided (1st, 2nd or 3rd), the gender and whether a passenger survived the sinking of the <a href="http://en.wikipedia.org/wiki/RMS_Titanic">Titanic</a> on 15 April 1912.</p>
+<p>Let’s concentrate on the information of the class in which the Titanic passengers were booked into. This is a snippet of the data in the spreadsheet:</p>
+<div id="fig-TitanicData" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-TitanicData-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/TitanicData.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-TitanicData-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Data of Titanic passengers
+</figcaption>
+</figure>
+</div>
+<p>By summarising the data we find the following summary information, the number of passengers in each class and the proportion (or relative frequency).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Passengers</th>
+<th>Proportion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1st Class</td>
+<td>322</td>
+<td>0.2452 = 24.52%</td>
+</tr>
+<tr class="even">
+<td>2nd class</td>
+<td>280</td>
+<td>0.2133 = 21.33%</td>
+</tr>
+<tr class="odd">
+<td>3rd Class</td>
+<td>711</td>
+<td>0.5415 = 54.15%</td>
+</tr>
+<tr class="even">
+<td>Total</td>
+<td>1,313</td>
+<td>1.0000</td>
+</tr>
+</tbody>
+</table>
+<p>This information can then be shown in a bar chart. Below we show a <strong>bar chart</strong> each for the number of observations (frequency) and the proportion (relative frequency).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/freq.png" class="img-fluid figure-img"></p>
+<figcaption>Data of Titanic passengers</figcaption>
+</figure>
+</div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/GIKyxSYstE0" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>This diagram, simply places a bar of height equal to the appropriate frequency (left chart) or proportion (right chart) for the different classes. Notice that the bars are separated by spaces (i.e., they are isolated) which exemplifies the discrete nature of the data.</p>
+<p>Both diagrams basically display the same information and in fact the only differences are the scales on the vertical axis. We see from the diagram on the left that 322 passengers traveled First Class and from the diagram on the right that the relative frequency of 1st Class Passengers is 0.25, or 25%. Similarly, 54% were 3rd Class passengers. It is a property of discrete data that we can easily add proportions of different classes to come to new meaningful categories. I.e. 75% of passengers (21% + 54%) did not enjoy First Class Luxury.</p>
+<p>Whether you use the frequency or the proportion diagram depends on whether it is more important to see the absolute number or the proportions of passengers in the different classes.</p>
+<p>After this example, let us look at a formal definition of relative frequency.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition - relative Frequency
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If a sample consists of <span class="math inline">\(n\)</span> individuals (or items), and <span class="math inline">\(m\leq n\)</span> of these have a particular characteristic, denoted <span class="math inline">\(\mathcal{A}\)</span>, then the relative frequency (or proportion) of characteristic <span class="math inline">\(\mathcal{A}\)</span> in the sample is calculated as <span class="math inline">\(\frac{m}{n}\)</span>. The percentage of observations with characteristic <span class="math inline">\(\mathcal{A}\)</span> in the sample would be <span class="math inline">\(\frac{m}{n} \times 100\)</span>. E.g. 0.65 is equivalent to 65%.</p>
+</div>
+</div>
+</section>
+<section id="continuous-data---histograms" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="continuous-data---histograms"><span class="header-section-number">3.4</span> Continuous data - Histograms</h2>
+<p>Again we refer to the Titanic Data set in which we have 1313 observations, however only for (n = 756) do we have age information. Really, age is a continuous variable (just imagine age being measured in milliseconds) but it is commonly reported in years only. The distribution of the data can be summarised, graphically, using a histogram which is constructed as follows:</p>
+<ul>
+<li>Group the raw data into intervals/classes, not necessarily of the same width:
+<ul>
+<li>the data are continuous, so there must (in general) be no spaces between intervals</li>
+<li>the number of intervals chosen is often a fine judgement: not too many, but not too few. Depending on the data 5 to 10 is often sufficient, but in the end you should choose the number of intervals to give you informative picture about the distribution of the data. Below we have chosen 8 intervals with the first being ([0,10)) where 0 is called the lower class limit and 10 is the upper class limit. The class width (of any interval) is the difference between the upper class limit and the lower class limit. For the first interval this is (10-0=10).</li>
+<li>record the frequency in each interval; i.e., record the number of observations which fall in each of the constructed intervals</li>
+</ul></li>
+<li>For each frequency, calculate the relative frequency, which is the frequency divided by total number of observations.</li>
+<li>For each relative frequency construct a number called the density (of the interval) which is obtained as relative frequency divided by class width.</li>
+</ul>
+<p>In the case of the age for passengers on the Titanic this gives rise to the following grouped frequency table:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 18%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 17%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>waiting time</th>
+<th>class width</th>
+<th>mid-point</th>
+<th>frequency</th>
+<th>rel. freq.</th>
+<th>density</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[ a,b)</td>
+<td>(b-a)</td>
+<td>(a+b)/2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[ 0,10)</td>
+<td>10</td>
+<td>5</td>
+<td>53</td>
+<td>0.00701</td>
+<td>0.0070</td>
+</tr>
+<tr class="odd">
+<td>[ 10,20)</td>
+<td>10</td>
+<td>15</td>
+<td>96</td>
+<td>0.1270</td>
+<td>0.0127</td>
+</tr>
+<tr class="even">
+<td>[ 20,30)</td>
+<td>10</td>
+<td>25</td>
+<td>252</td>
+<td>0.3333</td>
+<td>0.0333</td>
+</tr>
+<tr class="odd">
+<td>[ 30,40)</td>
+<td>10</td>
+<td>35</td>
+<td>168</td>
+<td>0.2222</td>
+<td>0.0222</td>
+</tr>
+<tr class="even">
+<td>[ 40,50)</td>
+<td>10</td>
+<td>45</td>
+<td>106</td>
+<td>0.1402</td>
+<td>0.0140</td>
+</tr>
+<tr class="odd">
+<td>[ 50,60)</td>
+<td>10</td>
+<td>55</td>
+<td>54</td>
+<td>0.0714</td>
+<td>0.0071</td>
+</tr>
+<tr class="even">
+<td>[ 60,70)</td>
+<td>10</td>
+<td>65</td>
+<td>23</td>
+<td>0.0304</td>
+<td>0.0030</td>
+</tr>
+<tr class="odd">
+<td>[ 70,80)</td>
+<td>10</td>
+<td>75</td>
+<td>4</td>
+<td>0.0053</td>
+<td>0.0005</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that the entries in the relative frequency column sum to 1, as they should (why?). The density calculation corresponds to the concept of density in a continuous distribution. If you calculated the size of the coloured area underneath the density histogram you would find this to equal 1.</p>
+<p>Now we can represent these results graphically. In fact you will sometimes see the frequencies, sometimes the relative frequencies and sometimes (although rarely) the densities represented on the vertical axis. In each case, really, the same information is conveyed and which one suits your purpose depends on what element you want to stress.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/histogram.png" class="img-fluid figure-img"></p>
+<figcaption>Frequency, relative frequency and density histogram for ages of Titanic survivors.</figcaption>
+</figure>
+</div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/8mFe3u0thac" title="How to produce a Histogram in Excel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>This graph looks fairly similar to a bar chart, but note that the bars must be connected - <strong>no spaces</strong>. This reflects the fact that the data are continuous. On this occasion we chose 8 bins/classes. You could have created fewer or more, depending on how much detail you want to convey. But, unless you think they are informative, avoid constructing intervals, which contain no observations.</p>
+</section>
+<section id="time-series-data---line-graph" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="time-series-data---line-graph"><span class="header-section-number">3.5</span> Time-Series data - Line Graph</h2>
+<p>When we have time-series data we have observations for the same variable ordered in time and we want to display the data in a manner that illustrates this time aspect of the data. The way to do this is to create a line graph (or time-series graph) as in this example that uses growth rates for UK Gross Domestic Product Data (GDP). We often label this (<span class="math inline">\(\Delta gdp\_{t}\)</span>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/line.png" class="img-fluid figure-img"></p>
+<figcaption>Line graph, GDP Growth rate (IHYN). Source: Office of National Statistics, UK.</figcaption>
+</figure>
+</div>
+<p>You can clearly see from this image that at the end of the sample (during the 2020 pandemic year) the drop and subsequent recovery of the UK’s GDP was unprecedented.</p>
+<p>Creating such line graphs with two data series can be more tricky, if the two series you want to show in one graph are on different scales. For instance the level of GDP (measured in Billions of pounds) and GDP growth (measured in percentage points). The following clip explains how to handle such a situation.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/_4zURnNMzrs" title="How to produce line graphs with different scales (8min)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="two-and-more-variables-line-graphs-and-scatter-plots" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="two-and-more-variables-line-graphs-and-scatter-plots"><span class="header-section-number">3.6</span> Two and more variables: Line graphs and Scatter plots</h2>
+<p>The graphical summaries, introduced above, are for summarising just one variable. An interesting question is whether two (or more) characteristics/random variables are inter-related. For example, referring to the previously used GDP growth data for which we have observations from Quarter 1 1955 to Quarter 1 2013.</p>
+<section id="two-variables" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="two-variables"><span class="header-section-number">3.6.1</span> Two variables</h3>
+<p>We can add the inflation series (<span class="math inline">\(inf_{i}\)</span>) to the line graph of the GDP growth rate.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/line_2vars.png" class="img-fluid figure-img"></p>
+<figcaption>Line graph, GDP Growth rate (IHYN) and Inflation (L55O). Source: Office of National Statistics, UK.</figcaption>
+</figure>
+</div>
+<p>Such graphs can be very revealing Although in this case it is not apparent that there is an obvious correlation between GDP growth and Inflation in the UK.</p>
+<p>A different type of graph often used to display how two variables are related to each other is a scatter plot. Below you can see two versions of a scatter plot displaying the same data shown in the above line graph.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/scatter_time.png" class="img-fluid figure-img"></p>
+<figcaption>Scatter plot, GDP Growth rate (IHYN) and Inflation (L55O). Source: Office of National Statistics, UK.</figcaption>
+</figure>
+</div>
+<p>On the left hand side you can see the plot which shows all the data from 1989 (quarter 1) to 2021 (quarter 4). Each point represents one data point. For instance look at the one data point coloured in red in the South-West corner of the left scatter plot. That one point represents the observation from 2020 (Q2) in which GDP dropped by 13.1% and annual inflation was measured to be 0.8%.</p>
+<p>Perhaps you can see that the scale of this graph is driven by the very large GDP drop in Q2 2020 and the subsequent large reversal of 11.8% growth in Q3 of 2020. This compresses the vast majority of the data in the centre. Sometimes it may be worth to exclude some extreme observations (here the observations from the Year 2020 and 2021 representing the Covid period). The scatter plot on the right only shows the data up to 2019. You can now see that there is perhaps a slight positive correlation between these two variables.</p>
+<p>This sort of diagram should not be viewed as way of detecting the precise nature of the relationship between the two variables and, in general, a lot of common sense is required as well. Rather, it merely illuminates the simplest, most basic, relation of whether larger <span class="math inline">\(\Delta gdp_{t}\)</span> values appear to be associated with larger (or smaller) values of the <span class="math inline">\(inf_{t}\)</span> variable; thereby signifying an underlying positive (respectively, inverse or negative) observed relationship between the two. This may be <strong>suggestive</strong> about the general relationship but is by no means conclusive. Nor does it inform us on general cause and effect. It is impossible to conclude whether changes in <span class="math inline">\(inf_{t}\)</span> actually cause changes in variable <span class="math inline">\(\Delta gdp_{t}\)</span> or vice versa. Indeed the two variables may not be related to each other at all. Therefore care must be taken in interpreting such a diagram.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/CgEWHQl9DJw" title="How to produce a time series plot in Excel, YouTube (13min)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>For that reason scatter plots are more common for cross-sectional data which do not have a time series dimension. To illustrate this we will revert to a new example, relating to data from the Covid-19 pandemic. Let’s say we want to compare whether the case infection rates in countries at a particular point in time (say Week 10 in 2022) are in any way related to either how rich a country is (as measured by GDP per capita) or by how much a country spends on their Health System (as measured by the % pf GDP spend on Health).</p>
+<p>Here is a snippet of the spreadsheet used for this exercise.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Table_CS.png" class="img-fluid figure-img"></p>
+<figcaption>Table used for scatter diagram.</figcaption>
+</figure>
+</div>
+<p>You can see that we have observations for different countries (in rows) which are all coming from the same time (2022-10). In columns we have different variables for each country, here the 14-day Covid-19 case rate (per 100,000), the Health expenditure (as a % of GDP), the GDP per capita and the (natural) log of GDP per capita.</p>
+<p>We start by comparing the Covid case rate to the Health expenditure.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/scatter_covid_healthex.png" class="img-fluid figure-img"></p>
+<figcaption>Scatter diagram, Health expenditure as percentage of GDP and 14-day Covid case rate, as per Week 10 in 2022.</figcaption>
+</figure>
+</div>
+<p>What you can see from such a scatter diagram is that there are only a few countries with very high case rates and there is no apparent correlation with the percentage of Health expenditure. Below we show scatter diagrams which relate the case rate to GDP per capita. In the left panel you can see GDP p.c. on the horizontal axis, and on the right panel you can see the same information, just that on the horizontal axis we now show the log of GDP p.c..</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/scatter_covid_gdp.png" class="img-fluid figure-img"></p>
+<figcaption>Scatter diagram, GDP per capita and 14-day Covid case rate, as per Week 10 in 2022.</figcaption>
+</figure>
+</div>
+<p>In the scatter diagram on the left hand side (x axis: GDP p.c.) you can mainly see that there are a few countries which are incredibly reach and and a whole bunch of countries which have very lo GDP p.c. (less than $2,000 per year per person). When you have a variable on one of the axis which is so skewed, it can often be difficult to see interesting patterns.</p>
+<p>A common tool used in such circumstances is to scale the respective axis. Here we calculate the log of GDP p.c. and then use that on the horizontal axis (right panel). This has the effect of stretching out the GDP p.c. values at the lower end. Values of $500 and $2,000 are equivalent to approximately 6.2 and 7.6 on the logarithmic scale (as <span class="math inline">\(ln(500) = 6.21\)</span> and <span class="math inline">\(ln(2000)=7.60\)</span>). In this scatter diagram it is more apparent that there seems to be a positive correlation between income and covid case numbers.</p>
+<p>However, we ought to be careful and should not take these case numbers at face value. It may well be that poorer countries merely detect fewer of the existing cases.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/9tAFgLVHuxk" title="How to create scatter plots in Excel, You Tube (10min)." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="more-than-two-series" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="more-than-two-series"><span class="header-section-number">3.6.2</span> More than two series</h3>
+<p>We shall illustrate another potential pitfall when comparing time series with line graphs. For this we look at some Covid infection data across a number of different countries (Argentina, China, Italy, South Africa, Sweden and the UK). Let us first look at a line chart which compares the number of Covid infections across in the timespan from the beginning of 2020 to early 2022.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/line_covid_cases.png" class="img-fluid figure-img"></p>
+<figcaption>Line graph. Weekly Covid cases. Source: European Center for Disease Control.</figcaption>
+</figure>
+</div>
+<p>From this line plot you can see that during the pandemic there were significant variations in registered Covid-19 cases across countries and across time. In particular it seems as if, for instance, the UK did fairly badly and Sweden and China did particularly well in terms of keeping the number of cases low. But you would be correct in interjecting that these countries have very different population sizes and therefore it may not be correct to compare these case numbers. It is for this reason that Covid-19 infections are usually reported as a case rate (infections per 100,000).</p>
+<p>The next line graph, therefore, compares these case rates.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/line_covid_cases_pc.png" class="img-fluid figure-img"></p>
+<figcaption>Line graph. Weekly Covid cases per 100,000. Source: European Center for Disease Control.</figcaption>
+</figure>
+</div>
+<p>What we learn from here is quite different. It is still apparent that the officially reported case load in China is remarkably low. Sweden, however, cannot claim to have managed to keep the case load significantly lower than the other countries. The UK continues to have relatively high case rates. When looking at these data one also needs to keep in mind that the officially reported case numbers are significantly influenced by the testing regime. The late drop in UK cases at the beginning of 2022, for instance, is partly the result of the significant reduction in testing activity. May this be a reason for South Africa showing fairly modest infection rates across the entire Covid period?</p>
+<p>Let’s look at the equivalent data for Deaths related to Covid-19. While there is still significant variation across countries in terms of recording these, it is widely understood that mortality statistics are more comparable.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/line_covid_deaths_pc.png" class="img-fluid figure-img"></p>
+<figcaption>Line graph. Weekly Covid deaths per 100,000. Source: European Center for Disease Control.</figcaption>
+</figure>
+</div>
+<p>When comparing these to the previous graphs it is apparent that fewer people are dying from Covid in late 2021 and 2022. This is due to significant vaccination rates. We can also see that South Africa has fairly comparable death rates compared to the other countries, indicating that the earlier infection rates may well be under-reported.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercises
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To conclude this section answer the following question.</p>
+<p><strong>Line graphs are an excellent tool to (multiple correct answers are possible)</strong></p>
+<div id="radio_EUNYUYWGMX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_EUNYUYWGMX" value="answer"> <span>illustrate how a variable changes through time</span></label><label><input type="radio" autocomplete="off" name="radio_EUNYUYWGMX" value="answer"> <span>compare developments through time between a small number of units (like countries, states, companies, etc.)</span></label><label><input type="radio" autocomplete="off" name="radio_EUNYUYWGMX" value=""> <span>compare developments through time between many units (like countries, states, companies, etc.)</span></label><label><input type="radio" autocomplete="off" name="radio_EUNYUYWGMX" value=""> <span>to protect yourself against comparison of units of unequal size</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p>If you use too many units in a line plot it can quickly become impossible to read. In fact the six countries we used above are almost too many. Rarely is it useful to include more than 6 series in a time series plot. And you can actually use a line plot to make graphical comparisons which are not appropriate. We did so above when we looked at the absolute value of covid cases without adjusting for population size.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="additional-resource" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="additional-resource"><span class="header-section-number">3.7</span> Additional Resource</h2>
+<p>To make this skill a skill that will help you when you come to apply for jobs you should practice creating such graphs yourself. All the graphs shown here can easily be created in Excel. How to create various plots in Excel: <a href="https://livemanchesterac.sharepoint.com/sites/UoM-HUMS-SOSS-EconStudySkills/SitePages/Data-Skills.aspx">Economics Study Skills Page</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script src="include/webex.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./datatypes.html" class="pagination-link" aria-label="Data Types">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Types</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
