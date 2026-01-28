@@ -1,0 +1,254 @@
+# Graphical Descriptive Statistics
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(webexercises)
+```
+
+## Introduction
+
+You will often be confronted with a huge amount of data, say around 50,000 road traffic accidents in Greater Manchester in 2022. Your boss (perhaps the Major of Manchester) wants to have an overview of the most important features of these accidents. It is obvious that you cannot just give him (him, as at the time of writing the Major of Manchester is Andy Burnham) the spreadsheet of the data. You need to summarise! You need to prepare some representations of the data that give a good overview of what is going on. That is what descriptive statistics do.
+
+## Graphical Data Representations
+
+We shall now describe some simple graphical displays, which provide visual summaries of the raw data. We consider just 4 types: those which can be used with discrete data - the **relative frequency diagram**, or **bar chart**; those for use with continuous data - the **histogram**; those that can be used to represent time-series data **line graphs**; and those which provide a summary of the possible relationship between two variables - the **scatter plot**. Each are introduced by means of a simple example.
+
+Our introduction here barely scratches the surface and the field of data visualisation has recently become more prominent. If you want to explore a huge variety of data visualisations (very few of which could be created with Excel) the following are a few useful links:
+
+-   [Visualisingdata](https://www.visualisingdata.com/),
+-   [Visme](https://visme.co/blog/best-data-visualizations/) or,
+-   these examples discussed on the [Tableau webpage](https://www.tableau.com/en-gb/learn/articles/best-beautiful-data-visualization-examples) including some truly iconic visualisations.
+
+## Discrete data - Bar Charts
+
+We will use the Titanic Data set which contains three discrete data sets, the class in which the passenger resided (1st, 2nd or 3rd), the gender and whether a passenger survived the sinking of the [Titanic](http://en.wikipedia.org/wiki/RMS_Titanic) on 15 April 1912.
+
+Let's concentrate on the information of the class in which the Titanic passengers were booked into. This is a snippet of the data in the spreadsheet:
+
+![Data of Titanic passengers](images/TitanicData.png){#fig-TitanicData}
+
+By summarising the data we find the following summary information, the number of passengers in each class and the proportion (or relative frequency).
+
+|           | Passengers | Proportion      |
+|-----------|------------|-----------------|
+| 1st Class | 322        | 0.2452 = 24.52% |
+| 2nd class | 280        | 0.2133 = 21.33% |
+| 3rd Class | 711        | 0.5415 = 54.15% |
+| Total     | 1,313      | 1.0000          |
+
+This information can then be shown in a bar chart. Below we show a **bar chart** each for the number of observations (frequency) and the proportion (relative frequency).
+
+![Data of Titanic passengers](images/freq.png)
+
+{{< video https://youtu.be/GIKyxSYstE0 >}}
+
+This diagram, simply places a bar of height equal to the appropriate frequency (left chart) or proportion (right chart) for the different classes. Notice that the bars are separated by spaces (i.e., they are isolated) which exemplifies the discrete nature of the data.
+
+Both diagrams basically display the same information and in fact the only differences are the scales on the vertical axis. We see from the diagram on the left that 322 passengers traveled First Class and from the diagram on the right that the relative frequency of 1st Class Passengers is 0.25, or 25%. Similarly, 54% were 3rd Class passengers. It is a property of discrete data that we can easily add proportions of different classes to come to new meaningful categories. I.e. 75% of passengers (21% + 54%) did not enjoy First Class Luxury.
+
+Whether you use the frequency or the proportion diagram depends on whether it is more important to see the absolute number or the proportions of passengers in the different classes.
+
+After this example, let us look at a formal definition of relative frequency.
+
+::: callout-note
+### Definition - relative Frequency
+
+If a sample consists of $n$ individuals (or items), and $m\leq n$ of these have a particular characteristic, denoted $\mathcal{A}$, then the relative frequency (or proportion) of characteristic $\mathcal{A}$ in the sample is calculated as $\frac{m}{n}$. The percentage of observations with characteristic $\mathcal{A}$ in the sample would be $\frac{m}{n} \times 100$. E.g. 0.65 is equivalent to 65%.
+:::
+
+## Continuous data - Histograms
+
+Again we refer to the Titanic Data set in which we have 1313 observations, however only for (n = 756) do we have age information. Really, age is a continuous variable (just imagine age being measured in milliseconds) but it is commonly reported in years only. The distribution of the data can be summarised, graphically, using a histogram which is constructed as follows:
+
+-   Group the raw data into intervals/classes, not necessarily of the same width:
+    -   the data are continuous, so there must (in general) be no spaces between intervals
+    -   the number of intervals chosen is often a fine judgement: not too many, but not too few. Depending on the data 5 to 10 is often sufficient, but in the end you should choose the number of intervals to give you informative picture about the distribution of the data. Below we have chosen 8 intervals with the first being (\[0,10)) where 0 is called the lower class limit and 10 is the upper class limit. The class width (of any interval) is the difference between the upper class limit and the lower class limit. For the first interval this is (10-0=10).
+    -   record the frequency in each interval; i.e., record the number of observations which fall in each of the constructed intervals
+-   For each frequency, calculate the relative frequency, which is the frequency divided by total number of observations.
+-   For each relative frequency construct a number called the density (of the interval) which is obtained as relative frequency divided by class width.
+
+In the case of the age for passengers on the Titanic this gives rise to the following grouped frequency table:
+
+| waiting time | class width | mid-point | frequency | rel. freq. | density |
+|--------------|-------------|-----------|-----------|------------|---------|
+| \[ a,b)      | (b-a)       | (a+b)/2   |           |            |         |
+| \[ 0,10)     | 10          | 5         | 53        | 0.00701    | 0.0070  |
+| \[ 10,20)    | 10          | 15        | 96        | 0.1270     | 0.0127  |
+| \[ 20,30)    | 10          | 25        | 252       | 0.3333     | 0.0333  |
+| \[ 30,40)    | 10          | 35        | 168       | 0.2222     | 0.0222  |
+| \[ 40,50)    | 10          | 45        | 106       | 0.1402     | 0.0140  |
+| \[ 50,60)    | 10          | 55        | 54        | 0.0714     | 0.0071  |
+| \[ 60,70)    | 10          | 65        | 23        | 0.0304     | 0.0030  |
+| \[ 70,80)    | 10          | 75        | 4         | 0.0053     | 0.0005  |
+
+Notice that the entries in the relative frequency column sum to 1, as they should (why?). The density calculation corresponds to the concept of density in a continuous distribution. If you calculated the size of the coloured area underneath the density histogram you would find this to equal 1.
+
+Now we can represent these results graphically. In fact you will sometimes see the frequencies, sometimes the relative frequencies and sometimes (although rarely) the densities represented on the vertical axis. In each case, really, the same information is conveyed and which one suits your purpose depends on what element you want to stress.
+
+![Frequency, relative frequency and density histogram for ages of Titanic survivors.](images/histogram.png)
+
+{{< video https://youtu.be/8mFe3u0thac title="How to produce a Histogram in Excel">}}
+
+This graph looks fairly similar to a bar chart, but note that the bars must be connected - **no spaces**. This reflects the fact that the data are continuous. On this occasion we chose 8 bins/classes. You could have created fewer or more, depending on how much detail you want to convey. But, unless you think they are informative, avoid constructing intervals, which contain no observations.
+
+
+
+# DELETE!!!!
+
+## Types of data
+
+Broadly speaking, by **data** we mean numerical values associated with some variable of interest. Different types of data may need special treatment when it comes to statistical analysis. For this reason, it is important to be able to distinguish a few key features. A variable can produce data that are either of continuous or discrete nature (see below for examples).
+
+Another level at which variables differ is whether they are sampled in time or in a cross-section.
+
+### Discrete data
+
+The variable $X$ is said to be discrete if it can only ever yield isolated values some of which (if not all) are often repeated in the sample. It is, however, important to note that there are different types of discrete data:
+
+-   **ORDINAL**. Here the categories have a natural ordering.\
+    Examples: Football Leagues: Premier League, Championship, etc.
+-   **NOMINAL**. Here there is no natural ordering to the categories.\
+    Examples: Gender: Male, Female
+-   **COUNT**. A variable that represents the counts of certain events.\
+    Examples: Number of children in household: 0,1,2,3,etc.
+
+::: callout-warning
+### Data collection is not always neutral
+
+Before moving on from here it is important to understand that the mere process of collecting data may not be an innocent or totally neutral process. For instance the above note on gender. Traditionally you would indeed have found questions like "What is your gender?" with "Male" and "Female" being the only options. It is now widely recognised that for some people the gender they identify as is not the same as the sex they were born in. As a consequence of this you will now find that sometimes questions are split, one asking for the sex and the other for gender identification. Both public and private institutions think carefully about how to ask such questions as demonstrated by the guidance of the [Office for National Statistics (ONS)](https://www.ons.gov.uk/census/censustransformationprogramme/questiondevelopment/genderidentity/guidanceforquestionsonsexgenderidentityandsexualorientationforthe2019censusrehearsalforthe2021census) and by [Survey Monkey](https://www.surveymonkey.com/curiosity/ask-survey-questions-sexual-orientation-gender-identity/).
+:::
+
+### Continuous data
+
+The variable $Y$ is said to be continuous if it can assume any value taken (more or less) from a continuum (a continuum is an interval, or range of numbers). A nice way to distinguish between a discrete and continuous variable is to consider the possibility of listing possible values. It is theoretically impossible to even **begin** listing all possible values that a continuous variable $Y$ could assume. However, this is not so with a discrete variable; you may not always be able to finish the list, but at least you can make a start.
+
+For example, the birth-weight of babies is an example of a continuous variable. There is no reason why a baby should not have a birth weight of $2500.0234$ grams, even though it wouldn't be measured as such! Try to list all possible weights (in theory) bearing in mind that for any two weights that you write down, there will always be another possibility half way between these. We see, then, that for a continuous variable an **observation** is recorded, as the result of applying some measurement, but that this inevitably gives rise to a rounding (up or down) of the **actual value**. (No such rounding occurs when recording observations on a discrete variable.)
+
+A variable can be continuous even though it is defined on a limited scale. For instance the weight variable has a limited scale as weights cannot be negative.
+
+Finally, note that for a continuous variable, it is unlikely that values will be repeated frequently in the sample, unless rounding occurs.
+
+Other examples of continuous data include: heights of people; volume of water in a reservoir; and, to a workable approximation, Government Expenditure. One could argue that the last of these is discrete (due to the finite divisibility of monetary units). However, when the amounts involved are of the order of millions of pounds, changes at the level of individual pence are hardly discernible and so it is sensible to treat the variable as continuous.
+
+### Additional resources
+
+-   Khan Academy: [Discusses example of continuous and discrete random variables.](https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/v/discrete-and-continuous-random-variables)
+
+::: callout-important
+### Exercises
+
+Consider if the following set of data is discrete or continuous:
+
+**The heights of your friends**
+
+`r mcq(c("Discrete", answer = "Continuous"))`
+
+**The number of books on your bookcase**
+
+`r mcq(c(answer = "Discrete", "Continuous"))`
+:::
+
+### Cross-section data
+
+Cross-section data comprises observations on a particular variable taken at a single point in time. For example: annual crime figures recorded by Police regions for the year 1999; the birth-weight of babies born, in a particular maternity unit, during the month of April 1998; initial salaries of graduates from the University of Manchester, 2012.
+
+Note, the defining feature is that there is no natural ordering in the data you have. Say you have birth weights of babies Sarah, Lin, Max and Nikolai, then it doesn't matter if you present that data in that order or if you re-order the data in any way, e.g. Nikola, Sarah, Max and Lin. This will be different for time-series data.
+
+#### Example
+
+Exchange Rates: [From Oanda.com](https://www1.oanda.com/currency/live-exchange-rates/)
+
+Here you can see a lot of different exchange rates, all recorded at the same time. Note, however, that they are updated every 5 minutes. So you can see that whether you are dealing with cross-section or time-series data (see below) depends on your perspective.
+
+### Time-series data
+
+On the other hand, time-series data are observations on a particular variable recorded over a period of time, at regular intervals. For example personal crime figures for Greater Manchester recorded annually from 1980-2012; monthly household expenditure on food; the daily closing price of a certain stock. In this case, the data does have a natural ordering since they are measured from one time period to the next.
+
+#### Example
+
+Exchange Rates: From [USD v EURO exchange rate from the ECB](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html)
+
+An example for a time-series of an exchange rate, here USD/EUR.
+
+![USD/Euro exchange rate](images/USDEURO.png){#fig-COVID19}
+
+::: callout-important
+### Exercises
+
+Consider if the following set of data is discrete or continuous:
+
+**Study hours data from students responding to a survey after the 2nd week of semester.**
+
+`r mcq(c("Time-Series Data", answer = "Cross-Section Data"))`
+
+**Temperatures at 8am on the 22 Jan 2026 from all British cities**
+
+`r mcq(c("Time-Series Data", answer = "Cross-Section Data"))`
+
+**Temperatures at 8am in Manchester for all days in 2025**
+
+`r mcq(c(answer = "Time-Series Data", "Cross-Section Data"))`
+:::
+
+## Population and Sample Data
+
+When dealing with data we will have to be aware of what the difference between population and sample data are. The population represents all the data you are interested in. Imagine you have asked all households in your postcode area for their annual income. In case you are interested in the incomes in your postcode only, then your observations represent the population data. If however, you are really interested in the average household income of ALL households in Manchester, then the data you have collected in your postcode are a sample only. As you can see, the same set of observations can be either a sample or population, it really depends on the question you are asking.
+
+::: callout-important
+### Representative Sampling
+
+Briefly thinking about the example above where you collect all data from one postcode to be a sample for all of Manchester, it quickly becomes obvious that this would not be a good sampling strategy. If you were fortunate enough to live in a posh are (e.g. Hale Barns) it would be very obvious that the incomes you collected would not be very representative of the incomes across the whole of Manchester.
+
+If you want a **representative** sample you will have to be very careful in the way you design your sampling strategy to achieve that. This is super important. Here we will not cover any more details on this and when we use survey data we will assume that the data are representative. If you are interested in this topic a good resource is: Czaja, R. and Blair, J. (2013) Designing Surveys: a guide to decisions and procedures. 3rd ed. Sage, London.
+:::
+
+Given any particular question, we always prefer to have population data, however in most cases one will have to accept that one can only get sample data. Consider, for instance, a political analyst who is interested in the voting intentions of all eligible voters in the UK. As there are many millions voters it is virtually impossible to obtain population data. You will all be familiar with opinion polls who will be based on the basis of a sample of eligible voters (usually somewhere around 1000 voters).
+
+The interesting question is then the following: Given the analyst is really interested in the voting intention of ALL voters, how can the sample information be used to learn something about the population? This problem is at heart of the problem of **statistical inference**.
+
+::: callout-important
+### Exercises
+
+Consider if the following set of data is discrete or continuous:
+
+**A safety inspector conducts air quality tests on a randomly selected group of 16 classrooms at a primary school.**
+
+```{r}
+#| echo: false
+opts_p <- c(
+   answer = "The population is all classrooms in the primary school; the sample is the 16 classrooms",
+   "The population is all primary students in the school; the sample is the students in the 16 classrooms selected.",
+   "The population is all classrooms in the district; the sample is the 16 classrooms selected."
+)
+```
+
+`r longmcq(opts_p)`
+
+`r hide("Feedback")`
+
+The population is the entire group of people or things we want to study. The sample is the part of the population that we actually collect data from.
+
+The safety inspector tested classrooms in the primary school, not students. Further, the safety inspector only tested classrooms in one school, not in all the schools in the district. So the safety inspector selected 16 classrooms.
+
+The population is all classrooms in the primary school; the sample is the 16 classrooms selected.
+
+`r unhide()`
+
+**The Director of A High School surveyed a random sample of 200 of their juniors to see how juniors at the school felt about the lunch offering at the school's cafeteria.**
+
+```{r}
+#| echo: false
+opts_p <- c(
+   answer = "The population is all high school juniors in the world; the sample is all of the juniors at A High.",
+   "The population is all students at A High; the sample is all of the juniors at A High",
+   "The population is all juniors at A High School; the sample is the 200 juniors surveyed."
+)
+```
+
+`r longmcq(opts_p)`
+:::
+
+## Summary Data Types
+
+In this lesson you learned that there are different data types, discrete and continuous, cross-section and time-series data. You would learn later, that different data types require the application of different tools. These may be different descriptive tools but also different probability tools.
