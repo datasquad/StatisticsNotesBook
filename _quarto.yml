@@ -9,6 +9,7 @@ book:
   - intro.qmd
   - datatypes.qmd
   - graphical_descriptive.qmd
+  - descriptive_stats.qmd
   - summary.qmd
   - references.qmd
 bibliography: references.bib

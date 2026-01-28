@@ -1,0 +1,319 @@
+# Numerical Descriptive Statistics
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(webexercises)
+```
+
+## Introduction
+
+Inequality is one of the biggest issues societies around the world have to deal with. Some societies are organised in ways which result in income and wealth distributions which are fairly equal (such as Scandinavian countries), others however, such as the United States and many South American countries, are organised in ways which result in large income and wealth concentrations in the hands of small groups.
+
+Inequalities arise not only in income and wealth, but also in terms of access to education and healthcare. It has also been documented that certain groups in society are not only disproportionally represented in lower income and wealth categories but also have unequal access to opportunities. It is for this reason that the issue of inequalities has lately regained prominence in the public discourse. Part of this discourse is that the field of economics has also increased its efforts to measure inequalities (for a summary refer to [Our World in Data](https://ourworldindata.org/income-inequality#the-history-of-inequality)), understand the reasons for the existing inequalities and propose policies which could address inequalities which are deemed to be too extreme (for a current summary of such efforts see the [IFS Deaton Review](https://ifs.org.uk/inequality/%7D%7BIFS%20Deaton%20Review)).
+
+A short video summary on the task taken on by the IFS Deaton Review on Inequality is available from [here](https://www.youtube.com/watch?v=iXwwbZzTFZc).
+
+In the context of this statistics unit we are interested in income distributions as they are a very good example of how we use statistics. In particular we will look at different ways to summarise distributions of variables.
+
+Here is an image of the Income Distribution in the UK in 2019 form the [ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/incomeandwealth/bulletins/householddisposableincomeandinequality/financialyearending2019).
+
+![UK Income Distribution. Source: ONS.](images/UK_IncomeDistribution_2019.png){#fig-UKIncDist}
+
+This is a histogram, a graphical representation of the UK income distribution. As you can see, most people in the UK earn incomes between UKP 10,000 and UKP 40,000. The word most is actually not a very well defined term. We will use better terms later. There is a fairly small proportion of people earning more than UKP 60,000 a year. The image says that the measure displayed in the image is "Equivalised household disposable income of individuals". It is disposable because it is calculated as income after tax. Equivalised incomes take into account whether someone lives in a single household or households with multiple people, acknowledging that larger households require more income to achieve the same standard of living as smaller households.
+
+What this histogram illustrates is how incomes in the UK population is distributed. In some sense this histogram displays all there is to know about the income distribution for everyone in the UK. We could look at similar histograms for other countries and compare these, or we could look at the same image from other years for the UK to compare. However, it turns out that this is not an easy task.
+
+To make comparisons between income distributions easier, it is useful to summarise the complex information in this distribution. We call such summary numbers, summary or descriptive statistics. There is no one number which can represent all the information in this distribution. But there are particular summary statistics which represent particular aspects of this distribution. In the above histogram you can already see two such summary statistics, the mean and the median income. These are both location measures or measures of the average. Other summary statistics can tell us something about the dispersion or variance.
+
+In the following we will introduce different measures of location, dispersion and skewness. But these are not the only summative or descriptive statistics there are. In particular when looking at income distributions there is a lot of interest in the amount of inequality. A number of measures have been developed ot represent the amount of inequality in a particular income distribution. We will briefly discuss such measures at the end of this lesson.
+
+We shall look at three categories of numerical summaries:
+
+-   Measures of Location
+-   Measures of Dispersion
+-   Measures of Skewness
+
+## Location Measures
+
+A measure of **location** tells us something about what a **typical** value from a set of observations is. We sometimes use the expression **central location**, **central tendency** or, more commonly, **average**. We can imagine it as the value around which the observations in the sample are **distributed**.
+
+In the above example of the UK income distribution two such measures are the median income (UKP 29,600) and the mean income (UKP 35,900). As we will see later, the fact that the mean is larger than the median actually tells us something important about the skewness of the distribution.
+
+### The mean
+
+The simplest numerical summary (descriptive statistic) of location is the **sample (arithmetic) mean**:
+
+\begin{equation*}
+    \bar{x}=\frac{1}{n}\sum_{i=1}^{n}x_{i}=\frac{(x_{1}+x_{2}+\ldots +x_{n})}{n}.
+\end{equation*}
+
+It is obtained by adding up all the values in the sample and dividing this total by the sample size. It uses all the observed values in the sample and is the most popular measure of location since it is particularly easy to deal with theoretically. You will see later that means play an important role when we come to statistical inference.
+
+Let's look at an example.
+
+
+::: callout-note
+#### Example
+
+You get the following 5 observations: 6, 2, 8, 10, 9
+	
+**What is the mean?** `r fitb(7)`
+	
+** Which of the following are correct formulae for the calculation of the sample mean? (Multiple correct answers are possible)**
+
+* A: $\bar{x}=0.2 \cdot (6+2+8+10+9)$ `r torf(TRUE)`
+* B: $\bar{x}=\frac{1}{5} \cdot (6+2+8+10+9)$ `r torf(TRUE)`
+* C: $\bar{x}=(6+2+8+10+9)/5$ `r torf(TRUE)`
+* D: $\bar{x}=\frac{1}{4}(6+2+8+10+9)$ `r torf(FALSE)`
+* E: $\bar{x}=\frac{1}{5}\cdot 6+\frac{1}{5}\cdot 2+\frac{1}{5}\cdot 8+\frac{1}{5}\cdot 10+\frac{1}{5}\cdot 9$ `r torf(TRUE)`
+
+:::
+
+
+
+::: callout-important
+#### Exercise
+
+You have the following information about a sample of values: 6,7,1,9,10. You also know that there were actually six observations in the sample and you know that the sample mean is 6. What is the missing observation?
+	
+`r fitb(3)`	
+
+`r hide("Feedback")`
+
+The sample mean of 6 observations is 6, then the six observations add up ot 36. As the 5 given observations sum to 33, this implies that the missing information is 3.
+
+`r unhide()`
+:::
+	
+::: callout-important
+#### Exercise
+
+One way to estimate the number of insects and investigate the possible decline of the number of insects is to count insects "collected" on number plates (or to count insect splats). Read this [newsstory by Sky News](https://news.sky.com/story/car-number-plate-squashed-bug-survey-shows-terrifying-decline-in-number-of-flying-insects-12605662). As you can read there has been a large estimated decline of insects between 2004 when this study was performed first and 2021 when it was repeated. In the [the original research](https://www.kentwildlifetrust.org.uk/sites/default/files/2022-05/Bugs%20Matter%202021%20National%20Report.pdf) you can also get the following pieces of information:
+		
+* In 2004, 196,448 insects were sampled over 14,466 journeys comprising 867,595 miles, a splat rate of 0.238 splats per mile.
+* In 2021, 11,712 insects were sampled over 3,348 journeys comprising 121,641 miles, a splat rate of 0.104 splats per mile.
+
+**What is the average number of insects splats found during a car journey in 2004 and 2021. (answer to 4 decimal points, 4dp, if not indicated otherwise)**
+		
+Average in 2004 = `r fitb(13.5780)` 
+
+Average in 2021 = `r fitb(3.4982)`
+		
+**What is the average length of a journey (measured in miles) in 2004 and 2021.**
+		
+Average in 2004 = `r fitb(59.9748)`
+
+Average in 2021 = `r fitb(36.3324)`
+		
+**What is the average number of insects splats found per driven mile 2004 and 2021.**
+		
+Average in 2004 = `r fitb(0.2264)`
+
+Average in 2021 = `r fitb(0.0963)`
+		
+**Why does just comparing the average splat rates per mile not give the best possible answer to the question of how much insects have declined?**
+		
+		\begin{itemize}
+			\item The sample in 2021 is significantly smaller than the sample in 2004.
+			\item The car journeys in 2004 were significantly longer than those in 2021.
+			\item Methods to measure the length of car journeys differed from 2004 (car odometer readings) to 2021 (an app calculated the journey length from satellite data)
+		\end{itemize}
+
+
+```{r}
+#| echo: false
+opts_p <- c(
+   "The sample in 2021 is significantly smaller than the sample in 2004.",
+   answer = "The car journeys in 2004 were significantly longer than those in 2021.",
+   "Methods to measure the length of car journeys differed from 2004 (car odometer readings) to 2021 (an app calculated the journey length from satellite data)"
+)
+```
+
+`r longmcq(opts_p)`
+
+`r hide("Feedback")`
+
+The sample size should not be such a big issue. The sample in 2021 still feels fairly substantial. But the quite different average length of journey could indicate that the type of journeys undertaken could be quite different (e.g. relatively more build up areas in 2021), and that may make a difference for the number of insects collected. Different ways to measure important aspects like journey length might matter, but is unlikely to make a uge difference.
+
+`r unhide()`
+:::
+
+::: callout-note
+#### Special case - mean of binary variables
+
+An important special case arises when we calculate the mean of a binary variable. Let's say you have a sample of 7 people and you are interested in whether they have completed a university education. The data in the table below represent the available information.
+
+| Respondent | Uni Degree | u |
+|------------|------------|---|
+| 1          | No         | 0 |
+| 2          | No         | 0 |
+| 3          | Yes        | 1 |
+| 4          | Yes        | 1 |
+| 5          | Yes        | 1 |
+| 6          | No         | 0 |
+| 7          | Yes        | 1 |
+
+The last column of the table is an alternative, and very useful way to represent this information. We created a new variable, $u$, which takes the value 1 for all respondents who have a completed university degree and 0 for all others. We call this a binary variable, a variable which can take one of two outcomes.
+
+When you calculate the sample mean of the new variable ($u$) you obtain
+
+\begin{equation*}
+	\bar{u}=\frac{1}{7}\sum_{i=1}^{7} u_{i}=\frac{1}{7} \cdot 4 = \frac{4}{7} = 0.5714
+\end{equation*}
+
+This is the sample mean of the variable $u$ but also the proportion of respondents with a university degree. Here, and for future use, it is important that the sample proportion can be thought of as a sample mean (of the variable $u$).
+
+:::
+
+::: callout-important
+#### Exercise
+
+**What is the proportion of respondents who do not have a completed university degree?**
+
+`r fitb(0.4286)`
+	
+	
+`r hide("Feedback")`
+
+As this is a binary variable this will be 1 - 0.5714. But it would also be the average calculated as follows: $\frac{1}{7}\sum_{i=1}^{7} (1-u_{i})=\frac{1}{7} \cdot 3 = \frac{3}{7} = 0.4286$.
+
+`r unhide()`
+
+:::
+
+
+### The median
+
+Another measure, with which you may be familiar, is the **sample median**. This does not use all the values in the sample and is obtained by finding the middle value in the sample, once all the observations have been ordered from the smallest value to the largest. Thus, $50\%$ of the observations are larger than the median and $50\%$ are smaller. 
+
+::: callout-note
+#### Example
+
+Consider the following sample of values:  6, 2, 8, 10, 9
+	
+**What is the mean?** `r fitb(7)`
+
+**What is the median?** `r fitb(8)`
+
+
+`r hide("Feedback")`
+
+You get the median by re-arranging the values in ascending order and then identify the middle value, here: 2, 6, 8, 9, 10. As we have 5 observations the middle observation is the 3rd, hence 8.
+`r unhide()`
+
+:::
+
+::: callout-important
+####Exercise
+What to you do if you have an even number of observation? Say: 3, 9, 3, 4, 6, 7.\\
+
+You still line all the observations up in ascending order: 3, 3, 4, 6, 7, 9. Now you have two middle observation, the 3rd and the 4th, here these are 4 and 6. It is then the convention that we take the midpoint between these two values to get the median. 
+
+**What is the mean?** `r fitb(5.3333)`
+
+**What is the median?** `r fitb(5)`
+
+`r hide("Feedback")`
+
+So here the midpoint between 4 and 6 is 5. But really, any value between 4 and 6 meets the above definition of the median. Take for instance 4.5. 50\% of observations are smaller than 4.5 and 50\% are larger than 4.5. Therefore 4.5 also meets the definition of the median. But here we shall stick to the convention of using the average of the two middle values. (See the section on percentiles below for a follow up on this point)
+`r unhide()`
+
+:::
+
+
+As you can see from the above examples, to calculate the mean we use all the data in the sample. But for the median we only use the middle (or the two middle) observations. The median does not use all the data and is less influenced by extreme values (or outliers), compared to the sample mean. For example, when investigating income distributions it is found that the mean income is typically higher than the median income. You can see that also from the above graphical representation of the UK income distribution, where the mean income is around UKP 6000 larger than the median.
+
+
+
+::: callout-important
+#### Exercise
+
+Return to the previous exercise with sample of values:  6, 2, 8, 10, 9.
+For these values the sample mean was 7 and the median was 8. Let us assume that the largest of these values is actually a 100 not a 10. What are the mean and median in this case?
+
+**What is the mean?** `r fitb(25)`
+
+**What is the median?** `r fitb(8)`
+
+Imagine the highest $10\%$ of earners in a country double their income, but the income of everyone else remains constant. What effect will that have on the mean on the one hand, and the median on the other? 
+
+The mean will `r mcq(c(answer = "increase", "not change", "decrease"))`
+
+The median will `r mcq(c("increase", answer = "not change", "decrease"))`
+
+:::
+
+### Weighted mean
+
+In some situations, it makes more sense to use a **weighted sample mean**, rather than the arithmetic mean. Before we look at what a weighted mean does we shall reformulate the arithmetic mean to the following equivalent formula:
+
+\begin{eqnarray*}
+	\bar{x}&=&\frac{1}{n}\sum_{i=1}^{n}x_{i}=\frac{(x_{1}+x_{2}+\ldots +x_{n})}{n}\\
+	&=&\frac{1}{n} x_{1}+\frac{1}{n}x_{2}+\ldots +\frac{1}{n}x_{n}
+\end{eqnarray*}
+
+You can see from the last form that the mean is a weighted sum of all observations where each observation obtains the same weight of $\frac{1}{n}$.
+
+Let's say you want to figure out what the Covid incidence in Belgium, France, Luxembourg and Netherlands is in Week 10 of 2022. You have the following table with observation (drawn from spreadsheet, Covid\_ECDC.xlsx, sheet: CrossSection).
+
+| Country     | Week           | Case Rate | Population |
+|-------------|----------------|-----------|------------|
+| Belgium     | 2022 - Week 10 | 879.8     | 11,566,041 |
+| France      | 2022 - Week 10 | 1192.0    | 67,656,682 |
+| Luxembourg  | 2022 - Week 10 | 1726.2    | 634,730    |
+| Netherlands | 2022 - Week 10 | 4795.3    | 17,475,415 |
+
+Let's say you calculate the arithmetic mean for the case rate (14-day average, calculated per 100,000 population) for these countries.
+
+\begin{equation*}
+	\bar{x}=\frac{1}{4}\sum_{i=BEL}^{NED}x_{i}=\frac{1}{4} \cdot 879.8 + \frac{1}{4} \cdot 1192.0 +\frac{1}{4} \cdot 1726.2 +\frac{1}{4} \cdot 4795.3  = 2,148.3
+\end{equation*}
+
+So the mean value is 2,148.3. Is that the case rate in the four countries taken together? \\
+No it is not. In the above calculation we weighted the data for France in the same way as that of Luxembourg although the latter only has about 1\% of France's population. If we wanted to use the above data to calculate what the Case rate across the four countries is we should take the different country sizes into account. Let's supplement the above table with a new column which calculates the proportion of population each of the four countries has of the combined population (97,332,868).
+
+| Country     | Week           | Case Rate | Population | Pop prop, $w_i$   |
+|-------------|----------------|-----------|------------|-------------------|
+| Belgium     | 2022 - Week 10 | 879.8     | 11,566,041 | 0.119             |
+| France      | 2022 - Week 10 | 1192.0    | 67,656,682 | 0.695             |
+| Luxembourg  | 2022 - Week 10 | 1726.2    | 634,730    | 0.006             |
+| Netherlands | 2022 - Week 10 | 4795.3    | 17,475,415 | 0.180             |
+
+As you can see, France has 69.5\% (0.695) of the combined population and Luxembourg only 0.6\% (0.006). So when we calculate the case rate across the four countries we should weigh France much higher. Note that the weights do sum to 1!
+ 
+The way in which we calculate a case rate which then represents the (population weighted) average across the four countries is 
+
+\begin{equation*}
+	\bar{x}_w=0.119 \cdot 879.8 + 0.695 \cdot 1192.0 +0.006 \cdot 1726.2 +0.180 \cdot 4795.3  = 1,806.659
+\end{equation*}
+
+Therefore the population weighted average is 1,806.659, a fair bit lower than the unweighted average.
+
+Let's look at the general formula for the weighted average:
+
+\begin{equation*}
+	\bar{x}_w=\sum_{i=1}^{n}w_{i}x_{i}=w_{1}x_{1}+w_{2}x_{2}+\ldots+w_{n}x_{n}.
+\end{equation*}
+
+where the weights $\left( w_{1},\ldots ,w_{n}\right)$ satisfy $\sum_{i=1}^{n}w_{i}=1$. Note that equal weights of $w_{i}=n^{-1}$, for all $i$, gives the arithmetic mean. This type of average statistic if often used in the construction of index numbers (such as the Consumer Price Index, CPI) and it comes into play whenever we have data from different categories that are of different importance (as countries in the above example). In the calculation of the CPI this is relevant as price increases for food items are more important than price increases for music, as the purchases for the latter use a smaller proportion of a typical income.
+
+
+::: callout-important
+#### Exercise
+
+Consider the following data on the youth unemployment rate in the following cities/towns
+  
+| City        | Unemployment Rate | Population (18-25 yrs) |
+|-------------|-------------------|------------------------|
+| Springfield | 29.9              | 6,241                  |
+| Duckburg    | 11.0              | 452,189                |
+| Ningzhou    | 13.9              | 7,457,632              |
+| Gotham City | 16.4              | 13,298,115             |
+
+
+**What is the arithmetic (unweighted) mean?** `r fitb(17.8)`
+
+**What is the (population) weighted mean?** `r fitb(15.0)`
+
+:::

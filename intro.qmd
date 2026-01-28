@@ -142,6 +142,6 @@ In the probability section you will learn to calculate with the properties of ra
 
 In some sense this is the high point of the statistical knowledge you will learn in this unit. We will often have information about a particular sample (like the sample from the Biontech vaccine trial), hopefully drawn at random. Using descriptive statistics we can find out everything there is to know about the sample (e.g. mean, variance, skewness, correlation if we have a sample on multiple variables). However, usually we are not really interested in the sample itself, the sample is merely a window into the population and we really want to know things about the population (see the schematic in @fig_inference). In terms of the example, we are interested in how the vaccine would work in the population. 
 
-![Schematic of Statistical Inference and how it relates to descriptive statistics and probability calculus.](images/InferenceScheme.png){#fig-inference}
+![Schematic of Statistical Inference and how it relates to descriptive statistics and probability calculus.](images/InferenceScheme.png){#fig_inference}
 
 In order to learn anything from the sample about the population we need two key tools. First, we need to be able to describe the sample (descriptive statistics) and we need to learn how to calculate with probabilities. After all we will not be able to make statements about the population with certainty, we will only be able to make probabilistic statements. Here is a [video discussion of the basics of statistical inference (7.44 min)](https://youtu.be/V1uHUR1niPI).
