@@ -195,7 +195,9 @@ You get the median by re-arranging the values in ascending order and then identi
 :::
 
 ::: callout-important
-####Exercise What to you do if you have an even number of observation? Say: 3, 9, 3, 4, 6, 7.\\
+#### Exercise 
+
+What to you do if you have an even number of observation? Say: 3, 9, 3, 4, 6, 7.\\
 
 You still line all the observations up in ascending order: 3, 3, 4, 6, 7, 9. Now you have two middle observation, the 3rd and the 4th, here these are 4 and 6. It is then the convention that we take the midpoint between these two values to get the median.
 
@@ -331,7 +333,7 @@ Let's consider the following sample with 10 observations, which are already in a
 
 What is the 50th percentile?
 
-50th percentile = `r fitb(32.5)`\\
+50th percentile = `r fitb(32.5)`
 
 `r hide("Feedback")` 
 You may remember from the discussion of the median, that actually any value between 30 and 35 could be the median, but that the convention is, for the median, to use the midpoint between 30 and 35. 
@@ -418,9 +420,12 @@ This measure is at the core of most measures of dispersion. It describes how muc
 ![Deviations from the mean for Samples X and Y.](images/SampleVariance.png)
 
 ::: callout-important
+
+#### Exercise
+
 Looking at the above Table, which of the two samples are more dispersed?
 
-Answer: `fitb("Y")`
+Answer: `r fitb("Y")`
 
 `r hide("Feedback")` 
 On average the observations from Sample Y are further away from the mean than those in Sample X.
@@ -448,9 +453,9 @@ This is what is usually called the **sample variance**, abbreviated with $s^2$. 
 #### Example
 Calculate the sample variance of samples X and Y:\\
 
-Sample X: $s^2= $ `r fitb(3)`
+Sample X: $s^2=$ `r fitb(3)`
 
-Sample Y: $s^2= $ `r fitb(13)`
+Sample Y: $s^2=$ `r fitb(13)`
 :::
 
 ::: callout-note
@@ -531,3 +536,104 @@ The standard deviation is `r fitb(5.18)` $kg$
 `r unhide()`
 
 :::
+
+
+
+## Measures of skewness and higher order moments
+
+Especially when we think back to the example of the income distribution, we recognise that the income distribution is not symmetric. Here is an image of a symmetric, left/negative skewed and right/positive skewed distribution.
+
+![Symmetric and skewed distributions.](images/SkewedDist.png)
+
+::: callout-important
+
+#### Exercise
+
+The income distribution in the UK is `r mcq(c(answer = "symmetric", answer = "right skewed", "left skewed"))`.
+
+:::
+
+It is important to recognise that the relation between the mean and the median tells us something about the skewness of a distribution. This is best illustrated with the following images.
+
+![Symmetric and skewed distributions.](images/SymmetricDist.png)
+
+
+When you are dealing with a symmetric distribution you will find the mean and the median to be the same. When we are dealing with sample data they may not be identical but very similar. The next image displays a typical left skewed distribution.
+
+![Left Skewed distribution.](images/LeftSkewedDist.png)
+
+Here you can see that the mean is smaller than the median. We are having a few values of our random variable which are very small and they "drag down" the mean, but do not effect the median so much.
+
+::: callout-important
+
+#### Exercise
+
+In the UK income distribution the mean income is `r mcq(c("smaller than", "equal", answer = "larger than"))` the median income?
+
+:::
+
+There are formal measures of skewness. We shall not introduce these in detail here. Not surprisingly one popular measure is based on comparing the sample mean and median. 
+
+## Measures of inequality
+
+Let us briefly return to the example of income inequality we started this lesson with. As you know, inequality is a major political and societal issue with lots of economic implications. We often differentiate between income and wealth inequality. But let's briefly think about the income distribution introduced at the beginning of the chapter and reproduced here.
+
+![UK IncomeDistribution 2019.](images/UK_IncomeDistribution_2019.png)
+
+Two of the descriptive statistics we introduced already speak to aspects of inequality. Firstly the variance or standard deviation is a measure of the variety of incomes we see. The larger this measure the more differences we see in incomes. The second measure which is important in the context of this discussion is the skewness. We saw that the income distribution is right (positively) skewed meaning that we have lots of incomes at the lower end and a few very large incomes. 
+
+A lot of effort has gone into measuring the amount of inequality in different countries and across time.  An excellent example of this is the [Chartbook of Economic Inequality](https://www.chartbookofeconomicinequality.com/). This has been set up by [Anthony Atkinson](https://www.tony-atkinson.com/) (1944-2017) who was a true giant in economic research into inequality.
+
+Ideally one would want to develop one descriptive statistic that expresses all there is to learn from an income distribution about inequality. But there is no one such measure. The following measures, all of them essentially descriptive statistics describing certain aspects of an income distribution, are often used:
+
+
+* The Gini Index. This is a measure which measures how far away from an equal distribution a particular income distribution is. Higher measures implying more inequality. In 2014 this measure was 34 in the UK, compared to 25.75 in 1980.
+* Income Shares. For instance what share to the top 1\% income earners have of the total income. In the UK that is currently around 13\%
+* Top percentiles as percentage of median income. For instance currently in the top decile income is around 200\% of the Median income.
+* Percentage of people with income below a certain level. E.g. currently in the UK around 15\% of people live in households with income less than 60\% of the median income.
+
+Here we will not discuss the details of these measures. The following graph displays how these measures have evolved, for the UK, through time.
+
+![Measures of income inequality, UK. Source: The Chartbook of Economic Inequality.](images/UKinequality.png)
+
+As you can see, inequality generally reduced through the 20th Century until around 1980. Since, the general direction of travel was that inequality increased. 
+
+::: callout - important
+
+#### Exercise
+
+Find on the website of [The Chartbook of Economic Inequality](https://www.chartbookofeconomicinequality.com) the equivalent country chart for Malaysia.
+
+```{r}
+#| echo: false
+opts_p <- c(
+   "The general development of inequality in Malaysia (since 1950) is similar to that in the UK.",
+   answer = "The level of poverty has decreased fairly steadily.",
+   answer = "Top earners have not increased their share of income.",
+   answer = "In general Malaysia has decreasing inequality.",
+   "The Gini coefficients of the UK and Malaysia indicate that the Malaysian income distribution is more equal than that of the UK."
+)
+```
+
+Which of the following statements are correct? (multiple answers are possible)
+
+`r longmcq(opts_p)`
+
+`r hide("Feedback")`
+
+While the change in inequality has lately been in different directions in the UK (increasing) and Malaysia (decreasing), Malaysia has a higher Gini coefficient indicating a higher level of inequality than the UK.
+
+`r unhide()`
+
+:::
+
+
+## Further Resources
+
+On the Khan Academy you can find more practice:
+
+* An example for the [calculation of the population variance](https://www.khanacademy.org/math/probability/descriptive-statistics/variance\_std\_deviation/v/variance-of-a-population)
+* [Why do we need the sample variance?](https://www.khanacademy.org/math/probability/descriptive-statistics/variance\_std\_deviation/v/sample-variance)
+* These two clips illustrates nicely why the sample variance uses the factor $1/(n-1)$. [First:](https://www.khanacademy.org/math/probability/descriptive-statistics/variance\_std\_deviation/v/review-and-intuition-why-we-divide-by-n-1-for-the-unbiased-sample-variance) giving an intuitive explanation of why we need the factor $1/(n-1)$. [Second: ](https://www.khanacademy.org/math/probability/descriptive-statistics/variance\_std\_deviation/v/simulation-showing-bias-in-sample-variance) useing a simulation to convince you.
+
+
