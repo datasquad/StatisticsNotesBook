@@ -201,7 +201,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">5.2.1</span> Additional resources</a></li>
   </ul></li>
-  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression"><span class="header-section-number">5.3</span> Regression</a></li>
+  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression"><span class="header-section-number">5.3</span> Regression</a>
+  <ul class="collapse">
+  <li><a href="#naming-conventions-and-causation" id="toc-naming-conventions-and-causation" class="nav-link" data-scroll-target="#naming-conventions-and-causation"><span class="header-section-number">5.3.1</span> Naming Conventions and Causation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -239,7 +242,7 @@ window.Quarto = {
 </div>
 <p>It is somewhat difficult to see from this plot whether there was indeed a positive relationship between these two variables or not. In fact there are three aspects of a potential relationship you may be interested in. First, is it a positive or negative relationship, second, whether it appears to be a linear or nonlinear relationship and third, how strong is that relationship. In this section you will learn how to find numerical descriptive statistics that that speak to these aspects of such a relationship.</p>
 <p>This video provides a short introduction to correlation</p>
-{{&lt; https://youtu.be/cNyIMCjMvBA &gt;}}
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/cNyIMCjMvBA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="correlation" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="correlation"><span class="header-section-number">5.2</span> Correlation</h2>
@@ -353,9 +356,9 @@ window.Quarto = {
 <h4 data-number="5.2.0.1" class="anchored" data-anchor-id="excel-application"><span class="header-section-number">5.2.0.1</span> Excel application</h4>
 <p>The calculations are best done in a Table format or using Excel.</p>
 <p>This video shows the calculations by hand (YouTube, 21min)</p>
-{{&lt; https://www.youtube.com/watch?v=xMDjtzT1G_w &gt;}}
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/xMDjtzT1G_w" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>This video shows the calculations by Excel (YouTube, 11min)</p>
-{{&lt; https://www.youtube.com/watch?v=YdtXe2vkKrw &gt;}}
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/YdtXe2vkKrw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <table class="caption-top table">
 <caption>Table illustrating the calculations required to calculate a covariance. Values rounded to 4dp.</caption>
 <colgroup>
@@ -595,16 +598,6 @@ window.Quarto = {
 <td></td>
 </tr>
 <tr class="odd">
-<td>—–</td>
-<td>————</td>
-<td>————</td>
-<td>—————–</td>
-<td>—————–</td>
-<td>———————</td>
-<td>———————</td>
-<td>——————————–</td>
-</tr>
-<tr class="even">
 <td>Sum</td>
 <td>32</td>
 <td>16</td>
@@ -750,14 +743,80 @@ Feedback
     res_i=y_i-\widehat{y}_i =  y_i - (a + bx_i) = y_i - a - bx_i.
 \end{equation*}\]</span></p>
 <p>Here that residual is <span class="math inline">\(res_i=y_i-\widehat{y}_i =9-6.4562 = 2.538\)</span>.</p>
-<dl>
-<dt><img src="images/Scatter_LOBF_Details2.png" class="img-fluid" alt="Scatter plot for Sample 1, line of best fit and example residual."></dt>
-<dd>
-Scatter plot for Sample 1, line of best fit and example residual.
-</dd>
-</dl>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Scatter_LOBF_Details2.png" class="img-fluid figure-img"></p>
+<figcaption>Scatter plot for Sample 1, line of best fit and example residual.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Calculate the residual for the following two observations:</p>
+<ul>
+<li><span class="math inline">\(res_1\)</span> for <span class="math inline">\(x_1=2\)</span> and <span class="math inline">\(y_1=3\)</span></li>
+<li><span class="math inline">\(res_2\)</span> for <span class="math inline">\(x_2=8\)</span> and <span class="math inline">\(y_2=7.1\)</span> which are both points in the above scatter diagram.</li>
+</ul>
+<p>You will note that one residual is positive and the other negative. What do these different signs represent in the scatter diagram?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Scatter_LOBF_details_exercise.png" class="img-fluid figure-img"></p>
+<figcaption>Scatter plot for Sample 1, line of best fit and example residual.</figcaption>
+</figure>
+</div>
+<p>$ res_1 = $ <input class="webex-solveme nospaces" size="6" data-answer="[&quot;1.0746&quot;]"></p>
+<p>$ res_2 = $ <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-1.622&quot;]"></p>
+<p>A positive sign for the residual implies that the actual observation lies <select class="webex-select"><option value="blank"></option><option value="">below</option><option value="">on</option><option value="answer">above</option></select> the line of best fit.</p>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p><span class="math display">\[\begin{equation*}
+    res_1=3-\widehat{y}_1 = 3 + 0.34 - 1.1327 \cdot 2 = 3-1.9254 = 1.0746
+\end{equation*}\]</span></p>
+<p>and</p>
+<p><span class="math display">\[\begin{equation*}
+    res_2=7.1-\widehat{y}_2 = 7.1 + 0.34 - 1.1327 \cdot 8 = 7.1-8.7216 = -1.6220
+\end{equation*}\]</span></p>
+<p>If the residual is positive this implies that <span class="math inline">\(y_i&gt;\widehat{y}_i\)</span> and hence that the point <span class="math inline">\(y_i\)</span> is above the regression line. If the residual is negative this implies that <span class="math inline">\(y_i&lt;\widehat{y}_i\)</span> and hence that the point <span class="math inline">\(y_i\)</span> is below the regression line.</p>
+</div>
+</div>
+</div>
+<p>Above we used the relationship <span class="math inline">\(res_i= y_i - a - bx_i\)</span> to calculate a residual. Re-arranging this delivers the equation which we will typically use to describe a regression relationship:</p>
+<p><span class="math display">\[\begin{equation*}
+    y_i = a + b x_i + res_i
+\end{equation*}\]</span></p>
+<p>where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> represented the intercept and slope coefficients for a particular line of best fit arising from a particular sample (which is why we call <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> sample estimates - but more on this in the inference section of the course). If we want to write this relationship in a general way, i.e.&nbsp;not specialised on a particular sample, but for the population of our data, then we write:</p>
+<p><span class="math display">\[\begin{equation*}
+    y_i = \alpha + \beta x_i + \epsilon_i
+\end{equation*}\]</span></p>
+<p>Here we have replaced the <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> with <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> and the residuals <span class="math inline">\(res_i\)</span> with <span class="math inline">\(\epsilon_i\)</span>. <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> represent the unknown values of the intercept and slope parameters that describe a liner relationship between <span class="math inline">\(y_i\)</span> and <span class="math inline">\(x_i\)</span> in the population. The error terms <span class="math inline">\(\epsilon_i\)</span> now represent error terms acknowledging that, even in the population, the linear relationship will not precisely represent the data.</p>
+<p>Only once we have a sample of data (as in the above table) we are able to find a line of best (described by <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>). We should note that this line (and hence the <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> values) is unique to the particular sample. A slightly different sample would have delivered different values for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. (Note: This is not unique to a regression relationship. Assume you have a population of values for some random variable <span class="math inline">\(m_i\)</span> with an unknown mean <span class="math inline">\(\mu_m\)</span>. Then you take a sample of values from this population and obtain a sample mean, <span class="math inline">\(\bar{m}\)</span>. Had you taken a different sample, this <span class="math inline">\(\bar{m}\)</span> would also be different.)</p>
+<section id="naming-conventions-and-causation" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="naming-conventions-and-causation"><span class="header-section-number">5.3.1</span> Naming Conventions and Causation</h3>
+<p>In some sense estimating a regression model is not much different to calculating a correlation between two variables, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. When we did talk about correlations we also noted that <span class="math inline">\(r_{XY}=r_{YX}\)</span>, i.e.&nbsp;that the correlation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is identical to the correlation between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>.</p>
+<p>When undertaking a regression analysis this is not the case. The variables on the left hand side and the right hand side have different functions and therefore we call them by different names, such as dependent variable (on the left) and explanatory variable (on the right).</p>
+<p><span class="math display">\[\begin{equation*}
+    \underset{\begin{array}{c}
+            \textrm{dependent variable}\\
+            \textrm{explained variable}\\
+            \textrm{outcome variable}
+        \end{array}}{y_i} = \alpha + \beta \underset{\begin{array}{c}
+        \textrm{independent variable}\\
+        \textrm{explanatory variable}
+    \end{array}}{x_i} + \epsilon_i
+\end{equation*}\]</span></p>
+<p>Let’s continue thinking about the relationship between height and weight. Does it matter whether we use height or weight as the dependent variable?</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
