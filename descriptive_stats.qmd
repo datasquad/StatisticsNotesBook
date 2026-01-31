@@ -598,7 +598,7 @@ Here we will not discuss the details of these measures. The following graph disp
 
 As you can see, inequality generally reduced through the 20th Century until around 1980. Since, the general direction of travel was that inequality increased. 
 
-::: callout - important
+::: callout-important
 
 #### Exercise
 
