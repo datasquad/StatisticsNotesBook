@@ -206,7 +206,10 @@ window.Quarto = {
   <li><a href="#naming-conventions-and-causation" id="toc-naming-conventions-and-causation" class="nav-link" data-scroll-target="#naming-conventions-and-causation"><span class="header-section-number">5.3.1</span> Naming Conventions and Causation</a></li>
   </ul></li>
   <li><a href="#transformations-of-data" id="toc-transformations-of-data" class="nav-link" data-scroll-target="#transformations-of-data"><span class="header-section-number">5.4</span> Transformations of data</a></li>
-  <li><a href="#worked-example" id="toc-worked-example" class="nav-link" data-scroll-target="#worked-example"><span class="header-section-number">6</span> Worked Example</a></li>
+  <li><a href="#worked-example" id="toc-worked-example" class="nav-link" data-scroll-target="#worked-example"><span class="header-section-number">6</span> Worked Example</a>
+  <ul class="collapse">
+  <li><a href="#additional-resources-1" id="toc-additional-resources-1" class="nav-link" data-scroll-target="#additional-resources-1"><span class="header-section-number">6.1</span> Additional resources</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -773,8 +776,8 @@ Feedback
 <figcaption>Scatter plot for Sample 1, line of best fit and example residual.</figcaption>
 </figure>
 </div>
-<p>$ res_1 = $ <input class="webex-solveme nospaces" size="6" data-answer="[&quot;1.0746&quot;]"></p>
-<p>$ res_2 = $ <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-1.622&quot;]"></p>
+<p><span class="math inline">\(res_1 =\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;1.0746&quot;]"></p>
+<p><span class="math inline">\(res_2 =\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-1.622&quot;]"></p>
 <p>A positive sign for the residual implies that the actual observation lies <select class="webex-select"><option value="blank"></option><option value="">below</option><option value="">on</option><option value="answer">above</option></select> the line of best fit.</p>
 <div class="webex-solution">
 <button>
@@ -871,12 +874,12 @@ Important
 <pre><code>\textbf{Exercise}</code></pre>
 <p>Draw a line which you think best fits the 12 data points (If you are looking at this on a screen take a ruler and hold it over the points). From your line, what can you say, roughly, about the intercept and slope of that line (only use eye-balling here, we will get to the precise results shortly).</p>
 <p>The estimated slope coefficient will be</p>
-<div id="radio_APVHDSQCLF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_APVHDSQCLF" value=""> <span>between -3 and 1-</span></label><label><input type="radio" autocomplete="off" name="radio_APVHDSQCLF" value=""> <span>between -1 and 1</span></label><label><input type="radio" autocomplete="off" name="radio_APVHDSQCLF" value="answer"> <span>between 1 and 5</span></label><label><input type="radio" autocomplete="off" name="radio_APVHDSQCLF" value=""> <span>between 5 and 10</span></label>
+<div id="radio_XIPBPRCSNX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XIPBPRCSNX" value=""> <span>between -3 and -1</span></label><label><input type="radio" autocomplete="off" name="radio_XIPBPRCSNX" value=""> <span>between -1 and 1</span></label><label><input type="radio" autocomplete="off" name="radio_XIPBPRCSNX" value="answer"> <span>between 1 and 5</span></label><label><input type="radio" autocomplete="off" name="radio_XIPBPRCSNX" value=""> <span>between 5 and 10</span></label>
 </div>
 <p>The estimated intercept coefficient will be</p>
-<div id="radio_HJNJQQFBMG" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HJNJQQFBMG" value=""> <span>between -100 and -70</span></label><label><input type="radio" autocomplete="off" name="radio_HJNJQQFBMG" value="answer"> <span>between -70 and -30</span></label><label><input type="radio" autocomplete="off" name="radio_HJNJQQFBMG" value=""> <span>between -30 and 30</span></label><label><input type="radio" autocomplete="off" name="radio_HJNJQQFBMG" value=""> <span>between 30 and 700</span></label><label><input type="radio" autocomplete="off" name="radio_HJNJQQFBMG" value=""> <span>between 70 and 100</span></label>
+<div id="radio_RRMAKNWGRQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RRMAKNWGRQ" value=""> <span>between -100 and -70</span></label><label><input type="radio" autocomplete="off" name="radio_RRMAKNWGRQ" value="answer"> <span>between -70 and -30</span></label><label><input type="radio" autocomplete="off" name="radio_RRMAKNWGRQ" value=""> <span>between -30 and 30</span></label><label><input type="radio" autocomplete="off" name="radio_RRMAKNWGRQ" value=""> <span>between 30 and 700</span></label><label><input type="radio" autocomplete="off" name="radio_RRMAKNWGRQ" value=""> <span>between 70 and 100</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -1015,15 +1018,15 @@ Hint
 </tbody>
 </table>
 <p>The statistics calculated were:</p>
-<p><span class="math inline">\(\bar{y} = 8\)</span>\ <span class="math inline">\(\bar{x} = 4\)</span>\ <span class="math inline">\(s_Y^2 = 18.6667\)</span>\ <span class="math inline">\(s_X^2 = 30\)</span>\ <span class="math inline">\(Cov(X,Y) = s_{Y,X} = -16\)</span>\ <span class="math inline">\(r = -0.6761\)</span></p>
+<p><span class="math inline">\(\bar{y} = 8\)</span>, <span class="math inline">\(\bar{x} = 4\)</span>, <span class="math inline">\(s_Y^2 = 18.6667\)</span>, <span class="math inline">\(s_X^2 = 30\)</span>, <span class="math inline">\(Cov(X,Y) = s_{Y,X} = -16\)</span>, <span class="math inline">\(r = -0.6761\)</span></p>
 <p>Please make sure you remember how to calculate these! Use this information to estimate the sample estimates <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, to obtain the line of best fit for the regression <span class="math inline">\(Y_i = \alpha + \beta X_i + \epsilon_i\)</span> (to 4dp).</p>
-<p>$b = $ <input class="webex-solveme nospaces" size="7" data-answer="[&quot;-0.5333&quot;,&quot;-.5333&quot;]"></p>
-<p>$a = $ <input class="webex-solveme nospaces" size="7" data-answer="[&quot;10.1333&quot;]"></p>
+<p><span class="math inline">\(b =\)</span> <input class="webex-solveme nospaces" size="7" data-answer="[&quot;-0.5333&quot;,&quot;-.5333&quot;]"></p>
+<p><span class="math inline">\(a =\)</span> <input class="webex-solveme nospaces" size="7" data-answer="[&quot;10.1333&quot;]"></p>
 <div class="webex-solution">
 <button>
 Hint
 </button>
-<p><span class="math inline">\(b=\frac{Cov(X,Y)}{s_X^2}=\frac{-16}{30}=-\frac{8}{15})\)</span></p>
+<p><span class="math inline">\(b=\frac{Cov(X,Y)}{s_X^2}=\frac{-16}{30}=-\frac{8}{15}\)</span></p>
 <p><span class="math inline">\(a=\bar{y}-b\cdot \bar{x}=8-(-\frac{8}{15})\cdot 4=\frac{120}{15}+\frac{32}{15}=\frac{152}{15}\)</span></p>
 </div>
 </div>
@@ -1149,7 +1152,7 @@ Feedback
 <section id="worked-example" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Worked Example</h1>
 <p>Let’s think about a new example in which estimating a simple regression can provide some good insight. Picture yourself in this Advanced Statistics class and assume that you have also done a previous Advanced Mathematics class. Let’s call the variable representing your grade in Advanced Maths <span class="math inline">\(M\)</span> and you are currently studying for your Advanced Statistics course (yes, if you are reading this you are!! well done). Let’s call the variable for that grade <span class="math inline">\(S\)</span>. At this stage you have your grade for Maths, but not the one for Stats.</p>
-<p>Let’s create a model with which we can predict your grade in Advanced Statistics. In the datafile “Maths and Stats grades.xlsx” we have observations for 801 previous students for whom we know the grades for both <span class="math inline">\(M\)</span> and <span class="math inline">\(S\)</span>, in other words, we have a sample (<span class="math inline">\(m_{i},s_{i}\)</span>), <span class="math inline">\(i=1,...,n=801\)</span>. (Note: the grades and names in the file are random but posess identical features as the real data in previous academic years.)</p>
+<p>Let’s create a model with which we can predict your grade in Advanced Statistics. In the datafile “<a href="https://github.com/datasquad/StatisticsNotesBook/raw/refs/heads/master/data/Maths%20and%20Stats%20grades.xlsx">Maths and Stats grades.xlsx</a>” we have observations for 801 previous students for whom we know the grades for both <span class="math inline">\(M\)</span> and <span class="math inline">\(S\)</span>, in other words, we have a sample (<span class="math inline">\(m_{i},s_{i}\)</span>), <span class="math inline">\(i=1,...,n=801\)</span>. (Note: the grades and names in the file are random but posess identical features as the real data in previous academic years.)</p>
 <p>Let’s first look at a scatter plot for these data.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1163,8 +1166,66 @@ Feedback
 <li>Clearly there is a positive relationship, students with higher grades in Maths tend to get higher grades in Stats as well.</li>
 <li>However, even for students with the same Advanced Maths grade (see the blue dots which represent the students with an Advanced Maths grade of 50) there is large range of Advanced Stats grade outcomes (here from 29 to 80).</li>
 </ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which of the following two regression specifications is most sensible? <select class="webex-select"><option value="blank"></option><option value="answer">A</option><option value="">B</option></select></p>
+<ul>
+<li>A: (s_i = + ~ m_i + _i)</li>
+<li>B: (m_i = + ~ s_i + _i)</li>
+</ul>
+<p>Estimate your chosen regression.</p>
+<p>You get it right if the “Multiple R” statistics is 0.4611743.</p>
+<p>What is the estimated intercept? $a = $ <input class="webex-solveme nospaces" size="6" data-answer="[&quot;26.431&quot;]"></p>
+<p>What is the estimated slope coefficient? $b = $ <input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.5418&quot;,&quot;.5418&quot;]"></p>
+<p>What is the interpretation of the estimated intercept? (one correct answer only)</p>
+<div id="radio_PDMZRKJGQW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PDMZRKJGQW" value=""> <span>A student who got a grade of 26 in Advanced Mathematics should expect to get a grade of 0 in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_PDMZRKJGQW" value=""> <span>A student who got a grade of 26 in Advanced Mathematics should expect to get a grade of 26 in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_PDMZRKJGQW" value=""> <span>A student who got a grade of 0 in Advanced Mathematics should expect to get a grade of 26 in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_PDMZRKJGQW" value="answer"> <span>One should not interpret the intercept as no grades close to 0 in Advanced Maths were included in the sample.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p>You should not interpret the intercept if the value of 0 for the explanatory variable (here the Advanced Maths grade) is not included inside the range of the observed values.</p>
+</div>
+<p>What is the interpretation of the estimated slope coefficient? (one correct answer only)</p>
+<div id="radio_BQIZOXERJJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BQIZOXERJJ" value="answer"> <span>For every extra grade in Advanced Maths students should expect an additional 0.54 grade in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_BQIZOXERJJ" value=""> <span>For every extra grade in Advanced Maths students will get an additional 0.54 grade in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_BQIZOXERJJ" value=""> <span>In order to get an additional grade in Advanced Statistics you should improve your Advanced Maths grae by 0.54.</span></label><label><input type="radio" autocomplete="off" name="radio_BQIZOXERJJ" value=""> <span>54% of the variation in the Advanced Statistics grades can be explained by variation in the Advanced Mathematics grades.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Apply the generic: “<span class="math inline">\(b\)</span> measures the increase in <span class="math inline">\(\hat{y}\)</span> for a unit increase in <span class="math inline">\(x\)</span>”. So the correct answer is the first.</p>
+</div>
+<p>What percentage of the variation in the Advanced Statistics grades is explained by this model?</p>
+<p><span class="math inline">\(R^2 =\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.2127&quot;,&quot;.2127&quot;]"></p>
+<p>If you had an Advanced Mathematics grade of 50, what would be your expected Advanced Statistics grade?</p>
+<p><span class="math inline">\(\hat(s)=\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;53.521&quot;]"></p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p><span class="math inline">\(\hat(s)=\)</span> 26.4310 + 0.5418 = 53.521$</p>
+</div>
+</div>
+</div>
+<section id="additional-resources-1" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="additional-resources-1"><span class="header-section-number">6.1</span> Additional resources</h2>
+<ul>
+<li><a href="https://www.khanacademy.org/math/probability/regression/regression-correlation/v/squared-error-of-regression-line">Khan Academy: Setup of the OLS problem and how to proof that the above formulae for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></a> and four follow on clips - click on “up next” at the end of each clip). But be careful, in his video Salman Khan uses <span class="math inline">\(m\)</span> for what we call <span class="math inline">\(b\)</span> and <span class="math inline">\(b\)</span> for what we call <span class="math inline">\(a\)</span>. Life is never easy!</li>
+<li><a href="http://www.youtube.com/watch?v=AHAlqJTrPHE&amp;list=PLW7MJJThJQQs3djo1EL6KCRFeCa6wpfYY">Link to a full (55min) undergraduate, introductory lecture on regression</a>. Minutes 1 to 22 are relevant for this lesson.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
