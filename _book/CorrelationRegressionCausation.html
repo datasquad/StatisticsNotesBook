@@ -201,7 +201,12 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">5.2.1</span> Additional resources</a></li>
   </ul></li>
-  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression"><span class="header-section-number">5.3</span> Regression</a></li>
+  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression"><span class="header-section-number">5.3</span> Regression</a>
+  <ul class="collapse">
+  <li><a href="#naming-conventions-and-causation" id="toc-naming-conventions-and-causation" class="nav-link" data-scroll-target="#naming-conventions-and-causation"><span class="header-section-number">5.3.1</span> Naming Conventions and Causation</a></li>
+  </ul></li>
+  <li><a href="#transformations-of-data" id="toc-transformations-of-data" class="nav-link" data-scroll-target="#transformations-of-data"><span class="header-section-number">5.4</span> Transformations of data</a></li>
+  <li><a href="#worked-example" id="toc-worked-example" class="nav-link" data-scroll-target="#worked-example"><span class="header-section-number">6</span> Worked Example</a></li>
   </ul>
 </nav>
     </div>
@@ -239,7 +244,7 @@ window.Quarto = {
 </div>
 <p>It is somewhat difficult to see from this plot whether there was indeed a positive relationship between these two variables or not. In fact there are three aspects of a potential relationship you may be interested in. First, is it a positive or negative relationship, second, whether it appears to be a linear or nonlinear relationship and third, how strong is that relationship. In this section you will learn how to find numerical descriptive statistics that that speak to these aspects of such a relationship.</p>
 <p>This video provides a short introduction to correlation</p>
-{{&lt; https://youtu.be/cNyIMCjMvBA &gt;}}
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/cNyIMCjMvBA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="correlation" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="correlation"><span class="header-section-number">5.2</span> Correlation</h2>
@@ -353,9 +358,9 @@ window.Quarto = {
 <h4 data-number="5.2.0.1" class="anchored" data-anchor-id="excel-application"><span class="header-section-number">5.2.0.1</span> Excel application</h4>
 <p>The calculations are best done in a Table format or using Excel.</p>
 <p>This video shows the calculations by hand (YouTube, 21min)</p>
-{{&lt; https://www.youtube.com/watch?v=xMDjtzT1G_w &gt;}}
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/xMDjtzT1G_w" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>This video shows the calculations by Excel (YouTube, 11min)</p>
-{{&lt; https://www.youtube.com/watch?v=YdtXe2vkKrw &gt;}}
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/YdtXe2vkKrw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <table class="caption-top table">
 <caption>Table illustrating the calculations required to calculate a covariance. Values rounded to 4dp.</caption>
 <colgroup>
@@ -373,11 +378,11 @@ window.Quarto = {
 <th>Obs</th>
 <th>Weight (Y)</th>
 <th>Height (X)</th>
-<th>(y_i-{y}$</th>
-<th>(x_i-{x}$</th>
-<th>((y_i-{y})^2$</th>
-<th>((x_i-{x})^2$</th>
-<th>((y_i-{y})(x_i-{x})$</th>
+<th><span class="math inline">\(y_i-\bar{y}\)</span></th>
+<th><span class="math inline">\(x_i-\bar{x}\)</span></th>
+<th><span class="math inline">\((y_i-\bar{y})^2\)</span></th>
+<th><span class="math inline">\((x_i-\bar{x})^2\)</span></th>
+<th><span class="math inline">\((y_i-\bar{y})(x_i-\bar{x})\)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -595,16 +600,6 @@ window.Quarto = {
 <td></td>
 </tr>
 <tr class="odd">
-<td>—–</td>
-<td>————</td>
-<td>————</td>
-<td>—————–</td>
-<td>—————–</td>
-<td>———————</td>
-<td>———————</td>
-<td>——————————–</td>
-</tr>
-<tr class="even">
 <td>Sum</td>
 <td>32</td>
 <td>16</td>
@@ -750,12 +745,424 @@ Feedback
     res_i=y_i-\widehat{y}_i =  y_i - (a + bx_i) = y_i - a - bx_i.
 \end{equation*}\]</span></p>
 <p>Here that residual is <span class="math inline">\(res_i=y_i-\widehat{y}_i =9-6.4562 = 2.538\)</span>.</p>
-<dl>
-<dt><img src="images/Scatter_LOBF_Details2.png" class="img-fluid" alt="Scatter plot for Sample 1, line of best fit and example residual."></dt>
-<dd>
-Scatter plot for Sample 1, line of best fit and example residual.
-</dd>
-</dl>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Scatter_LOBF_Details2.png" class="img-fluid figure-img"></p>
+<figcaption>Scatter plot for Sample 1, line of best fit and example residual.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Calculate the residual for the following two observations:</p>
+<ul>
+<li><span class="math inline">\(res_1\)</span> for <span class="math inline">\(x_1=2\)</span> and <span class="math inline">\(y_1=3\)</span></li>
+<li><span class="math inline">\(res_2\)</span> for <span class="math inline">\(x_2=8\)</span> and <span class="math inline">\(y_2=7.1\)</span> which are both points in the above scatter diagram.</li>
+</ul>
+<p>You will note that one residual is positive and the other negative. What do these different signs represent in the scatter diagram?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Scatter_LOBF_details_exercise.png" class="img-fluid figure-img"></p>
+<figcaption>Scatter plot for Sample 1, line of best fit and example residual.</figcaption>
+</figure>
+</div>
+<p>$ res_1 = $ <input class="webex-solveme nospaces" size="6" data-answer="[&quot;1.0746&quot;]"></p>
+<p>$ res_2 = $ <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-1.622&quot;]"></p>
+<p>A positive sign for the residual implies that the actual observation lies <select class="webex-select"><option value="blank"></option><option value="">below</option><option value="">on</option><option value="answer">above</option></select> the line of best fit.</p>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p><span class="math display">\[\begin{equation*}
+    res_1=3-\widehat{y}_1 = 3 + 0.34 - 1.1327 \cdot 2 = 3-1.9254 = 1.0746
+\end{equation*}\]</span></p>
+<p>and</p>
+<p><span class="math display">\[\begin{equation*}
+    res_2=7.1-\widehat{y}_2 = 7.1 + 0.34 - 1.1327 \cdot 8 = 7.1-8.7216 = -1.6220
+\end{equation*}\]</span></p>
+<p>If the residual is positive this implies that <span class="math inline">\(y_i&gt;\widehat{y}_i\)</span> and hence that the point <span class="math inline">\(y_i\)</span> is above the regression line. If the residual is negative this implies that <span class="math inline">\(y_i&lt;\widehat{y}_i\)</span> and hence that the point <span class="math inline">\(y_i\)</span> is below the regression line.</p>
+</div>
+</div>
+</div>
+<p>Above we used the relationship <span class="math inline">\(res_i= y_i - a - bx_i\)</span> to calculate a residual. Re-arranging this delivers the equation which we will typically use to describe a regression relationship:</p>
+<p><span class="math display">\[\begin{equation*}
+    y_i = a + b x_i + res_i
+\end{equation*}\]</span></p>
+<p>where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> represented the intercept and slope coefficients for a particular line of best fit arising from a particular sample (which is why we call <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> sample estimates - but more on this in the inference section of the course). If we want to write this relationship in a general way, i.e.&nbsp;not specialised on a particular sample, but for the population of our data, then we write:</p>
+<p><span class="math display">\[\begin{equation*}
+    y_i = \alpha + \beta x_i + \epsilon_i
+\end{equation*}\]</span></p>
+<p>Here we have replaced the <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> with <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> and the residuals <span class="math inline">\(res_i\)</span> with <span class="math inline">\(\epsilon_i\)</span>. <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> represent the unknown values of the intercept and slope parameters that describe a liner relationship between <span class="math inline">\(y_i\)</span> and <span class="math inline">\(x_i\)</span> in the population. The error terms <span class="math inline">\(\epsilon_i\)</span> now represent error terms acknowledging that, even in the population, the linear relationship will not precisely represent the data.</p>
+<p>Only once we have a sample of data (as in the above table) we are able to find a line of best (described by <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>). We should note that this line (and hence the <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> values) is unique to the particular sample. A slightly different sample would have delivered different values for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. (Note: This is not unique to a regression relationship. Assume you have a population of values for some random variable <span class="math inline">\(m_i\)</span> with an unknown mean <span class="math inline">\(\mu_m\)</span>. Then you take a sample of values from this population and obtain a sample mean, <span class="math inline">\(\bar{m}\)</span>. Had you taken a different sample, this <span class="math inline">\(\bar{m}\)</span> would also be different.)</p>
+<section id="naming-conventions-and-causation" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="naming-conventions-and-causation"><span class="header-section-number">5.3.1</span> Naming Conventions and Causation</h3>
+<p>In some sense estimating a regression model is not much different to calculating a correlation between two variables, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. When we did talk about correlations we also noted that <span class="math inline">\(r_{XY}=r_{YX}\)</span>, i.e.&nbsp;that the correlation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is identical to the correlation between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>.</p>
+<p>When undertaking a regression analysis this is not the case. The variables on the left hand side and the right hand side have different functions and therefore we call them by different names, such as dependent variable (on the left) and explanatory variable (on the right).</p>
+<p><span class="math display">\[\begin{equation*}
+    \underset{\begin{array}{c}
+            \textrm{dependent variable}\\
+            \textrm{explained variable}\\
+            \textrm{outcome variable}
+        \end{array}}{y_i} = \alpha + \beta \underset{\begin{array}{c}
+        \textrm{independent variable}\\
+        \textrm{explanatory variable}
+    \end{array}}{x_i} + \epsilon_i
+\end{equation*}\]</span></p>
+<p>Let’s continue thinking about the relationship between height and weight. Does it matter whether we use height or weight as the dependent variable?</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which of the two combinations do you think is more sensible? Answer: <input class="webex-solveme nospaces" size="1" data-answer="[&quot;B&quot;]"></p>
+<ul>
+<li>A: Height = dependent variable and Weight = explanatory variable</li>
+<li>B: Weight = dependent variable and Height = explanatory variable</li>
+</ul>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p>Here it is pretty obvious that individuals do have some control over their weight, but that ultimately their weight is to some degree a function of their height. Of course their weight is not solely determined by their height (do not forget their diet and levels of activity), but the height will play a role. Therefore Weight should be the dependent variable and height the explanatory variable.</p>
+</div>
+</div>
+</div>
+<p>The important thing to realise here is that it is YOU who has to decide which variable is dependent/explained and which is independent/explanatory. Sometimes this will be fairly obvious, like in the height-weight example, but sometimes it is not. (Is it interest rates which determine inflation or inflation which determines interest rates!!??). In any case, it is you who will have to bring your economic knowledge to the question and decide. The software (like Excel) will calculate regressions either way.</p>
+<p>This issue is related to the very big question of whether you can interpret any relationship described by a regression model as a causal relationship. In fact this is such a big question that large parts of 2nd year Econometrics courses will be devoted to this question. There you will learn that this is a fiendishly difficult (and therefore exciting!!!) question. It is for now safe to assume that any regression results you obtain do NOT describe a causal relationship.</p>
+<p>So in that sense regression analysis is not much different to calculating correlations. This seems to make the practice of using names like dependent and independent variables invalid. You can use these names as long as you are aware that regression results do not automatically deliver causal results. In fact, Excel will happily calculate results for both of the following regression models</p>
+<p><span class="math display">\[\begin{equation*}
+    Height_i = \alpha + \beta~ Weight_i + \epsilon_i
+\end{equation*}\]</span></p>
+<p>and</p>
+<p><span class="math display">\[\begin{equation*}
+    Weight_i = \gamma + \delta~ Height_i + \epsilon_i
+\end{equation*}\]</span></p>
+<p>They will produce different (yet related) intercept and slope coefficients which is the reason why we named them differently above. The point is, the software will not be able to tell you which of the two is the sensible way of looking at the data. It is your human understanding of the problem which tells you that only the second makes sense.</p>
+<p>### Estimation</p>
+<p><strong>Regression</strong> analysis is the statistical technique that finds the <strong>optimal</strong> values for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> given a particular sample. We will soon see how to determine the best values for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. Let us return to the example of 12 observations with height (taking the role of <span class="math inline">\(x\)</span>) and weight (in this example representing <span class="math inline">\(y\)</span>) data. Here is our previous scatter plot without the <strong>line of best fit</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/scatter_heightweight.png" class="img-fluid figure-img"></p>
+<figcaption>Scatter diagram, Height and Weight example.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<pre><code>\textbf{Exercise}</code></pre>
+<p>Draw a line which you think best fits the 12 data points (If you are looking at this on a screen take a ruler and hold it over the points). From your line, what can you say, roughly, about the intercept and slope of that line (only use eye-balling here, we will get to the precise results shortly).</p>
+<p>The estimated slope coefficient will be</p>
+<div id="radio_APVHDSQCLF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_APVHDSQCLF" value=""> <span>between -3 and 1-</span></label><label><input type="radio" autocomplete="off" name="radio_APVHDSQCLF" value=""> <span>between -1 and 1</span></label><label><input type="radio" autocomplete="off" name="radio_APVHDSQCLF" value="answer"> <span>between 1 and 5</span></label><label><input type="radio" autocomplete="off" name="radio_APVHDSQCLF" value=""> <span>between 5 and 10</span></label>
+</div>
+<p>The estimated intercept coefficient will be</p>
+<div id="radio_HJNJQQFBMG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HJNJQQFBMG" value=""> <span>between -100 and -70</span></label><label><input type="radio" autocomplete="off" name="radio_HJNJQQFBMG" value="answer"> <span>between -70 and -30</span></label><label><input type="radio" autocomplete="off" name="radio_HJNJQQFBMG" value=""> <span>between -30 and 30</span></label><label><input type="radio" autocomplete="off" name="radio_HJNJQQFBMG" value=""> <span>between 30 and 700</span></label><label><input type="radio" autocomplete="off" name="radio_HJNJQQFBMG" value=""> <span>between 70 and 100</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p>On the graph you cannot see <span class="math inline">\(x=0\)</span>. But when eye-balling the line of best fit it drops by around 60 weight units for a drop of 20 height units. That means that the slope is around 3. For a value of height = 60 the line of best fit has an approximate weight value of 130. If, for every height unit drop the weight drops by about 3, then y should drop by <span class="math inline">\(60 \times 3 = 180\)</span> as x goes from 60 to 0. Hence, the intercept <span class="math inline">\(a\)</span> should be at approximately <span class="math inline">\(130-180 = -50\)</span>. Don’t get confused by the graph only showing x values down to 55.</p>
+</div>
+</div>
+</div>
+<p>Let’s now calculate the actual sample estimates <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. And let’s do that precisely. But don’t forget these values will be specific to that particular sample of 12 observations. We will continue to not know what the true values <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are and, if we had a different sample we would get somewhat different values for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+<p>Before we do so we want to point out what <strong>optimal</strong> means in this context. In fact it implies that we want to minimise the values for <span class="math inline">\(res_i\)</span> for all <span class="math inline">\(i=1,...,n\)</span> observations in the sample.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/rss.png" class="img-fluid figure-img"></p>
+<figcaption>Scatter diagram with linear regression, Height and Weight example.</figcaption>
+</figure>
+</div>
+<p>In fact what we want to minimise is the <strong>sum of squared residuals</strong></p>
+<p><span class="math display">\[\begin{equation*}
+    (y_{1}-\widehat{y}_{1})^{2}+(y_{2}-\widehat{y}_{2})^{2}+...+(y_{12}-\widehat{y}_{12})^{2}=\sum_{i=1}^{n}(y_{i}-\widehat{y}_{i})^{2} = \sum_{i=1}^{n}(y_{i}-a-bx_{i})^{2}.
+\end{equation*}\]</span></p>
+<p>This is equivalent to saying that we want to minimise the variation of our sample observations around the regression line (<span class="math inline">\(a+bx\)</span>). The technique of obtaining the best values for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, which we call <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, in this way is also known as <strong>ordinary least squares</strong> (OLS) since it minimises the sum of squared deviations (sum of squared residuals) from the fitted line. We shall not dwell on the algebra here (You have a function and want to chose the <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> such that the function is minimised … two partial derivatives … setting them to 0 … solving for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> … you know the drill), but the solutions to the algebraical problem are:</p>
+<p><span class="math display">\[\begin{equation*}
+    b=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}},\quad a=\bar{y}-b\bar{x};
+\end{equation*}\]</span></p>
+<p>Here, as earlier, <span class="math inline">\(\bar{y}\)</span> and <span class="math inline">\(\bar{x}\)</span> are the sample means of variables <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span>. Applying the technique to the weight and height data yields <span class="math inline">\(b=616.3333/191.6667=3.2157\)</span>, and <span class="math inline">\(a=154.1667-3.2157\cdot 66.8333=-60.7491\)</span>. All the numbers we need here were calculated in the earlier Table for this example. This gives the smallest possible sum of squared residuals as <span class="math inline">\(677.753\)</span>, a value which is not so easily read of the table. The regression line (line of best fit) is therefore defined as:</p>
+<p><span class="math display">\[\begin{equation*}
+    \hat{y}=-60.7491+3.2157 \times x
+\end{equation*}\]</span></p>
+<p>It turns out that this line should be quite close to the line of best fit I asked you to draw earlier. As it turns out our eyes are pretty good in <strong>visual fitting</strong>. This is particularly easy if you have the sample means of <span class="math inline">\(\bar{y}\)</span> and <span class="math inline">\(\bar{x}\)</span> available, as the line of best fit will always go through the point <span class="math inline">\({\bar{y}, \bar{x}}\)</span>.</p>
+<section id="excel-application-1" class="level4 callout-info" data-number="5.3.1.1">
+<h4 data-number="5.3.1.1" class="anchored" data-anchor-id="excel-application-1"><span class="header-section-number">5.3.1.1</span> Excel application</h4>
+<p>Video illustrating the estimation of a simple linear regression in Excel (YouTube, 6min).</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/ecq4DGSZkLA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>When estimating the regression by EXCEL, the results are presented as follows:</p>
+<p><img src="images/EXCEL_Reg1.png" class="img-fluid" alt="EXCEL Regression Output."> You can recognise that the sample estimates for the intercept and the slope appear in that regression output (highlighted in yellow). We will interpret a number of further values from that output as we go along. There is one which you should already recognise: The sample size (Observations) of 12. Another one, a little less obvious is the value of 2659.667. It appears here as “SS Total” or Sum of Squares Total. Find that value in the Table from which we calculated the correlation for this data set, it is <span class="math inline">\(\sum_{i=1}^{12}(y_{i}-\bar{y})^{2}\)</span>. It measures the amount of variation we can see in the dependent variable. What we want to achieve by using regression analysis is to explain some of this variation through <span class="math inline">\(y\)</span>’s linear relationship with <span class="math inline">\(x\)</span>.</p>
+<p>You can see from the regression output that here 74.5% of that variation is explained by that linear relationship (see the “R square” statistic at the top of the output.)</p>
+</section>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which of the following are equivalent to the OLS estimator <span class="math inline">\(b\)</span>? Answer TRUE if equivalent.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Formula</th>
+<th style="text-align: right;">answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(b=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum_{i=1}^{n}(x_{i}-\bar{x})(x_{i}-\bar{x})}\)</span></td>
+<td style="text-align: right;"><select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(b=\frac{n\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{n^{-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}\)</span></td>
+<td style="text-align: right;"><select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(b=\frac{n^{-1}\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{n^{-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}\)</span></td>
+<td style="text-align: right;"><select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(b=\frac{(n-1)^{-1}\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{(n-1)^{-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}\)</span></td>
+<td style="text-align: right;"><select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(b=\frac{Cov(X,Y)}{s_X^2}\)</span></td>
+<td style="text-align: right;"><select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(b=\frac{Cov(X,Y)~s_Y}{s_Y~s_X^2}\)</span></td>
+<td style="text-align: right;"><select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(b=Corr(X,Y)~\frac{s_Y}{s_X}\)</span></td>
+<td style="text-align: right;"><select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></td>
+</tr>
+</tbody>
+</table>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>All but the second are equivalent. Use the definitions of sample covariance, correlation and standard deviations to confirm.</p>
+</div>
+<ol start="2" type="1">
+<li>Earlier in this lesson you calculated a number of statistics for a sample of <span class="math inline">\(n=4\)</span> data points:</li>
+</ol>
+<table class="caption-top table">
+<caption>Regression line calculation exercise.</caption>
+<thead>
+<tr class="header">
+<th>Obs</th>
+<th>Y</th>
+<th>X</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>4</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>8</td>
+<td>-2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>6</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>14</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Sum</td>
+<td>32</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<p>The statistics calculated were:</p>
+<p><span class="math inline">\(\bar{y} = 8\)</span>\ <span class="math inline">\(\bar{x} = 4\)</span>\ <span class="math inline">\(s_Y^2 = 18.6667\)</span>\ <span class="math inline">\(s_X^2 = 30\)</span>\ <span class="math inline">\(Cov(X,Y) = s_{Y,X} = -16\)</span>\ <span class="math inline">\(r = -0.6761\)</span></p>
+<p>Please make sure you remember how to calculate these! Use this information to estimate the sample estimates <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, to obtain the line of best fit for the regression <span class="math inline">\(Y_i = \alpha + \beta X_i + \epsilon_i\)</span> (to 4dp).</p>
+<p>$b = $ <input class="webex-solveme nospaces" size="7" data-answer="[&quot;-0.5333&quot;,&quot;-.5333&quot;]"></p>
+<p>$a = $ <input class="webex-solveme nospaces" size="7" data-answer="[&quot;10.1333&quot;]"></p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p><span class="math inline">\(b=\frac{Cov(X,Y)}{s_X^2}=\frac{-16}{30}=-\frac{8}{15})\)</span></p>
+<p><span class="math inline">\(a=\bar{y}-b\cdot \bar{x}=8-(-\frac{8}{15})\cdot 4=\frac{120}{15}+\frac{32}{15}=\frac{152}{15}\)</span></p>
+</div>
+</div>
+</div>
+<p>There are a number of issues that need to be stressed here. The first relates, yet again, to the <strong>sample/population</strong> issue. In most cases the data available to run a regression will be sample data. Recall how we previously discussed that the <span class="math inline">\(\bar{x}\)</span> was the sample estimate for some unknown population parameter <span class="math inline">\(\mu\)</span> or the sample variance, <span class="math inline">\(s^2\)</span> was the sample estimate of some unknown population variance, <span class="math inline">\(\sigma^2\)</span>. In the same spirit it turns out that the values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> that describe the line of best fit, are sample estimates of some unknown population parameters (usually labelled, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>).</p>
+<p>Also note that <span class="math inline">\(b\)</span> is the slope of the fitted line, <span class="math inline">\(\hat{y}=a+bx\)</span>; i.e., the derivative of <span class="math inline">\(\hat{y}\)</span> with respect to <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[\begin{equation*}
+    b=d\hat{y}/dx
+\end{equation*}\]</span></p>
+<p>and measures the increase in <span class="math inline">\(\hat{y}\)</span> for a unit increase in <span class="math inline">\(x\)</span>.</p>
+<p>Let us look at the height and weight example for which we established the regression line to be:</p>
+<p><span class="math display">\[\begin{equation*}
+    \hat{y}=-60.7491+3.2157 ~ x
+\end{equation*}\]</span></p>
+<p>When you interpret regression results it is extremely important to be aware of the units in which the dependent and explanatory variables are measured. In the case of the Height-Weight example, the explanatory variable (Height, <span class="math inline">\(x\)</span>) is measured in inches (1 inch = 2.54 cm) and the dependent variable (Weight, <span class="math inline">\(y\)</span>) is measured in pounds (1 pound = 1 lbs = 0.454 kg). Do not ask why pounds are abbreviated as lbs. They are.</p>
+<p>So, with that knowledge, how would we interpret the estimated slope coefficient, <span class="math inline">\(b=3.2157\)</span>? To interpret this we need to adapt the general formula “<span class="math inline">\(b\)</span> measures the increase in <span class="math inline">\(\hat{y}\)</span> for a unit increase in <span class="math inline">\(x\)</span>”. Applied to this example this implies the following:</p>
+<ul>
+<li>“The expected weight (<span class="math inline">\(\hat{y}\)</span>) increases by 3.2157 pounds for every height increase of 1 inch.”</li>
+<li>“On average weight (<span class="math inline">\(\hat{y}\)</span>) increases by 3.2157 pounds for every height increase of 1 inch.”</li>
+</ul>
+<p>Recall that expectations are measured with averages, hence both expressions can be used.</p>
+<p>The intercept in a regression, here <span class="math inline">\(a = -60.7491\)</span>, sometimes, but not always, can be interpreted. Note that the expected value, when the <span class="math inline">\(x\)</span> variable takes the value of 0 (<span class="math inline">\(x=0\)</span>) is <span class="math inline">\(\hat{y}=a\)</span>, and that is how we interpret the intercept. If someone has a height of 0 inches then we would expect the person to have a weight of -60.7491. This, of course, does not make any sense!!! There are no people with a height of 0. Interpreting the intercept only makes sense if the value of <span class="math inline">\(x=0\)</span> is a sensible value and inside the sample of values of <span class="math inline">\(x\)</span>. In our example the smallest height is 60 inches and the largest height is 74 inches. So even interpreting the results for a height of 40 inches would not make sense as that as well would be outside the sample range.</p>
+</section>
+</section>
+<section id="transformations-of-data" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="transformations-of-data"><span class="header-section-number">5.4</span> Transformations of data</h2>
+<p>Numerically, transformations of data can affect the above summary measures. For example, in the weight-height scenario, consider for yourself what would happen to the values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> and the correlation if we were to use kilograms and centimetres rather than pounds and inches.</p>
+<p>Convert the height of people from inches to cm (1 inch = 2.54 cm), but leaving the weight unchanged, measured in lbs, what are the regression results and how would you interpret the results?</p>
+<section id="excel-application-2" class="level4 callout-info" data-number="5.4.0.1">
+<h4 data-number="5.4.0.1" class="anchored" data-anchor-id="excel-application-2"><span class="header-section-number">5.4.0.1</span> Excel application</h4>
+<p>Video explaining the effect of re-scaling the explanatory variable (YouTube, 8min).</p>
+<p>{{ &lt; video https://youtu.be/aDNUHA4h4Xo &gt;}}</p>
+<p>The results as presented by EXCEL are shown here:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/EXCEL_Reg2.png" class="img-fluid figure-img"></p>
+<figcaption>EXCEL Regression Output.</figcaption>
+</figure>
+</div>
+<p>The estimated regression relationship is (noting that <span class="math inline">\(x\)</span> is now measured in cm):</p>
+<p><span class="math display">\[\begin{equation*}
+    \hat{y}=-60.7461+1.2660 ~ x
+\end{equation*}\]</span></p>
+<p>So the slope coefficient is smaller than the original ones which was 3.2157. Let’s calculate the ratio of these two estimates: <span class="math inline">\(3.2157/1.2660 = 2.54\)</span>. As we multiplied the explanatory variable by 2.54, this resulted in the slope coefficient being divided by the same amount. That is no accident.</p>
+<p>What you basically did is best described by comparing the two regression models (giving the regression parameters different names). We start by looking at the original model (using the height measurement in inches):</p>
+<p><span class="math display">\[\begin{equation*}
+    Weight[lbs]_i = \alpha + \beta~ Height[in]_i + \epsilon_i
+\end{equation*}\]</span></p>
+<p>Now we look at the regression model with height measured in centimeters but then convert it to one where height is measured in inches.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    Weight[lbs]_i &amp;=&amp; \gamma + \delta~ Height[cm]_i + v_i \\
+    Weight[lbs]_i &amp;=&amp; \gamma + \delta~ (2.54 \cdot Height[in]_i) + v_i  \\
+    Weight[lbs]_i &amp;=&amp; \gamma + 2.54 \cdot \delta Height[in]_i + v_i
+\end{eqnarray*}\]</span></p>
+<p>If you now compare the coefficients you see that <span class="math inline">\(\alpha = \gamma\)</span> and indeed the new intercept is basically identical to the originally estimated constant. Comparing the two models tells us, that the slope coefficients should be related as follows: <span class="math inline">\(\beta =2.54 \cdot \delta\)</span>. And indeed, the original coefficient estimated (in the inches model) is 2.54 times larger than that estimated in the centimeter model.</p>
+</section>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the following regression model:</p>
+<p><span class="math display">\[\begin{equation*}
+    Weight[kg]_i = \eta + \phi~ Height[in]_i + \epsilon_i
+\end{equation*}\]</span></p>
+<p>How are the coefficients of this model related to those in the original model? Note that 1lbs = 0.454kg.</p>
+<ul>
+<li>A: $ = 0.454 $ and <span class="math inline">\(\phi = 0.454 \cdot \beta\)</span></li>
+<li>B: $ 0.454 = $ and $ 0.454 = $</li>
+<li>C: $ = $ and <span class="math inline">\(\phi = 0.454 \cdot \beta\)</span></li>
+<li>D: $ = $ and $ 0.454 = $</li>
+</ul>
+<p>Which of these is correct? <input class="webex-solveme nospaces" size="1" data-answer="[&quot;A&quot;]"></p>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p>We go through a similar transformation process as in the previous example:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    Weight[kg]_i &amp;=&amp; \eta + \phi~ Height[in]_i + u_i \\
+    0.454 \cdot Weight[lbs]_i &amp;=&amp; \eta + \phi~ Height[in]_i + u_i   \\
+    Weight[lbs]_i &amp;=&amp; \frac{\eta}{0.454} + \frac{\phi}{0.454} ~ Height[in]_i + \frac{1}{0.454}~\epsilon_i   \\
+\end{eqnarray*}\]</span></p>
+<p>The last line is reformulated into the variables in their original units and hence we can compare coefficients: $ = 0.454 $ and <span class="math inline">\(\phi = 0.454 \cdot \beta\)</span>.</p>
+</div>
+<p>Estimate the following regression model in EXCEL:</p>
+<p><span class="math display">\[\begin{equation*}
+    Weight[kg]_i = \eta + \phi~ Height[in]_i + \epsilon_i
+\end{equation*}\]</span></p>
+<p>Confirm that the estimated coefficients are indeed related to those in the original model as suggested in the previous exercise.</p>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/EXCEL_Reg3.png" class="img-fluid figure-img"></p>
+<figcaption>EXCEL Regression Output.</figcaption>
+</figure>
+</div>
+<p>We find the intercept to be <span class="math inline">\(-27.5787\)</span> which is indeed approximately <span class="math inline">\(0.454 \cdot -60.7461\)</span> and the slope to be <span class="math inline">\(1.4599\)</span> which is approximately <span class="math inline">\(0.454 \cdot 3.2157\)</span>.</p>
+</div>
+</div>
+</div>
+<p>In the examples above, the scatter plot of the data suggested that, indeed, if there was a relationship between two variables, then that relationship was well described by a linear relationship, i.e.&nbsp;a relationship which graphically follows, approximately, a straight line.</p>
+<p>An important matter arises if we find that a scatter of a variable <span class="math inline">\(y\)</span> against another, <span class="math inline">\(x\)</span>, does not appear to reveal a linear relationship. In such cases, linearity may be retrieved if <span class="math inline">\(y\)</span> is plotted against some function of <span class="math inline">\(x\)</span> (e.g., <span class="math inline">\(\log (x)\)</span> or <span class="math inline">\(x^{2}\)</span>, say). Indeed, there may be cases when <span class="math inline">\(Y\)</span> also needs to be transformed in some way. That is to say, transformations of the data (via some mathematical function) may render a non-linear relationship “more” linear.</p>
+<p>A particular interesting transformation often used for economics series is a log-log transformation, which means that both dependent and explanatory variables are a log transform. In applied economics studies of demand, the <span class="math inline">\(\log\)</span> of demand <span class="math inline">\((Q)\)</span> is regressed on the <span class="math inline">\(\log\)</span> of price <span class="math inline">\((P)\)</span>, in order to obtain the fitted equation (or relationship). Why does this make sense?</p>
+<p>For example, suppose an economic model for the quantity demanded of a good, <span class="math inline">\(Q\)</span>, as a function of its price, <span class="math inline">\(P\)</span>, is postulated as approximately being <span class="math inline">\(Q=\alpha P^{\beta}\)</span> where <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are unknown parameters, with <span class="math inline">\(\alpha&gt;0\)</span>, <span class="math inline">\(\beta&lt;1\)</span> to ensure a positive downward sloping demand curve.</p>
+<p>The nice thing about such a model is that the interpretation of <span class="math inline">\(\beta\)</span> is the price elasticity of demand. Recall that this elasticity is defined as <span class="math inline">\((dQ/Q)/(dP/P)=(dQ/dP)(P/Q)\)</span>. From the above model you can derive that <span class="math inline">\(dQ/dP = \alpha \beta P^{\beta-1}\)</span>. With that information we get the following for the price elasticity in that model:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \frac{dQ}{dP}\frac{P}{Q} &amp;=&amp; \alpha \beta P^{\beta-1}\frac{P}{Q}\\
+    &amp;=&amp; \alpha \beta P^{\beta-1}\frac{P}{\alpha P^{\beta}}\\
+    &amp;=&amp;  \alpha \beta \frac{P^{\beta}}{\alpha P^{\beta}}\\
+    &amp;=&amp; \beta
+\end{eqnarray*}\]</span></p>
+<p>Why does that make estimating a log-log model so attractive? Take the <span class="math inline">\(log\)</span> on both sides of the postulated model you get <span class="math inline">\(\log(Q)=\alpha^{\ast}+\beta \log(P)\)</span>, where <span class="math inline">\(\alpha^{\ast}=\log(\alpha)\)</span>. Thus, if <span class="math inline">\(n\)</span> observations are available, (<span class="math inline">\(q_{i},p_{i}\)</span>), <span class="math inline">\(i=1,...,n\)</span>, a scatter plot of <span class="math inline">\(\log(q_{i})\)</span> on <span class="math inline">\(\log (p_{i})\)</span> should be approximately linear in nature. This then suggests that a simple regression of <span class="math inline">\(\log (q_{i})\)</span> on <span class="math inline">\(\log (p_{i})\)</span> would provide a direct estimate of the elasticity of demand which is given by the value <span class="math inline">\(\beta\)</span>, namely the estimated slope parameter.</p>
+</section>
+<section id="worked-example" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Worked Example</h1>
+<p>Let’s think about a new example in which estimating a simple regression can provide some good insight. Picture yourself in this Advanced Statistics class and assume that you have also done a previous Advanced Mathematics class. Let’s call the variable representing your grade in Advanced Maths <span class="math inline">\(M\)</span> and you are currently studying for your Advanced Statistics course (yes, if you are reading this you are!! well done). Let’s call the variable for that grade <span class="math inline">\(S\)</span>. At this stage you have your grade for Maths, but not the one for Stats.</p>
+<p>Let’s create a model with which we can predict your grade in Advanced Statistics. In the datafile “Maths and Stats grades.xlsx” we have observations for 801 previous students for whom we know the grades for both <span class="math inline">\(M\)</span> and <span class="math inline">\(S\)</span>, in other words, we have a sample (<span class="math inline">\(m_{i},s_{i}\)</span>), <span class="math inline">\(i=1,...,n=801\)</span>. (Note: the grades and names in the file are random but posess identical features as the real data in previous academic years.)</p>
+<p>Let’s first look at a scatter plot for these data.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/scatter_grades.png" class="img-fluid figure-img"></p>
+<figcaption>Advanced Maths and Stats grades for 801 fictional students.</figcaption>
+</figure>
+</div>
+<p>There are a number of observations from this plot:</p>
+<ul>
+<li>Each point represents one student and displays that students Advanced Maths and Advanced Stats grade, e.g.&nbsp;Ronan who had a grade of 29 in Advanced Maths and a grade of 66 in Advanced Stats)</li>
+<li>Clearly there is a positive relationship, students with higher grades in Maths tend to get higher grades in Stats as well.</li>
+<li>However, even for students with the same Advanced Maths grade (see the blue dots which represent the students with an Advanced Maths grade of 50) there is large range of Advanced Stats grade outcomes (here from 29 to 80).</li>
+</ul>
 
 
 </section>

@@ -79,7 +79,7 @@ This video shows the calculations by Excel (YouTube, 11min)
 
 {{< video https://www.youtube.com/watch?v=YdtXe2vkKrw >}}
 
-| Obs | Weight (Y) | Height (X) | \(y_i-\bar{y}$ | \(x_i-\bar{x}$ | \((y_i-\bar{y})^2$ | \((x_i-\bar{x})^2$ | \((y_i-\bar{y})(x_i-\bar{x})$ |
+| Obs | Weight (Y) | Height (X) | $y_i-\bar{y}$ | $x_i-\bar{x}$ | $(y_i-\bar{y})^2$ | $(x_i-\bar{x})^2$ | $(y_i-\bar{y})(x_i-\bar{x})$ |
 |-----|------------|------------|-----------------|-----------------|---------------------|---------------------|--------------------------------|
 | 1   | 155        | 70         | 0.8333          | 3.1667          | 0.6944              | 10.0278             | 2.6389                         |
 | 2   | 150        | 63         | -4.1667         | -3.8333         | 17.3611             | 14.6944             | 15.9722                        |
@@ -313,18 +313,350 @@ When undertaking a regression analysis this is not the case. The variables on th
 
 Let's continue thinking about the relationship between height and weight. Does it matter whether we use height or weight as the dependent variable? 
 
+::: callout-important
+
+#### Exercise
+
+Which of the two combinations do you think is more sensible? Answer: `r fitb("B")`
+
+* A: Height = dependent variable and Weight = explanatory variable
+* B: Weight = dependent variable and Height = explanatory variable
+
+`r hide("Feedback")`
+Here it is pretty obvious that individuals do have some control over their weight, but that ultimately their weight is to some degree a function of their height. Of course their weight is not solely determined by their height (do not forget their diet and levels of activity), but the height will play a role. Therefore Weight should be the dependent variable and height the explanatory variable.
+`r unhide()`
+
+:::
+
+The important thing to realise here is that it is YOU who has to decide which variable is dependent/explained and which is independent/explanatory. Sometimes this will be fairly obvious, like in the height-weight example, but sometimes it is not. (Is it interest rates which determine inflation or inflation which determines interest rates!!??). In any case, it is you who will have to bring your economic knowledge to the question and decide. The software (like Excel) will calculate regressions either way. 
+
+This issue is related to the very big question of whether you can interpret any relationship described by a regression model as a causal relationship. In fact this is such a big question that large parts of 2nd year Econometrics courses will be devoted to this question. There you will learn that this is a fiendishly difficult (and therefore exciting!!!) question. It is for now safe to assume that any regression results you obtain do NOT  describe a causal relationship. 
+
+So in that sense regression analysis is not much different to calculating correlations. This seems to make the practice of using names like dependent and independent variables invalid. You can use these names as long as you are aware that regression results do not automatically deliver causal results. In fact, Excel will happily calculate results for both of the following regression models
+
+\begin{equation*}
+	Height_i = \alpha + \beta~ Weight_i + \epsilon_i
+\end{equation*}
+
+and 
+
+\begin{equation*}
+	Weight_i = \gamma + \delta~ Height_i + \epsilon_i
+\end{equation*}
+
+They will produce different (yet related) intercept and slope coefficients which is the reason why we named them differently above. The point is, the software will not be able to tell you which of the two is the sensible way of looking at the data. It is your human understanding of the problem which tells you that only the second makes sense.
+
+ ### Estimation
+
+**Regression** analysis is the statistical technique that finds the **optimal** values for $\alpha$ and $\beta$ given a particular sample. We will soon see how to determine the best values for $\alpha$ and $\beta$. Let us return to the example of 12 observations with height (taking the role of $x$) and weight (in this example representing $y$) data. Here is our previous scatter plot without the **line of best fit**.
+
+![Scatter diagram, Height and Weight example.](images/scatter_heightweight.png)
+
+::: callout-important
+
+	\textbf{Exercise}
+	
+Draw a line which you think best fits the 12 data points (If you are looking at this on a screen take a ruler and hold it over the points). From your line, what can you say, roughly, about the intercept and slope of that line (only use eye-balling here, we will get to the precise results shortly).
+
+```{r}
+#| echo: false
+opts_p <- c(
+   "between -3 and 1-",
+   "between -1 and 1",
+   answer = "between 1 and 5",
+   "between 5 and 10"
+)
+```
+
+The estimated slope coefficient will be 
+
+`r longmcq(opts_p)`
+
+```{r}
+#| echo: false
+opts_p <- c(
+   "between -100 and -70",
+   answer = "between -70 and -30",
+   "between -30 and 30",
+   "between 30 and 700",
+   "between 70 and 100"
+)
+```
+
+The estimated intercept coefficient will be 
+
+`r longmcq(opts_p)`
+
+`r hide("Feedback")`
+On the graph you cannot see $x=0$. But when eye-balling the line of best fit it drops by around 60 weight units for a drop of 20 height units. That means that the slope is around 3. For a value of height = 60 the line of best fit has an approximate weight value of 130. If, for every height unit drop the weight drops by about 3, then y should drop by $60 \times 3 = 180$ as x goes from 60 to 0. Hence, the intercept $a$ should be at approximately $130-180 = -50$. Don't get confused by the graph only showing x values down to 55.
+`r unhide()`
+
+:::
+
+Let's now calculate the actual sample estimates $a$ and $b$. And let's do that precisely. But don't forget these values will be specific to that particular sample of 12 observations. We will continue to not know what the true values $\alpha$ and $\beta$ are and, if we had a different sample we would get somewhat different values for $a$ and $b$.
+
+Before we do so we want to point out what **optimal** means in this context. In fact it implies that we want to minimise the values for $res_i$ for all $i=1,...,n$ observations in the sample. 
+
+![Scatter diagram with linear regression, Height and Weight example.](images/rss.png)
+
+In fact what we want to minimise is the **sum of squared residuals**
+
+\begin{equation*}
+	(y_{1}-\widehat{y}_{1})^{2}+(y_{2}-\widehat{y}_{2})^{2}+...+(y_{12}-\widehat{y}_{12})^{2}=\sum_{i=1}^{n}(y_{i}-\widehat{y}_{i})^{2} = \sum_{i=1}^{n}(y_{i}-a-bx_{i})^{2}.
+\end{equation*}
+
+This is equivalent to saying that we want to minimise the variation of our sample observations around the regression line ($a+bx$). The technique of obtaining the best values for $\alpha$ and $\beta$, which we call $a$ and $b$, in this way is also known as **ordinary least squares** (OLS) since it minimises the sum of squared deviations (sum of squared residuals) from the fitted line. We shall not dwell on the algebra here (You have a function and want to chose the $a$ and $b$ such that the function is minimised ... two partial derivatives ... setting them to 0 ... solving for $a$ and $b$ ... you know the drill), but the solutions to the algebraical problem are:
+
+\begin{equation*}
+	b=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}},\quad a=\bar{y}-b\bar{x};
+\end{equation*}
+
+Here, as earlier, $\bar{y}$ and $\bar{x}$ are the sample means of variables $y$ and $x$.  Applying the technique to the weight and height data yields $b=616.3333/191.6667=3.2157$, and $a=154.1667-3.2157\cdot 66.8333=-60.7491$. All the numbers we need here were calculated in the earlier Table for this example. This gives the smallest possible sum of squared residuals as $677.753$, a value which is not so easily read of the table. The regression line (line of best fit) is therefore defined as:
+
+\begin{equation*}
+	\hat{y}=-60.7491+3.2157 \times x
+\end{equation*}
+
+It turns out that this line should be quite close to the line of best fit I asked you to draw earlier. As it turns out our eyes are pretty good in **visual fitting**. This is particularly easy if you have the sample means of $\bar{y}$ and $\bar{x}$ available, as the line of best fit will always go through the point ${\bar{y}, \bar{x}}$.
+
+::: callout-info
+
+#### Excel application
+
+Video illustrating the estimation of a simple linear regression in Excel (YouTube, 6min).
+
+{{< video https://youtu.be/ecq4DGSZkLA>}}
+
+When estimating the regression by EXCEL, the results are presented as follows:
+
+![EXCEL Regression Output.](images/EXCEL_Reg1.png)
+You can recognise that the sample estimates for the intercept and the slope appear in that regression output (highlighted in yellow). We will interpret a number of further values from that output as we go along. There is one which you should already recognise: The sample size (Observations) of 12. Another one, a little less obvious is the value of 2659.667. It appears here as "SS Total" or Sum of Squares Total. Find that value in the Table from which we calculated the correlation for this data set, it is $\sum_{i=1}^{12}(y_{i}-\bar{y})^{2}$. It measures the amount of variation we can see in the dependent variable. What we want to achieve by using regression analysis is to explain some of this variation through $y$'s linear relationship with $x$.
+
+You can see from the regression output that here 74.5\% of that variation is explained by that linear relationship (see the "R square" statistic at the top of the output.)
+
+:::
+
+::: callout-important
+
+#### Exercise
+
+Which of the following are equivalent to the OLS estimator $b$? Answer TRUE if equivalent.
+
+|Formula | answer|
+|:------|------:|
+|$b=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum_{i=1}^{n}(x_{i}-\bar{x})(x_{i}-\bar{x})}$ | `r torf(TRUE)`|
+|$b=\frac{n\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{n^{-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}$ | `r torf(FALSE)`|
+|$b=\frac{n^{-1}\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{n^{-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}$ | `r torf(TRUE)`|
+|$b=\frac{(n-1)^{-1}\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{(n-1)^{-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}$ | `r torf(TRUE)`|
+|$b=\frac{Cov(X,Y)}{s_X^2}$ | `r torf(TRUE)`|
+|$b=\frac{Cov(X,Y)~s_Y}{s_Y~s_X^2}$ | `r torf(TRUE)`|
+|$b=Corr(X,Y)~\frac{s_Y}{s_X}$ | `r torf(TRUE)`|
+	
+
+`r hide("Hint")`
+All but the second are equivalent. Use the definitions of sample covariance, correlation and standard deviations to confirm.
+`r unhide()`
+
+2. Earlier in this lesson you calculated a number of statistics for a sample of $n=4$ data points:
+
+| Obs | Y  | X  |
+|-----|----|----|
+| 1   | 4  | 10 |
+| 2   | 8  | -2 |
+| 3   | 6  | 7  |
+| 4   | 14 | 1  |
+| Sum | 32 | 16 |
+
+: Regression line calculation exercise.
+
+
+The statistics calculated were:
+
+$\bar{y} = 8$\\
+$\bar{x} = 4$\\
+$s_Y^2 = 18.6667$\\
+$s_X^2 = 30$\\
+$Cov(X,Y) = s_{Y,X} = -16$\\
+$r = -0.6761$
+
+Please make sure you remember how to calculate these! Use this information to estimate the sample estimates $a$ and $b$, to obtain the line of best fit for the regression $Y_i = \alpha + \beta X_i + \epsilon_i$ (to 4dp). 
+
+$b = $ `r fitb(-0.5333)`
+
+$a = $ `r fitb(10.1333)`
+
+`r hide("Hint")`
+$b=\frac{Cov(X,Y)}{s_X^2}=\frac{-16}{30}=-\frac{8}{15})$
+
+$a=\bar{y}-b\cdot \bar{x}=8-(-\frac{8}{15})\cdot 4=\frac{120}{15}+\frac{32}{15}=\frac{152}{15}$
+`r unhide()`
+
+:::
 
 
 
+\subsection{Interpretation of regression equation}
+
+There are a number of issues that need to be stressed here. The first relates, yet again, to the **sample/population** issue. In most cases the data available to run a regression will be sample data. Recall how we previously discussed that the $\bar{x}$ was the sample estimate for some unknown population parameter $\mu$ or the sample variance, $s^2$ was the sample estimate of some unknown population variance, $\sigma^2$. In the same spirit it turns out that the values of $a$ and $b$ that describe the line of best fit, are sample estimates of some unknown population parameters (usually labelled, $\alpha$ and $\beta$).
+
+Also note that $b$ is the slope of the fitted line, $\hat{y}=a+bx$; i.e., the derivative of $\hat{y}$ with respect to $x$:
+
+\begin{equation*}
+	b=d\hat{y}/dx
+\end{equation*}
+
+and measures the increase in $\hat{y}$ for a unit increase in $x$.
+
+Let us look at the height and weight example for which we established the regression line to be:
+
+\begin{equation*}
+	\hat{y}=-60.7491+3.2157 ~ x
+\end{equation*}
+
+When you interpret regression results it is extremely important to be aware of the units in which the dependent and explanatory variables are measured. In the case of the Height-Weight example, the explanatory variable (Height, $x$) is measured in inches (1 inch = 2.54 cm) and the dependent variable (Weight, $y$) is measured in pounds (1 pound = 1 lbs = 0.454 kg). Do not ask why pounds are abbreviated as lbs. They are.
+
+So, with that knowledge, how would we interpret the estimated slope coefficient, $b=3.2157$? To interpret this we need to adapt the general formula "$b$ measures the increase in $\hat{y}$ for a unit increase in $x$". Applied to this example this implies the following:
+
+* "The expected weight ($\hat{y}$) increases by 3.2157 pounds for every height increase of 1 inch."
+* "On average weight ($\hat{y}$) increases by 3.2157 pounds for every height increase of 1 inch." 
+
+Recall that expectations are measured with averages, hence both expressions can be used.
+
+The intercept in a regression, here $a = -60.7491$, sometimes, but not always, can be interpreted. Note that the expected value, when the $x$ variable takes the value of 0 ($x=0$) is $\hat{y}=a$, and that is how we interpret the intercept. If someone has a height of 0 inches then we would expect the person to have a weight of -60.7491. This, of course, does not make any sense!!! There are no people with a height of 0. Interpreting the intercept only makes sense if the value of $x=0$ is a sensible value and inside the sample of values of $x$. In our example the smallest height is 60 inches and the largest height is 74 inches. So even interpreting the results for a height of 40 inches would not make sense as that as well would be outside the sample range.
+
+
+## Transformations of data
+
+Numerically, transformations of data can affect the above summary measures. For example, in the weight-height scenario, consider for yourself what would happen to the values of $a$ and $b$ and the correlation if we were to use kilograms and centimetres rather than pounds and inches.
+
+Convert the height of people from inches to cm (1 inch = 2.54 cm), but leaving the weight unchanged, measured in lbs, what are the regression results and how would you interpret the results?
+
+::: callout-info
+
+#### Excel application
+
+Video explaining the effect of re-scaling the explanatory variable (YouTube, 8min).
+
+{{ < video https://youtu.be/aDNUHA4h4Xo >}}
+
+The results as presented by EXCEL are shown here:
+
+![EXCEL Regression Output.](images/EXCEL_Reg2.png)
+
+The estimated regression relationship is (noting that $x$ is now measured in cm):
+
+\begin{equation*}
+	\hat{y}=-60.7461+1.2660 ~ x
+\end{equation*}
+
+So the slope coefficient is smaller than the original ones which was 3.2157. Let's calculate the ratio of these two estimates: $3.2157/1.2660 = 2.54$. As we multiplied the explanatory variable by 2.54, this resulted in the slope coefficient being divided by the same amount. That is no accident.
+
+What you basically did is best described by comparing the two regression models (giving the regression parameters different names). We start by looking at the original model (using the height measurement in inches):
+
+\begin{equation*}
+	Weight[lbs]_i = \alpha + \beta~ Height[in]_i + \epsilon_i 
+\end{equation*}
+
+Now we look at the regression model with height measured in centimeters but then convert it to one where height is measured in inches.
+
+\begin{eqnarray*}
+	Weight[lbs]_i &=& \gamma + \delta~ Height[cm]_i + v_i \\
+	Weight[lbs]_i &=& \gamma + \delta~ (2.54 \cdot Height[in]_i) + v_i	\\
+	Weight[lbs]_i &=& \gamma + 2.54 \cdot \delta Height[in]_i + v_i	
+\end{eqnarray*}
+
+If you now compare the coefficients you see that $\alpha = \gamma$ and indeed the new intercept is basically identical to the originally estimated constant. Comparing the two models tells us, that the slope coefficients should be related as follows: $\beta =2.54 \cdot \delta$. And indeed, the original coefficient estimated (in the inches model) is 2.54 times larger than that estimated in the centimeter model.
+
+:::
+
+
+::: callout-important
+
+#### Exercise
+
+Consider the following regression model:
+
+\begin{equation*}
+	Weight[kg]_i = \eta + \phi~ Height[in]_i + \epsilon_i 
+\end{equation*}
+
+How are the coefficients of this model related to those in the original model? Note that 1lbs = 0.454kg.
+
+* A: $ \eta = 0.454 \cdot \alpha$ and $\phi = 0.454 \cdot \beta$
+* B: $ 0.454 \cdot \eta = \alpha$ and $ 0.454 \cdot \phi = \beta$
+* C: $ \eta = \alpha$ and $\phi = 0.454 \cdot \beta$
+* D: $ \eta = \alpha$ and $ 0.454 \cdot \phi = \beta$
+
+Which of these is correct? `r fitb("A")`
+
+`r hide("Feedback")`
+
+We go through a similar transformation process as in the previous example:
+
+\begin{eqnarray*}
+	Weight[kg]_i &=& \eta + \phi~ Height[in]_i + u_i \\
+	0.454 \cdot Weight[lbs]_i &=& \eta + \phi~ Height[in]_i + u_i	\\
+	Weight[lbs]_i &=& \frac{\eta}{0.454} + \frac{\phi}{0.454} ~ Height[in]_i + \frac{1}{0.454}~\epsilon_i	\\
+\end{eqnarray*}
+
+The last line is reformulated into the variables in their original units and hence we can compare coefficients: $ \eta = 0.454 \cdot \alpha$ and $\phi = 0.454 \cdot \beta$.
+
+`r unhide()`
+
+
+Estimate the following regression model in EXCEL:
+	
+\begin{equation*}
+	Weight[kg]_i = \eta + \phi~ Height[in]_i + \epsilon_i 
+\end{equation*}
+
+Confirm that the estimated coefficients are indeed related to those in the original model as suggested in the previous exercise.
+
+`r hide("Feedback")`
+
+![EXCEL Regression Output.](images/EXCEL_Reg3.png)
+
+We find the intercept to be $-27.5787$ which is indeed approximately $0.454 \cdot -60.7461$ and the slope to be $1.4599$ which is approximately $0.454 \cdot 3.2157$.
+`r unhide()`
+
+:::
+
+
+In the examples above, the scatter plot of the data suggested that, indeed, if there was a relationship between two variables, then that relationship was well described by a linear relationship, i.e. a relationship which graphically follows, approximately, a straight line. 
+
+An important matter arises if we find that a scatter of a variable $y$ against another, $x$, does not appear to reveal a linear relationship. In such cases, linearity may be retrieved if $y$ is plotted against some function of $x$ (e.g., $\log (x)$ or $x^{2}$, say). Indeed, there may be cases when $Y$ also needs to be transformed in some way. That is to say, transformations of the data (via some mathematical function) may render a non-linear relationship "more" linear.
+
+A particular interesting transformation often used for economics series is a log-log transformation, which means that both dependent and explanatory variables are a log transform. In applied economics studies of demand, the $\log$ of demand $(Q)$ is regressed on the $\log$ of price $(P)$, in order to obtain the fitted equation (or relationship). Why does this make sense? 
+
+For example, suppose an economic model for the quantity demanded of a good, $Q$, as a function of its price, $P$, is postulated as approximately being $Q=\alpha P^{\beta}$ where $\alpha$ and $\beta$ are unknown parameters, with $\alpha>0$, $\beta<1$ to ensure a positive downward sloping demand curve. 
+
+The nice thing about such a model is that the interpretation of $\beta$ is the price elasticity of demand. Recall that this elasticity is defined as $(dQ/Q)/(dP/P)=(dQ/dP)(P/Q)$. From the above model you can derive that $dQ/dP = \alpha \beta P^{\beta-1}$. With that information we get the following for the price elasticity in that model:
+
+\begin{eqnarray*}
+	\frac{dQ}{dP}\frac{P}{Q} &=& \alpha \beta P^{\beta-1}\frac{P}{Q}\\
+	&=& \alpha \beta P^{\beta-1}\frac{P}{\alpha P^{\beta}}\\
+	&=&  \alpha \beta \frac{P^{\beta}}{\alpha P^{\beta}}\\
+	&=& \beta
+\end{eqnarray*} 
+
+Why does that make estimating a log-log model so attractive? Take the $log$ on both sides of the postulated model you get $\log(Q)=\alpha^{\ast}+\beta \log(P)$, where $\alpha^{\ast}=\log(\alpha)$. Thus, if $n$ observations are available, ($q_{i},p_{i}$), $i=1,...,n$, a scatter plot of $\log(q_{i})$ on $\log (p_{i})$ should be approximately linear in nature. This then suggests that a simple regression of $\log (q_{i})$ on $\log (p_{i})$ would provide a direct estimate of the elasticity of demand which is given by the value $\beta$, namely the estimated slope parameter.
 
 
 
+# Worked Example
 
+Let's think about a new example in which estimating a simple regression can provide some good insight. Picture yourself in this Advanced Statistics class and assume that you have also done a previous Advanced Mathematics class. Let's call the variable representing your grade in Advanced Maths $M$ and you are currently studying for your Advanced Statistics course (yes, if you are reading this you are!! well done). Let's call the variable for that grade $S$. At this stage you have your grade for Maths, but not the one for Stats.
 
+Let's create a model with which we can predict your grade in Advanced Statistics. In the datafile "Maths and Stats grades.xlsx" we have observations for 801 previous students for whom we know the grades for both $M$ and $S$, in other words, we have a sample ($m_{i},s_{i}$), $i=1,...,n=801$. (Note: the grades and names in the file are random but posess identical features as the real data in previous academic years.)
 
+Let's first look at a scatter plot for these data.
 
+![Advanced Maths and Stats grades for 801 fictional students.](images/scatter_grades.png)
 
+There are a number of observations from this plot:
 
-
+* Each point represents one student and displays that students Advanced Maths and Advanced Stats grade, e.g. Ronan who had a grade of 29 in Advanced Maths and a grade of 66 in Advanced Stats)
+* Clearly there is a positive relationship, students with higher grades in Maths tend to get higher grades in Stats as well.
+* However, even for students with the same Advanced Maths grade (see the blue dots which represent the students with an Advanced Maths grade of 50) there is large range of Advanced Stats grade outcomes (here from 29 to 80).
 
 
