@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
+<link href="./CorrelationRegressionCausation.html" rel="next">
 <link href="./graphical_descriptive.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -170,8 +170,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./CorrelationRegressionCausation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Correlation, Regression and Causation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -341,8 +347,8 @@ Feedback
         \item The car journeys in 2004 were significantly longer than those in 2021.
         \item Methods to measure the length of car journeys differed from 2004 (car odometer readings) to 2021 (an app calculated the journey length from satellite data)
     \end{itemize}</code></pre>
-<div id="radio_EUTMFYHHNF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_EUTMFYHHNF" value=""> <span>The sample in 2021 is significantly smaller than the sample in 2004.</span></label><label><input type="radio" autocomplete="off" name="radio_EUTMFYHHNF" value="answer"> <span>The car journeys in 2004 were significantly longer than those in 2021.</span></label><label><input type="radio" autocomplete="off" name="radio_EUTMFYHHNF" value=""> <span>Methods to measure the length of car journeys differed from 2004 (car odometer readings) to 2021 (an app calculated the journey length from satellite data)</span></label>
+<div id="radio_EJOJQAQUOE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_EJOJQAQUOE" value=""> <span>The sample in 2021 is significantly smaller than the sample in 2004.</span></label><label><input type="radio" autocomplete="off" name="radio_EJOJQAQUOE" value="answer"> <span>The car journeys in 2004 were significantly longer than those in 2021.</span></label><label><input type="radio" autocomplete="off" name="radio_EJOJQAQUOE" value=""> <span>Methods to measure the length of car journeys differed from 2004 (car odometer readings) to 2021 (an app calculated the journey length from satellite data)</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -931,17 +937,17 @@ Feedback
 <p>You have the following five observations:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 77 35 75  2 90</code></pre>
+<pre><code>[1] 21 32  7 34 50</code></pre>
 </div>
 </div>
 <p>Assuming that this is the <strong>population</strong>, calculate the following (all to 4 dp):</p>
-<p>Mean, <span class="math inline">\(\mu\)</span> = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;55.8&quot;]"></p>
-<p>Variance, <span class="math inline">\(\sigma^2\)</span> = <input class="webex-solveme nospaces" size="7" data-answer="[&quot;1062.96&quot;]"></p>
-<p>Standard deviation, <span class="math inline">\(\sigma\)</span> = <input class="webex-solveme nospaces" size="7" data-answer="[&quot;32.6031&quot;]"></p>
+<p>Mean, <span class="math inline">\(\mu\)</span> = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;28.8&quot;]"></p>
+<p>Variance, <span class="math inline">\(\sigma^2\)</span> = <input class="webex-solveme nospaces" size="6" data-answer="[&quot;204.56&quot;]"></p>
+<p>Standard deviation, <span class="math inline">\(\sigma\)</span> = <input class="webex-solveme nospaces" size="7" data-answer="[&quot;14.3024&quot;]"></p>
 <p>Assuming that these observations are a <strong>sample</strong>, calculate the following (all to 4 dp):</p>
-<p>Mean, <span class="math inline">\(\bar{x}\)</span> = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;55.8&quot;]"></p>
-<p>Variance, <span class="math inline">\(s^2\)</span> = <input class="webex-solveme nospaces" size="6" data-answer="[&quot;1328.7&quot;]"></p>
-<p>Standard deviation, <span class="math inline">\(s\)</span> = <input class="webex-solveme nospaces" size="7" data-answer="[&quot;36.4513&quot;]"></p>
+<p>Mean, <span class="math inline">\(\bar{x}\)</span> = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;28.8&quot;]"></p>
+<p>Variance, <span class="math inline">\(s^2\)</span> = <input class="webex-solveme nospaces" size="5" data-answer="[&quot;255.7&quot;]"></p>
+<p>Standard deviation, <span class="math inline">\(s\)</span> = <input class="webex-solveme nospaces" size="7" data-answer="[&quot;15.9906&quot;]"></p>
 <p>A veterinarian weighed a sample of 6 puppies. Here are each of their weights (in kilograms): 1, 2, 7, 7, 10, 15.</p>
 <p>The mean of these weights is <input class="webex-solveme nospaces" size="1" data-answer="[&quot;7&quot;]"> <span class="math inline">\(kg\)</span></p>
 <p>The variance is <input class="webex-solveme nospaces" size="4" data-answer="[&quot;26.8&quot;]"> <span class="math inline">\(kg^2\)</span></p>
@@ -1033,13 +1039,20 @@ Feedback
 </figure>
 </div>
 <p>As you can see, inequality generally reduced through the 20th Century until around 1980. Since, the general direction of travel was that inequality increased.</p>
-<p>::: callout - important</p>
-<section id="exercise-11" class="level4" data-number="4.5.0.1">
-<h4 data-number="4.5.0.1" class="anchored" data-anchor-id="exercise-11"><span class="header-section-number">4.5.0.1</span> Exercise</h4>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Find on the website of <a href="https://www.chartbookofeconomicinequality.com">The Chartbook of Economic Inequality</a> the equivalent country chart for Malaysia.</p>
 <p>Which of the following statements are correct? (multiple answers are possible)</p>
-<div id="radio_ENJDCRVVCW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ENJDCRVVCW" value=""> <span>The general development of inequality in Malaysia (since 1950) is similar to that in the UK.</span></label><label><input type="radio" autocomplete="off" name="radio_ENJDCRVVCW" value="answer"> <span>The level of poverty has decreased fairly steadily.</span></label><label><input type="radio" autocomplete="off" name="radio_ENJDCRVVCW" value="answer"> <span>Top earners have not increased their share of income.</span></label><label><input type="radio" autocomplete="off" name="radio_ENJDCRVVCW" value="answer"> <span>In general Malaysia has decreasing inequality.</span></label><label><input type="radio" autocomplete="off" name="radio_ENJDCRVVCW" value=""> <span>The Gini coefficients of the UK and Malaysia indicate that the Malaysian income distribution is more equal than that of the UK.</span></label>
+<div id="radio_FVTARRSXOP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FVTARRSXOP" value=""> <span>The general development of inequality in Malaysia (since 1950) is similar to that in the UK.</span></label><label><input type="radio" autocomplete="off" name="radio_FVTARRSXOP" value="answer"> <span>The level of poverty has decreased fairly steadily.</span></label><label><input type="radio" autocomplete="off" name="radio_FVTARRSXOP" value="answer"> <span>Top earners have not increased their share of income.</span></label><label><input type="radio" autocomplete="off" name="radio_FVTARRSXOP" value="answer"> <span>In general Malaysia has decreasing inequality.</span></label><label><input type="radio" autocomplete="off" name="radio_FVTARRSXOP" value=""> <span>The Gini coefficients of the UK and Malaysia indicate that the Malaysian income distribution is more equal than that of the UK.</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -1047,8 +1060,8 @@ Feedback
 </button>
 <p>While the change in inequality has lately been in different directions in the UK (increasing) and Malaysia (decreasing), Malaysia has a higher Gini coefficient indicating a higher level of inequality than the UK.</p>
 </div>
-<p>:::</p>
-</section>
+</div>
+</div>
 </section>
 <section id="further-resources" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="further-resources"><span class="header-section-number">4.6</span> Further Resources</h2>
@@ -1471,8 +1484,8 @@ Feedback
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link" aria-label="Summary">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./CorrelationRegressionCausation.html" class="pagination-link" aria-label="Correlation, Regression and Causation">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Correlation, Regression and Causation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
