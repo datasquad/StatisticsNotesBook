@@ -470,7 +470,7 @@ Consider Sample X above. We had three observations. We used the three observatio
 
 The variance measures have two major disadvantages:
 
-* The value you get for either $\sigma^2$ or $s^2$ has no easy interpretation. This is obvious when you think about the units in which the variance is measured. If your data are, say, income data, then the unit of the variance is $\pounds ^2$. But what is the meaning of a squared pound sterling.
+* The value you get for either $\sigma^2$ or $s^2$ has no easy interpretation. This is obvious when you think about the units in which the variance is measured. If your data are, say, income data, then the unit of the variance is UKP$^2$. But what is the meaning of a squared pound sterling.
 * The variances for different data sets are almost impossible to compare. The reason for that is best seen by realising that the value of the variance will change if you multiply each value by 2\footnote{You could try and confirm that in this case the variance will, in fact, increase by the factor 4.}. However, if we multiply each observation by two, then really, nothing has changed about the dispersion of our data.
 
 In order to address the first of these shortcomings we often refer to a different measure of dispersion, the **standard deviation**. This is related to the variance. In fact, once you calculated the variance you can obtain the standard deviation by taking the square root of your calculated variance

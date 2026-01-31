@@ -19,7 +19,7 @@ It is somewhat difficult to see from this plot whether there was indeed a positi
 
 This video provides a short introduction to correlation
 
-{{< https://youtu.be/cNyIMCjMvBA >}}
+{{< video https://youtu.be/cNyIMCjMvBA >}}
 
 ## Correlation
 
@@ -73,11 +73,11 @@ The calculations are best done in a Table format or using Excel.
 
 This video shows the calculations by hand (YouTube, 21min)
 
-{{< https://www.youtube.com/watch?v=xMDjtzT1G_w >}}
+{{< video https://www.youtube.com/watch?v=xMDjtzT1G_w >}}
 
 This video shows the calculations by Excel (YouTube, 11min)
 
-{{< https://www.youtube.com/watch?v=YdtXe2vkKrw >}}
+{{< video https://www.youtube.com/watch?v=YdtXe2vkKrw >}}
 
 | Obs | Weight (Y) | Height (X) | \(y_i-\bar{y}$ | \(x_i-\bar{x}$ | \((y_i-\bar{y})^2$ | \((x_i-\bar{x})^2$ | \((y_i-\bar{y})(x_i-\bar{x})$ |
 |-----|------------|------------|-----------------|-----------------|---------------------|---------------------|--------------------------------|
@@ -119,7 +119,6 @@ Complete the table below and calculate, sample means, sample variances and stand
 | 2   | 8          | -2         | 0               | -6              | 0                   | 36                  | 0                              |
 | 3   | 6          | 7          |                 |                 |                     |                     |                                |
 | 4   | 14         | 1          |                 |                 |                     |                     |                                |
-|-----|------------|------------|-----------------|-----------------|---------------------|---------------------|--------------------------------|
 | Sum | 32         | 16         |                 |                 |                     |                     |                                |
 
 : Table for correlation calculations.
@@ -241,11 +240,78 @@ The difference between the two is what is often called the residual:
 Here that residual is $res_i=y_i-\widehat{y}_i =9-6.4562 = 2.538$.
 
 ![Scatter plot for Sample 1, line of best fit and example residual.](images/Scatter_LOBF_Details2.png)
-: Scatter plot for Sample 1, line of best fit and example residual.
 
+::: callout-important
 
+#### Exercise
+	
+Calculate the residual for the following two observations:
 
+* $res_1$ for $x_1=2$ and $y_1=3$ 
+* $res_2$ for $x_2=8$ and $y_2=7.1$ which are both points in the above scatter diagram. 
 
+You will note that one residual is positive and the other negative. What do these different signs represent in the scatter diagram?
+
+![Scatter plot for Sample 1, line of best fit and example residual.](images/Scatter_LOBF_details_exercise.png)
+
+$	res_1 = $ `r fitb(1.0746)`
+
+$ res_2 = $ `r fitb(-1.6220)`
+
+A positive sign for the residual implies that the actual observation lies `r mcq(c("below", "on", answer = "above"))` the line of best fit.
+
+`r hide("Feedback")`
+
+\begin{equation*}
+	res_1=3-\widehat{y}_1 = 3 + 0.34 - 1.1327 \cdot 2 = 3-1.9254 = 1.0746
+\end{equation*}
+
+and 
+
+\begin{equation*}
+	res_2=7.1-\widehat{y}_2 = 7.1 + 0.34 - 1.1327 \cdot 8 = 7.1-8.7216 = -1.6220
+\end{equation*}
+
+If the residual is positive this implies that $y_i>\widehat{y}_i$ and hence that the point $y_i$ is above the regression line. If the residual is negative this implies that $y_i<\widehat{y}_i$ and hence that the point $y_i$ is below the regression line.
+
+`r unhide()`
+
+:::
+
+Above we used the relationship $res_i= y_i - a - bx_i$ to calculate a residual. Re-arranging this delivers the equation which we will typically use to describe a regression relationship:
+
+\begin{equation*}
+	y_i = a + b x_i + res_i
+\end{equation*}
+
+where $a$ and $b$ represented the intercept and slope coefficients for a particular line of best fit arising from a particular sample (which is why we call $a$ and $b$ sample estimates - but more on this in the inference section of the course). If we want to write this relationship in a general way, i.e. not specialised on a particular sample,  but for the population of our data, then we write:
+
+\begin{equation*}
+	y_i = \alpha + \beta x_i + \epsilon_i
+\end{equation*}
+
+Here we have replaced the $a$ and $b$ with $\alpha$ and $\beta$ and the residuals $res_i$ with $\epsilon_i$. $\alpha$ and $\beta$ represent the unknown values of the intercept and slope parameters that describe a liner relationship between $y_i$ and $x_i$ in the population. The error terms $\epsilon_i$ now represent error terms acknowledging that, even in the population, the linear relationship will not precisely represent the data.
+
+Only once we have a sample of data (as in the above table) we are able to find a line of best (described by $a$ and $b$). We should note that this line (and hence the $a$ and $b$ values) is unique to the particular sample. A slightly different sample would have delivered different values for $a$ and $b$. (Note: This is not unique to a regression relationship. Assume you have a population of values for some random variable $m_i$ with an unknown mean $\mu_m$. Then you take a sample of values from this population and obtain a sample mean, $\bar{m}$. Had you taken a different sample, this $\bar{m}$ would also be different.)
+
+### Naming Conventions and Causation
+
+In some sense estimating a regression model is not much different to calculating a correlation between two variables, $X$ and $Y$. When we did talk about correlations we also noted that $r_{XY}=r_{YX}$, i.e. that the correlation between $X$ and $Y$ is identical to the correlation between $Y$ and $X$.
+
+When undertaking a regression analysis this is not the case. The variables on the left hand side and the right hand side have different functions and therefore we call them by different names, such as dependent variable (on the left) and explanatory variable (on the right).
+
+\begin{equation*}
+	\underset{\begin{array}{c}
+			\textrm{dependent variable}\\
+			\textrm{explained variable}\\
+			\textrm{outcome variable}
+		\end{array}}{y_i} = \alpha + \beta \underset{\begin{array}{c}
+		\textrm{independent variable}\\
+		\textrm{explanatory variable}
+	\end{array}}{x_i} + \epsilon_i
+\end{equation*}
+
+Let's continue thinking about the relationship between height and weight. Does it matter whether we use height or weight as the dependent variable? 
 
 
 
