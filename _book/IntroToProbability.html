@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Introduction – Statistics Notes</title>
+<title>7&nbsp; Introducing Probability – Statistics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./datatypes.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./summary.html" rel="next">
+<link href="./DealingWithDataSets.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -113,7 +113,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./IntroToProbability.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducing Probability</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,7 +146,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
@@ -182,7 +182,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./IntroToProbability.html" class="sidebar-item-text sidebar-link">
+  <a href="./IntroToProbability.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducing Probability</span></span></a>
   </div>
 </li>
@@ -208,14 +208,8 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#an-introductory-example" id="toc-an-introductory-example" class="nav-link active" data-scroll-target="#an-introductory-example"><span class="header-section-number">1.1</span> An introductory example</a></li>
-  <li><a href="#and-where-is-the-statistics-in-this" id="toc-and-where-is-the-statistics-in-this" class="nav-link" data-scroll-target="#and-where-is-the-statistics-in-this"><span class="header-section-number">1.2</span> And where is the statistics in this?</a></li>
-  <li><a href="#what-we-will-learn" id="toc-what-we-will-learn" class="nav-link" data-scroll-target="#what-we-will-learn"><span class="header-section-number">1.3</span> What we will learn</a>
-  <ul class="collapse">
-  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics"><span class="header-section-number">1.3.1</span> Descriptive Statistics</a></li>
-  <li><a href="#probability-calculus" id="toc-probability-calculus" class="nav-link" data-scroll-target="#probability-calculus"><span class="header-section-number">1.3.2</span> Probability Calculus</a></li>
-  <li><a href="#inferential-statistics" id="toc-inferential-statistics" class="nav-link" data-scroll-target="#inferential-statistics"><span class="header-section-number">1.3.3</span> Inferential Statistics</a></li>
-  </ul></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">7.1</span> Introduction</a></li>
+  <li><a href="#venn-diagrams" id="toc-venn-diagrams" class="nav-link" data-scroll-target="#venn-diagrams"><span class="header-section-number">7.2</span> Venn diagrams</a></li>
   </ul>
 </nav>
     </div>
@@ -224,7 +218,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducing Probability</span></h1>
 </div>
 
 
@@ -241,197 +235,114 @@ window.Quarto = {
 </header>
 
 
-<section id="an-introductory-example" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="an-introductory-example"><span class="header-section-number">1.1</span> An introductory example</h2>
-<p>Let’s start this with a problem. A problem which clearly illustrates why we need statistics. Put your mind back to the beginning of the Covid-19 pandemic. Very quickly after understanding the health risks by the Covid-19 virus in early 2020 attention turned to the one health tool that was very quickly identified as the “game changer” in the fight against the virus. A vaccine. In the time series plot below (<a href="datatypes.html#fig-COVID19" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>) you can see how often people worldwide searched for the term “Covid-19 vaccine”.</p>
-<div id="fig-COVID19" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-COVID19-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/Covid19search.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-COVID19-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.1: Search popularity for “Covid-19 vaccine
-</figcaption>
-</figure>
-</div>
-<p>Very quickly many different research teams, in private companies, universities and government institutions started researching such vaccines. Very quickly the first companies published results of trials to investigate whether the vaccines they had developed worked. Here is a <a href="https://www.businesswire.com/news/home/20201118005595/en/">link</a> to one of the first publication of preliminary results by the Pfizer/Biontech consortium from 18 November 2020.</p>
-<p>In this news story you can find the following information</p>
-<ul>
-<li>“Analysis of the data indicates a vaccine efficacy rate of 95% (p&lt;0.0001) in participants without prior SARS-CoV-2 infection […].”</li>
-<li>“The first primary objective analysis is based on 170 cases of COVID-19, as specified in the study protocol, of which 162 cases of COVID-19 were observed in the placebo group versus 8 cases in the BNT162b2 group.”</li>
-<li>“The Phase 3 clinical trial of BNT162b2 began on July 27 and has enrolled 43,661 participants to date, 41,135 of whom have received a second dose of the vaccine candidate as of November 13, 2020.”</li>
-<li>“Efficacy was consistent across age, gender, race and ethnicity demographics. The observed efficacy in adults over 65 years of age was over 94%.”</li>
-</ul>
-<p>The information on the efficacy was pounced on by news organisations, in particular the 95% efficacy rate. Let us look at how this is calculated. There were 170 cases of covid amongst the around 40,000 trial participants. Around half the trial participants had received the Biontech vaccince (the treatment group) whereas the other half had received a placebo (meaning they also had a shot, but it did not contain any vaccine, the Control group). The numbers in the two groups were about equal (a piece of information not immediately obvious from the news story but available from other sources.)</p>
-<p>The way how the efficacy measure is calculated is as follows</p>
-<p><span class="math display">\[\begin{equation*}
-&nbsp;&nbsp; &nbsp;efficacy = 1 -\frac{\text{Number of cases in Treatment Group}}{\text{Number of cases in Control Group}}=1-\frac{8}{162}=0.9506=95.06\%
-\end{equation*}\]</span></p>
-<p>That is the 95% figure quoted in the above news story. It gives you the reduction in probability of getting the disease by being vaccinated.</p>
-<p>You can see that from a different perspective, using additional data from David Spiegelhalter’s excellent little book Covid by Numbers.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 39%">
-<col style="width: 31%">
-<col style="width: 29%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>Treatment Group (vaccine)</th>
-<th>Control Group (placebo)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>People in group</td>
-<td>18,198</td>
-<td>18,325</td>
-</tr>
-<tr class="even">
-<td>Number of Covid Cases</td>
-<td>8</td>
-<td>162</td>
-</tr>
-<tr class="odd">
-<td>Proportion getting the disease</td>
-<td>0.043%</td>
-<td>0.884%</td>
-</tr>
-</tbody>
-</table>
-<p>In the last line of the above Table you can see that the probability of contracting the Covid-19 virus in the Control Group was 0.884%. One way to think about efficacy is to think about how much this risk is reduced by having received a vaccine. An efficacy of 95% suggests that this risk is reduced by 95%, hence the risk should be 0.884%∗5%=0.884%∗0.05=0.0442% which is indeed approximately the number you see in the above table.</p>
-<p>Here is the <a href="https://youtu.be/wWCLBraM4gE">BBC reporting on these trial results on 9 November 2020</a>.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Consider the data in the following table. Calculate each vaccine’s efficacy to 4 decimal places (which will be the standard precision used here). Identify which vaccine has the highest efficacy. You can assume that all results come from a randomised control trial with equal sized Treatment and Control Groups. If you calculated a 76.43% efficacy your answer should be 0.7643.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 33%">
-<col style="width: 31%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Vaccine Name</th>
-<th>Infections in treatment Group</th>
-<th>Infections in Control Group</th>
-<th>Efficacy (to 4dp)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Heal all</td>
-<td>5</td>
-<td>134</td>
-<td><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.9627&quot;,&quot;.9627&quot;]"></td>
-</tr>
-<tr class="even">
-<td>Be careful</td>
-<td>11</td>
-<td>109</td>
-<td><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.8991&quot;,&quot;.8991&quot;]"></td>
-</tr>
-<tr class="odd">
-<td>ElderVax</td>
-<td>11</td>
-<td>138</td>
-<td><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.9203&quot;,&quot;.9203&quot;]"></td>
-</tr>
-<tr class="even">
-<td>InlightVax</td>
-<td>9</td>
-<td>137</td>
-<td><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.9343&quot;,&quot;.9343&quot;]"></td>
-</tr>
-</tbody>
-</table>
-<div class="webex-solution">
-<button>
-Feedback
-</button>
-<p>We do not need the number of people in the survey as we assume that the numbers are the same in both groups. Therefore we can calculate the efficacy (e.g.&nbsp;for “Heal all”) as <span class="math inline">\(1 - (5/134) = 0.9627\)</span>. If you had different sample sizes in the experimental (<span class="math inline">\(n_e\)</span>) and control group (<span class="math inline">\(n_c\)</span>) you would calculate <span class="math inline">\(1-((5/n_e)/(134/n_c))\)</span>. From here you can see that <span class="math inline">\(n_c\)</span> and <span class="math inline">\(n_e\)</span> would cancel out if they were the same.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="and-where-is-the-statistics-in-this" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="and-where-is-the-statistics-in-this"><span class="header-section-number">1.2</span> And where is the statistics in this?</h2>
-<p>At the completion of the course you will realise that behind these numbers there are a number of interesting questions one may want to ask.</p>
-<ul>
-<li>As we have a sample of data, can we express how certain we are about the 95% efficacy?</li>
-<li>The WHO demands that vaccines should have a 50% efficacy, given our uncertainty, do we believe that this vaccine if effective?</li>
-<li>Surely the efficacy may vary with some demographic factors (e.g.&nbsp;age, gender, ethnicity). Can we figure out which demographic factors make the vaccine more effective?</li>
-</ul>
-<p>It turns out that statisticians can help you will these type of questions and more!</p>
-<p>The subject of statistics is concerned with scientific methods for collecting, organizing, summarizing and presenting data (numerical information). The power and utility of statistics derives from being able to draw valid conclusions (inferences), and make reasonable decisions, on the basis the available data. (The term statistics is also used in a much narrower sense when referring to the data themselves or various other numbers derived from any given set of data. Thus we hear of employment statistics (% of people unemployed), accident statistics, (number of road accidents involving drunk drivers), etc.)</p>
-<p>Data arise in many spheres of human and natural activity. Such data may be obtained as a matter of course (e.g., meteorological records, daily closing prices of shares, monthly interest rates, etc.), or they may be collected by survey or experiment for the purposes of a specific statistical investigation. An example of an investigation using statistics was the <a href="https://cls.ucl.ac.uk/cls-studies/1970-british-cohort-study/">Survey of British Births, 1970</a>, the aim of which was to improve the survival rate and care of British babies at or soon after birth. To this end, data on new born babies and their mothers were collected and analysed. The <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/expenditure/bulletins/familyspendingintheuk/april2019tomarch2020">Family Expenditure Survey</a> regularly collects information on household expenditure patterns - including amounts spent on lottery tickets.</p>
-<p>Often different methods are used to effectively collect information on the same issue. Especially when the issue is very important it is often useful to have several different sources of data in order to cross-check the findings. Take, as an example, the issue of measuring how many people have been infected by Covid-19. In the UK, several sources have been used to estimate these numbers. The most attention was given to the <a href="https://coronavirus.data.gov.uk/details/cases">number of positive test results reported</a>. On the other hand, the Office for national Statistics also ran a survey across the entire population (hoping to generate a sample as representative as possible), the <a href="https://www.ons.gov.uk/surveys/informationforhouseholdsandindividuals/householdandindividualsurveys/covid19infectionsurveycis">COVID-19 Infection Survey</a>.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Which of the following is <strong>not</strong> an actual surveys run in the UK? Of course you are not expected to know this by heart, but you should be able quickly confirm whether these exist via a websearch.</p>
-<div id="radio_TMDKFMZIEE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_TMDKFMZIEE" value=""> <span>Crime Survey for England and Wales</span></label><label><input type="radio" autocomplete="off" name="radio_TMDKFMZIEE" value="answer"> <span>Active Lifestyle Survey, Measuring sporting activities in UK Pensioners</span></label><label><input type="radio" autocomplete="off" name="radio_TMDKFMZIEE" value=""> <span>General Lifestyle Survey</span></label><label><input type="radio" autocomplete="off" name="radio_TMDKFMZIEE" value=""> <span>National Travel Survey</span></label><label><input type="radio" autocomplete="off" name="radio_TMDKFMZIEE" value=""> <span>Young People’s Social Attitudes Survey</span></label>
-</div>
-<p></p>
-<div class="webex-solution">
-<button>
-Feedback
-</button>
-<p>All but the “Active Lifestyle Survey, Measuring sporting activities in UK Pensioners” surveys are real surveys. A good overview of many UK surveys is available from the <a href="https://ukdataservice.ac.uk/help/data-types/uk-surveys/">UK Data Service</a>. While the above survey does not exist, there is in fact a survey investigating the amount of activities done by people in the UK. This survey is organised by <a href="https://www.sportengland.org/know-your-audience/data/active-lives">Sport England</a> but does not specifically focus on pensioners.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="what-we-will-learn" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="what-we-will-learn"><span class="header-section-number">1.3</span> What we will learn</h2>
-<p>You can divide the material you will learn in this course in three sections.</p>
-<ul>
-<li>Descriptive Statistics</li>
-<li>Probability Calculus</li>
-<li>Inferential Statistics</li>
-</ul>
-<p>Let me give you short descriptions of what these sections will be about and how they will fit together. As you go through the material I recommend that you return to this short section such that you never loose sight of the bigger picture.</p>
-<section id="descriptive-statistics" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="descriptive-statistics"><span class="header-section-number">1.3.1</span> Descriptive Statistics</h3>
-<p>In this section we will look at a sample of data and use a variety of methods to describe what we see in the sample. Say you have just received the data for the 36,514 subjects in the Biontech Covid vaccine trial. Your supervisor asks you to summarise the data for her. Summarising means saying something about the data with less than the 36,514 pieces of information.</p>
-<p>We will find ways to summarise the information with a few numbers (statistics). For instance the proportion of subjects who got infected with covid. You may also want to present some graphical ways to summarise the data. This type of activity has value in itself. In fact a lot of the data presented in the news is basically done with the use of summary statistics.</p>
-</section>
-<section id="probability-calculus" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="probability-calculus"><span class="header-section-number">1.3.2</span> Probability Calculus</h3>
-<p>If you play any games like roulette, cards (e.g.&nbsp;poker or blackjack or even UNO) or any other games of chance you will be aware that outcomes of many events are random. Importantly, random doesn’t mean that we don’t know anything about the potential outcomes. Take a dice. Before you <a href="https://g.co/kgs/tWYA3Z">roll the dice</a> you do not know the outcome, but what you do know is that the probability of each outcome is 1/6. In other words we know the probability distribution of the random variable.</p>
-<p>In the probability section you will learn to calculate with the properties of random variables. In particular you will learn to calculate expected values, variances and correlations between multiple random variables. You will also learn about a number of common, even famous, random distributions.</p>
-</section>
-<section id="inferential-statistics" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="inferential-statistics"><span class="header-section-number">1.3.3</span> Inferential Statistics</h3>
-<p>In some sense this is the high point of the statistical knowledge you will learn in this unit. We will often have information about a particular sample (like the sample from the Biontech vaccine trial), hopefully drawn at random. Using descriptive statistics we can find out everything there is to know about the sample (e.g.&nbsp;mean, variance, skewness, correlation if we have a sample on multiple variables). However, usually we are not really interested in the sample itself, the sample is merely a window into the population and we really want to know things about the population (see the schematic in <span class="citation" data-cites="fig_inference">(<a href="references.html#ref-fig_inference" role="doc-biblioref"><strong>fig_inference?</strong></a>)</span>). In terms of the example, we are interested in how the vaccine would work in the population.</p>
-<div id="fig_inference" class="quarto-figure quarto-figure-center anchored">
+<section id="introduction" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">7.1</span> Introduction</h2>
+<p>This video gives a brief introduction into why economists and social scientists should study probabilities (YouTube, 4min).</p>
+<p>{{ &lt; video https://www.youtube.com/watch?v=I3OFG1QlDLc &gt; }}</p>
+<p>So far we have been looking at ways of summarising samples of data drawn from an underlying population of interest. Although at times tedious, all such arithmetic calculations are fairly mechanical and straightforward to apply. To remind ourselves, one of the primary reasons for wishing to summarise data is so assist in the development of inferences about the population from which the data were taken. That is to say, we would like to elicit some information about the mechanism which generated the observed data.</p>
+<p>Perhaps you can recall this little schematic which we discussed in the introduction.</p>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/InferenceScheme.png" class="img-fluid figure-img"></p>
 <figcaption>Schematic of Statistical Inference and how it relates to descriptive statistics and probability calculus.</figcaption>
 </figure>
 </div>
-<p>In order to learn anything from the sample about the population we need two key tools. First, we need to be able to describe the sample (descriptive statistics) and we need to learn how to calculate with probabilities. After all we will not be able to make statements about the population with certainty, we will only be able to make probabilistic statements. Here is a <a href="https://youtu.be/V1uHUR1niPI">video discussion of the basics of statistical inference (7.44 min)</a>.</p>
-
-
+<p>We now start on the process of developing mathematical ways of formulating inferences and this requires the use of <strong>probability</strong>. This becomes clear if we think back to one of the early questions posed in this course: “prior to sampling is it possible to predict with absolute certainty what will be observed?” The answer to this question is “no”; although it would be of interest to know <strong>how likely it is that certain values would be observed</strong>. Or, what is the <strong>probability</strong> of observing certain values?</p>
+<p>Before proceeding, we need some more tools:</p>
 </section>
+<section id="venn-diagrams" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="venn-diagrams"><span class="header-section-number">7.2</span> Venn diagrams</h2>
+<p>Venn diagrams (and diagrams in general) are of enormous help in trying to understand, and manipulate probability. We begin with some basic definitions, some of which we have encountered before.</p>
+<ul>
+<li><p><strong>Experiment</strong>: any process which, when applied, provides data or an outcome; e.g., rolling a dice and observing the number of dots on the upturned face; recording the amount of rainfall in Manchester over a period of time.</p></li>
+<li><p><strong>Sample Space</strong>: set of possible outcomes of an experiment; e.g., <span class="math inline">\(S\)</span> (or $$) <span class="math inline">\(=\)</span> <span class="math inline">\(\{1,2,3,4,5,6\}\)</span>, which is the sample space of rolling a dice. Or <span class="math inline">\(S=\{x;x\geq 0\}\)</span>, which is the sample space of an experiment where the outcomes can be any real non-negative number, or the set of real non-negative real numbers.</p></li>
+<li><p><strong>Simple Event</strong>: just one of the possible outcomes on <span class="math inline">\(S\)</span></p></li>
+<li><p><strong>Event</strong>: a subset of <span class="math inline">\(S\)</span>, denoted <span class="math inline">\(E\subset S\)</span>; e.g., <span class="math inline">\(E=\left\{ 2,4,6\right\}\)</span> (i.e.&nbsp;any even number on a dice) or <span class="math inline">\(E=\left\{ x;4&lt;x\leq 10\right\}\)</span>, which means “the set of real numbers which are strictly bigger than <span class="math inline">\(4\)</span> but less than or equal to <span class="math inline">\(10\)</span>”.<br>
+Note that an event, <span class="math inline">\(E\)</span>, is a collection of simple events. You will have to decide what your event of interest is and that depends on the situation.</p></li>
+</ul>
+<p>Such concepts can be represented by means of the following Venn Diagram:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Venn_1.jpg" class="img-fluid figure-img"></p>
+<figcaption>Venn Diagram.</figcaption>
+</figure>
+</div>
+<p>The sample space, <span class="math inline">\(S\)</span>, is depicted as a closed rectangle, and the event <span class="math inline">\(E\)</span> is a closed loop wholly contained within <span class="math inline">\(S\)</span> and we write (in set notation) <span class="math inline">\(E\subset S\)</span>.</p>
+<p>In dealing with probability, and in particular the probability of an event (or events) occurring, we shall need to be familiar with <strong>unions, intersections</strong> and <strong>complements</strong>.</p>
+<p>To illustrate these concepts, consider the sample space <span class="math inline">\(S=\{x;x\geq 0\}\)</span>. In this example the sample space represents an infinite set of numbers. Don’t let the square finite sample space, represented in the next Figure, distract you from that. The following events defined on <span class="math inline">\(S\)</span>, as depicted in the Figure:</p>
+<p>$E={x;4&lt;x},,F={x;7&lt;x},,G={x;x&gt;15},,H={x;9&lt;x} $.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Venn_2.png" class="img-fluid figure-img"></p>
+<figcaption>Venn Diagram.</figcaption>
+</figure>
+</div>
+<p>Note that the size of the graphical representation does not represent any probabilities here.</p>
+<ul>
+<li><ol type="a">
+<li>Event <span class="math inline">\(E\)</span>: This graphical representation merely illustrates that <span class="math inline">\(E\)</span> is a subset of <span class="math inline">\(S\)</span>, <span class="math inline">\(E\subset S\)</span></li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Union: <span class="math inline">\(E\cup F\)</span><br>
+The <strong>union</strong> of <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> is denoted <span class="math inline">\(E\cup F\)</span>, with <span class="math inline">\(E\cup F=\{x;4&lt;x\leq 17\}\)</span>; i.e., it contains elements (simple events) which are either in <span class="math inline">\(E\)</span> or in <span class="math inline">\(F\)</span> or (perhaps) in both. This is illustrated on the Venn diagram by the dark shaded area in diagram (b).</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>Intersection: <span class="math inline">\(E\cap F\)</span><br>
+The <strong>intersection</strong> of <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> is denoted <span class="math inline">\(E\cap F\)</span>, with $EF={ x;7x} $; i.e., it contains elements (simple events) which are common to both <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>. Again this is depicted by the dark shaded area in (c).</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li>The Null set/event: $EG=$<br>
+If events have no elements in common (as, for example, <span class="math inline">\(E\)</span> and <span class="math inline">\(G\)</span>) then they are said to be <strong>mutually exclusive</strong>, and we can write <span class="math inline">\(E\cap G=\emptyset\)</span>, meaning the <strong>null set</strong> which contains no elements. Such a situation is illustrated on the Venn Diagram by events (the two shaded events in (d)) which do not overlap. Notice however that <span class="math inline">\(G\cap F\neq \emptyset\)</span>, since <span class="math inline">\(G\)</span> and <span class="math inline">\(F\)</span> have elements in common.</li>
+</ol></li>
+<li><ol start="5" type="a">
+<li>Complement of <span class="math inline">\(E\)</span>: <span class="math inline">\(\bar{E}\)</span><br>
+The <strong>complement</strong> of an event <span class="math inline">\(E\)</span>, say, is everything defined on the sample space which is not in <span class="math inline">\(E\)</span> This event is denoted <span class="math inline">\(\bar{E}\)</span>, the dark shaded area in (e); here <span class="math inline">\(\bar{E}=\left\{ x;x\leq 4\right\} \cup \left\{ x;x&gt;10\right\}\)</span>. An alternative notation that is sometimes used for the complement of an event <span class="math inline">\(E\)</span> is <span class="math inline">\(E^c\)</span>.</li>
+</ol></li>
+<li><ol start="6" type="a">
+<li>Subset of <span class="math inline">\(F\)</span>: <span class="math inline">\(H\subset F\)</span> and <span class="math inline">\(H\cap F=H\)</span><br>
+Finally note that <span class="math inline">\(H\)</span> is a sub-set of <span class="math inline">\(F\)</span>; see (f). It is depicted as the dark closed loop wholly contained within <span class="math inline">\(F\)</span>, the lighter shaded area, so that <span class="math inline">\(H\cap F=H\)</span>; if an element in the sample space is a member of <span class="math inline">\(H\)</span> then it must also be member of <span class="math inline">\(F\)</span>. (In mathematical logic, we employ this scenario to indicate that “<span class="math inline">\(H\)</span> implies <span class="math inline">\(F\)</span>”, but not necessarily vice-versa.) Notice that $GH=$ but <span class="math inline">\(H\cap E\neq \emptyset\)</span>.</li>
+</ol></li>
+</ul>
+<p>This video goes through most elements of the above example (YouTube, 8min).</p>
+<p>{{ &lt; video https://www.youtube.com/watch?v=RYRze4XXlrE &gt;}}</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose that the sample space <span class="math inline">\(S\)</span> consists of the positive integers from 1 to 10 inclusive. Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be the following sets:</p>
+<p><span class="math inline">\(X=\{2,3,4\},\\\,Y=\{3,4,5\},\\Z=\{5,6,7\}\)</span>.</p>
+<p>List the members in the following sets. For the Emplty set answer “.”. If the answer is a single number give that number, if the answer contains several numbers, e.g.&nbsp;3, 5 and 6, then asnwer “3,5,6”, numbers in ascending order , seperated by a comma and without spaces).</p>
+<p><span class="math inline">\(\bar{X}\cap Y =\)</span> <input class="webex-solveme nospaces" size="1" data-answer="[&quot;5&quot;]"></p>
+<p><span class="math inline">\(\bar{X}\cup Y  =\)</span> <input class="webex-solveme nospaces" size="18" data-answer="[&quot;1,3,4,5,6,7,8,9,10&quot;]"></p>
+<p><span class="math inline">\(X\cap Z  =\)</span> <input class="webex-solveme nospaces" size="1" data-answer="[&quot;.&quot;]"></p>
+<p><span class="math inline">\(Y\cup Z  =\)</span> <input class="webex-solveme nospaces" size="9" data-answer="[&quot;3,4,5,6,7&quot;]"></p>
+<p><span class="math inline">\(\overline{Y\cup Z} =\)</span> <input class="webex-solveme nospaces" size="10" data-answer="[&quot;1,2,8,9,10&quot;]"></p>
+<p><span class="math inline">\(X\cap(\overline{Y\cup Z})  =\)</span> <input class="webex-solveme nospaces" size="1" data-answer="[&quot;2&quot;]"></p>
+<p><span class="math inline">\(\overline{X\cap(\overline{Y\cup Z})}  =\)</span> <input class="webex-solveme nospaces" size="18" data-answer="[&quot;1,3,4,5,6,7,8,9,10&quot;]"></p>
+<div class="webex-solution">
+<button>
+Solutions
+</button>
+<ul>
+<li><span class="math inline">\(\bar{X}\cap Y = \{5\}\)</span></li>
+<li><span class="math inline">\(\bar{X}\cup Y  = \{1,3,4,5,6,7,8,9,10\}\)</span></li>
+<li><span class="math inline">\(X\cap Z  = \{ \emptyset \}\)</span></li>
+<li><span class="math inline">\(Y\cup Z  = \{3,4,5,6,7\}\)</span></li>
+<li><span class="math inline">\(\overline{Y\cup Z}  = \{1,2,8,9,10\}\)</span></li>
+<li><span class="math inline">\(X\cap(\overline{Y\cup Z})  = \{2\}\)</span></li>
+<li><span class="math inline">\(\overline{X\cap(\overline{Y\cup Z})}  = \{1,3,4,5,6,7,8,9,10\}\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -838,13 +749,13 @@ Feedback
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./DealingWithDataSets.html" class="pagination-link" aria-label="Dealing with real life datasets">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dealing with real life datasets</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./datatypes.html" class="pagination-link" aria-label="Data Types">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Types</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

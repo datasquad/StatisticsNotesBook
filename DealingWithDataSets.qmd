@@ -31,7 +31,7 @@ Excel files have extension "xlsx". Some Excel files which have been created on o
 
 Another common file formal for spreadsheets is a "csv" file. That stands for "comma separated values". While you can open "xlsx" files only with a spreadsheet software, the advantage of a "csv" file is that it is basically just a text file in which you can find the values of the data table. For instance the same data as in the earlier image would look like this in a "csv" file: 
 
-![Key elements of a csv file.](images/CsvStructure.png)
+![Structure of a csv file.](images/CsvStructure.png)
 
 If you open a "csv" file with a spreadsheet software, the software will automatically present the data as if it was a spreadsheet. However, you cannot save any graphs or multiple tabs in "csv" files. Such files are very popular for storing large datasets, as the resulting file sizes are significantly smaller than equivalent "xlsx" file sizes.
 
@@ -61,9 +61,9 @@ We will work through some key Excel skills by looking at a particular example. O
 
 The actual data are in three individual data files:
 
-* CountryIndicators_2019_GDPpc.csv, containing the GDPpc in dollars per year per person
-* CountryIndicators_2019_HealthExp.csv, containing a countries Health Expenditure as a percentage of GDP
-* CountryIndicators_2019_LandArea.csv, containing a countries land area in square kilometers
+* [CountryIndicators_2019_GDPpc.csv](https://datasquad.github.io/StatisticsNotesBook/data/CountryIndicators_2019_GDPpc.csv), containing the GDPpc in dollars per year per person
+* [CountryIndicators_2019_HealthExp.csv](https://datasquad.github.io/StatisticsNotesBook/data/CountryIndicators_2019_HealthExp.csv), containing a countries Health Expenditure as a percentage of GDP
+* [CountryIndicators_2019_LandArea.csv](https://datasquad.github.io/StatisticsNotesBook/data/CountryIndicators_2019_LandArea.csv), containing a countries land area in square kilometers
 
 
 All data are from the excellent [Gapminder website](https://www.gapminder.org/). 
