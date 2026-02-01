@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
+<link href="./DealingWithDataSets.html" rel="next">
 <link href="./descriptive_stats.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -176,8 +176,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./DealingWithDataSets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dealing with real life datasets</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -874,12 +880,12 @@ Important
 <pre><code>\textbf{Exercise}</code></pre>
 <p>Draw a line which you think best fits the 12 data points (If you are looking at this on a screen take a ruler and hold it over the points). From your line, what can you say, roughly, about the intercept and slope of that line (only use eye-balling here, we will get to the precise results shortly).</p>
 <p>The estimated slope coefficient will be</p>
-<div id="radio_RIHIJFTPDP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RIHIJFTPDP" value=""> <span>between -3 and -1</span></label><label><input type="radio" autocomplete="off" name="radio_RIHIJFTPDP" value=""> <span>between -1 and 1</span></label><label><input type="radio" autocomplete="off" name="radio_RIHIJFTPDP" value="answer"> <span>between 1 and 5</span></label><label><input type="radio" autocomplete="off" name="radio_RIHIJFTPDP" value=""> <span>between 5 and 10</span></label>
+<div id="radio_RHAPGEEAZZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RHAPGEEAZZ" value=""> <span>between -3 and -1</span></label><label><input type="radio" autocomplete="off" name="radio_RHAPGEEAZZ" value=""> <span>between -1 and 1</span></label><label><input type="radio" autocomplete="off" name="radio_RHAPGEEAZZ" value="answer"> <span>between 1 and 5</span></label><label><input type="radio" autocomplete="off" name="radio_RHAPGEEAZZ" value=""> <span>between 5 and 10</span></label>
 </div>
 <p>The estimated intercept coefficient will be</p>
-<div id="radio_AQCGUKNQTH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_AQCGUKNQTH" value=""> <span>between -100 and -70</span></label><label><input type="radio" autocomplete="off" name="radio_AQCGUKNQTH" value="answer"> <span>between -70 and -30</span></label><label><input type="radio" autocomplete="off" name="radio_AQCGUKNQTH" value=""> <span>between -30 and 30</span></label><label><input type="radio" autocomplete="off" name="radio_AQCGUKNQTH" value=""> <span>between 30 and 700</span></label><label><input type="radio" autocomplete="off" name="radio_AQCGUKNQTH" value=""> <span>between 70 and 100</span></label>
+<div id="radio_POJPSFBFOA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_POJPSFBFOA" value=""> <span>between -100 and -70</span></label><label><input type="radio" autocomplete="off" name="radio_POJPSFBFOA" value="answer"> <span>between -70 and -30</span></label><label><input type="radio" autocomplete="off" name="radio_POJPSFBFOA" value=""> <span>between -30 and 30</span></label><label><input type="radio" autocomplete="off" name="radio_POJPSFBFOA" value=""> <span>between 30 and 700</span></label><label><input type="radio" autocomplete="off" name="radio_POJPSFBFOA" value=""> <span>between 70 and 100</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -1178,16 +1184,16 @@ Feedback
 <div class="callout-body-container callout-body">
 <p>Which of the following two regression specifications is most sensible? <select class="webex-select"><option value="blank"></option><option value="answer">A</option><option value="">B</option></select></p>
 <ul>
-<li>A: (s_i = + ~ m_i + _i)</li>
-<li>B: (m_i = + ~ s_i + _i)</li>
+<li>A: <span class="math inline">\(s_i = \alpha + \beta~ m_i + \epsilon_i\)</span></li>
+<li>B: <span class="math inline">\(m_i = \alpha + \beta~ s_i + \epsilon_i\)</span></li>
 </ul>
 <p>Estimate your chosen regression.</p>
 <p>You get it right if the “Multiple R” statistics is 0.4611743.</p>
-<p>What is the estimated intercept? $a = $ <input class="webex-solveme nospaces" size="6" data-answer="[&quot;26.431&quot;]"></p>
-<p>What is the estimated slope coefficient? $b = $ <input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.5418&quot;,&quot;.5418&quot;]"></p>
+<p>What is the estimated intercept? <span class="math inline">\(a =\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;26.431&quot;]"></p>
+<p>What is the estimated slope coefficient? <span class="math inline">\(b =\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.5418&quot;,&quot;.5418&quot;]"></p>
 <p>What is the interpretation of the estimated intercept? (one correct answer only)</p>
-<div id="radio_LMUBCUYZZW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_LMUBCUYZZW" value=""> <span>A student who got a grade of 26 in Advanced Mathematics should expect to get a grade of 0 in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_LMUBCUYZZW" value=""> <span>A student who got a grade of 26 in Advanced Mathematics should expect to get a grade of 26 in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_LMUBCUYZZW" value=""> <span>A student who got a grade of 0 in Advanced Mathematics should expect to get a grade of 26 in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_LMUBCUYZZW" value="answer"> <span>One should not interpret the intercept as no grades close to 0 in Advanced Maths were included in the sample.</span></label>
+<div id="radio_DVFRJBIPHH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DVFRJBIPHH" value=""> <span>A student who got a grade of 26 in Advanced Mathematics should expect to get a grade of 0 in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_DVFRJBIPHH" value=""> <span>A student who got a grade of 26 in Advanced Mathematics should expect to get a grade of 26 in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_DVFRJBIPHH" value=""> <span>A student who got a grade of 0 in Advanced Mathematics should expect to get a grade of 26 in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_DVFRJBIPHH" value="answer"> <span>One should not interpret the intercept as no grades close to 0 in Advanced Maths were included in the sample.</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -1196,8 +1202,8 @@ Feedback
 <p>You should not interpret the intercept if the value of 0 for the explanatory variable (here the Advanced Maths grade) is not included inside the range of the observed values.</p>
 </div>
 <p>What is the interpretation of the estimated slope coefficient? (one correct answer only)</p>
-<div id="radio_MZHUSOMNXI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MZHUSOMNXI" value="answer"> <span>For every extra grade in Advanced Maths students should expect an additional 0.54 grade in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_MZHUSOMNXI" value=""> <span>For every extra grade in Advanced Maths students will get an additional 0.54 grade in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_MZHUSOMNXI" value=""> <span>In order to get an additional grade in Advanced Statistics you should improve your Advanced Maths grae by 0.54.</span></label><label><input type="radio" autocomplete="off" name="radio_MZHUSOMNXI" value=""> <span>54% of the variation in the Advanced Statistics grades can be explained by variation in the Advanced Mathematics grades.</span></label>
+<div id="radio_TPPVKAWJHS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TPPVKAWJHS" value="answer"> <span>For every extra grade in Advanced Maths students should expect an additional 0.54 grade in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_TPPVKAWJHS" value=""> <span>For every extra grade in Advanced Maths students will get an additional 0.54 grade in Advanced Statistics.</span></label><label><input type="radio" autocomplete="off" name="radio_TPPVKAWJHS" value=""> <span>In order to get an additional grade in Advanced Statistics you should improve your Advanced Maths grae by 0.54.</span></label><label><input type="radio" autocomplete="off" name="radio_TPPVKAWJHS" value=""> <span>54% of the variation in the Advanced Statistics grades can be explained by variation in the Advanced Mathematics grades.</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -1208,12 +1214,12 @@ Hint
 <p>What percentage of the variation in the Advanced Statistics grades is explained by this model?</p>
 <p><span class="math inline">\(R^2 =\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.2127&quot;,&quot;.2127&quot;]"></p>
 <p>If you had an Advanced Mathematics grade of 50, what would be your expected Advanced Statistics grade?</p>
-<p><span class="math inline">\(\hat(s)=\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;53.521&quot;]"></p>
+<p><span class="math inline">\(\hat{s}=\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;53.521&quot;]"></p>
 <div class="webex-solution">
 <button>
 Hint
 </button>
-<p><span class="math inline">\(\hat(s)=\)</span> 26.4310 + 0.5418 = 53.521$</p>
+<p><span class="math inline">\(\hat{s}=\)</span> 26.4310 + 0.5418 = 53.521$</p>
 </div>
 </div>
 </div>
@@ -1637,8 +1643,8 @@ Hint
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link" aria-label="Summary">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./DealingWithDataSets.html" class="pagination-link" aria-label="Dealing with real life datasets">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dealing with real life datasets</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
