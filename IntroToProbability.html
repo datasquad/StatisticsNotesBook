@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Dealing with real life datasets – Statistics Notes</title>
+<title>7&nbsp; Introducing Probability – Statistics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./IntroToProbability.html" rel="next">
-<link href="./CorrelationRegressionCausation.html" rel="prev">
+<link href="./summary.html" rel="next">
+<link href="./DealingWithDataSets.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="include/webex.css">
 </head>
@@ -84,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./DealingWithDataSets.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dealing with real life datasets</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./IntroToProbability.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducing Probability</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -147,13 +176,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./DealingWithDataSets.html" class="sidebar-item-text sidebar-link active">
+  <a href="./DealingWithDataSets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dealing with real life datasets</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./IntroToProbability.html" class="sidebar-item-text sidebar-link">
+  <a href="./IntroToProbability.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducing Probability</span></span></a>
   </div>
 </li>
@@ -179,14 +208,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#excel" id="toc-excel" class="nav-link active" data-scroll-target="#excel"><span class="header-section-number">6.1</span> Excel</a>
-  <ul class="collapse">
-  <li><a href="#file-formats" id="toc-file-formats" class="nav-link" data-scroll-target="#file-formats"><span class="header-section-number">6.1.1</span> File Formats</a></li>
-  </ul></li>
-  <li><a href="#a-good-data-table" id="toc-a-good-data-table" class="nav-link" data-scroll-target="#a-good-data-table"><span class="header-section-number">6.2</span> A Good Data table</a></li>
-  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources"><span class="header-section-number">6.3</span> Data Sources</a></li>
-  <li><a href="#excel-skills" id="toc-excel-skills" class="nav-link" data-scroll-target="#excel-skills"><span class="header-section-number">7</span> Excel Skills</a></li>
-  <li><a href="#a-worked-example" id="toc-a-worked-example" class="nav-link" data-scroll-target="#a-worked-example"><span class="header-section-number">8</span> A Worked example</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">7.1</span> Introduction</a></li>
+  <li><a href="#venn-diagrams" id="toc-venn-diagrams" class="nav-link" data-scroll-target="#venn-diagrams"><span class="header-section-number">7.2</span> Venn diagrams</a></li>
   </ul>
 </nav>
     </div>
@@ -195,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dealing with real life datasets</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducing Probability</span></h1>
 </div>
 
 
@@ -212,109 +235,110 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="excel" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="excel"><span class="header-section-number">6.1</span> Excel</h2>
-<p>Excel is an industry standard spreadsheet software by Microsoft. It is by far the most common spreadsheet software and if you can work in Excel you will be able to work in most other spreadsheet softwares (such as Numbers for Macs or Google Sheets). A spreadsheet organises data in tables and that is the most common way to present data.</p>
-<p>Being “fluent” in Excel is absolutely critical for your time as a student and, more importantly, for your time after University. You will therefore have to learn a number of critical skills in Excel.</p>
-<ul>
-<li>Data Entry</li>
-<li>Re-arranging data into a well organised table</li>
-<li>Sorting and filtering data</li>
-<li>Cleaning Data</li>
-<li>Using formulae / Calculate new variables</li>
-<li>Merging Data</li>
-<li>Calculating Summary Statistics</li>
-<li>Producing Graphs</li>
-</ul>
-<section id="file-formats" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="file-formats"><span class="header-section-number">6.1.1</span> File Formats</h3>
-<p>Excel files have extension “xlsx”. Some Excel files which have been created on old versions of Excel would have the extension “xls”.</p>
+<section id="introduction" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">7.1</span> Introduction</h2>
+<p>This video gives a brief introduction into why economists and social scientists should study probabilities (YouTube, 4min).</p>
+<p>{{ &lt; video https://www.youtube.com/watch?v=I3OFG1QlDLc &gt; }}</p>
+<p>So far we have been looking at ways of summarising samples of data drawn from an underlying population of interest. Although at times tedious, all such arithmetic calculations are fairly mechanical and straightforward to apply. To remind ourselves, one of the primary reasons for wishing to summarise data is so assist in the development of inferences about the population from which the data were taken. That is to say, we would like to elicit some information about the mechanism which generated the observed data.</p>
+<p>Perhaps you can recall this little schematic which we discussed in the introduction.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/SpreadsheetStructure.png" class="img-fluid figure-img"></p>
-<figcaption>Key elements of an xlsx file.</figcaption>
+<p><img src="images/InferenceScheme.png" class="img-fluid figure-img"></p>
+<figcaption>Schematic of Statistical Inference and how it relates to descriptive statistics and probability calculus.</figcaption>
 </figure>
 </div>
-<p>Another common file formal for spreadsheets is a “csv” file. That stands for “comma separated values”. While you can open “xlsx” files only with a spreadsheet software, the advantage of a “csv” file is that it is basically just a text file in which you can find the values of the data table. For instance the same data as in the earlier image would look like this in a “csv” file:</p>
+<p>We now start on the process of developing mathematical ways of formulating inferences and this requires the use of <strong>probability</strong>. This becomes clear if we think back to one of the early questions posed in this course: “prior to sampling is it possible to predict with absolute certainty what will be observed?” The answer to this question is “no”; although it would be of interest to know <strong>how likely it is that certain values would be observed</strong>. Or, what is the <strong>probability</strong> of observing certain values?</p>
+<p>Before proceeding, we need some more tools:</p>
+</section>
+<section id="venn-diagrams" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="venn-diagrams"><span class="header-section-number">7.2</span> Venn diagrams</h2>
+<p>Venn diagrams (and diagrams in general) are of enormous help in trying to understand, and manipulate probability. We begin with some basic definitions, some of which we have encountered before.</p>
+<ul>
+<li><p><strong>Experiment</strong>: any process which, when applied, provides data or an outcome; e.g., rolling a dice and observing the number of dots on the upturned face; recording the amount of rainfall in Manchester over a period of time.</p></li>
+<li><p><strong>Sample Space</strong>: set of possible outcomes of an experiment; e.g., <span class="math inline">\(S\)</span> (or $$) <span class="math inline">\(=\)</span> <span class="math inline">\(\{1,2,3,4,5,6\}\)</span>, which is the sample space of rolling a dice. Or <span class="math inline">\(S=\{x;x\geq 0\}\)</span>, which is the sample space of an experiment where the outcomes can be any real non-negative number, or the set of real non-negative real numbers.</p></li>
+<li><p><strong>Simple Event</strong>: just one of the possible outcomes on <span class="math inline">\(S\)</span></p></li>
+<li><p><strong>Event</strong>: a subset of <span class="math inline">\(S\)</span>, denoted <span class="math inline">\(E\subset S\)</span>; e.g., <span class="math inline">\(E=\left\{ 2,4,6\right\}\)</span> (i.e.&nbsp;any even number on a dice) or <span class="math inline">\(E=\left\{ x;4&lt;x\leq 10\right\}\)</span>, which means “the set of real numbers which are strictly bigger than <span class="math inline">\(4\)</span> but less than or equal to <span class="math inline">\(10\)</span>”.<br>
+Note that an event, <span class="math inline">\(E\)</span>, is a collection of simple events. You will have to decide what your event of interest is and that depends on the situation.</p></li>
+</ul>
+<p>Such concepts can be represented by means of the following Venn Diagram:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/CsvStructure.png" class="img-fluid figure-img"></p>
-<figcaption>Structure of a csv file.</figcaption>
+<p><img src="images/Venn_1.jpg" class="img-fluid figure-img"></p>
+<figcaption>Venn Diagram.</figcaption>
 </figure>
 </div>
-<p>If you open a “csv” file with a spreadsheet software, the software will automatically present the data as if it was a spreadsheet. However, you cannot save any graphs or multiple tabs in “csv” files. Such files are very popular for storing large datasets, as the resulting file sizes are significantly smaller than equivalent “xlsx” file sizes.</p>
-</section>
-</section>
-<section id="a-good-data-table" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="a-good-data-table"><span class="header-section-number">6.2</span> A Good Data table</h2>
-<p>Data should be organised in tables. This is not a doctrine and indeed if you have very high-dimensional data (many variables and many observations) then there may well be better (more efficient) alternatives. But for the purpose of this unit we will be thinking about tables.</p>
-<p>Here is an example of a well structured, yet very simple table.</p>
+<p>The sample space, <span class="math inline">\(S\)</span>, is depicted as a closed rectangle, and the event <span class="math inline">\(E\)</span> is a closed loop wholly contained within <span class="math inline">\(S\)</span> and we write (in set notation) <span class="math inline">\(E\subset S\)</span>.</p>
+<p>In dealing with probability, and in particular the probability of an event (or events) occurring, we shall need to be familiar with <strong>unions, intersections</strong> and <strong>complements</strong>.</p>
+<p>To illustrate these concepts, consider the sample space <span class="math inline">\(S=\{x;x\geq 0\}\)</span>. In this example the sample space represents an infinite set of numbers. Don’t let the square finite sample space, represented in the next Figure, distract you from that. The following events defined on <span class="math inline">\(S\)</span>, as depicted in the Figure:</p>
+<p>$E={x;4&lt;x},,F={x;7&lt;x},,G={x;x&gt;15},,H={x;9&lt;x} $.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Table1.png" class="img-fluid figure-img"></p>
-<figcaption>A simple table.</figcaption>
+<p><img src="images/Venn_2.png" class="img-fluid figure-img"></p>
+<figcaption>Venn Diagram.</figcaption>
 </figure>
 </div>
-<p>You need to think about observations (in rows) and variables (in columns). In the example you see for instance the observation for Afghanistan. For each observation we have information (variables!) on the size of the Land Area, Health Expenditure and GDP per capita. You can also see that the country information comes in three forms (three variables): “country”, “geoID_2” and “geoID_3”. The two latter are abbreviations for countries in either two or three letter codes. These are super useful as you will see in the worked example below (see <a href="https://www.iban.com/country-codes">IBAN codes</a>.</p>
-<p>You can see that all information for any particular country is organised in one row (e.g.&nbsp;row 2 for Afghanistan, row 6 for Angola). All information for the same variable is presented in the same column (e.g.&nbsp;col D for the Land area and col F for the per capita GDP). This type of clean organisation is super important, but sometimes you will have to first do some work to get there.</p>
-</section>
-<section id="data-sources" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="data-sources"><span class="header-section-number">6.3</span> Data Sources</h2>
-<p>There are many places from which you can download data. It is impossible to list them all, but a selection of good places is listed on the <a href="https://livemanchesterac.sharepoint.com/sites/UoM-HUMS-SOSS-EconStudySkills/SitePages/Data-Skills.aspx">Economics Department list of data sources</a>.</p>
-</section>
-<section id="excel-skills" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Excel Skills</h1>
-<p>In this unit we will help you develop your Excel skills. Statistics specific functions you will need will be introduced in this unit. But, we do assume that you have some basic spreadsheet skills. The internet and particularly YouTube is a great place to learn important skills. There are too many places to list them all, but the <a href="https://livemanchesterac.sharepoint.com/sites/UoM-HUMS-SOSS-EconStudySkills/SitePages/Data-Skills.aspx#spreadsheet-skills">Economics Department has collected a few very useful ones here</a>.</p>
-</section>
-<section id="a-worked-example" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> A Worked example</h1>
-<p>We will work through some key Excel skills by looking at a particular example. Our aim is to create the table with country indicators which we saw an excerpt of in the previous image.</p>
-<p>The actual data are in three individual data files:</p>
+<p>Note that the size of the graphical representation does not represent any probabilities here.</p>
 <ul>
-<li><a href="https://datasquad.github.io/StatisticsNotesBook/data/CountryIndicators_2019_GDPpc.csv">CountryIndicators_2019_GDPpc.csv</a>, containing the GDPpc in dollars per year per person</li>
-<li><a href="https://datasquad.github.io/StatisticsNotesBook/data/CountryIndicators_2019_HealthExp.csv">CountryIndicators_2019_HealthExp.csv</a>, containing a countries Health Expenditure as a percentage of GDP</li>
-<li><a href="https://datasquad.github.io/StatisticsNotesBook/data/CountryIndicators_2019_LandArea.csv">CountryIndicators_2019_LandArea.csv</a>, containing a countries land area in square kilometers</li>
+<li><ol type="a">
+<li>Event <span class="math inline">\(E\)</span>: This graphical representation merely illustrates that <span class="math inline">\(E\)</span> is a subset of <span class="math inline">\(S\)</span>, <span class="math inline">\(E\subset S\)</span></li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Union: <span class="math inline">\(E\cup F\)</span><br>
+The <strong>union</strong> of <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> is denoted <span class="math inline">\(E\cup F\)</span>, with <span class="math inline">\(E\cup F=\{x;4&lt;x\leq 17\}\)</span>; i.e., it contains elements (simple events) which are either in <span class="math inline">\(E\)</span> or in <span class="math inline">\(F\)</span> or (perhaps) in both. This is illustrated on the Venn diagram by the dark shaded area in diagram (b).</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>Intersection: <span class="math inline">\(E\cap F\)</span><br>
+The <strong>intersection</strong> of <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> is denoted <span class="math inline">\(E\cap F\)</span>, with $EF={ x;7x} $; i.e., it contains elements (simple events) which are common to both <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>. Again this is depicted by the dark shaded area in (c).</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li>The Null set/event: $EG=$<br>
+If events have no elements in common (as, for example, <span class="math inline">\(E\)</span> and <span class="math inline">\(G\)</span>) then they are said to be <strong>mutually exclusive</strong>, and we can write <span class="math inline">\(E\cap G=\emptyset\)</span>, meaning the <strong>null set</strong> which contains no elements. Such a situation is illustrated on the Venn Diagram by events (the two shaded events in (d)) which do not overlap. Notice however that <span class="math inline">\(G\cap F\neq \emptyset\)</span>, since <span class="math inline">\(G\)</span> and <span class="math inline">\(F\)</span> have elements in common.</li>
+</ol></li>
+<li><ol start="5" type="a">
+<li>Complement of <span class="math inline">\(E\)</span>: <span class="math inline">\(\bar{E}\)</span><br>
+The <strong>complement</strong> of an event <span class="math inline">\(E\)</span>, say, is everything defined on the sample space which is not in <span class="math inline">\(E\)</span> This event is denoted <span class="math inline">\(\bar{E}\)</span>, the dark shaded area in (e); here <span class="math inline">\(\bar{E}=\left\{ x;x\leq 4\right\} \cup \left\{ x;x&gt;10\right\}\)</span>. An alternative notation that is sometimes used for the complement of an event <span class="math inline">\(E\)</span> is <span class="math inline">\(E^c\)</span>.</li>
+</ol></li>
+<li><ol start="6" type="a">
+<li>Subset of <span class="math inline">\(F\)</span>: <span class="math inline">\(H\subset F\)</span> and <span class="math inline">\(H\cap F=H\)</span><br>
+Finally note that <span class="math inline">\(H\)</span> is a sub-set of <span class="math inline">\(F\)</span>; see (f). It is depicted as the dark closed loop wholly contained within <span class="math inline">\(F\)</span>, the lighter shaded area, so that <span class="math inline">\(H\cap F=H\)</span>; if an element in the sample space is a member of <span class="math inline">\(H\)</span> then it must also be member of <span class="math inline">\(F\)</span>. (In mathematical logic, we employ this scenario to indicate that “<span class="math inline">\(H\)</span> implies <span class="math inline">\(F\)</span>”, but not necessarily vice-versa.) Notice that $GH=$ but <span class="math inline">\(H\cap E\neq \emptyset\)</span>.</li>
+</ol></li>
 </ul>
-<p>All data are from the excellent <a href="https://www.gapminder.org/">Gapminder website</a>.</p>
-<p>Inspect the three files to see which variables are in the files. You will find that not all files have all the relevant country identifier variables. You should merge the three files such that the resulting file has the structure illustrated above.</p>
-<p>As you do so, you should check for</p>
-<ul>
-<li>implausible values (can you find the correct ones)</li>
-<li>missing countries (i.e.&nbsp;not all countries appear in all three files)</li>
-<li>missing values for country identifiers</li>
-<li>inconsistent country names</li>
-</ul>
-<p>Finally, you should add two new variables to your data file</p>
-<ol type="1">
-<li>a variable which shows the GDP per capita in 1000’s of dollars (i.e.&nbsp;the entry should be 10, if the GDP pc is 10,000 USD).<br>
-To do this you should use formulae in Excel.</li>
-<li>a new variable which indicates which continent each country is in.<br>
-It is best to not do that manually. You should try and find a table somewhere on the internet that contains a list of country names (or better identifiers) and the relevant continent. You can then merge the information.</li>
-</ol>
-<p>The process of achieving all this is a combination of what we call data cleaning and data wrangling.</p>
-<p>The following video provides a walk-through this task (You Tube, 55min)</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/wQaLXPWcLZw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<div class="callout callout-style-default callout-important callout-titled">
+<p>This video goes through most elements of the above example (YouTube, 8min).</p>
+<p>{{ &lt; video https://www.youtube.com/watch?v=RYRze4XXlrE &gt;}}</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Exercise
+<span class="screen-reader-only">Note</span>Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you followed the walk-through and worked on your own version, you should be able to answer the following questions (all referring to 2019 data).</p>
-<p><strong>What is the Excel keyboard shortcut to undo your last action in Excel</strong> (e.g.&nbsp;undo the deletion of columns which you realise was unwise).</p>
-<p><select class="webex-select"><option value="blank"></option><option value="">CTRL + r</option><option value="answer">CTRL + z</option><option value="">SHIFT + r</option><option value="">SHIFT + z</option></select></p>
-<p><strong>Which country has the highest GDP per capita in South America?</strong></p>
-<p><input class="webex-solveme nospaces" size="7" data-answer="[&quot;Uruguay&quot;]"></p>
-<p><strong>Order Israel, Japan, Iran, Saudia Arabia and Jordan according to Health expenditure as a percentage of GDP (highest expenditure to lowest).</strong></p>
-<p>Top: <select class="webex-select"><option value="blank"></option><option value="">Iran</option><option value="">Israel</option><option value="answer">Japan</option><option value="">Jordan</option><option value="">Saudia Arabia</option></select></p>
-<p>2nd: <select class="webex-select"><option value="blank"></option><option value="answer">Iran</option><option value="">Israel</option><option value="">Japan</option><option value="">Jordan</option><option value="">Saudia Arabia</option></select></p>
-<p>3rd: <select class="webex-select"><option value="blank"></option><option value="">Iran</option><option value="">Israel</option><option value="">Japan</option><option value="answer">Jordan</option><option value="">Saudia Arabia</option></select></p>
-<p>4th: <select class="webex-select"><option value="blank"></option><option value="">Iran</option><option value="answer">Israel</option><option value="">Japan</option><option value="">Jordan</option><option value="">Saudia Arabia</option></select></p>
-<p>5th: <select class="webex-select"><option value="blank"></option><option value="">Iran</option><option value="">Israel</option><option value="">Japan</option><option value="">Jordan</option><option value="answer">Saudia Arabia</option></select></p>
+<p>Suppose that the sample space <span class="math inline">\(S\)</span> consists of the positive integers from 1 to 10 inclusive. Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be the following sets:</p>
+<p><span class="math inline">\(X=\{2,3,4\},\\\,Y=\{3,4,5\},\\Z=\{5,6,7\}\)</span>.</p>
+<p>List the members in the following sets. For the Emplty set answer “.”. If the answer is a single number give that number, if the answer contains several numbers, e.g.&nbsp;3, 5 and 6, then asnwer “3,5,6”, numbers in ascending order , seperated by a comma and without spaces).</p>
+<p><span class="math inline">\(\bar{X}\cap Y =\)</span> <input class="webex-solveme nospaces" size="1" data-answer="[&quot;5&quot;]"></p>
+<p><span class="math inline">\(\bar{X}\cup Y  =\)</span> <input class="webex-solveme nospaces" size="18" data-answer="[&quot;1,3,4,5,6,7,8,9,10&quot;]"></p>
+<p><span class="math inline">\(X\cap Z  =\)</span> <input class="webex-solveme nospaces" size="1" data-answer="[&quot;.&quot;]"></p>
+<p><span class="math inline">\(Y\cup Z  =\)</span> <input class="webex-solveme nospaces" size="9" data-answer="[&quot;3,4,5,6,7&quot;]"></p>
+<p><span class="math inline">\(\overline{Y\cup Z} =\)</span> <input class="webex-solveme nospaces" size="10" data-answer="[&quot;1,2,8,9,10&quot;]"></p>
+<p><span class="math inline">\(X\cap(\overline{Y\cup Z})  =\)</span> <input class="webex-solveme nospaces" size="1" data-answer="[&quot;2&quot;]"></p>
+<p><span class="math inline">\(\overline{X\cap(\overline{Y\cup Z})}  =\)</span> <input class="webex-solveme nospaces" size="18" data-answer="[&quot;1,3,4,5,6,7,8,9,10&quot;]"></p>
+<div class="webex-solution">
+<button>
+Solutions
+</button>
+<ul>
+<li><span class="math inline">\(\bar{X}\cap Y = \{5\}\)</span></li>
+<li><span class="math inline">\(\bar{X}\cup Y  = \{1,3,4,5,6,7,8,9,10\}\)</span></li>
+<li><span class="math inline">\(X\cap Z  = \{ \emptyset \}\)</span></li>
+<li><span class="math inline">\(Y\cup Z  = \{3,4,5,6,7\}\)</span></li>
+<li><span class="math inline">\(\overline{Y\cup Z}  = \{1,2,8,9,10\}\)</span></li>
+<li><span class="math inline">\(X\cap(\overline{Y\cup Z})  = \{2\}\)</span></li>
+<li><span class="math inline">\(\overline{X\cap(\overline{Y\cup Z})}  = \{1,3,4,5,6,7,8,9,10\}\)</span></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -725,13 +749,13 @@ It is best to not do that manually. You should try and find a table somewhere on
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./CorrelationRegressionCausation.html" class="pagination-link" aria-label="Correlation, Regression and Causation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Correlation, Regression and Causation</span></span>
+      <a href="./DealingWithDataSets.html" class="pagination-link" aria-label="Dealing with real life datasets">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dealing with real life datasets</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./IntroToProbability.html" class="pagination-link" aria-label="Introducing Probability">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducing Probability</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
