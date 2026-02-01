@@ -1,5 +1,7 @@
 project:
   type: book
+  resources:
+    - data/
 book:
   title: Statistics Notes
   author: Ralf Becker
@@ -11,6 +13,7 @@ book:
   - graphical_descriptive.qmd
   - descriptive_stats.qmd
   - CorrelationRegressionCausation.qmd
+  - DealingWithDataSets.qmd
   - summary.qmd
   - references.qmd
 bibliography: references.bib

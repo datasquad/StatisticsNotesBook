@@ -660,16 +660,16 @@ There are a number of observations from this plot:
 	
 Which of the following two regression specifications is most sensible? `r mcq(c(answer = "A","B"))`
 	
-* A: \(s_i = \alpha + \beta~ m_i + \epsilon_i\)
-* B: \(m_i = \alpha + \beta~ s_i + \epsilon_i\)
+* A: $s_i = \alpha + \beta~ m_i + \epsilon_i$
+* B: $m_i = \alpha + \beta~ s_i + \epsilon_i$
 	  
 Estimate your chosen regression. 
 
 You get it right if the "Multiple R" statistics is 0.4611743.
 	
-What is the estimated intercept? $a = $ `r fitb(26.4310)`
+What is the estimated intercept? $a =$ `r fitb(26.4310)`
 
-What is the estimated slope coefficient? $b = $ `r fitb(0.5418)`
+What is the estimated slope coefficient? $b =$ `r fitb(0.5418)`
 	
 What is the interpretation of the estimated intercept? (one correct answer only)
 
@@ -714,10 +714,10 @@ $R^2 =$ `r fitb(0.2127)`
 	
 If you had an Advanced Mathematics grade of 50, what would be your expected Advanced Statistics grade? 
 
-$\hat(s)=$ `r fitb(53.521)`
+$\hat{s}=$ `r fitb(53.521)`
 
 `r hide("Hint")`
-$\hat(s)=$ 26.4310 + 0.5418 \cdot 50 = 53.521$
+$\hat{s}=$ 26.4310 + 0.5418 \cdot 50 = 53.521$
 `r unhide()`	
 
 :::
