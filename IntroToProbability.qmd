@@ -280,9 +280,9 @@ Now you may be interested whether, for instance, respondents from the North West
 
 As another example, the **Pr("London" \cap "Very~bad~health")=0.0047** implies that 0.47\% of the sample are respondents from London with very bad health. We call these probabilities joint probabilities and in the above table they are coloured in blue. The probabilities at the margins of the table are also called marginal probabilities. For instance $Pr("London")=0.3536$, meaning that if we randomly draw a response from the above 149,731 respondents, there is a 35\% probability that this response comes from London.
 
-::: {.callout-info}
+::: {.callout-note icon=false}
 
-#### Example
+#### Exercise
 
 Consider the following frequency table, where 9,900 respondents from two cities have been asked whether they enjoy eating vegetables.
 
@@ -313,5 +313,36 @@ Now calculate the probability table (to 4dp:
 The $Pr("Springfield" \cap "Enjoy")$ is a `r mcq(c("marginal", answer = "joint"))` probability.
 
 The $Pr("Gotham~City")$ is a `r mcq(c(answer = "marginal", "joint"))` probability.
+
+:::
+
+::: {.callout-note icon=false}
+
+#### Exercise
+
+Consider a car journey from Manchester to London via the M6 and M1. Let $E=$ be "heavy traffic somewhere on route" and $F=$ "roadworks somewhere on route". It is estimated that $\Pr (E)=0.8$ and $\Pr (F)=0.4$, whilst the probability of NOT encountering both is $\Pr (\overline{E\cap F})=0.6$. What is the probability of encountering heavy traffic or roadworks?
+
+What is $\Pr \left( E\cup F\right)$?
+
+$\Pr \left( E\cup F\right) =$ `r fitb(0.8)`
+
+`r hide("Hint")`
+First calculate $\Pr \left( E\cap F\right) = 0.4$
+`r unhide()`
+
+`r hide("Feedback")`
+
+\begin{eqnarray*}
+\Pr (E\cup F) &=&\Pr (E)+\Pr (F)-\Pr (E\cap F) \\
+&=&\Pr (E)+\Pr (F)-(1-\Pr (\overline{E\cap F})) \\
+&=&0.8+0.4-1+0.6 \\
+&=&0.8=\Pr (E)
+\end{eqnarray*}
+
+This video works through this example (YouTube, 7min).
+
+{{ < video https://www.youtube.com/watch?v=agQPNVssoAQ > }}.
+
+`r unhide()`
 
 :::
