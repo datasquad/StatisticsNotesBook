@@ -210,6 +210,11 @@ window.Quarto = {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">7.1</span> Introduction</a></li>
   <li><a href="#venn-diagrams" id="toc-venn-diagrams" class="nav-link" data-scroll-target="#venn-diagrams"><span class="header-section-number">7.2</span> Venn diagrams</a></li>
+  <li><a href="#probability" id="toc-probability" class="nav-link" data-scroll-target="#probability"><span class="header-section-number">7.3</span> Probability</a>
+  <ul class="collapse">
+  <li><a href="#the-axioms-of-probability" id="toc-the-axioms-of-probability" class="nav-link" data-scroll-target="#the-axioms-of-probability"><span class="header-section-number">7.3.1</span> The axioms of probability</a></li>
+  <li><a href="#the-addition-rule-of-probability" id="toc-the-addition-rule-of-probability" class="nav-link" data-scroll-target="#the-addition-rule-of-probability"><span class="header-section-number">7.3.2</span> The addition rule of probability</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -270,7 +275,7 @@ Note that an event, <span class="math inline">\(E\)</span>, is a collection of s
 <p>The sample space, <span class="math inline">\(S\)</span>, is depicted as a closed rectangle, and the event <span class="math inline">\(E\)</span> is a closed loop wholly contained within <span class="math inline">\(S\)</span> and we write (in set notation) <span class="math inline">\(E\subset S\)</span>.</p>
 <p>In dealing with probability, and in particular the probability of an event (or events) occurring, we shall need to be familiar with <strong>unions, intersections</strong> and <strong>complements</strong>.</p>
 <p>To illustrate these concepts, consider the sample space <span class="math inline">\(S=\{x;x\geq 0\}\)</span>. In this example the sample space represents an infinite set of numbers. Don’t let the square finite sample space, represented in the next Figure, distract you from that. The following events defined on <span class="math inline">\(S\)</span>, as depicted in the Figure:</p>
-<p>$E={x;4&lt;x},,F={x;7&lt;x},,G={x;x&gt;15},,H={x;9&lt;x} $.</p>
+<p><span class="math inline">\(E=\{x;4&lt;x\leq 10\},\,F=\{x;7&lt;x\leq 17\},\,G=\{x;x&gt;15\},\,H=\{x;9&lt;x\leq 13\}\)</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/Venn_2.png" class="img-fluid figure-img"></p>
@@ -341,8 +346,403 @@ Solutions
 </div>
 </div>
 </div>
+</section>
+<section id="probability" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="probability"><span class="header-section-number">7.3</span> Probability</h2>
+<p>The term <strong>probability</strong> is used in everyday conversation. Watching the daily news, for instance, you will come across weather forecasts which will often include probabilistic statements like “There is a 70% probability of rain for tomorrow.” Here is a <a href="https://youtu.be/5qPibjwo21g">video on weather forecasts</a> and an incredibly interesting podcast on the <a href="https://www.pushkin.fm/podcasts/against-the-rules/respect-the-polygon">importance of communicating uncertainty in weather forecasts (38 min)</a>.</p>
+<p>Other areas where we use probabilities are sports (What is the probability of England winning the World Cup) games of chance (e.g.&nbsp;roulette or poker) or economics (What is the probability of a recession?). What you will do now is to learn about a coherent theory of probability; a theory which allows us to combine and manipulate probabilities in a consistent and meaningful manner. You will describe ways of dealing with, and describing, uncertainty. This will involve <strong>rules</strong> which govern our use of terms like probability.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Communicating uncertainty
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Communicating probabilities, or uncertainty is one of the great challenges of scientists, economists and data analysts. Dealing in uncertainties is what we do. But often the people we are communicating to and with do not want to hear uncertainties, they want certainties. Will it rain tomorrow? Yes or No! Will my employer go out of business? Yes or no! Will the Conservatives be able to lead the government after the next election? Yes or no! Will this investment be profitable? Yes or no! Will the Apple share price go up? yes or no!</p>
+<p>Despite the thirst for certainty you will have to find ways to communicate uncertainty which both, conveys the right information (including the level of certainty you have), is understandable to the public, and protects your reputation. It turns out that this is a great challenge.</p>
+<p>Here is a great <a href="https://fullfact.org/media/uploads/en-communicating-uncertainty.pdf">document on communicating uncertainty</a> by <a href="https://fullfact.org">Full Fact</a> and <a href="https://youtu.be/JhfMkmzaNdU?t=238">a lecture on this issue (60 min)</a> by the excellent David Spiegelhalter and a <a href="http://understandinguncertainty.org/">website</a> he initiated.</p>
+<p>This is supplementary and non-assessed information.</p>
+</div>
+</div>
+<p>There have been a number of different approaches (interpretations) of probability. Most depend, at least to some extent, on the notion of relative frequency as now described:</p>
+<ul>
+<li>Suppose an experiment has an outcome of interest <span class="math inline">\(E\)</span>. The <strong>relative frequency interpretation</strong> of probability says that assuming the experiment can be repeated a large number of times then the relative frequency of observing the outcome <span class="math inline">\(E\)</span> will settle down to a <strong>number</strong>, denoted <span class="math inline">\(\Pr (E)\)</span>, <span class="math inline">\(P(E)\)</span> or Prob<span class="math inline">\((E)\)</span>, called the <strong>probability</strong> of <span class="math inline">\(E\)</span>.</li>
+</ul>
+<p>This is illustrated in the next Figure where the proportion of heads obtained after <span class="math inline">\(n\)</span> flips of a fair coin is plotted against <span class="math inline">\(n\)</span>, as <span class="math inline">\(n\)</span> increases; e.g., of the first 100 flips, 46 were heads (<span class="math inline">\(46\%\)</span>). Notice that the plot becomes less `wobbly’ after about <span class="math inline">\(n=140\)</span> and appears to be settling down to the value of <span class="math inline">\(\frac{1}{2}\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Prob_coin.jpg" class="img-fluid figure-img"></p>
+<figcaption>Relative frequency of heads in <span class="math inline">\(n\)</span> toin tosses.</figcaption>
+</figure>
+</div>
+<p>Due to this interpretation of probability, we often use observed sample proportions to approximate underlying probabilities of interest. There are, of course, other interpretations of probability; e.g., the subjective interpretation which simply expresses the strength of one’s belief about an event of interest such as whether Liverpool will win the Premier League! Any one of these interpretations can be used in practical situations provided the implied notion of probability follows a simple set of <strong>axioms</strong> or <strong>rules</strong>.</p>
+<section id="the-axioms-of-probability" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="the-axioms-of-probability"><span class="header-section-number">7.3.1</span> The axioms of probability</h3>
+<p>There are just <strong>three</strong> basic rules that must be obeyed when dealing with probabilities:</p>
+<ul>
+<li>For any event <span class="math inline">\(E\)</span> defined on <span class="math inline">\(S\)</span> i.e., <span class="math inline">\(E\subset S,\,\,\Pr (E)\geq 0\)</span>; <strong>probabilities are non-negative</strong>.</li>
+<li><span class="math inline">\(\Pr (S)=1\)</span>; <strong>having defined the sample space of outcomes, one of these outcomes must be observed</strong>.</li>
+<li>If events <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> are mutually exclusive defined on <span class="math inline">\(S\)</span>, so that $EF=$, then <span class="math inline">\(\Pr \left( E\cup F\right) =\Pr \left( E\right)+\Pr \left( F\right)\)</span>. In general, for any set of mutually exclusive events, <span class="math inline">\(E_{1},E_{2},\ldots ,E_{k}\)</span>, defined on <span class="math inline">\(S:\)</span><br>
+<span class="math display">\[\begin{equation*}
+      \Pr (E_{1}\cup E_{2}\cup \ldots \cup E_{k})=\Pr (E_{1})+\Pr (E_{2})+\ldots\Pr (E_{k})
+  \end{equation*}\]</span><br>
+i.e., <span class="math inline">\(\Pr \left( \bigcup_{j=1}^{k}E_{j}\right) =\sum_{j=1}^{k}\Pr (E_{j})\)</span>.</li>
+</ul>
+<p>In terms of the Venn Diagram, one can (and should) usefully think of the area of <span class="math inline">\(E\)</span> relative to that of <span class="math inline">\(S\)</span> as providing an indication of probability. (Note, from axiom 2, that the area of <span class="math inline">\(S\)</span> is implicitly normalised to be unity).</p>
+<p>Also observe that, contrary to what you may have believed, it is not one of the rules that <span class="math inline">\(\Pr (E)\leq 1\)</span> for any event <span class="math inline">\(E\)</span>. Rather, this is an implication of the three rules given:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Implications
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It must be that for any event <span class="math inline">\(E\)</span>, defined on <span class="math inline">\(S\)</span>, $E{E}=$ and <span class="math inline">\(E\cup \bar{E}=S\)</span>. By Axiom 1, <span class="math inline">\(\Pr (E)\geq 0\)</span> and <span class="math inline">\(\Pr \left( \bar{E}\right) \geq 0\)</span> and by Axiom 3, <span class="math inline">\(\Pr(E)+\Pr (\bar{E})=\Pr (S)\)</span>. So <span class="math inline">\(\Pr \left( E\right) +\Pr \left( \bar{E}\right) =1\)</span> by Axiom 2. This implies that</p>
+<ul>
+<li><span class="math inline">\(0\leq \Pr (E)\leq 1\)</span></li>
+<li><span class="math inline">\(\Pr (\bar{E})=1-\Pr (E)\)</span></li>
+</ul>
+<p>The first of these is what we might have expected from probability (a number lying between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>). The second implication is also very important; it says that the probability of <span class="math inline">\(E\)</span> not happening is one minus the probability of it happening. Thus when rolling a die, the probability of getting <span class="math inline">\(6\)</span> is one minus the probability of getting either a <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(4\)</span> or <span class="math inline">\(5\)</span>.</p>
+</div>
+</div>
+<p>These axioms imply how to calculate probabilities on a sample space of equally likely outcomes. For example, and as we have already noted, the experiment of rolling a fair dice defines a sample space of six, mutually exclusive and equally likely outcomes (1 to 6 dots on the up-turned face). The axioms then say that each of the six probabilities are positive, add to 1 and are all the same. Thus, the probability of any one of the outcomes must be simply <span class="math inline">\(\frac{1}{6}\)</span>; which may accord with your intuition.</p>
+<p>A similar sort of analysis reveals that the probability of drawing a club from a deck of 52 cards is <span class="math inline">\(\frac{13}{52}\)</span> since any one of the 52 cards has an equal chance of being drawn and 13 of them are clubs; i.e., 13 of the 52 are clubs, so the probability of drawing a club is <span class="math inline">\(\frac{13}{52}\)</span>. Notice the importance of the assumption of equally likely outcomes here.</p>
+<p>In what follows you shall see how these axioms can be used. Firstly, consider the construction of a probability for the <strong>union</strong> of two events; i.e., the probability that <strong>either</strong> <span class="math inline">\(E\)</span> or <span class="math inline">\(F\)</span> or (perhaps) <strong>both</strong> will occur. Such a probability is embodied in the <strong>addition rule of probability</strong>.</p>
+</section>
+<section id="the-addition-rule-of-probability" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="the-addition-rule-of-probability"><span class="header-section-number">7.3.2</span> The addition rule of probability</h3>
+<p>Let us begin with an example.</p>
+<section id="example" class="level4 callout-info" data-number="7.3.2.1">
+<h4 data-number="7.3.2.1" class="anchored" data-anchor-id="example"><span class="header-section-number">7.3.2.1</span> Example</h4>
+<p>When rolling a fair dice, let <span class="math inline">\(E\)</span> denote the event of an “odd number of dots” and <span class="math inline">\(F\)</span> the event of the “number of dots being greater than, or equal, to <span class="math inline">\(4\)</span>”.</p>
+<p><span class="math inline">\(E = \{1,3,5\}\)</span>, <span class="math inline">\(Pr(E) = \frac{3}{6}=0.5\)</span><br>
+<span class="math inline">\(F = \{4,5,6\}\)</span>, <span class="math inline">\(Pr(F) = \frac{3}{6}=0.5\)</span></p>
+<p>What is the probability of the event <span class="math inline">\(E\cup F\)</span>? To calculate this we can collect together all the mutually exclusive (simple) events which comprise <span class="math inline">\(E\cup F\)</span>, and then add up the probabilities (by axiom 3).</p>
+<p><span class="math inline">\(E\cup F = \{1,3,4,5,6 \}\)</span>, <span class="math inline">\(Pr(E\cup F) = \frac{5}{6}\)</span><br>
+<span class="math inline">\(E\cap F = \{5\}\)</span>, <span class="math inline">\(Pr(E\cap F) = \frac{1}{6}\)</span></p>
+<p>Each of the simple events has a probability of <span class="math inline">\(\frac{1}{6}\)</span> so the required total probability is: <span class="math inline">\(\Pr \left( E\cup F\right) =\frac{5}{6}\)</span>. Consider carefully how this probability is constructed and note, in particular, that $( EF) ( E) +( F) $ since <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> have a simple event in common (namely 5 dots). As you will see shortly, <span class="math inline">\(\Pr \left( E\cup F\right) = \Pr \left( E\right) +\Pr \left( F\right) - \Pr(E \cap F)\)</span>.</p>
+<p>This video goes through the above brief example (YouTube, 5min).</p>
+<p>{{ &lt; video https://www.youtube.com/watch?v=sFijzt3ByzY &gt; }}</p>
+</section>
+<p>In general, we can calculate the probability of the union of events using the <strong>addition rule of probability</strong>, as follows.</p>
+<ul>
+<li>For any events, <span class="math inline">\(E\subset S\)</span> and <span class="math inline">\(F\subset S:\Pr (E\cup F)=\Pr (E)+\Pr (F)-\Pr (E\cap F)\)</span>. So, in general, <span class="math inline">\(\Pr \left( E\cup F\right) \leq \Pr (E)+\Pr (F)\)</span>.</li>
+</ul>
+<p>We can demonstrate this as follows. Note that</p>
+<p><span class="math display">\[\begin{equation*}
+E\cup F=\left( E\cap \bar{F}\right) \cup \left( E\cap F\right) \cup \left(\bar{E}\cap F\right)
+\end{equation*}\]</span></p>
+<p>the union of three mutually exclusive events. These mutually exclusive events are depicted by the shaded areas <span class="math inline">\(\mathbf{a}\)</span>, <span class="math inline">\(\mathbf{b}\)</span> and <span class="math inline">\(\mathbf{c}\)</span>, respectively, in the next Figure.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Prob_add.jpg" class="img-fluid figure-img"></p>
+<figcaption>Venn diagram to illustrate the addition rule.</figcaption>
+</figure>
+</div>
+<p>Then by Axiom 3, and from the fact that the three events $( E{F}) $, $( EF) $ and <span class="math inline">\(\left( \bar{E}\cap F\right)\)</span> are mutually exclusive so that the “area” occupied by <span class="math inline">\(E\cup F\)</span> is simply <span class="math inline">\(\mathbf{a+b+c}\)</span>,</p>
+<p><span class="math display">\[\begin{equation*}
+\Pr \left( E\cup F\right) =\Pr \left( E\cap \bar{F}\right) +\Pr \left( \bar{E}\cap F\right) +\Pr \left( E\cap F\right) .
+\end{equation*}\]</span></p>
+<p>But also by Axiom 3, since $E=( E{F}) (EF) $, it must be that <span class="math inline">\(\Pr (E)=\Pr \left( E\cap \bar{F}\right)+\Pr (E\cap F)\)</span>; similarly, <span class="math inline">\(\Pr \left( \bar{E}\cap F\right) =\Pr \left(F\right) -\Pr \left( E\cap F\right)\)</span>. Putting all of this together gives</p>
+<p><span class="math display">\[\begin{equation*}
+\Pr (E\cup F)=\Pr (E)+\Pr (F)-\Pr (E\cap F).
+\end{equation*}\]</span></p>
+<p>This was a lengthy probabilistic argument to make sense of the probability addition formula. You may wonder why the addition formula is not just <span class="math inline">\(\Pr (E\cup F)=\Pr (E)+\Pr (F)\)</span>? You can refer back to the image above. If we just added <span class="math inline">\(\Pr (E)\)</span> and <span class="math inline">\(\Pr (F)\)</span> we would have double counted area b. We therefore have to subtract it once. And area b is <span class="math inline">\(\Pr (E\cap F)\)</span>.</p>
+<p>When <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> are mutually exclusive, then there is no overlap, so that <span class="math inline">\(E\cap F=\emptyset\)</span>, this rule reveals Axiom 2: <span class="math inline">\(\Pr (E\cup F)=\Pr (E)+\Pr (F)\)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What is the probability of drawing a Queen (<span class="math inline">\(Q\)</span>) or a Club (<span class="math inline">\(C\)</span>) in a single draw from a pack of cards?</p>
+<p>The probability is <input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.3077&quot;,&quot;.3077&quot;]"> (answer in decimals and rounded to 4dp)</p>
+<div class="webex-solution">
+<button>
+Solutions
+</button>
+<p>4 out of 52 cards are Queens, so <span class="math inline">\(\Pr \left( Q\right) =\frac{4}{52}\)</span>, whilst <span class="math inline">\(\Pr\left( C\right) =\frac{13}{52}\)</span>. The probability of drawing the Queen of Clubs is simply <span class="math inline">\(\frac{1}{52}\)</span>; i.e., <span class="math inline">\(\Pr \left( Q\cap C\right) =\frac{1}{52}\)</span>. What we require is a Club or a Queen, for which the probability is</p>
+<p><span class="math display">\[\begin{eqnarray*}
+\Pr \left( Q\cup C\right) &amp;=&amp;\Pr \left( Q\right) +\Pr \left( C\right) -\Pr\left( Q\cap C\right) \\
+&amp;=&amp;\frac{4}{52}+\frac{13}{52}-\frac{1}{52} \\
+&amp;=&amp;\frac{16}{52}=\frac{4}{13} = 0.3077.
+\end{eqnarray*}\]</span></p>
+</div>
+</div>
+</div>
+<p>You will often be presented with frequency (count) tables of the following type.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Region</th>
+<th>Very good health</th>
+<th>Good health</th>
+<th>Fair health</th>
+<th>Bad health</th>
+<th>Very bad health</th>
+<th><strong>Sum</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>North East</td>
+<td>11,425</td>
+<td>8,795</td>
+<td>3,977</td>
+<td>1,476</td>
+<td>428</td>
+<td>26,101</td>
+</tr>
+<tr class="even">
+<td>North West</td>
+<td>32,413</td>
+<td>23,502</td>
+<td>9,847</td>
+<td>3,842</td>
+<td>1,083</td>
+<td>70,687</td>
+</tr>
+<tr class="odd">
+<td>London</td>
+<td>20,086</td>
+<td>18,302</td>
+<td>7,476</td>
+<td>2,376</td>
+<td>701</td>
+<td>52,943</td>
+</tr>
+<tr class="even">
+<td><strong>Sum</strong></td>
+<td>67,924</td>
+<td>50,599</td>
+<td>21,300</td>
+<td>7,694</td>
+<td>2,214</td>
+<td>149,731</td>
+</tr>
+</tbody>
+</table>
+<p>These are the respondents from three UK regions (North East, North West and London) and their self indicated health status. The data are available in the 2011 Census Microdata Teaching File (see the Data Sets page). For instance there are 8,795 respondents from the North East that indicated that their health was best categorised as “Good health”. Throughout the three regions there were 50,599 respondents that gave “Good health” as their health status.</p>
+<p>Now you may be interested whether, for instance, respondents from the North West tend to be more positive about their health, compared to respondents from other regions. For this purpose it is useful to calculate a probability table based on the above frequency table. The way to do that is to divide all frequency values in the above table by the total number of responses, here 149,731. For example, for the above case of someone coming from the North East and indicating “Good health” we would calculate <span class="math inline">\(8795/149731\)</span> which results in <span class="math inline">\(0.0587\)</span>. This is the probability that, if we randomly drew a person from our 149,731 responses, we would get someone from the North East with “Good health”, <span class="math inline">\(Pr("North~East" \cap "Good~health")=0.0587\)</span>. If you do that for all cells in the above table you get the following:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Region</th>
+<th>Very good health</th>
+<th>Good health</th>
+<th>Fair health</th>
+<th>Bad health</th>
+<th>Very bad health</th>
+<th><strong>Sum</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>North East</td>
+<td>0.0763</td>
+<td>0.0587</td>
+<td>0.0266</td>
+<td>0.0099</td>
+<td>0.0029</td>
+<td>0.1743</td>
+</tr>
+<tr class="even">
+<td>North West</td>
+<td>0.2165</td>
+<td>0.1570</td>
+<td>0.0658</td>
+<td>0.0257</td>
+<td>0.0072</td>
+<td>0.4721</td>
+</tr>
+<tr class="odd">
+<td>London</td>
+<td>0.1609</td>
+<td>0.1222</td>
+<td>0.0499</td>
+<td>0.0159</td>
+<td>0.0047</td>
+<td>0.3536</td>
+</tr>
+<tr class="even">
+<td><strong>Sum</strong></td>
+<td>0.4536</td>
+<td>0.3379</td>
+<td>0.1423</td>
+<td>0.0514</td>
+<td>0.0148</td>
+<td>1.000</td>
+</tr>
+</tbody>
+</table>
+<p>As another example, the <strong>Pr(“London” “Very<sub>bad</sub>health”)=0.0047</strong> implies that 0.47% of the sample are respondents from London with very bad health. We call these probabilities joint probabilities and in the above table they are coloured in blue. The probabilities at the margins of the table are also called marginal probabilities. For instance <span class="math inline">\(Pr("London")=0.3536\)</span>, meaning that if we randomly draw a response from the above 149,731 respondents, there is a 35% probability that this response comes from London.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the following frequency table, where 9,900 respondents from two cities have been asked whether they enjoy eating vegetables.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 26%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">City</th>
+<th style="text-align: right;">Enjoy (E)</th>
+<th style="text-align: right;">Neutral (N)</th>
+<th style="text-align: right;">Do not enjoy (D)</th>
+<th style="text-align: right;"><strong>Sum</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Springfield (S)</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">1,045</td>
+<td style="text-align: right;">876</td>
+<td style="text-align: right;">2,673</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gotham City (G)</td>
+<td style="text-align: right;">2,893</td>
+<td style="text-align: right;">2,504</td>
+<td style="text-align: right;">1,803</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Sum</strong></td>
+<td style="text-align: right;">3,645</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">2,706</td>
+<td style="text-align: right;">9,900</td>
+</tr>
+</tbody>
+</table>
+<p>Complete the above table:</p>
+<p>Frequency<span class="math inline">\(("Springfield" \cap "Enjoy")=\)</span> <input class="webex-solveme nospaces" size="3" data-answer="[&quot;752&quot;]"></p>
+<p>Frequency<span class="math inline">\(("Neutral")=\)</span> <input class="webex-solveme nospaces" size="4" data-answer="[&quot;3549&quot;]"></p>
+<p>Frequency<span class="math inline">\(("Gotham~City")=\)</span> <input class="webex-solveme nospaces" size="4" data-answer="[&quot;7227&quot;]"></p>
+<p>Now calculate the probability table (to 4dp:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 26%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">City</th>
+<th style="text-align: right;">Enjoy (E)</th>
+<th style="text-align: right;">Neutral (N)</th>
+<th style="text-align: right;">Do not enjoy (D)</th>
+<th style="text-align: right;"><strong>Sum</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Springfield (S)</td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.076&quot;,&quot;.076&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.1056&quot;,&quot;.1056&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.0885&quot;,&quot;.0885&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.27&quot;,&quot;.27&quot;]"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gotham City (G)</td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.2922&quot;,&quot;.2922&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.2529&quot;,&quot;.2529&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.1848&quot;,&quot;.1848&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.73&quot;,&quot;.73&quot;]"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Sum</strong></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.3682&quot;,&quot;.3682&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.3585&quot;,&quot;.3585&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.2733&quot;,&quot;.2733&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="1" data-answer="[&quot;1&quot;]"></td>
+</tr>
+</tbody>
+</table>
+<p>The <span class="math inline">\(Pr("Springfield" \cap "Enjoy")\)</span> is a <select class="webex-select"><option value="blank"></option><option value="">marginal</option><option value="answer">joint</option></select> probability.</p>
+<p>The <span class="math inline">\(Pr("Gotham~City")\)</span> is a <select class="webex-select"><option value="blank"></option><option value="answer">marginal</option><option value="">joint</option></select> probability.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider a car journey from Manchester to London via the M6 and M1. Let <span class="math inline">\(E=\)</span> be “heavy traffic somewhere on route” and <span class="math inline">\(F=\)</span> “roadworks somewhere on route”. It is estimated that <span class="math inline">\(\Pr (E)=0.8\)</span> and <span class="math inline">\(\Pr (F)=0.4\)</span>, whilst the probability of NOT encountering both is <span class="math inline">\(\Pr (\overline{E\cap F})=0.6\)</span>. What is the probability of encountering heavy traffic or roadworks?</p>
+<p>What is <span class="math inline">\(\Pr \left( E\cup F\right)\)</span>?</p>
+<p><span class="math inline">\(\Pr \left( E\cup F\right) =\)</span> <input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.8&quot;,&quot;.8&quot;]"></p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>First calculate <span class="math inline">\(\Pr \left( E\cap F\right) = 0.4\)</span></p>
+</div>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p><span class="math display">\[\begin{eqnarray*}
+\Pr (E\cup F) &amp;=&amp;\Pr (E)+\Pr (F)-\Pr (E\cap F) \\
+&amp;=&amp;\Pr (E)+\Pr (F)-(1-\Pr (\overline{E\cap F})) \\
+&amp;=&amp;0.8+0.4-1+0.6 \\
+&amp;=&amp;0.8=\Pr (E)
+\end{eqnarray*}\]</span></p>
+<p>This video works through this example (YouTube, 7min).</p>
+<p>{{ &lt; video https://www.youtube.com/watch?v=agQPNVssoAQ &gt; }}.</p>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
