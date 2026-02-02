@@ -243,7 +243,7 @@ window.Quarto = {
 <section id="introduction" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">7.1</span> Introduction</h2>
 <p>This video gives a brief introduction into why economists and social scientists should study probabilities (YouTube, 4min).</p>
-<p>{{ &lt; video https://www.youtube.com/watch?v=I3OFG1QlDLc &gt; }}</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/I3OFG1QlDLc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>So far we have been looking at ways of summarising samples of data drawn from an underlying population of interest. Although at times tedious, all such arithmetic calculations are fairly mechanical and straightforward to apply. To remind ourselves, one of the primary reasons for wishing to summarise data is so assist in the development of inferences about the population from which the data were taken. That is to say, we would like to elicit some information about the mechanism which generated the observed data.</p>
 <p>Perhaps you can recall this little schematic which we discussed in the introduction.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -309,7 +309,7 @@ Finally note that <span class="math inline">\(H\)</span> is a sub-set of <span c
 </ol></li>
 </ul>
 <p>This video goes through most elements of the above example (YouTube, 8min).</p>
-<p>{{ &lt; video https://www.youtube.com/watch?v=RYRze4XXlrE &gt;}}</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/RYRze4XXlrE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -416,7 +416,7 @@ i.e., <span class="math inline">\(\Pr \left( \bigcup_{j=1}^{k}E_{j}\right) =\sum
 <p>In what follows you shall see how these axioms can be used. Firstly, consider the construction of a probability for the <strong>union</strong> of two events; i.e., the probability that <strong>either</strong> <span class="math inline">\(E\)</span> or <span class="math inline">\(F\)</span> or (perhaps) <strong>both</strong> will occur. Such a probability is embodied in the <strong>addition rule of probability</strong>.</p>
 </section>
 <section id="the-addition-rule-of-probability" class="level3" data-number="7.3.2">
-<h3 data-number="7.3.2" class="anchored" data-anchor-id="the-addition-rule-of-probability"><span class="header-section-number">7.3.2</span> The addition rule of probability</h3>
+<h3 data-number="7.3.2" class="anchored"><span class="header-section-number">7.3.2</span> The addition rule of probability</h3>
 <p>Let us begin with an example.</p>
 <section id="example" class="level4 callout-info" data-number="7.3.2.1">
 <h4 data-number="7.3.2.1" class="anchored" data-anchor-id="example"><span class="header-section-number">7.3.2.1</span> Example</h4>
@@ -428,7 +428,7 @@ i.e., <span class="math inline">\(\Pr \left( \bigcup_{j=1}^{k}E_{j}\right) =\sum
 <span class="math inline">\(E\cap F = \{5\}\)</span>, <span class="math inline">\(Pr(E\cap F) = \frac{1}{6}\)</span></p>
 <p>Each of the simple events has a probability of <span class="math inline">\(\frac{1}{6}\)</span> so the required total probability is: <span class="math inline">\(\Pr \left( E\cup F\right) =\frac{5}{6}\)</span>. Consider carefully how this probability is constructed and note, in particular, that $( EF) ( E) +( F) $ since <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> have a simple event in common (namely 5 dots). As you will see shortly, <span class="math inline">\(\Pr \left( E\cup F\right) = \Pr \left( E\right) +\Pr \left( F\right) - \Pr(E \cap F)\)</span>.</p>
 <p>This video goes through the above brief example (YouTube, 5min).</p>
-<p>{{ &lt; video https://www.youtube.com/watch?v=sFijzt3ByzY &gt; }}</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/sFijzt3ByzY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <p>In general, we can calculate the probability of the union of events using the <strong>addition rule of probability</strong>, as follows.</p>
 <ul>
@@ -604,8 +604,16 @@ Solutions
 </tbody>
 </table>
 <p>As another example, the <strong>Pr(“London” “Very<sub>bad</sub>health”)=0.0047</strong> implies that 0.47% of the sample are respondents from London with very bad health. We call these probabilities joint probabilities and in the above table they are coloured in blue. The probabilities at the margins of the table are also called marginal probabilities. For instance <span class="math inline">\(Pr("London")=0.3536\)</span>, meaning that if we randomly draw a response from the above 149,731 respondents, there is a 35% probability that this response comes from London.</p>
-<section id="example-1" class="level4 callout-info" data-number="7.3.2.2">
-<h4 data-number="7.3.2.2" class="anchored" data-anchor-id="example-1"><span class="header-section-number">7.3.2.2</span> Example</h4>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Consider the following frequency table, where 9,900 respondents from two cities have been asked whether they enjoy eating vegetables.</p>
 <table class="caption-top table">
 <colgroup>
@@ -627,7 +635,7 @@ Solutions
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Springfield (S)</td>
-<td style="text-align: right;"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="3" data-answer="[&quot;752&quot;]"></td>
 <td style="text-align: right;">1,045</td>
 <td style="text-align: right;">876</td>
 <td style="text-align: right;">2,673</td>
@@ -637,21 +645,18 @@ Solutions
 <td style="text-align: right;">2,893</td>
 <td style="text-align: right;">2,504</td>
 <td style="text-align: right;">1,803</td>
-<td style="text-align: right;"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="4" data-answer="[&quot;7200&quot;]"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Sum</strong></td>
 <td style="text-align: right;">3,645</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;">2,706</td>
-<td style="text-align: right;">9,900</td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="4" data-answer="[&quot;3549&quot;]"></td>
+<td style="text-align: right;">2,679</td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="4" data-answer="[&quot;9873&quot;]"></td>
 </tr>
 </tbody>
 </table>
-<p>Complete the above table:</p>
-<p>Frequency<span class="math inline">\(("Springfield" \cap "Enjoy")=\)</span> <input class="webex-solveme nospaces" size="3" data-answer="[&quot;752&quot;]"></p>
-<p>Frequency<span class="math inline">\(("Neutral")=\)</span> <input class="webex-solveme nospaces" size="4" data-answer="[&quot;3549&quot;]"></p>
-<p>Frequency<span class="math inline">\(("Gotham~City")=\)</span> <input class="webex-solveme nospaces" size="4" data-answer="[&quot;7227&quot;]"></p>
+<p>Complete the above table using the link between joint and marginal frequencies.</p>
 <p>Now calculate the probability table (to 4dp:</p>
 <table class="caption-top table">
 <colgroup>
@@ -673,32 +678,214 @@ Solutions
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Springfield (S)</td>
-<td style="text-align: right;"><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.076&quot;,&quot;.076&quot;]"></td>
-<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.1056&quot;,&quot;.1056&quot;]"></td>
-<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.0885&quot;,&quot;.0885&quot;]"></td>
-<td style="text-align: right;"><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.27&quot;,&quot;.27&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.0762&quot;,&quot;.0762&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.1058&quot;,&quot;.1058&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.0887&quot;,&quot;.0887&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.2707&quot;,&quot;.2707&quot;]"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Gotham City (G)</td>
-<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.2922&quot;,&quot;.2922&quot;]"></td>
-<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.2529&quot;,&quot;.2529&quot;]"></td>
-<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.1848&quot;,&quot;.1848&quot;]"></td>
-<td style="text-align: right;"><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.73&quot;,&quot;.73&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.293&quot;,&quot;.293&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.2536&quot;,&quot;.2536&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.1826&quot;,&quot;.1826&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.7293&quot;,&quot;.7293&quot;]"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Sum</strong></td>
-<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.3682&quot;,&quot;.3682&quot;]"></td>
-<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.3585&quot;,&quot;.3585&quot;]"></td>
-<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.2733&quot;,&quot;.2733&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.3692&quot;,&quot;.3692&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.3595&quot;,&quot;.3595&quot;]"></td>
+<td style="text-align: right;"><input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.2713&quot;,&quot;.2713&quot;]"></td>
 <td style="text-align: right;"><input class="webex-solveme nospaces" size="1" data-answer="[&quot;1&quot;]"></td>
 </tr>
 </tbody>
 </table>
 <p>The <span class="math inline">\(Pr("Springfield" \cap "Enjoy")\)</span> is a <select class="webex-select"><option value="blank"></option><option value="">marginal</option><option value="answer">joint</option></select> probability.</p>
 <p>The <span class="math inline">\(Pr("Gotham~City")\)</span> is a <select class="webex-select"><option value="blank"></option><option value="answer">marginal</option><option value="">joint</option></select> probability.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider a car journey from Manchester to London via the M6 and M1. Let <span class="math inline">\(E=\)</span> be “heavy traffic somewhere on route” and <span class="math inline">\(F=\)</span> “roadworks somewhere on route”. It is estimated that <span class="math inline">\(\Pr (E)=0.8\)</span> and <span class="math inline">\(\Pr (F)=0.4\)</span>, whilst the probability of NOT encountering both is <span class="math inline">\(\Pr (\overline{E\cap F})=0.6\)</span>. What is the probability of encountering heavy traffic or roadworks?</p>
+<p>What is <span class="math inline">\(\Pr \left( E\cup F\right)\)</span>?</p>
+<p><span class="math inline">\(\Pr \left( E\cup F\right) =\)</span> <input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.8&quot;,&quot;.8&quot;]"></p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>First calculate <span class="math inline">\(\Pr \left( E\cap F\right) = 0.4\)</span></p>
+</div>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p><span class="math display">\[\begin{eqnarray*}
+\Pr (E\cup F) &amp;=&amp;\Pr (E)+\Pr (F)-\Pr (E\cap F) \\
+&amp;=&amp;\Pr (E)+\Pr (F)-(1-\Pr (\overline{E\cap F})) \\
+&amp;=&amp;0.8+0.4-1+0.6 \\
+&amp;=&amp;0.8=\Pr (E)
+\end{eqnarray*}\]</span></p>
+<p>This video works through this example (YouTube, 7min).</p>
+<p></p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/agQPNVssoAQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>.<p></p>
+</div>
+<p>Notice that this implies, in this case, that <span class="math inline">\(F\subset E\)</span> (why?). This then implies that when there are roadworks somewhere on route you are bound to encounter heavy traffic; on the other hand, you can encounter heavy traffic on route without ever passing through roadworks.</p>
+</div>
+</div>
+<p>We can generalise this addition rule to three events, <span class="math inline">\(E_{1},E_{2}\)</span> and <span class="math inline">\(E_{3}\)</span> as</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \Pr (E_{1}\cup E_{2}\cup E_{3}) &amp;=&amp;\Pr (E_{1})+\Pr (E_{2})+\Pr (E_{3}) \\
+    &amp;&amp;-\Pr (E_{1}\cap E_{2})-\Pr (E_{1}\cap E_{3})-\Pr (E_{2}\cap E_{3}) \\
+    &amp;&amp;+\Pr (E_{1}\cap E_{2}\cap E_{3}).
+\end{eqnarray*}\]</span></p>
+<section id="example-1" class="level4 callout-info" data-number="7.3.2.2">
+<h4 data-number="7.3.2.2" class="anchored" data-anchor-id="example-1"><span class="header-section-number">7.3.2.2</span> Example</h4>
+<p>You are asked to spin a <a href="https://g.co/kgs/FB3Wif">wheel of fortune (change the wheel size to 12!)</a> with numbers 1 to 12 being equally likely outcomes. The three events you consider are:</p>
+<ul>
+<li><span class="math inline">\(E_1=\{\)</span> any number larger or equal than 10 <span class="math inline">\(\}\)</span></li>
+<li><span class="math inline">\(E_2=\{\)</span> any number smaller than 5 <span class="math inline">\(\}\)</span></li>
+<li><span class="math inline">\(E_3=\{\)</span> any even number <span class="math inline">\(\}\)</span></li>
+</ul>
+<p>What is the probability that any of these three events occurs?</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \Pr (E_{1}\cup E_{2}\cup E_{3}) &amp;=&amp;\Pr (E_{1})+\Pr (E_{2})+\Pr (E_{3}) \\
+    &amp;&amp;-\Pr (E_{1}\cap E_{2})-\Pr (E_{1}\cap E_{3})-\Pr (E_{2}\cap E_{3}) \\
+    &amp;&amp;+\Pr (E_{1}\cap E_{2}\cap E_{3})\\
+    &amp;=&amp; \frac{3}{12} + \frac{4}{12} + \frac{6}{12} - \frac{0}{12} - \frac{2}{12} - \frac{2}{12} + \frac{0}{12}\\
+    &amp;=&amp; \frac{9}{12} = 0.75  
+\end{eqnarray*}\]</span></p>
 </section>
+<p>Similar concepts apply when manipulating proportions as demonstrated in the next example.</p>
+<section id="example-2" class="level4 callout-info" data-number="7.3.2.3">
+<h4 data-number="7.3.2.3" class="anchored" data-anchor-id="example-2"><span class="header-section-number">7.3.2.3</span> Example</h4>
+<p>A sample of 1000 science undergraduates were asked whether they took either Mathematics (M), Physics (P) or Chemistry (C) at A-level. All of them took at least one of the three subjects at A-level. The following responses were obtained: 100 just took Mathematics; 70 just took Physics; 100 just took Chemistry; 150 took Mathematics and Physics, but not Chemistry; 40 took Mathematics and Chemistry, but not Physics; and, 240 took Physics and Chemistry, but not Mathematics. What proportion took all three?</p>
+<p>This can be addressed with the following diagram:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Prob_Alevels.jpg" class="img-fluid figure-img"></p>
+<figcaption>Venn diagram for A level example.</figcaption>
+</figure>
+</div>
+<p>The shaded area contains the number who took all three, which can be deduced from the above information (since the total of the numbers assigned to each part of the Venn diagram must be 1000). The numbers in all areas but for the shaded area sum to 700. The answer is therefore <span class="math inline">\(30\%\)</span> as 300 out of 1000 have to be in the shaded center area.</p>
+</section>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercises
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To calculate the above solution you can also refer to the previous formula:</p>
+<p><span class="math display">\[\begin{equation*}
+    \Pr(M\cup P\cup C) =\Pr(M)+\Pr(P)+\Pr(C) -\Pr(M\cap P)-\Pr(M\cap C)-\Pr(P\cap C) +\Pr(M\cap P\cap C)
+\end{equation*}\]</span></p>
+<p>What is <span class="math inline">\(\Pr(M\cup P\cup C)\)</span>?</p>
+<p>Answer: <span class="math inline">\(\Pr(M\cup P\cup C)=1\)</span></p>
+<p>Feedback: <span class="math inline">\(\Pr(M\cup P\cup C)=1\)</span> is, in the context of this question, the sample space. Note that all students have taken at least one of these three subjects.</p>
+<p>The information in the problem says that 70 (out of the 1000) students only took Physics. Which probability is that? Note, as usual, <span class="math inline">\(S\)</span> represents the sample space.</p>
+<ul>
+<li>A: <span class="math inline">\(\Pr(M\cap P)\)</span></li>
+<li>B: <span class="math inline">\(\Pr(P)\)</span></li>
+<li>C: <span class="math inline">\(\Pr(\bar{M}\cap \bar{C} \cap P)\)</span> (T)</li>
+<li>D: <span class="math inline">\(1 - \Pr(C \cup M)\)</span> (T)</li>
+<li>E: <span class="math inline">\(Pr(P) - \Pr(C \cup M)\)</span></li>
+</ul>
+<p>Note which answer. Multiple correct answers are possible. Seperate multiple answers by comma. <code>rfitb(c("C,D", "C, D", "D,C","D, C"))</code></p>
+</div>
+</div>
+<p>Two further results on unions, intersections and complements which are of use (and which are fairly easy to demonstrate using Venn diagrams) are <strong>de Morgan Laws</strong>:</p>
+<ul>
+<li><p>$ {A}{B} =( ) $</p></li>
+<li><p>${A}{B}=( ) $</p></li>
+</ul>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercises
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>One hundred students were surveyed about their preference between Math and Statistics. The following two-way table displays data for the sample of students who responded to the survey.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 22%">
+<col style="width: 25%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>extbf{Preference}</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Prefers Math</td>
+<td>22</td>
+<td>18</td>
+<td>40</td>
+</tr>
+<tr class="even">
+<td>Prefers Statistics</td>
+<td>25</td>
+<td>12</td>
+<td>37</td>
+</tr>
+<tr class="odd">
+<td>No preference</td>
+<td>8</td>
+<td>15</td>
+<td>23</td>
+</tr>
+<tr class="even">
+<td>TOTAL</td>
+<td>55</td>
+<td>45</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>Find the probability that a randomly selected student prefers Math. Enter your answer as a or decimal.</li>
+</ol>
+<p>P(prefers Math) = <input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.4&quot;,&quot;.4&quot;]"></p>
+<ol start="2" type="1">
+<li><p>In this sample, are the events “prefers Math” and “prefers Statistics” mutually exclusive? <select class="webex-select"><option value="blank"></option><option value="answer">Yes</option><option value="">No</option><option value="">Can’t say</option></select></p></li>
+<li><p>Find the probability that a randomly selected student prefers Math or prefers Statistics.</p></li>
+</ol>
+<p>P(prefers Math or Statistics) = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.77&quot;,&quot;.77&quot;]"></p>
+<ol start="4" type="1">
+<li><p>In this sample, are the events “prefers Statistics” and “male” mutually exclusive? <select class="webex-select"><option value="blank"></option><option value="">Yes</option><option value="answer">No</option><option value="">Can’t say</option></select></p></li>
+<li><p>Find the probability that a randomly selected student prefers Statistics or is male.</p></li>
+</ol>
+<p>P(prefers Statistics or is male) = <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.67&quot;,&quot;.67&quot;]"></p>
+<section id="additional-resources" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">7.4</span> Additional Resources</h2>
+<p>Khan Academy</p>
+<ul>
+<li><a href="https://www.khanacademy.org/math/statistics-probability/probability-library/addition-rule-lib/v/probability-with-playing-cards-and-venn-diagrams">Basic Probability and Venn Diagram</a></li>
+<li><a href="https://www.khanacademy.org/math/probability/independent-dependent-probability/addition_rule_probability/v/addition-rule-for-probability">Addition Rule</a></li>
+</ul>
 
 
+</section>
+</div>
+</div>
 </section>
 </section>
 

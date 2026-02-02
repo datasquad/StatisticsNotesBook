@@ -110,14 +110,6 @@ Average in 2021 = `r fitb(0.0963)`
 
 **Why does just comparing the average splat rates per mile not give the best possible answer to the question of how much insects have declined?**
 
-```         
-    \begin{itemize}
-        \item The sample in 2021 is significantly smaller than the sample in 2004.
-        \item The car journeys in 2004 were significantly longer than those in 2021.
-        \item Methods to measure the length of car journeys differed from 2004 (car odometer readings) to 2021 (an app calculated the journey length from satellite data)
-    \end{itemize}
-```
-
 ```{r}
 #| echo: false
 opts_p <- c(

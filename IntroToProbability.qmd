@@ -11,7 +11,7 @@ library(webexercises)
 
 This video gives a brief introduction into why economists and social scientists should study probabilities (YouTube, 4min).
 
-{{ < video https://www.youtube.com/watch?v=I3OFG1QlDLc > }}
+{{< video https://www.youtube.com/watch?v=I3OFG1QlDLc >}}
 
 So far we have been looking at ways of summarising samples of data drawn from an underlying population of interest. Although at times tedious, all such arithmetic calculations are fairly mechanical and straightforward to apply. To remind ourselves, one of the primary reasons for wishing to summarise data is so assist in the development of inferences about the population from which the data were taken. That is to say, we would like to elicit some information about the mechanism which generated the observed data.
 
@@ -67,7 +67,7 @@ Finally note that $H$ is a sub-set of $F$; see (f). It is depicted as the dark c
 
 This video goes through most elements of the above example (YouTube, 8min). 
 
-{{ < video https://www.youtube.com/watch?v=RYRze4XXlrE >}}
+{{< video https://www.youtube.com/watch?v=RYRze4XXlrE >}}
 
 
 ::: {.callout-note icon=false}
@@ -195,7 +195,7 @@ Each of the simple events has a probability of $\frac{1}{6}$ so the required tot
 
 This video goes through the above brief example (YouTube, 5min).
 
-{{ < video https://www.youtube.com/watch?v=sFijzt3ByzY > }}
+{{< video https://www.youtube.com/watch?v=sFijzt3ByzY >}}
 
 :::
 
@@ -288,26 +288,21 @@ Consider the following frequency table, where 9,900 respondents from two cities 
 
 | City            | Enjoy (E) | Neutral (N) | Do not enjoy (D) | **Sum** |
 |:----------------|----------:|------------:|-----------------:|--------:|
-| Springfield (S) |           | 1,045       | 876              | 2,673   |
-|	Gotham City (G) | 2,893     | 2,504       | 1,803            |         |
-|	**Sum**         | 3,645     |             | 2,706            | 9,900   |
+| Springfield (S) | `r fitb(752)`  | 1,045       | 876              | 2,673   |
+|	Gotham City (G) | 2,893     | 2,504       | 1,803            |`r fitb(7200)`|
+|	**Sum**         | 3,645     |`r fitb(3549)`| 2,679            |`r fitb(9873)`|
 
 
-Complete the above table: 
+Complete the above table using the link between joint and marginal frequencies. 
 
-Frequency$("Springfield" \cap "Enjoy")=$ `r fitb(752)`
-
-Frequency$("Neutral")=$ `r fitb(3549)`
-
-Frequency$("Gotham~City")=$ `r fitb(7227)`
 
 Now calculate the probability table (to 4dp:
 
 | City            | Enjoy (E) | Neutral (N) | Do not enjoy (D) | **Sum** |
 |:----------------|----------:|------------:|-----------------:|--------:|
-| Springfield (S) | `r fitb(0.0760)`|`r fitb(0.1056)` | `r fitb(0.0885)` | `r fitb(0.2700)`  |
-|	Gotham City (G) | `r fitb(0.2922)`| `r fitb(0.2529)`| `r fitb(0.1848)` |`r fitb(0.7300)`|
-|	**Sum**         | `r fitb(0.3682)`|`r fitb(0.3585)`| `r fitb(0.2733)` | `r fitb(1.000)`|
+| Springfield (S) | `r fitb(0.0762)`|`r fitb(0.1058)` | `r fitb(0.0887)` | `r fitb(0.2707)`  |
+|	Gotham City (G) | `r fitb(0.2930)`|`r fitb(0.2536)`| `r fitb(0.1826)` |`r fitb(0.7293)`|
+|	**Sum**         | `r fitb(0.3692)`|`r fitb(0.3595)`| `r fitb(0.2713)` | `r fitb(1.000)`|
 
 
 The $Pr("Springfield" \cap "Enjoy")$ is a `r mcq(c("marginal", answer = "joint"))` probability.
@@ -341,8 +336,139 @@ First calculate $\Pr \left( E\cap F\right) = 0.4$
 
 This video works through this example (YouTube, 7min).
 
-{{ < video https://www.youtube.com/watch?v=agQPNVssoAQ > }}.
+{{< video https://www.youtube.com/watch?v=agQPNVssoAQ >}}.
 
 `r unhide()`
 
+Notice that this implies, in this case, that $F\subset E$ (why?). This then implies that when there are roadworks somewhere on route you are bound to encounter heavy traffic; on the other hand, you can encounter heavy traffic on route without ever passing through roadworks. 
+
 :::
+
+We can generalise this addition rule to three events, $E_{1},E_{2}$ and $E_{3}$ as
+
+\begin{eqnarray*}
+	\Pr (E_{1}\cup E_{2}\cup E_{3}) &=&\Pr (E_{1})+\Pr (E_{2})+\Pr (E_{3}) \\
+	&&-\Pr (E_{1}\cap E_{2})-\Pr (E_{1}\cap E_{3})-\Pr (E_{2}\cap E_{3}) \\
+	&&+\Pr (E_{1}\cap E_{2}\cap E_{3}).
+\end{eqnarray*}
+
+::: {.callout-info}
+
+#### Example
+
+You are asked to spin a [wheel of fortune (change the wheel size to 12!)](https://g.co/kgs/FB3Wif) with numbers 1 to 12 being equally likely outcomes. The three events you consider are: 
+
+* $E_1=\{$ any number larger or equal than 10 $\}$
+* $E_2=\{$ any number smaller than 5 $\}$
+* $E_3=\{$ any even number $\}$
+
+What is the probability that any of these three events occurs?
+
+\begin{eqnarray*}
+	\Pr (E_{1}\cup E_{2}\cup E_{3}) &=&\Pr (E_{1})+\Pr (E_{2})+\Pr (E_{3}) \\
+	&&-\Pr (E_{1}\cap E_{2})-\Pr (E_{1}\cap E_{3})-\Pr (E_{2}\cap E_{3}) \\
+	&&+\Pr (E_{1}\cap E_{2}\cap E_{3})\\
+	&=& \frac{3}{12} + \frac{4}{12} + \frac{6}{12} - \frac{0}{12} - \frac{2}{12} - \frac{2}{12} + \frac{0}{12}\\
+	&=& \frac{9}{12} = 0.75  
+\end{eqnarray*}
+
+:::
+
+
+
+Similar concepts apply when manipulating proportions as demonstrated in the next example.
+
+::: {.callout-info}
+
+#### Example
+
+A sample of 1000 science undergraduates were asked whether they took either Mathematics (M), 	Physics (P) or Chemistry (C) at A-level. All of them took at least one of the three subjects at A-level. The following responses were obtained: 100 just took Mathematics; 70 just took Physics; 100 just took Chemistry; 150 took Mathematics and Physics, but not Chemistry; 40 took Mathematics and Chemistry, but not Physics; and, 240 took Physics and Chemistry, but not Mathematics. What proportion took all three?
+
+This can be addressed with the following diagram:
+	
+![Venn diagram for A level example.](images/Prob_Alevels.jpg)
+
+The shaded area contains the number who took all three, which can be deduced from the above information (since the total of the numbers assigned to each part of the Venn diagram must be 1000). The numbers in all areas but for the shaded area sum to 700. The answer is therefore $30\%$ as 300 out of 1000 have to be in the shaded center area.
+
+:::
+
+
+::: {.callout-note icon=false}
+
+#### Exercises
+
+To calculate the above solution you can also refer to the previous formula:
+
+\begin{equation*}
+	\Pr(M\cup P\cup C) =\Pr(M)+\Pr(P)+\Pr(C) -\Pr(M\cap P)-\Pr(M\cap C)-\Pr(P\cap C) +\Pr(M\cap P\cap C)
+\end{equation*}
+
+What is $\Pr(M\cup P\cup C)$?
+
+Answer: $\Pr(M\cup P\cup C)=1$ 
+
+Feedback: $\Pr(M\cup P\cup C)=1$ is, in the context of this question, the sample space. Note that all students have taken at least one of these three subjects.
+
+
+The information in the problem says that 70 (out of the 1000) students only took Physics. Which probability is that? Note, as usual, $S$ represents the sample space. 
+
+* A: $\Pr(M\cap P)$
+* B: $\Pr(P)$
+* C: $\Pr(\bar{M}\cap \bar{C} \cap P)$ (T)
+* D: $1 - \Pr(C \cup M)$ (T)
+* E: $Pr(P) - \Pr(C \cup M)$ 
+
+Note which answer. Multiple correct answers are possible. Seperate multiple answers by comma. `rfitb(c("C,D", "C, D", "D,C","D, C"))`
+
+:::
+
+
+Two further results on unions, intersections and complements which are of use (and which are fairly easy to demonstrate using Venn diagrams) are **de Morgan Laws**:
+
+
+* $ \bar{A}\cap \bar{B} =\left( \overline{A\cup B}\right) $
+
+* $\bar{A}\cup \bar{B}=\left( \overline{A\cap B}\right) $
+
+
+::: {.callout-note icon=false}
+
+#### Exercises
+
+
+One hundred students were surveyed about their preference between Math and Statistics. The following two-way table displays data for the sample of students who responded to the survey.
+
+| extbf{Preference}  | \textbf{Male} | \textbf{Female} | \textbf{TOTAL} |
+|--------------------|---------------|-----------------|----------------|
+| Prefers Math       | 22            | 18              | 40             |
+| Prefers Statistics | 25            | 12              | 37             |
+| No preference      | 8             | 15              | 23             |
+| TOTAL              | 55            | 45              | 100            |
+
+
+1. Find the probability that a randomly selected student prefers Math.
+Enter your answer as a or decimal.
+
+P(prefers Math) = `r fitb(0.4)`
+
+2. In this sample, are the events "prefers Math" and "prefers Statistics" mutually exclusive? `r mcq(c(answer = "Yes", "No", "Can't say"))`
+    
+3. Find the probability that a randomly selected student prefers Math or prefers Statistics. 
+
+P(prefers Math or Statistics) = `r fitb(0.77)`
+
+4. In this sample, are the events "prefers Statistics" and "male" mutually exclusive? `r mcq(c("Yes",answer ="No", "Can't say"))`
+
+5. Find the probability that a randomly selected student prefers Statistics or is male.    
+
+P(prefers Statistics or is male) = `r fitb(0.67)`
+
+## Additional Resources
+
+Khan Academy
+
+* [Basic Probability and Venn Diagram](https://www.khanacademy.org/math/statistics-probability/probability-library/addition-rule-lib/v/probability-with-playing-cards-and-venn-diagrams)
+* [Addition Rule](https://www.khanacademy.org/math/probability/independent-dependent-probability/addition_rule_probability/v/addition-rule-for-probability)
+
+    
+    
