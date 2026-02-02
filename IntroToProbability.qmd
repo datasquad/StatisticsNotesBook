@@ -47,7 +47,7 @@ In dealing with probability, and in particular the probability of an event (or e
 
 To illustrate these concepts, consider the sample space $S=\{x;x\geq 0\}$. In this example the sample space represents an infinite set of numbers. Don't let the square finite sample space, represented in the next Figure, distract you from that. The following events defined on $S$, as depicted in the Figure:
 
-$E=\{x;4<x\leq 10\},\,F=\{x;7<x\leq 17\},\,G=\{x;x>15\},\,H=\{x;9<x\leq 13\} $. 
+$E=\{x;4<x\leq 10\},\,F=\{x;7<x\leq 17\},\,G=\{x;x>15\},\,H=\{x;9<x\leq 13\}$. 
 
 ![Venn Diagram.](images/Venn_2.png)
 
@@ -107,3 +107,211 @@ $\overline{X\cap(\overline{Y\cup Z})}  =$ `r fitb("1,3,4,5,6,7,8,9,10")`
 `r unhide()`
 :::
 
+## Probability
+
+The term **probability** is used in everyday conversation. Watching the daily news, for instance, you will come across weather forecasts which will often include probabilistic statements like "There is a 70\% probability of rain for tomorrow."  Here is a [video on weather forecasts](https://youtu.be/5qPibjwo21g) and an incredibly interesting podcast on the [importance of communicating uncertainty in weather forecasts (38 min)](https://www.pushkin.fm/podcasts/against-the-rules/respect-the-polygon).
+
+Other areas where we use probabilities are sports (What is the probability of England winning the World Cup) games of chance (e.g. roulette or poker) or economics (What is the probability of a recession?). What you will do now is to learn about a coherent theory of probability; a theory which allows us to combine and manipulate probabilities in a consistent and meaningful manner. You will describe ways of dealing with, and describing, uncertainty. This will involve **rules** which govern our use of terms like probability.
+
+::: {.callout-note}
+
+#### Communicating uncertainty
+Communicating probabilities, or uncertainty is one of the great challenges of scientists, economists and data analysts. Dealing in uncertainties is what we do. But often the people we are communicating to and with do not want to hear uncertainties, they want certainties. Will it rain tomorrow? Yes or No! Will my employer go out of business? Yes or no! Will the Conservatives be able to lead the government after the next election? Yes or no! Will this investment be profitable? Yes or no! Will the Apple share price go up? yes or no!
+
+Despite the thirst for certainty you will have to find ways to communicate uncertainty which both, conveys the right information (including the level of certainty you have), is understandable to the public, and protects your reputation. It turns out that this is a great challenge.  
+
+Here is a great [document on communicating uncertainty](https://fullfact.org/media/uploads/en-communicating-uncertainty.pdf) by [Full Fact](https://fullfact.org) and [a lecture on this issue (60 min)](https://youtu.be/JhfMkmzaNdU?t=238)  by the excellent David Spiegelhalter and a [website](http://understandinguncertainty.org/) he initiated.
+
+This is supplementary and non-assessed information.
+:::
+
+There have been a number of different approaches (interpretations) of probability. Most depend, at least to some extent, on the notion of relative frequency as now described:
+
+* Suppose an experiment has an outcome of interest $E$. The **relative frequency interpretation** of probability says that assuming the experiment can be repeated a large number of times then the relative frequency of observing the outcome $E$ will settle down to a **number**, denoted $\Pr (E)$, $P(E)$ or Prob$(E)$, called the **probability** of $E$.
+
+
+This is illustrated in the next Figure where the proportion of heads obtained after $n$ flips of a fair coin is plotted against $n$, as $n$ increases; e.g., of the first 100 flips, 46 were heads ($46\%$). Notice that the plot becomes less `wobbly' after about $n=140$ and appears to be settling down to the value of $\frac{1}{2}$.
+
+![Relative frequency of heads in $n$ toin tosses.](images/Prob_coin.jpg)
+
+Due to this interpretation of probability, we often use observed sample proportions to approximate underlying probabilities of interest. There are, of course, other interpretations of probability; e.g., the subjective interpretation which simply expresses the strength of one's belief about an event of interest such as whether Liverpool will win the Premier League! Any one of these interpretations can be used in practical situations provided the implied notion of probability follows a simple set of **axioms** or **rules**.
+
+
+### The axioms of probability
+
+There are just **three** basic rules that must be obeyed when dealing with probabilities:
+
+* For any event $E$ defined on $S$ i.e., $E\subset S,\,\,\Pr (E)\geq 0$; **probabilities are non-negative**.
+* $\Pr (S)=1$; **having defined the sample space of outcomes, one of these outcomes must be observed**.
+* If events $E$ and $F$ are mutually exclusive defined on $S$, so that $E\cap F=\emptyset $, then $\Pr \left( E\cup F\right) =\Pr \left( E\right)+\Pr \left( F\right)$. In general, for any set of mutually exclusive events, $E_{1},E_{2},\ldots ,E_{k}$, defined on $S:$  
+    \begin{equation*}
+        \Pr (E_{1}\cup E_{2}\cup \ldots \cup E_{k})=\Pr (E_{1})+\Pr (E_{2})+\ldots\Pr (E_{k})
+    \end{equation*}  
+i.e., $\Pr \left( \bigcup_{j=1}^{k}E_{j}\right) =\sum_{j=1}^{k}\Pr (E_{j})$.
+
+In terms of the Venn Diagram, one can (and should) usefully think of the area of $E$ relative to that of $S$ as providing an indication of probability. (Note, from axiom 2, that the area of $S$ is implicitly normalised to be unity).
+
+Also observe that, contrary to what you may have believed, it is not one of the rules that $\Pr (E)\leq 1$ for any event $E$. Rather, this is an implication of the three rules given:
+
+::: {.callout-important}
+
+#### Implications
+
+It must be that for any event $E$, defined on $S$, $E\cap \bar{E}=\emptyset $ and $E\cup \bar{E}=S$. By Axiom 1, $\Pr (E)\geq 0$ and $\Pr \left( \bar{E}\right) \geq 0$ and by Axiom 3, $\Pr(E)+\Pr (\bar{E})=\Pr (S)$. So $\Pr \left( E\right) +\Pr \left( \bar{E}\right) =1$ by Axiom 2. This implies that
+
+
+* $0\leq \Pr (E)\leq 1$
+* $\Pr (\bar{E})=1-\Pr (E)$
+
+The first of these is what we might have expected from probability (a number lying between $0$ and $1$). The second implication is also very important; it says that the probability of $E$ not happening is one minus the probability of it happening. Thus when rolling a die, the probability of getting $6$ is one minus the probability of getting either a $1$, $2$, $3$, $4$ or $5$.
+
+:::
+
+These axioms imply how to calculate probabilities on a sample space of equally likely outcomes. For example, and as we have already noted, the experiment of rolling a fair dice defines a sample space of six, mutually exclusive and equally likely outcomes (1 to 6 dots on the up-turned face). The axioms then say that each of the six probabilities are positive, add to 1 and are all the same. Thus, the probability of any one of the outcomes must be simply $\frac{1}{6}$; which may accord with your intuition.
+
+A similar sort of analysis reveals that the probability of drawing a club from a deck of 52 cards is $\frac{13}{52}$ since any one of the 52 cards has an equal chance of being drawn and 13 of them are clubs; i.e., 13 of the 52 are clubs, so the probability of drawing a club is $\frac{13}{52}$. Notice the importance of the assumption of equally likely outcomes here.
+
+In what follows you shall see how these axioms can be used. Firstly, consider the construction of a probability for the **union** of two events; i.e., the probability that **either** $E$ or $F$ or (perhaps) **both** will occur. Such a probability is embodied in the **addition rule of probability**.
+
+### The addition rule of probability
+
+Let us begin with an example.
+
+::: {.callout-info}
+
+#### Example
+	
+When rolling a fair dice, let $E$ denote the event of an "odd number of dots" and $F$ the event of the "number of dots being greater than, or equal, to $4$". 
+
+$E = \{1,3,5\}$, $Pr(E) = \frac{3}{6}=0.5$  
+$F = \{4,5,6\}$, $Pr(F) = \frac{3}{6}=0.5$
+
+What is the probability of the event $E\cup F$? To calculate this we can collect together all the mutually exclusive (simple) events which comprise $E\cup F$, and then add up the probabilities (by axiom 3). 
+
+$E\cup F = \{1,3,4,5,6 \}$, $Pr(E\cup F) = \frac{5}{6}$  
+$E\cap F = \{5\}$, $Pr(E\cap F) = \frac{1}{6}$
+
+Each of the simple events has a probability of $\frac{1}{6}$ so the required total probability is: $\Pr \left( E\cup F\right) =\frac{5}{6}$. Consider carefully how this probability is constructed and note, in particular, that $\Pr \left( E\cup F\right) \neq \Pr \left( E\right) +\Pr \left( F\right) $ since $E$ and $F$ have a simple event in common (namely 5 dots). As you will see shortly, $\Pr \left( E\cup F\right) = \Pr \left( E\right) +\Pr \left( F\right) - \Pr(E \cap F)$.
+
+This video goes through the above brief example (YouTube, 5min).
+
+{{ < video https://www.youtube.com/watch?v=sFijzt3ByzY > }}
+
+:::
+
+
+In general, we can calculate the probability of the union of events using the **addition rule of probability**, as follows.
+
+* For any events, $E\subset S$ and $F\subset S:\Pr (E\cup F)=\Pr (E)+\Pr (F)-\Pr (E\cap F)$. So, in general, $\Pr \left( E\cup F\right) \leq \Pr (E)+\Pr (F)$.
+
+
+We can demonstrate this as follows. Note that
+
+\begin{equation*}
+E\cup F=\left( E\cap \bar{F}\right) \cup \left( E\cap F\right) \cup \left(\bar{E}\cap F\right)
+\end{equation*}
+
+the union of three mutually exclusive events. These mutually exclusive events are depicted by the shaded areas $\mathbf{a}$, $\mathbf{b}$ and $\mathbf{c}$, respectively, in the next Figure.
+
+![Venn diagram to illustrate the addition rule.](images/Prob_add.jpg)
+
+Then by Axiom 3, and from the fact that the three events $\left( E\cap\bar{F}\right) $, $\left( E\cap F\right) $ and $\left( \bar{E}\cap F\right)$ are mutually exclusive so that the "area" occupied by $E\cup F$ is simply $\mathbf{a+b+c}$,
+
+\begin{equation*}
+\Pr \left( E\cup F\right) =\Pr \left( E\cap \bar{F}\right) +\Pr \left( \bar{E}\cap F\right) +\Pr \left( E\cap F\right) .
+\end{equation*}
+
+But also by Axiom 3, since $E=\left( E\cap \bar{F}\right) \cup \left(E\cap F\right) $, it must be that $\Pr (E)=\Pr \left( E\cap \bar{F}\right)+\Pr (E\cap F)$; similarly, $\Pr \left( \bar{E}\cap F\right) =\Pr \left(F\right) -\Pr \left( E\cap F\right)$. Putting all of this together gives
+
+\begin{equation*}
+\Pr (E\cup F)=\Pr (E)+\Pr (F)-\Pr (E\cap F).
+\end{equation*}
+
+This was a lengthy probabilistic argument to make sense of the probability addition formula. You may wonder why the addition formula is not just $\Pr (E\cup F)=\Pr (E)+\Pr (F)$? You can refer back to the image above. If we just added $\Pr (E)$ and $\Pr (F)$ we would have double counted area b. We therefore have to subtract it once. And area b is $\Pr (E\cap F)$.
+
+When $E$ and $F$ are mutually exclusive, then there is no overlap, so that $E\cap F=\emptyset$, this rule reveals Axiom 2: $\Pr (E\cup F)=\Pr (E)+\Pr (F)$.
+
+::: {.callout-note icon=false}
+
+#### Exercise
+	
+What is the probability of drawing a Queen ($Q$) or a Club ($C$) in a single draw from a pack of cards? 
+
+The probability is `r fitb(0.3077)` (answer in decimals and rounded to 4dp)
+
+`r hide("Solutions")`
+
+4 out of 52 cards are Queens, so $\Pr \left( Q\right) =\frac{4}{52}$, whilst $\Pr\left( C\right) =\frac{13}{52}$. The probability of drawing the Queen of Clubs is simply $\frac{1}{52}$; i.e., $\Pr \left( Q\cap C\right) =\frac{1}{52}$. What we require is a Club or a Queen, for which the probability is
+
+\begin{eqnarray*}
+\Pr \left( Q\cup C\right) &=&\Pr \left( Q\right) +\Pr \left( C\right) -\Pr\left( Q\cap C\right) \\
+&=&\frac{4}{52}+\frac{13}{52}-\frac{1}{52} \\
+&=&\frac{16}{52}=\frac{4}{13} = 0.3077.
+\end{eqnarray*}
+
+
+`r unhide()`
+
+
+:::
+
+
+You will often be presented with frequency (count) tables of the following type.
+
+| Region | Very good health  | Good health  | Fair health | Bad health | Very bad health | **Sum** |
+|------------|--------|--------|--------|-------|-------|---------|
+| North East | 11,425 | 8,795  | 3,977  | 1,476 | 428   | 26,101  |
+|	North West | 32,413 | 23,502 | 9,847  | 3,842 | 1,083 | 70,687  |
+|	London     | 20,086 | 18,302 | 7,476  | 2,376 | 701   | 52,943  |
+|	**Sum**    | 67,924 | 50,599 | 21,300 | 7,694 | 2,214 | 149,731 | 
+
+
+These are the respondents from three UK regions (North East, North West and London) and their self indicated health status. The data are available in the 2011 Census Microdata Teaching File (see the Data Sets page). For instance there are 8,795 respondents from the North East that indicated that their health was best categorised as "Good health". Throughout the three regions there were 50,599 respondents that gave "Good health" as their health status. 
+
+Now you may be interested whether, for instance, respondents from the North West tend to be more positive about their health, compared to respondents from other regions. For this purpose it is useful to calculate a probability table based on the above frequency table. The way to do that is to divide all frequency values in the above table by the total number of responses, here 149,731. For example, for the above case of someone coming from the North East and indicating "Good health" we would calculate $8795/149731$ which results in $0.0587$. This is the probability that, if we randomly drew a person from our 149,731 responses, we would get someone from the North East with "Good health", $Pr("North~East" \cap "Good~health")=0.0587$. If you do that for all cells in the above table you get the following:
+
+| Region | Very good health  | Good health  | Fair health | Bad health | Very bad health | **Sum** |
+|------------|--------|--------|--------|-------|-------|---------|
+| North East | 0.0763 | 0.0587  | 0.0266  | 0.0099 | 0.0029  | 0.1743 |
+|	North West | 0.2165 | 0.1570 | 0.0658  | 0.0257 | 0.0072 | 0.4721  |
+|	London     | 0.1609 | 0.1222 | 0.0499  | 0.0159 | 0.0047   | 0.3536  |
+|	**Sum**    | 0.4536 | 0.3379 | 0.1423 | 0.0514 | 0.0148 | 1.000 |
+
+
+As another example, the **Pr("London" \cap "Very~bad~health")=0.0047** implies that 0.47\% of the sample are respondents from London with very bad health. We call these probabilities joint probabilities and in the above table they are coloured in blue. The probabilities at the margins of the table are also called marginal probabilities. For instance $Pr("London")=0.3536$, meaning that if we randomly draw a response from the above 149,731 respondents, there is a 35\% probability that this response comes from London.
+
+::: {.callout-info}
+
+#### Example
+
+Consider the following frequency table, where 9,900 respondents from two cities have been asked whether they enjoy eating vegetables.
+
+| City            | Enjoy (E) | Neutral (N) | Do not enjoy (D) | **Sum** |
+|:----------------|----------:|------------:|-----------------:|--------:|
+| Springfield (S) |           | 1,045       | 876              | 2,673   |
+|	Gotham City (G) | 2,893     | 2,504       | 1,803            |         |
+|	**Sum**         | 3,645     |             | 2,706            | 9,900   |
+
+
+Complete the above table: 
+
+Frequency$("Springfield" \cap "Enjoy")=$ `r fitb(752)`
+
+Frequency$("Neutral")=$ `r fitb(3549)`
+
+Frequency$("Gotham~City")=$ `r fitb(7227)`
+
+Now calculate the probability table (to 4dp:
+
+| City            | Enjoy (E) | Neutral (N) | Do not enjoy (D) | **Sum** |
+|:----------------|----------:|------------:|-----------------:|--------:|
+| Springfield (S) | `r fitb(0.0760)`|`r fitb(0.1056)` | `r fitb(0.0885)` | `r fitb(0.2700)`  |
+|	Gotham City (G) | `r fitb(0.2922)`| `r fitb(0.2529)`| `r fitb(0.1848)` |`r fitb(0.7300)`|
+|	**Sum**         | `r fitb(0.3682)`|`r fitb(0.3585)`| `r fitb(0.2733)` | `r fitb(1.000)`|
+
+
+The $Pr("Springfield" \cap "Enjoy")$ is a `r mcq(c("marginal", answer = "joint"))` probability.
+
+The $Pr("Gotham~City")$ is a `r mcq(c(answer = "marginal", "joint"))` probability.
+
+:::
