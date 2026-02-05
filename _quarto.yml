@@ -15,6 +15,7 @@ book:
   - CorrelationRegressionCausation.qmd
   - DealingWithDataSets.qmd
   - IntroToProbability.qmd
+  - ConditionalProbability.qmd
   - summary.qmd
   - references.qmd
 bibliography: references.bib
