@@ -16,6 +16,7 @@ book:
   - DealingWithDataSets.qmd
   - IntroToProbability.qmd
   - ConditionalProbability.qmd
+  - DiscreteRVs.qmd
   - summary.qmd
   - references.qmd
 bibliography: references.bib

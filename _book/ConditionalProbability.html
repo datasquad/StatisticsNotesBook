@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; Condirional Probability – Statistics Notes</title>
+<title>8&nbsp; Conditional Probability – Statistics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,7 +113,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ConditionalProbability.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Condirional Probability</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ConditionalProbability.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conditional Probability</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -189,7 +189,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ConditionalProbability.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Condirional Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conditional Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -223,6 +223,7 @@ window.Quarto = {
   <li><a href="#statistical-independence" id="toc-statistical-independence" class="nav-link" data-scroll-target="#statistical-independence"><span class="header-section-number">8.3</span> Statistical Independence</a>
   <ul class="collapse">
   <li><a href="#bayes-theorem" id="toc-bayes-theorem" class="nav-link" data-scroll-target="#bayes-theorem"><span class="header-section-number">8.3.1</span> Bayes’ Theorem</a></li>
+  <li><a href="#additional-resources-1" id="toc-additional-resources-1" class="nav-link" data-scroll-target="#additional-resources-1"><span class="header-section-number">8.3.2</span> Additional resources</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -232,7 +233,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Condirional Probability</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conditional Probability</span></h1>
 </div>
 
 
@@ -465,7 +466,8 @@ Solutions
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<pre><code>On a Roulette Table you have numbers 0 to 36. Of the numbers 1 to 36 18 numbers are red and another 18 are black. The number 0 is white. You can assume that consecutive spins ($S$) of the roulette wheel produce independent outcomes. Calculate the probabilities for the following events:</code></pre>
+<p>On a Roulette Table you have numbers 0 to 36.</p>
+<p>Of the numbers 1 to 36 18 numbers are red and another 18 are black. The number 0 is white. You can assume that consecutive spins (<span class="math inline">\(S\)</span>) of the roulette wheel produce independent outcomes. Calculate the probabilities for the following events:</p>
 <ol type="1">
 <li>One red and one black number in two spins, the order not being important.</li>
 <li>Three black numbers in a row.</li>
@@ -589,8 +591,56 @@ Solutions
     &amp;=&amp;(1/2)\,\,\,\,+\,\,\,\,(1/2)\times (1/2) \\
     &amp;=&amp;3/4.
 \end{eqnarray*}\]</span></p>
-<p>Therefore, <span class="math inline">\(\Pr (A|R)=(1/2)/(3/4)=2/3\)</span>.\</p>
+<p>Therefore, <span class="math inline">\(\Pr (A|R)=(1/2)/(3/4)=2/3\)</span>.</p>
 </section>
+<p>Now we come back to the Monty Hall problem which has been introduced at the beginning.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Montyhall1.png" class="img-fluid figure-img"></p>
+<figcaption>Monty Hall</figcaption>
+</figure>
+</div>
+<p>Recall where we ended up in the show. You had selected one door, Door 1, hoping that you would win a car if that was hidden behind that door. The show’s host opened one of the other doors revealing a goat (here Door 3). Being an avid viewer of the show you know that the host, at that stage, would never actually open the door with the car or the door which you chose. Should you switch from Door 1 to 2, or does it not matter for your chances of winning a car?</p>
+<p>As indicated at the beginning, switching will let you win twice as often as sticking with the original choice. We now have the statistical tools to investigate why this is the case. We could use a table to explicitly list out all the possible outcomes, and count how often you get the car if you stay versus switch. Without loss of generality, suppose your selection was door 1 (This is a fancy way of saying that you can repeat the analysis assuming that you initially chose Door 2. You would find the same result; switching doubles your probability of winning). Then the possible outcomes can be seen in this table:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Montyhall2.png" class="img-fluid figure-img"></p>
+<figcaption>Monty Hall</figcaption>
+</figure>
+</div>
+<p>In two out of three cases, you win the car by changing your selection after one of the doors is revealed. This is because there is a greater probability that you choose a door with a goat behind it in the first go, and then Monty is guaranteed to reveal that one of the other doors has a goat behind it. Hence, by changing your option, you double your probability of winning.</p>
+<p>It is, admittedly, not straightforward to follow this logic and therefore we will appreciate the formal argument using <strong>Bayes’ theorem</strong>. The version you see below is only one of several other ways in which you could see the problem through the Bayes’ Theorem lens. But all different perspectives will lead you to the same outcome. We argued earlier that Bayes’ theorem allows us to think how new information allows us to update probabilities using the new evidence. When you chose Door 1 initially you knew that the probability of the car being behind Door 1 was 1/3, <span class="math inline">\(Pr(D1)=1/3\)</span>, and also <span class="math inline">\(Pr(D2)=Pr(D3)=1/3\)</span>.</p>
+<p>Now we describe how you can update the probability <span class="math inline">\(Pr(D1)\)</span> with the new information obtained after the quizmaster opened Door 3, event = <span class="math inline">\(OD3\)</span>. The following assumes that you have chosen Door 1. Equivalent considerations would apply if you had chosen doors 2 or 3. The Bayes formula adjusted to the new event names looks as follows:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \Pr \left( D1|OD3\right)&amp;=&amp;\frac{\Pr \left( D1 \cap OD3\right)}{Pr(OD3)}\\
+     &amp;=&amp;\frac{\Pr \left( OD3|D1\right) \times \Pr \left(D1\right) }{\Pr \left( OD3|D1\right) \times \Pr \left( D1\right) +\Pr (OD3|D2)\times \Pr \left( D2\right) +\Pr (OD3|D3)\times \Pr \left( D3\right)}
+\end{eqnarray*}\]</span></p>
+<p>We already know <span class="math inline">\(Pr(D1)=Pr(D2)=Pr(D3)=1/3\)</span>. Further we need:</p>
+<ul>
+<li><span class="math inline">\(\Pr(OD3|D1)\)</span> is the probability that Monty shows Door 3, given (<span class="math inline">\(D1\)</span>), i.e.&nbsp;that the car is behind Door 1. That probability would 1/2 as Monty has the choice between Doors 2 and 3 as both hide a goat.</li>
+<li><span class="math inline">\(\Pr(OD3|D2)\)</span> is the probability that Monty shows Door 3, given that there is a car behind Door 2. As you have chosen Door 1 Monty cannot open Door 1 and he also cannot open Door 2 as that is where the car is. Therefore he is certain to open Door 3, <span class="math inline">\(Pr(OD3|D2)=1\)</span>.</li>
+<li><span class="math inline">\(\Pr(OD3|D3)\)</span> is the probability that Monty shows Door 3, given that the car is behind Door 3. Monty would never do this, as he does not want the game to end at this stage. Therefore <span class="math inline">\(Pr(OD3|D3)=0\)</span>.</li>
+</ul>
+<p>Combining all of this information gives</p>
+<p><span class="math display">\[\begin{equation*}
+    \Pr \left( D1|OD3\right) =\frac{(1/2) \times (1/3) }{(1/2) \times (1/3) +1 \times (1/3) +0 \times (1/3)}=1/3
+\end{equation*}\]</span></p>
+<p>So the probability that the car is behind Door 1 has not changed at all through Monty’s act of revealing a goat behind Door 3. At this stage you know that the car is not behind Door 3 and therefore the only other possibility is that the car is behind Door 2. Logically the probability, at this stage, that the car is behind Door 2 ought to be <span class="math inline">\(Pr(D2|OD3)=2/3\)</span>. This is what can be somewhat unintuitive, but let’s update the initial <span class="math inline">\(Pr(D2)=1/3\)</span> with the information provided by the opening of Door 3, again using Bayes’s Theorem:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \Pr \left( D2|OD3\right) &amp;=&amp; \frac{\Pr \left( D2 \cap OD3\right)}{Pr(OD3)}\\
+    &amp;=&amp;\frac{\Pr \left( OD3|D2\right) \times \Pr \left(D2\right) }{\Pr \left( OD3|D1\right) \times \Pr \left( D1\right) +\Pr (OD3|D2)\times \Pr \left( D2\right) +\Pr (OD3|D3)\times \Pr \left( D3\right)}\\
+    &amp;=&amp;\frac{1 \times (1/3) }{(1/2) \times (1/3) +1 \times (1/3) +0 \times (1/3)}=2/3
+\end{eqnarray*}\]</span></p>
+<p>Opening Door 3 has doubled the probability that the car is behind Door 2!!! Therefore, switching to Door 2 is twice as likely to get you the car as is staying with Door 1. You can repeat this argument for any other initial choice of Door. You will always find that switching increases the probability of you winning the car.</p>
+<p>In this Section you learned that conditional probabilities are important to describe important relationships in society, such as the probabilities of contracting Covid conditional on being vaccinated, the probabilities of cars being stolen depending on where they are parked and the probabilities of having an interesting job, depending on what type of education you have. In addition you learned that, using the incredibly important Bayes’ Theorem, you can solve rather complicated probabilistic problems.</p>
+</section>
+<section id="additional-resources-1" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="additional-resources-1"><span class="header-section-number">8.3.2</span> Additional resources</h3>
+<p>Khan Academy:</p>
+<ul>
+<li>A different example that intuitively leads to <a href="https://www.khanacademy.org/math/probability/independent-dependent-probability/dependent_probability/v/introduction-to-dependent-probability">Bayes Formula</a></li>
+<li>Should you switch the door? <a href="https://www.khanacademy.org/math/probability/independent-dependent-probability/dependent_probability/v/monty-hall-problem">A classic problem</a>.</li>
+</ul>
 
 
 </section>
