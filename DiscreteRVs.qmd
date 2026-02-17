@@ -57,13 +57,16 @@ Just in case you didn't realise yet, the above is somewhat abstract. Don't forge
 Let us list a few more examples of random variables
 
 * Let $X=$ "the number of HEADs obtained when a fair coin is flipped 3 times". This definition of $X$ implies a function on the physical sample space which generates particular numerical values. Thus $X$ is a random variable and the values it can assume are:  
+
 \begin{eqnarray*}
 		X(H,H,H)&=&3;~X(T,H,H)=2;~(H,T,H)=2;~X(H,H,T)=2;\\
 		X(H,T,T)&=&1;~X(T,H,T)=1;~X(T,T,H)=1;~X(T,T,T)=0.
 \end{eqnarray*}  
+
 This is an example (as mentioned above) where two different outcomes in the sample space (e.g. ${T,H,H}$ and ${H,T,H}$) are mapped into the same number, here 2.
 * Let the random variable $Y$ indicate whether or not a household has suffered some sort of property crime in the last 12 months, with $Y(yes)=1$ and $Y(no)=0$. Note that we could have chosen the numerical values of 1 or 2 for "yes" and "no" respectively. However, the mathematical treatment is simplified if we adopt the **binary** responses of 1 and 0.
 * Let the random variable $T$ describe the length of time, measured in weeks, that an unemployed job-seeker waits before securing permanent employment. So here, for example,  
+
 \begin{equation*}
 		T(15~\textit{weeks unemployed})=15, \quad T(31~\textit{weeks unemployed}$)=31,~etc.
 \end{equation*}
@@ -316,7 +319,7 @@ or in the vaccination example
 	\end{cases}
 \end{equation*}
 
-### Distributional properties
+#### Distributional properties
 
 This is really the simplest of discrete distributions, one with only two possible outcomes, 0 and 1. In some sense you know everything about this distribution if you know the probability of success $\pi$. Keeping in mind other distributions (with many more possible outcomes) we will make it a habit to describe distributions by their moments. In particular we will look at a distributions first (expected value/mean) and the second moment (variance). The third moment is the skewness. If you can find out why moments of the distribution are called moments, please let me know.
 
@@ -365,17 +368,12 @@ You can see that these all relate to repeated Bernoulli random variables (see th
 
 Let us return to the coin toss example ($X=$ the number of HEADs obtained from three flips of a fair coin) for which we actually stated the probability distribution earlier. Now we discuss how these probabilities were calculated. The four possible values of $X$ are 0, 1, 2 or 3. Furthermore, assuming independence between the coin tosses, we can write that
 
-\begin{itemize}
-	\item $p(0)=P (X=0)=P (T,T,T)=P \left( \text{T}\right) \times P\left( \text{T}\right) \times P \left( \text{T}\right) =(1/2)^{3}=1/8$
-	
-	\item $p(1)=P (X=1)=P (H,T,T)+P (T,H,T)+P (T,T,H)$\\
+* $p(0)=P (X=0)=P (T,T,T)=P \left( \text{T}\right) \times P\left( \text{T}\right) \times P \left( \text{T}\right) =(1/2)^{3}=1/8$
+* $p(1)=P (X=1)=P (H,T,T)+P (T,H,T)+P (T,T,H)$  
 	$=(1/2)^{3}+(1/2)^{3}+(1/2)^{3}=1/8+1/8+1/8=3/8$
-	
-	\item $p(2)=P (X=2)=P (H,H,T)+P (H,T,H)+P (T,H,H)$\\
+* $p(2)=P (X=2)=P (H,H,T)+P (H,T,H)+P (T,H,H)$  
 	$=(1/2)^{3}+(1/2)^{3}+(1/2)^{3}=1/8+1/8+1/8=3/8$
-	
-	\item $p(3)=P (X=3)=P (H,H,H)=(1/2)^{3}=1/8$
-\end{itemize}
+* $p(3)=P (X=3)=P (H,H,H)=(1/2)^{3}=1/8$
 
 With this information we can also state the cdf:
 
@@ -389,232 +387,289 @@ With this information we can also state the cdf:
 	\end{cases}
 \end{equation*}
 
-This video goes through the above workings (\href{https://www.youtube.com/watch?v=bvfwuGbARmw}{YouTube, 14min}).
+This video goes through the above workings (YouTube, 14min).
+
+{{< video https://www.youtube.com/watch?v=bvfwuGbARmw >}}
 
 
-\noindent\rule{16cm}{0.4pt}
-\begin{example}
-What is $P(X<2)$?\\
+::: {.callout-info}
+
+#### Example
+
+What is $P(X<2)$?
+$P(X<2)=$ `r fitb(0.5)`
+
+`r hide("Solution")`
 $P(X<2)=p(0) + p(1) = 0.5$
+`r unhide()`
 
-What is $P(X>0)$?\\
+What is $P(X>0)$?  
+$P(X>0) =$ `r fitb(0.875)`
+
+`r hide("Solution")`
 $P(X>0)=1-P(X\leq 0) = 1- 0.125 = 0.875$
+`r unhide()`
 
-What is $P(X>2)$?\\
+
+What is $P(X>2)$?  
+$P(X>2) =$ `r fitb(0.125)`
+
+`r hide("Solution")`
 $P(X>2)=1-P(X\leq 2) = 1- 0.875 = 0.125$
+`r unhide()`
 
-What is $P(2.5)$?\\
+
+What is $P(2.5)$?  
+$P(2.5) =$ `r fitb(0.125)`
+
+`r hide("Solution")`
 $P(2.5)=P(X \leq 2.5)=P(X\leq 2) =  0.125$
-
-\end{example}
-
-\noindent\rule{16cm}{0.4pt}
-
-
-
-
-
-
-
-
-
-## DELETE
-
-In this short video I argue that understanding conditional probabilities are crucial to social scientists and not only to understand the Monty Hall problem (YouTube, 3min).
-
-{{< video https://www.youtube.com/watch?v=6Dil44Q3Q3I >}}
-
-You are on a game show, being asked to choose between three doors. Behind one door is a car and behind the others are goats. You choose a door, say Door 1. The host, Monty Hall, picks one of the other doors, which he knows has a goat behind it, and opens it, showing you the goat. (You know, by the rules of the game, that Monty will always reveal a goat.) Monty then asks whether you would like to switch your choice of door to the other remaining door. 
-
-**The big question**: assuming you prefer having a car more than having a goat, do you choose to switch or not to switch?
-
-
-![The Monty Hall problem.](images/Montyhall1.png)
-
-The solution is that switching will let you win **twice** as often as sticking with the original choice, a result that seems counter-intuitive to many. In the following, we will introduce conditional probability and Bayes' Theorem, which give us a way to explain this result.
-
-## Conditional Probability
-
-An important consideration in the development of probability is that of **conditional probability**. This refers to the calculation of updating probabilities in the light of revealed information. For example, insurance companies nearly always set their home contents insurance premiums on the basis of the postcode in which the home is located. That is to say, insurance companies believe the risk depends upon the location; i.e., the probability of property crime is assessed conditional upon the location of the property. (A similar calculation is made to set car insurance premiums.) As a result, the premiums for two identical households located in different parts of the country can differ substantially.
-
-* In general, the probability of an event, $E$, occurring **given** that an event, $F$, has occurred is called the **conditional probability** of $E$ given $F$ and is denoted $\Pr (E|F)$.
-
-Let's consider all young people of the same age, say 23 years old. That will be approximately your age after graduating from University. Apart from the intellectual challenge and pleasure you get from studying, many of you would be studying in order to improve your job market prospect.  Let us define the event $F=$ "a person has a University degree". Then we could think of different types of events to describe job market success. Say that you have a job, or that you have annual earnings above £30,000 or that you have a job that excites you. For now, let's stick with the event definition $E=$ "a person is in employment". You as a student are certainly hoping that $\Pr(E|F)>\Pr (E|\bar{F})$.
-
-As a preliminary to the main development, consider the simple experiment of rolling a fair die and observing the number of dots on the upturned face. Then, the sample space is $S=\left\{ 1,2,3,4,5,6\right\}$ and define events, $E=\left\{4\right\}$ and $F=\left\{ 4,5,6\right\}$; we are interested in $\Pr \left(E|F\right)$. To work this out we take $F$ as known. Given this knowledge the sample space becomes restricted to simply $\left\{ 4,5,6\right\}$ and, given no other information, each of these three outcome remains equally likely. So the required event, $4$, is just one of three equally likely outcomes. It therefore seems reasonable that $\Pr (E|F)=\frac{1}{3}$.
-
-![Conditional probability - dice example](images/Dice.png)
-
-We shall now develop this idea more fully, using Venn Diagrams with the implied notion of area giving probability. Consider an abstract sample space, denoted by $S$, with events $E\subset S$ and $F\subset S$. This is illustrated in the following Figure. Eventually we will want to construct the conditional probability, $\Pr \left( E|F\right)$. Sticking with the above example that could be the probability that "you are employed at the age of 23", given that "you have a university degree". Two important areas used in the construction of this conditional probability are highlighted as $\mathbf{a}$ and $\mathbf{b}$:
-
-![Conditional proability](images/ProbCond_venn1.jpg)
-
-In general, it is useful to think of $\Pr (E)$ as $\frac{area\left( E\right)}{area\left( S\right)}$; and similarly for $\Pr (F)$. The $\Pr (E\cap F)$ could equally be thought of as $\frac{area\left( a\right)}{area\left( S\right) }$. With this in mind, consider what happens if we are now told that $F$ has occurred. Incorporating this information implies that the effective sample space becomes restricted to $S^{*}=F$, since $F$ now defines what can happen. This now covers the sample area $a+b$. On this new, restricted, sample space an outcome in $E$ can only be observed if that outcome also belongs to $F$, the restricted sample space $S^*$. And this only occurs in area $a$ which corresponds to the event $E\cap F$. Thus the event of interest now is $E^{*}=E\cap F$, as defined on the restricted sample space of $S^{*}=F$.
-
-In order to proceed with the construction of the conditional probability, $\Pr \left( E|F\right)$, let $area(S)=z$. Then, since the ratio of the area of the event of interest to that of the sample space gives probability, we have (on this restricted sample space):
-
-\begin{eqnarray*}
-\Pr (E|F) &=&\frac{area\left( E\cap F\right) }{area\left( F\right) } \\
-&=&\frac{a}{a+b} \\
-&=&\frac{a/z}{\left( a+b\right) /z} \\
-&=&\frac{\Pr \left( E\cap F\right) }{\Pr \left( F\right) },
-\end{eqnarray*}
-
-We have shown, for this example how a conditional probability can be expressed as a function of the joint probability $\Pr \left( E\cap F\right)$ and the probability $\Pr \left( F\right)$. We call the probability $\Pr \left( F\right)$, which is neither a joint probability nor a conditional probability, a **marginal probability**. This is a profound result and should be formulated in more general terms:
-
-::: {.callout-important}
-
-#### Definition - Conditional Probability
-
-The probability that $E$ occurs, given that $F$ is known to have occurred, gives the **conditional probability** of $E$ given $F$. This is denoted $Pr(E|F)$ and is calculated as
-
-\begin{equation*}
-  \Pr (E|F)=\frac{\Pr (E\cap F)}{\Pr (F)}
-\end{equation*}
-
-and from the axioms of probability will generate a number lying between 0 and 1, since $\Pr (F)\geq \Pr (E\cap F)\geq 0$.
+`r unhide()`
 
 :::
 
+
+In fact, this is a very simple example of a **Binomial distribution**. In general, a binomial random variable is based on several repetitions of independent but identical Bernoulli experiments, an experiment which can result in only one of two possible outcomes "succes" with a probability denoted by $\pi $ ($0<\pi <1$) and "failure" with probability denoted by $1-\pi $). Therefore a binomial random variable is based on several independent Bernoulli random variables with parameter $\pi$.
+
+A good example is opinion polls, when respondents are asked simple "yes" or "no" questions, say "Has Brexit improved your daily life?" (For now we abstract from the possibility of a "Don't know" answer option).  Individuals answer "yes" $\left( 1\right) $ or "no" $\left( 0\right)$. A random variable, $X$, is then said to have a binomial distribution (and is called a Binomial random variable) if it is defined to be the total number of successes in $n$ **independent and identical Bernoulli** experiments; e.g. of the 1010 people randomly selected to answer whether Brexit improved their daily life.
+
+Note that the possible realisations of $X$ are $x=0,1,2,...,n$, where $n$ is the number of Bernoulli experiments ($n=$ 1010 in the above opinion poll example). If you know $n$ and $\pi$ then you can derive the binomial probability mass function (pmf) as follows:
+
+\begin{equation*}
+	p(x)=Pr(X=x)=\binom{n}{x}\pi ^{x}(1-\pi )^{n-x},\quad x=0,1,2,...,n;\quad
+	0<\pi <1.
+\end{equation*}
+
+where
+
+\begin{equation*}
+	\binom{n}{x}=\frac{n!}{x!(n-x)!},
+\end{equation*}
+
+and $n!$ denotes $n$ **factorial**: $n!=n(n-1)(n-2)...2\times 1$; e.g., $3!=6$. In the above formula, we **define** $0!=1$. Note that $\binom{n}{x}$ is called a **combinatorial coefficient** and always gives an integer; it simply counts the total number of different ways that we can arrange exactly $x$ "ones" and $\left( n-x\right)$ "zeros" together. 
+
+Let's go back to a previously calculated example, the probability of having two HEADS when we toss a fair coin three times.
 
 ::: {.callout-info}
 
 #### Example
 
-A Manufacturer of electrical components knows that the probability is 0.8 that an order will be ready for shipment on time and it is 0.6 that it will also be delivered on time. What is the probability that such an order will be delivered on time given that it was ready for shipment on time?
+For the tossing a fair coin three times example and receiving a HEADS being defined as success, what are $pi$ and $n$?
 	
-Let $R=$ "READY", $D=$ "DELIVERED ON TIME". $Pr(R)=0.8,Pr(R\cap D)=0.6$. From this we need to calculate $Pr(D|R)$, using the above formula. This gives, $Pr(D|R)=Pr(R\cap D)/Pr(R)=6/8$, or, $75\%$.
+$\pi = $ `r fitb(0.5)`
+
+$n = $ `r fitb(3)`
+	
+If you defined TAILS as success, what would $pi$ be?
+
+$\pi = $ `r fitb(0.5)`
+	
+`r hide("Hint")`
+It is possible to define either of the two outcomes as success. Usually this would change the probability of success, $\pi$, but as $P(HEADS)=P(TAILS)=0.5$ it doesn't change on this occasion. 
+`r unhide()`
 
 :::
 
 
-
-
-### Multiplication rule of probability
-
-If we re-arrange the above formula for conditional probability, we obtain the so-called **multiplication rule of probability** for **intersections** of events. The multiplication rule of probability can be stated as follows:
-
-\begin{equation}
-  \Pr (E\cap F)=\Pr (E|F)\times \Pr (F)
-\end{equation}
-
-It is equally true that 
-
-\begin{equation}
-	\Pr (E\cap F)=\Pr (F|E)\times \Pr (E)
-\end{equation}
-
-Note that for any two events, $E$ and $F$, $(E\cap F)$ and $(\bar{E}\cap F)$ are mutually exclusive; they were areas $a$ and $b$ respectively in the above Venn diagram. Also, $F=(E\cap F)\cup (\bar{E}\cap F)$; this has been seen before. So the **addition rule** and **multiplication rule** of probability together give:
+For example, consider when we calculated $p(2)$ in the coin toss example.
 
 \begin{eqnarray*}
-\Pr (F) &=&\Pr (E\cap F)+\Pr (\bar{E}\cap F) \\
-&=&\Pr (F|E)\times \Pr (E)+\Pr (F|\bar{E})\times \Pr (\bar{E}).
+	p(2)&=&Pr(X=2)=P(H,H,T)+P(H,T,H)+P(T,H,H)\\
+	&=&(1/2)^{3}+(1/2)^{3}+(1/2)^{3}=1/8+1/8+1/8=3/8
 \end{eqnarray*}
 
-This is an extremely important and useful result, in practice, and it is also related to Bayes Theorem as you will see shortly.
+We basically identified that there were three ways in which we could get two HEADS (H): $(H,H,T), (H,T,H)$ and $(T,H,H)$. Each of these outcomes had a probability of $1/8$ and as there were three ways we calculated $3 \cdot (1/8) = 3/8$.
 
-The following examples refers to a jar with different coloured marbles. So what you should be picturing is something like the following: 
+How would that look when we apply the pmf formula? Let's start with the combinatorial coefficient.
 
-![A jar with differently coloured marbles.](images/Exercises1.jpeg)
+\begin{eqnarray*}
+	\binom{n}{x}&=&\frac{n!}{x!(n-x)!}\\
+	\binom{3}{2}&=&\frac{3!}{2!(3-1)!}= \frac{3 \cdot 2 \cdot 1}{(2 \cdot 1)\cdot(1)}=\frac{6}{2}=3
+\end{eqnarray*}
 
+So this result, 3, tell us that there are 3 ways in which we can get two HEADS ($x=2$) when tossing a coin three ($n=3$) times. It was easy to figure out with without that formula when $n=3$ and $x=2$, but the formula will be very useful when dealing with much larger $n$ and $x$.
 
-::: {.callout-note icon=false}
+So now we know where the 3 came from in our calculation of the probability $p(2)$. Let's complete the calculation by applying the above formula:
 
-#### Exercise
+\begin{equation*}
+	p(2)=P(X=2)=\binom{3}{2}0.5^{2}(1-0.5 )^{3-2}=3 \cdot 0.5^{2} \cdot 0.5^1 = 3 \cdot \frac{1}{8}= \frac{3}{8}
+\end{equation*}
 
-A jar contains 6 red marbles and 4 blue marbles. Two marbles are drawn from the bag, without replacement. What is the probability that both marbles are blue?
+There were three ways in which we could get two heads, and each of the three ways had a probability of $1/8$, which resulted in an overall probability of $p(2)=3/8$.
 
-The probability is (answer in decimals to 4dp) `r fitb(0.1333)`.
+Consider, then, a Binomial random variable, with parameters $n=5$ and $\pi=0.3$. The possible outcomes for the random variable $X$ are 0, 1, ..., 5 and we could calculate the probability for each of these outcomes according to the above formula. Let's do that for one outcome, let's calculate $p(2) = p(X=2)$:
 
-`r hide("Solutions")`
+\begin{eqnarray*}
+	p(2) &=&p(X=2)=\binom{5}{2}\left( 0.3\right) ^{2}\left( 0.7\right) ^{3} \\
+	&=&\frac{5!}{2!3!}\left( 0.09\right) \left( 0.343\right) \\
+	&=&\frac{5\cdot 4}{2}\left( 0.09\right) \left( 0.343\right) \\
+	&=&0.3087.
+\end{eqnarray*}
 
-Here are the steps:
+This video explains how to apply the binomial probability formula (YouTube, 10min).
 
-Step 1: Label your events A and B. Let A be the event that "marble 1 is blue" and let B be the event that "marble 2 is blue". You want to calculate $\Pr (B\cap A)=\Pr (B|A)\times \Pr (A)$
-
-Step 2: Figure out the probability of A. There are ten marbles in the bag, so the probability of drawing a blue marble is $\Pr (A)=4/10$.
-
-Step 3: Figure out the probability of B given the first marble was blue, $\Pr (B|A)$. There are nine marbles left in the bag, and if the first marble was blue then there are only three left which are blue. So the probability of choosing a blue marble $Pr(B|A)$ is $3/9 = 1/3$.
-
-Step 4: Multiply Step 2 and 3 together: $(4/10)*(1/3) = 2/15$.
-
-This video is a walk-through the above calculations (YouTube, 7min). 
-
-{{< video https://youtu.be/G8QBkW4uGYk >}}
-
-`r unhide()`
-
-
-:::
-
+{{< video https://www.youtube.com/watch?v=U1IrmmXU3Bg >}}
 
 ::: {.callout-note icon=false}
 
 #### Exercise
 
-A jar contains 4 red marbles, 4 green marbles, and 5 blue marbles. If we choose a marble, then another marble without putting the first one back in the jar, what is the probability that the first marble will be blue and the second will be green?
+Assume that $\pi = 0.4$, $n=10$ and $x=5$. What is $p(5)=$?
 
-The probability is (in decimals and to 4dp) `r fitb(0.1282)`.	
-
-
-`r hide("Solutions")`
-
-Step 1: The probability of event A happening, then event B, is the probability of event A happening times the probability of event B happening given that event A already happened, $\Pr(B\cap A)=\Pr (B|A)\times \Pr(A)$.	In this case, event A is "picking a blue marble on the first draw" and (importantly) not putting it back. Event B is "picking a green marble in the second draw".
-
-Step 2: Let's take the events one at at time. What is the probability that the first marble chosen will be blue?
-
-Step 3: There are 5 blue marbles, and 13 total, so the probability we will pick a blue marble is $\Pr (A)=5/13$.
-
-Step 4: After we take out the first marble, we don't put it back in, so there are only 12 marbles left.
-
-Step 5: Since the first marble was blue, there are still 4 green marbles left.
-
-Step 6: So, the probability of picking a green marble after taking out a blue marble is $Pr(B|A)=4/12$.
-
-Step 7: Therefore, the probability of picking a blue marble, then a green marble is $(5/13)(4/12) = 5/39$.
+$p(5)=$ `r fitb(0.2007)` (to 4dp)
+	
+`r hide("Solution")`
+	
+	\begin{eqnarray*}
+		p(5) &=&p(X=5)=\binom{10}{5}\left( 0.4\right) ^{5}\left( 0.6\right) ^{5} \\
+		&=&\frac{10!}{5!5!}\left( 0.01024\right) \left( 0.077763\right) \\
+		&=&252 \cdot 0.0007962931 \\
+		&=&0.2006581
+	\end{eqnarray*}
 	
 `r unhide()`
 
 :::
 
-Note that in the above calculations the outcome of second event ($B$ or $F$) changed depending on the outcome of the first event ($A$ or $E$). This complicated the calculations, but it is important to acknowledge when probabilities of events change depending on other events. We say that such events are dependent on each other.
+
+We can now also think of the cumulative distribution function, i.e. probabilities of the type $P(2) = P(X \leq 2)$ (note that we are using a capital $P$ for the cdf while we used a $p$ for the pmf):
+
+\begin{eqnarray*}
+	P\left( 2\right) &=&P\left( X\leq 2\right) =p\left(X=0\right) +p\left( X=1\right) +P\left(X=2\right) \\
+	&=&p\left( 0\right) +p\left( 1\right) +p\left( 2\right) \\
+	&=&\binom{5}{0}\left( 0.3\right) ^{0}\left( 0.7\right) ^{5}+\binom{5}{1}%
+	\left( 0.3\right) ^{1}\left( 0.7\right) ^{4}+\binom{5}{2}\left( 0.3\right)
+	^{2}\left( 0.7\right) ^{3} \\
+	&=&0.16807+0.36015+0.3087 \\
+	&=&0.83692.
+\end{eqnarray*}
+
+::: {.callout-info}
+
+#### Example
+
+Assume that $\pi = 0.4$, $n=10$ and $x=1$.
+	
+What is $P(1)=$?
+	
+Just use a straight application of the binomial formula.	
+		
+	\begin{eqnarray*}
+		P\left( 1\right) &=&P \left( X\leq 1\right) =p\left(0\right) +p\left(1\right)\\
+		&=&\binom{10}{0}\left( 0.4\right) ^{0}\left( 0.6\right) ^{10}+\binom{10}{1}	\left( 0.4\right)^{1}\left( 0.6\right) ^{9}\\
+		&=&0.006046618+0.04031078 \\
+		&=&0.04635732.
+	\end{eqnarray*}
+	
+What is $P(9)=$?
+	
+$P(9)=$ `r fitb(0.9999)` (to 4dp)
+	
+	
+`r hide("Solution")`
+	\begin{eqnarray*}
+		P\left( 9\right) &=&1-P\left( X >9\right) =1-p\left(10\right) \\
+		&=&1-\binom{10}{10}\left( 0.4\right) ^{10}\left( 0.6\right) ^{0}\\
+		&=&1-0.0001048576 \\
+		&=&0.9998951.
+	\end{eqnarray*}
+	
+You could apply the binomial formula straight, but calculating $p(0)+p(1)+...p(9)$ is very burdensome. It is much easier when you recognise that the only outcome not captured by $x \leq 9$ is $X=10$ and hence you can calculate $1 - p(10)$.
+	
+	
+`r unhide()`
+
+:::
+
+#### Distributional properties
+
+The binomial distribution has parameters $n$ and $\pi$. The mean and variance of the binomial distribution are determined by these two parameters as follows:
+
+\begin{eqnarray*}
+	E[X]&=&n \pi\\
+	Var[X] &=& n \pi(1-\pi)
+\end{eqnarray*}
+
+Compare these parameters to those of a Bernoulli random variable. You should see that these are related. This isn't surprising as a binomial random variable really is the result of $n$ applications of independent and identical Bernoulli experiments.
+
+::: {.callout-info}
+
+#### Example
+
+Which combination of parameters delivers a distribution with a larger variance?
+	
+* Distribution 1: $n=20,\pi=0.7$
+* Distribution 2: $n=30,\pi=0.8$
+
+`r mcq(c("Distribution 1", answer ="Distribution 2"))`	
+	
+`r hide("Solution")`
+$Var[X_1] = 20 \cdot 0.7 \cdot 0.3 = 4.2$ and  $Var[X_2] = 30 \cdot 0.8 \cdot 0.2 = 4.8$
+`r unhide()`
+
+:::
+
+::: {.callout-note icon=false}
+
+#### Exercise
+
+You are thinking of an experiment which involves rolling a dice multiple times. In particular you are interested in the outcomes 1 and 2. How often should you be rolling the dice such that the experiment is expected to deliver 10 values of 1 or 2?
+	
+$n = $ `r fitb(30)`
+
+`r hide("Hint")`
+You want $E[x]=n\pi=10$. You need to recognise that the success probability $\pi$ is $1/3$ which then allows you to solve for $n=30$.
+`r unhide()`
+
+:::
 
 
-### Additional resources
+#### Additional resources
 
 Khan Academy:
 
-* Another application of this [multiplication rule](https://www.khanacademy.org/math/probability/independent-dependent-probability/dependent_probability/v/dependent-probability-example-1)
+This is a set of clips to explain binomial random variables. Here is the link to the [first clip](https://www.khanacademy.org/math/probability/random-variables-topic/binomial_distribution/v/binomial-distribution-1).
 
 
-## Statistical Independence
 
-If the knowledge that $F$ has occurred **does NOT alter** our probability assessment of $E$, then $E$ and $F$ are said to be (statistically) **independent**. In this sense, $F$ carries no information about $E$.
+### Geometric Random Variable
 
+We now introduce geometric random variables and these will also be linked to Bernoulli random variables, just as binomial random variables were. Consider the following real life situation. You are a journalist and saw the results of the [Ipsos Mori survey on whether people think that Brexit has been a good decision for the UKimproved daily life](https://www.ipsos.com/en-uk/half-britons-believe-brexit-has-been-mostly-failure-so-far). Your editor (a staunch Brexit supporter) has demanded that for the evening news programme you have to interview a Brexit supporter. You know that, if you sample a random person, there is only a 32\% probability that that person thinks that Brexit has improved life. How many people will you have to ask to find a Brexit supporter? The random variable here is $X=$ the number of people you need to ask to find a Brexit supporter. The possible outcomes are $x=1,2,3,...$.
 
-::: {.callout-important}
+This random variable is linked to the underlying Bernoulli experiment which describes whether an individual person is a Brexit supporter (success with probability $\pi=0.32$) or not (failure with probability $1-\pi=0.68$).
 
-#### Definition - Independence
+In this case $X$ is a **Geometric random variable**. Actually, for this to be the case, we have to make the same assumption as for the binomial random variable. The Bernoulli experiments have to be identically and independently distributed. What does that mean. That means that every time you ask someone, the probability that the person is a Brexit supporter should be 32\%. This probability cannot change. Assume you stand in Market Street and you see two young women walking down the street, You ask the first person whether she is a Brexit supporter. She says "No". As people tend to hang out with like minded people, that has made it more likely that the friend she came along with equally does not support Brexit. This means that most likely the probability for success, if you were to ask her friend as well, would be even lower than 32\%. If you wanted to make sure that your "experiment" follows a geometric distribution you should not ask her friend and find and unrelated person as your potential next interview partner.
 
-Formally, $E$ and $F$ are **independent** events if and only if
-	
+Other examples of a geometric random variable are:
+
+* The number of Space Rocket starts until one fails (here one would define a failed start as a "success").
+* The number of multiple choice questions you would have to answer until you get one right if you are only guessing?
+* How many people you meet in the bus until you meet one person not vaccinated against Covid?
+* How many arrows you have to throw on a darts board until you hit the bulls eye?
+
+The probability mass function of a geometrically distributed random variable is
+
 \begin{equation*}
-	Pr(E|F)=Pr(E)
+	p\left( x\right) =p\left( X=x\right) =\pi \left( 1-\pi \right)^{x-1},\quad x=1,2,3,...;\quad 0<\pi <1,
 \end{equation*}
-	
-which, in turn is true **if and only if**
+
+and if a discrete random variable has such a probability mass function then we say that is a Geometric distribution with parameter $\pi$.
+
+Suppose the probability of success is $\pi =0.3$. What is the probability that the first success is achieved on the second experiment? Recalling that we assume independence:
 
 \begin{equation*}
-	Pr(E\cap F)=Pr(E)\times Pr(F).
+	p\left( 2\right) =p\left( X=2\right) =\left( 0.7\right) \left( 0.3\right) =0.21.
 \end{equation*}
 
-:::
+The probability that the first success is achieved on or before the third experiment is
 
-As you can see, the multiplication rule of probabilities, in the case of independent events, is $Pr(E\cap F)=Pr(E)\times Pr(F)$ whereas in general it is $Pr(E\cap F)=Pr(E)\times Pr(F|E)$ or $Pr(E\cap F)=Pr(F)\times Pr(E|F)$. 
-
-This concept of independence is of enormous importance in practice. Consider the case of lung cancer and its connection to smoking (apologies to all smokers for being picked upon here). The first connection between smoking and lung cancer was made in the 1920s. However, for many decades, with the tobacco industry spending a lot of money and effort to convince people that there was no connection between the two, there was no certainty about a causal connection. In other words, the tobacco industry claimed that the two events are **independent**, or $Pr(Cancer|Smoking)=Pr(Cancer|\bar{Smoking})=Pr(Cancer)$. It was then the task of epidemiologists to show otherwise. This was famously and comprehensively achieved by the [British Doctors Study](http://en.wikipedia.org/wiki/British_Doctors_Study).
-
-In the smoking - lung cancer example the question is really whether smoking **causes** lung cancer. It has now been established that this is indeed the case. That however, is not the same as the two events being dependent. There can be statistical dependence between two events without there being such a causal relationship. For instance, the number of umbrellas being sold in a year could well be positively related to the size of the grain harvest in a country. So, statistically these two variables are likely to be dependent. But that does not imply that people buying more umbrellas increases the grain harvest or vice versa. The reason the two are related to each other is that they are both dependent on a common third variable, the weather. Questions of causality are super important in economics and the sub-field of econometrics thinks very carefully about methods that can be used to establish causal relationships (which are a sub-group of correlation relationships). In other words: not all correlations do correspond to causal relationships. 
+\begin{eqnarray*}
+	P\left( 3\right) &=&P \left( X\leq 3\right) \\
+	&=&p\left( 1\right) +p\left( 2\right) +p\left( 3\right) \\
+	&=&\left( 0.7\right) ^{0} \left( 0.3\right) +\left(0.7\right) ^{1} \left( 0.3\right) +\left( 0.7\right) ^{2} \left( 0.3\right)  \\
+	&=& \left( 1+0.7+0.7^{2}\right)\left( 0.3\right) \\
+	&=&0.657.
+\end{eqnarray*}
 
 
 
@@ -622,45 +677,120 @@ In the smoking - lung cancer example the question is really whether smoking **ca
 
 #### Example
 
+[Ariane](https://www.esa.int/Enabling_Support/Space_Transportation/Ariane) is a space rocket by the European Space Agency. 95\% of its launches are successful (and we assume that successive launches are independent events). Imagine it is 1 December 2021. The next launch is planned for 25 December 2021 (launching the [James Webb Telescope](https://webb.nasa.gov/content/webbLaunch/whereIsWebb.html)). Define $X$ as a random variable indicating in how many launches the next launch failure will happen.
 
-Two fair dice are rolled. Use a probability tree diagram to determine the probability of obtaining:
+What is $\pi$?
 
-(a) two sixes,
+$\pi =$ `r fitb(0.05)`
 
-(b) no sixes,
+`r hide("Hint")`
+Here we are investigating when the next failure will occur. Previously we called $\pi$ the probability of success. In this case "success" is a failure of the launch. 
+`r unhide()`
 
-(c) exactly one six.
-
-Before you start calculating, think about whether the first and the second roll of the dice are independent.
-
-![](images/independence_tree.png)
-
-
-(a) two sixes: $P(six,six)= 1/36$ 
-
-(b) no sixes: $P(not\hspace{0.1cm}six,not\hspace{0.1cm}six) = 25/36$
-
-(c) exactly one six: $P(six,not\hspace{0.1cm}six)+P(not\hspace{0.1cm}six,six)= 5/36 + 5/36 = 10/36$ 
-
-
-You would have possibly solved the above example without having been aware of the concept of independence. But once you understand independence we can reformulate the above. Let $D1_6$ be the event for the first dice roll showing a 6 and $D2_6$ for the second dice roll showing a 6. After recognising that the outcome of the second dice roll will be independent of the outcome of the first dice roll, the probability for two sixes can now be calculated using the multiplication rule specialised for independent events:
+What is $p(3)=$?
 
 \begin{equation*}
-	P(D1_6 \cap D2_6) = P(D1_6) \times P(D2_6) = (1/6) \times (1/6) = 1/36
+	p\left( 3\right) =p\left( X=3\right) =0.05 \left( 0.95\right)^{2} = 0.045125
 \end{equation*}
 
-Equally, you can calculate the probability to not have any sixes:
+This is a standard application of the formula for the pmf of a geometric r.v. 
 
-\begin{equation*}
-	P(D1_{1-5} \cap D2_{1-5}) = P(D1_{1-5}) \times P(D2_{1-5}) = (5/6) \times (5/6) = 25/36
-\end{equation*}
+How would you interpret $p(3)$?
 
-For the probability to get exactly one six we will, as in the example above have to combine the two ways in which this can happen ($D1_6$ and then $D2_{1-5}$ or $D1_{1-5}$ and then $D2_{6}$).
+```{r}
+#| echo: false
+
+opts_p <- c(
+   "The probability that the next three launches fail",
+   "The probability that the next three launches are successful.",
+   "The probability that latest the 3rd next launch fails.",
+   answer = "The probability that the 3rd launch is the next failure.",
+   "The probability that the 3rd launch is successful."
+)
+```
+
+
+`r longmcq(opts_p)`
+
+`r hide("Explanation")`
+The correct answer is "The probability that the 3rd launch is the next failure." You need to keep the precise nature of the random variable in mind. We defined "success" as the failure of the launch.So $p(3)$ is the probability for the next success (failure of a launch) to happen in the third launch.
+`r unhide()`
+
+It is now January 2022 and the James Webb Telescope was launched successfully. What is $p(3)=$?
+
+$p\left( 3\right) =$ `r fitb(0.0451)` (4dp)
+
+
+`r hide("Solution")`
+
+$	p\left( 3\right) =p\left( X=3\right) =0.05 \left( 0.95\right)^{2} = 0.045125$\\
+
+This is exactly as before. Launches are treated as independent, so the fact that the December 2021 launch was successful does not change anything about the probability of successful launches in the future. 	
+
+`r unhide()`
+
+:::
+
+
+#### Distributional Properties
+
+The geometric distribution has parameter $\pi$. The mean and variance of the geometric distribution are determined by this parameter as follows:
 
 \begin{eqnarray*}
-	P(D1_{6} \cap D2_{1-5}) + P(D1_{1-5} \cap D2_{6})  &=& P(D1_{6}) \times P(D2_{1-5}) +  P(D1_{1-5}) \times P(D2_{6})\\
-	 &=& (1/6)(5/6) + (5/6)(1/6) = 10/36
+	E[X]&=& \frac{1-\pi}{\pi}\\
+	Var[X] &=& \frac{1-\pi}{\pi^2}
 \end{eqnarray*}
+
+The mean of geometric distribution is smaller then its variance.
+
+
+### Poisson Random Variable
+
+The Poisson random variable is widely-used to count the number of events occurring in a given interval of time. It is not the only random variable appropriate for count variables but the most popular one. Here are a few examples of random variable we treat as poisson random variables.
+
+* the number of cars passing an observation point, located on a long stretch of straight road, over a 10 minute interval.
+* the number of calls received in the University's IT helpline complaining about BB access problems in a day.
+* the number of customers entering a store between 3 and 4pm.
+* the number of travellers arriving at the airport's security check between 5 and 6am.
+* the number of visitors to a website in a 10 second interval.
+
+The probability mass function is
+
+\begin{equation*}
+	p\left( x\right) =p\left( X=x\right) =\frac{\lambda ^{x}}{x!}\exp \left(
+	-\lambda \right) ,\quad x=0,1,2,...;\quad \lambda >0
+\end{equation*}
+
+in which, $\exp (.)$ is the exponential function ($\exp \left( a\right)=e^{a}$) and $\lambda$ is a positive real number (a **parameter**). We say that $X$ has a Poisson distribution with parameter $\lambda $ (note that $\lambda$ will often be referred to as the **mean** which will be discussed in a later Section).
+
+Suppose that the number of visitors to a website arriving in any 10 second interval, defined as random variable $X$, follows a Poisson distribution with $\lambda =5$. What is $p\left( X=2\right)$?
+
+\begin{eqnarray*}
+	p\left( 2\right) &=&p\left( X=2\right) =\frac{5^{2}}{2!}\exp \left(
+	-5\right) \\
+	&=&0.0842.
+\end{eqnarray*}
+
+Therefore the probability to have 2 visitors is around 8.5\%. The probability of more than $2$ visits is
+
+\begin{eqnarray*}
+	P \left( X>2\right) &=&1-P \left( X\leq 2\right) \\
+	&=&1-\left( p\left( X=0\right) +p\left( X=1\right) +\left(X=2\right) \right) \\
+	&=&1-\left( e^{-5}+5\times e^{-5}+12.5\times e^{-5}\right) \\
+	&=&1-0.1247 \\
+	&=&0.8753.
+\end{eqnarray*}
+
+::: {.callout-tip}
+
+#### EXCEL-Tip
+
+You can see from the above calculation that calculating cumulative densities can become very burdensome when you are looking at $P(x)$ with very large values of x as you have to sum up $x$ terms. The EXCEL function that facilitates the calculation of poisson probabilities is the poisson.dist(x,mean,cumulative) function. The above probabilities could be calculated in EXCEL with the following function calls.
+
+1. $p\left( 2\right) $ "=POISSON.DIST(2,5,FALSE)"
+2. $P\left( 2\right) $ "=POISSON.DIST(2,5,TRUE)"
+
+In the function call "mean" stands for the $\lambda$ parameter and "cumulative" is an indication whether you want to calculate the pmf ("FALSE") or the cdf ("TRUE").
 
 :::
 
@@ -668,214 +798,232 @@ For the probability to get exactly one six we will, as in the example above have
 
 #### Exercise
 
-On a Roulette Table you have numbers 0 to 36. 
-
-Of the numbers 1 to 36 18 numbers are red and another 18 are black. The number 0 is white. You can assume that consecutive spins ($S$) of the roulette wheel produce independent outcomes. Calculate the probabilities for the following events:
+Consider $Z$ to be a poisson distributed random variable with $\lambda = 500$. Calculate the following probabilities (Note that $P(a)=P(X\leq a)$):
 	
-1. One red and one black number in two spins, the order not being important.
-2. Three black numbers in a row.
-3. The first spin producing a 0, followed by a red and then a black number.
-4. The first spin producing a 0, followed by one red and black where the order is not important.
+$p(480) =$ `r fitb(0.0121)`
+
+$P(480) =$ `r fitb(0.1921)`
+
+$P(x>480) =$ `r fitb(0.8079)`
 
 `r hide("Solutions")`
+	
+$p(480) = 0.0121$ using "=POISSON.DIST(E6,F4,FALSE)" in EXCEL
 
-1. $P(rb)=(P(S1_{b}) \times P(S2_{r}))+(P(S1_{r}) \times P(S2_{b}))=(18/37)(18/37)+(18/37)(18/37)=0.4733$
-2. $P(S1_{b} \cap S2_{b} \cap S3_{b}) = P(S1_{b}) \times P(S2\_{b}) \times P(S3\_{b}) = (18/37)(18/37)(18/37) = 0.1151$
-3. $P(S1_{0} \cap S2_{r} \cap S3_{r}) = P(S1_{0}) \times P(S2\_{r}) \times P(S3\_{r}) = (1/37)(18/37)(18/37) = 0.0064$
-4. $P(S1_{0} \cap rb) = P(S1_{0}) \times P(rb)  = (1/37) \times 0.4733 = 0.0128$
+$P(480) = 0.1921$ using "=POISSON.DIST(E6,F4,TRUE)"
+
+$P(x>480) = 1 - P(x \leq 480) = 1 - P(480) = 1 - 0.1921 = 0.8079$
 
 `r unhide()`
 
 :::
 
-
-### Bayes' Theorem
-
-There are many areas where conditional probability is extremely important. Let's think about examples for a business, a charity and a government. Consider a business that is considering whether changing the colour scheme of its sales website from one based mainly on yellow to one that is mainly based on blue has a positive impact on the amount of sales. If so, $\Pr(Sales|Colour) \neq \Pr(Sales)$. Or think about a charity which is wondering whether informing potential donors about the average amount donated by other people in their city increase the amount someone will donate to their cause. If so $\Pr(Donations|Info) \neq \Pr(Donations)$. Or finally a government which is wondering whether devising legislation that places health warnings on cigarette packages reduces the amount people smoke. If so $\Pr(Smoking|HealthWarning) \neq \Pr(Smoking)$.
-
-Another area is that of clinical trials - testing the power of a diagnostic test to detect the presence of a particular disease or infection. Suppose, then, that a new test is being developed and let $P=$ "test positive" and $D=$ "presence of disease", but where the results from applying the diagnostic test can never be wholly reliable. From the point of view of our previous discussion on conditional probability, we would of course require $\Pr \left( P|D\right)$ to be large; i.e., the test should be effective at detecting the disease. However, if you think about it, this is not necessarily the probability that we might be interested in from a diagnosis point of view. Rather, we should be more interested in $\Pr \left( D|P\right)$, the probability of the positive test indeed indicating the presence of the disease. We want this to be large and $\Pr (D|\bar{P})$ to be small. 
-
-The situation is depicted in the @fig-diagnostic, in which there are two possible states in the population: $D$ (depicted by the lightly shaded area covering the left portion of the sample space) and $\bar{D}$. It must be that $D\cup \bar{D}=S$, since any individual in the population either has the disease or does not. The event of an observed positive test result is denoted by the closed loop, $P$. (Notice that the shading in the diagram is relatively darker where $P$ intersects with $D$.)
-
-Here, what we are trying to attach a probability to is a possible cause. The observed outcome is a positive test result ($P$), but the presence or non-presence of the disease is what is of interest and this is uncertain. $\Pr (D|P)$ asks the question "What is the probability that it is the presence of the disease which caused the positive test result? Firstly, is $\Pr \left( D|P\right)$ high or low? Secondly, might there being something else ($F$) which could offer a "better" explanation, such that $\Pr \left( F|P\right) | \Pr \left( D|F\right) $ ?
-
-Note that in this section we are using $Pr(A)$ to denote the probability that event $A$ occurs, where in previous sections we used $P(A)$. Both notations are commonly found and you need to be familiar with either. The reason why we switch on this occasion is as we are using an event we define as $P$ and hence we use $Pr$ to represent the probability to avoid confusion.
-
-![Bayes' Theorem](images/ProbCond_venn2.jpg){#fig-diagnostic}
-
-How might we construct the required probability, $\Pr \left(D|P\right)$? We start from the multiplication rule, $\Pr \left( D\cap P\right) =\Pr \left( D|P\right)\Pr (P)$, and rearranging it as follows:
-
-\begin{eqnarray*}
-	\Pr \left( D|P\right) &=&\frac{\Pr \left( D\cap P\right) }{\Pr (P)} \\
-	&=&\frac{\Pr (D\cap P)}{\Pr (P\cap D)+\Pr (P\cap \bar{D})},
-\end{eqnarray*}
-
-since $P=(P\cap D)\cup (P\cap \bar{D})$, and these are mutually exclusive. From the multiplication rule of probability, $\Pr \left( P\cap D\right) =\Pr(P|D)\times \Pr (D)$, and similarly for $\Pr \left( P\cap \bar{D}\right)$. Thus
-
-\begin{equation*}
-	\Pr \left( D|P\right) =\frac{\Pr \left( P|D\right) \times \Pr \left(D\right) }{\Pr \left( P|D\right) \times \Pr \left( D\right) +\Pr (P|\bar{D})\times \Pr \left( \bar{D}\right) },
-\end{equation*}
-
-which is convenient to work with since $\Pr \left( P|D\right)$ and $\Pr\left( P|\bar{D}\right)$ can be estimated from clinical trials and $\Pr\left( D\right)$ estimated from recent historical survey data. We sometimes call probabilities like $Pr(D)$ \textbf{prior probabilities} and probabilities like $\Pr \left( D|P\right) $ \textbf{posterior probabilities}. You can think of the \textbf{prior} and \textbf{posterior} representing before and after the revealing of the information $P$.
-
-This is all pretty abstract,so let's work through an example.
-
-::: {.callout-info}
-
-#### Example
-
-Let's assume that you are worried about having contracted Covid. You know that at the time around 10\% of the population have Covid. This number comes from a regular survey undertaken by the Office for National Statistics. We also call this the prevalence of the disease, $P(D)=0.1$. You want to take a test. You did your research about the test and found that, from clinical tests, it is known that the test has an accuracy of 95\%. In this context this implies that, if you do have the disease, then there is a 95\% probability that the test will tell yo that you are positive. Also, if you do not have the disease the test will also tell you, with probability of 95\% that you are not positive (or in 5\% of cases it would tell a non-infected person that they are positive). These two probabilities do not need to be identical (see example below). In statistical language we know that $\Pr \left( P|D\right)=0.95$ and $\Pr \left( P|\bar{D}\right)= 1-0.95 = 0.05$.
-	
-After doing all this research you actually get to take the test. The test tells you that you are positive. Given all this information, what is the probability that you do have Covid? 100\%? 95\%? Neither of these, the probability is significantly lower. There are two ways how you could have ended up testing positive. Either you have Covid and, correctly tested positive, or you do not have Covid and the test erroneously showed a positive result. So, given you did test positive, what is actually the probability that you have Covid, $Pr(D|P)$. Just to benchmark this. If you just had not tested, the probability would be 10\%, the population prevalence.
-	
-This is where the previous result comes in useful, as we actually do have all the terms required:
-	
-\begin{eqnarray*}
-		\Pr \left( D|P\right) &=& \frac{Pr(P \cap D)}{Pr(P)}\\
-		&=&\frac{\Pr \left( P|D\right) \times \Pr \left(D\right) }{\Pr \left( P|D\right) \times \Pr \left( D\right) +\Pr (P|\bar{D})\times \Pr \left( \bar{D}\right) }\\
-		&=&\frac{0.95 \times 0.1}{0.95 \times 0.1 +0.05\times 0.9 } = \frac{0.095}{0.095+0.045} = \frac{0.095}{0.14} =  0.6786
-\end{eqnarray*}
-
-So, this is certainly much less than certainty. But you should also note that after the positive test the probability that you have Covid increased substantially from 10\% (before the test, prior probability) to almost 68\% (posterior probability).
-	
-This is a workthrough of the above example (YouTube, 15min). 
-
-{{< video https://youtu.be/rAOsyHvsUS4 >}}
-	
-:::
 
 ::: {.callout-note icon=false}
 
 #### Exercise
 
-The context if this exercise is the same as in the above example. But now the probabilities are:
+A shop is staffed to deal with at most 8 customers at the same time every hour. On average the shop receives 6 customers every hour ($\lambda = 6$). What is the probability, in any hour that customers will not be served?
 
-* The disease prevalence is 5\%.
-* If you have the disease, the probability of the test showing as positive is 90\%.
-* If you do not have the disease, the probability of the test showing as positive is 15\%.
+Which of the following is the probability you are to calculate? `r fitb("H")`
 
-What are $Pr(D|P)$ and $Pr(D|\bar{P})$?
+* A: $p(6)$
+* B: $p(8)$
+* C: $p(9)$
+* D: $P(6)$
+* E: $P(8)$
+* F: $P(9)$
+* G: $1-P(6)$
+* H: $1-P(8)$
 
-$Pr(D|P) =$ `r fitb(0.24)` 
+The probability is `r fitb(0.1528)`
 
-$Pr(D|\bar{P}) =$ `r fitb(0.0062)`
+`r hide("Solution")`
+
+What you need here is the probability that there will be 9 or more customers $P(x \geq 9)$ which for the discrete poisson distribution is equal to $1-P(x \leq 8) = 1-P(8)$.
 	
-`r hide("Solutions")`
+The probability of not all customers being able to be served is 15.28\%.
 
-\begin{eqnarray*}
-		\Pr \left( D|P\right) &=&\frac{\Pr \left( P|D\right) \times \Pr \left(D\right) }{\Pr \left( P|D\right) \times \Pr \left( D\right) +\Pr (P|\bar{D})\times \Pr \left( \bar{D}\right) }\\
-		&=&\frac{0.90 \times 0.05}{0.90 \times 0.05 +0.15\times 0.95 } = 0.2400
-\end{eqnarray*}
-
-\begin{eqnarray*}
-		\Pr \left( D|\bar{P}\right) &=&\frac{\Pr \left( \bar{P}|D\right) \times \Pr \left(D\right) }{\Pr \left( \bar{P}|D\right) \times \Pr \left( D\right) +\Pr (\bar{P}|\bar{D})\times \Pr \left( \bar{D}\right) }\\
-		&=&\frac{0.10 \times 0.05}{0.10 \times 0.05 +0.85\times 0.95 } = 0.0062
-\end{eqnarray*}
+$1-P(x \leq 8) = 1-P(8)=1-0.8472$
 `r unhide()`
 
-	
+
 :::
 
-The two probabilities you calculated in this last example are very useful to understand how the test result updates your information. Before you test you start out with the the population prevalence of 5\% as the probability that you have the disease. Once you receive the test result that probability increases if the test result is positive, $P(D|P)>P(D)$, or decreases if the test result is negative, $P(D|\bar{P})<P(D)$. But such a test does not provide certainty.
+#### Distributional properties
 
-This sort of calculation is an example of **Bayes' Theorem**. Of course, we may have to consider more than two possible causes, and the construction of the appropriate probabilities is as follows.
+The poisson distribution has one parameter, $\lambda$ and it turns out that 
 
-1. Consider a sample space, $S$, where $E\subset S$ and $A,B,C$ are three mutually exclusive events (possible causes), defined on $S$, such that $S=A\cup B\cup C$. In such a situation, $A,B$ and $C$ are said to form a **partition** of $S$.
-
-**Bayes' Theorem** then states that:  
 \begin{eqnarray*}
-		\Pr (A|E) &=& \frac{Pr(A \cap E)}{Pr(E)}\\
-		&=&\frac{\Pr (E|A)\times \Pr (A)}{\left\{ \Pr (E|A)\times \Pr(A)\right\} +\left\{ \Pr (E|B)\times \Pr (B)\right\} +\left\{ \Pr(E|C)\times \Pr (C)\right\} }.
+	E[X]&=& \lambda\\
+	Var[X] &=& \lambda
 \end{eqnarray*}
-2. And, more generally, consider a sample space, $S$, where $E\subset S$ and $F_{1},F_{2},...,F_{k}$ are $k$ mutually exclusive events (possible causes), which form a partition of $S:S=\bigcup_{j=1}^{k}F_{j}$. **Bayes' Theorem** then states that:  
+
+So, for this distribution the expected value is equal to the variance. This is an unusual feature of this distribution.
+
+It is apparent that the calculation of probabilities of this type, in particular the cumulative probabilities can be rather burdensome. It is therefore often useful to approximate discrete random variables with a continuous random variable. In this context the transformed random variable, $Z=X/n$, which defines the proportion of successes, will be useful. It should be obvious that for very large $n$ this can indeed be thought of a continuous random variable. The advantage, which you will be able to appreciate after mastering the Continuous Random Variables and in particular the Normal Random Variables sections, is that calculating these probabilities can become more straightforward.
+
+The following video introduces you to the way of calculating binomial pmf and cdfs in EXCEL. You will also get a first glimpse of why it may be useful to approximate such distributions with a normal distribution.
+
+Video of calculating binomial pmf and cdf in Excel (YouTube, 14:19min).
+
+{{< video https://youtu.be/t0TKIIPrLxc >}}
+
+
+## Mean and variance of a discrete random variable
+
+For the above examples of discrete distributions we stated how the distributional parameters related to the expected value ($E[X]$ or $\mu$) and the variance ($Var[X]$ or $\sigma^2$) of that particular random variable.
+
+The general definition of the expected value for a discrete random variable is
+
 \begin{equation*}
-  Pr(F_{j}|E)=\frac{\Pr (F_{j} \cap E)}{Pr(E)}=\frac{\Pr (E|F_{j})\times \Pr (F_{j})}{\sum_{s=1}^{k}\left\{\Pr (E|F_{s})\times \Pr (F_{s})\right\} }.
+	E[X]=\mu=\sum_{x} x p(x) .
 \end{equation*}
 
-From the above formula, you should be able to satisfy yourself that $\sum_{j=1}^{k}\Pr \left( F_{j}|E\right) =1$. If this is not at first clear, consider case (1.) and show that $\Pr \left( A|E\right) +\Pr \left(B|E\right) +\Pr \left( C|E\right) =1$. The reason for this is that since $A,B$ and $C$ form a partition of $S$, they must also form a partition of any event $E\subset S$. In the above conditional probabilities, we are regarding $E$ as the restricted sample space and therefore the probabilities assigned the mutually exclusive events $\left( A,B,C\right) $ which \emph{cover} this (restricted) sample space, $E$, must sum to 1.
+where the sum is over all possible outcomes for that random variable.
+
+The variance of a random variable, which provides a measure of the spread of the possible outcomes around the mean, is also defined as an expected value, namely:
+
+\begin{eqnarray*}
+	Var[X] &=&E\left[(X-\mu)^{2}\right] \\
+	&=&\sum_{x}(x-\mu)^{2} p(x)  
+\end{eqnarray*}
+
+These are important relationships to keep in mind.
+
+An alternative formulation for the $Var[X]$ can also be useful.
+
+\begin{eqnarray*}
+	Var[X] &=&E\left[(X-\mu)^{2}\right] \\
+	&=&E\left[X^2-2X\mu+\mu^2\right]\\
+	&=&  E\left[X^2-2X E\left[X\right]+E\left[X\right]^2\right]\\
+	&=&  E\left[X^2\right]- 2E\left[X E\left[X\right]\right]+ E\left[E\left[X\right]^2\right]
+\end{eqnarray*}
+
+This looks much more complicated for starters, until you note that $E\left[X\right]=\mu$ is a constant parameter, and hence can be taken out of the expectations parameter and the 2nd term simplifies: $- 2E\left[X E\left[X\right]\right]=- 2E\left[X\right]E\left[X \right]=- 2E\left[X\right]^2$. The same thinking applies to the third term: $ E\left[E\left[X\right]^2\right]=E\left[X\right]^2E\left[1\right]= E\left[X\right]^2$. Therefore the above simplifies to the very useful
+
+\begin{eqnarray*}
+	Var[X] &=&E\left[(X-\mu)^{2}\right] \\
+	&=&E\left[X^2\right]- 2E\left[X E\left[X\right]\right]+ E\left[E\left[X\right]^2\right]\\
+	&=& E\left[X^2\right]- 2E\left[X\right]^2+ E\left[X\right]^2\\
+	&=& E\left[X^2\right]- E\left[X\right]^2 
+\end{eqnarray*}
+
+Using the probabilities $p(x)$ this can then be calculated as follows:
+
+
+\begin{eqnarray*}
+	Var[X]&=& E\left[X^2\right]- E\left[X\right]^2 \\
+	&=& \sum_{x}x^{2} p(x) - \left(\sum_{x} x p(x)\right)^2
+\end{eqnarray*}
+
+
+When working with expected values and variances there are a number of calculation rules we need to be aware of. Here we will merely state them. In the below $X$ is a random variable and $\alpha$ is a constant.
+
+\begin{eqnarray*}
+	E\left[\alpha + X\right]&=&\alpha + E\left[X\right]\\
+	E\left[\alpha X\right]&=&\alpha E\left[X\right]\\
+	Var\left[\alpha + X\right]&=& Var\left[X\right]\\
+	Var\left[\alpha X\right]&=&\alpha^2 Var\left[X\right]\\
+\end{eqnarray*}
+
+In the expectations operator we can draw the constant factor outside of the expectations operator regardless of whether it appears additively or multiplicatively. An additive constant does not change the variance of a random variable, but a multiplicative factor ($\alpha$) increases the variance of a random variable by the factor $\alpha^2$.
+
+::: {.callout-note icon=false}
+
+#### Exercise
+
+Consider the following random variable $M$ with sample space ${8,9,10}$:
+	
+| $m$ | $p(m)$ |
+|-----|--------|
+| 8   | 0.4    |
+| 9   | 0.1    |
+| 10  | 0.5    |
+
+
+Calculate the expected value $E(M) =$ `r fitb(9.1)` and $Var(M)=$ `r fitb(0.89)`.
+
+`r hide("Solution")`
+$E[X]=\mu=\sum_{x} x p(x) = 8 \cdot0.4 + 9 \cdot 0.1+10 \cdot 0.5= 3.2 + 0.9 + 5=9.1$
+
+$E[X^2]=\mu=\sum_{x} x p(x) = 8^2 \cdot0.4 + 9^2 \cdot 0.1+10^2 \cdot 0.5= 25.6 +8.1+50 =83.7$
+
+$Var[X] = E[X^2]-E[X]^2 = 83.7 - 9.1^2 = 83.7-82.81=0.89$
+
+`r unhide()`
+
+Consider a random variable $R$ with $E[R]=5$ and $Var[R]=3$. What are the expected values and variances for $Z$ and $Q$ if $Z=2R$ and $Q=4+R$?
+
+$E\left[Q\right] =$ `r fitb(9)`
+
+$E\left[Z\right] =$ `r fitb(10)`
+
+$Var\left[Q\right] =$ `r fitb(3)`	
+
+$Var\left[Z\right] =$ `r fitb(12)`
+
+`r hide("Solution")`
+	\begin{eqnarray*}
+		E\left[Q\right]&=&E\left[4 + R\right]=4 + E\left[R\right] = 4+5=9\\
+		E\left[Z\right]&=&E\left[2 R\right]=2 E\left[R\right]= 2\cdot 5 = 10\\
+		Var\left[Q\right] &=& Var\left[4 + R\right]= Var\left[R\right]=3\\
+		Var\left[Z\right] &=& Var\left[2 R\right]=2^2 Var\left[R\right]=4\cdot3=12\\
+	\end{eqnarray*}
+`r unhide()`
+
+This is a video work-through the above questions (YouTube, 10min) 
+
+{{< video https://youtu.be/9Z_-1xyfLQE >}}
+
+
+
+:::	
+
+
+
+
+## Summary of discrete random variables
+
+This concludes the section on discrete random variables. These are extremely important for random variables which have only a small number of possible outcomes. When discrete random variables have a large number of possible outcomes we will actually often deal with them as if they were continuous random variables, approximating them with one of the continuous distributions introduced next.
 
 
 ::: {.callout-info}
 
 #### Example
 
-Box A contains 2 red balls. Box B contains 1 red and 1 white ball. Other than which balls they contain, Box A and Box B are identical. If a box is selected at random and one ball is withdrawn from it, what is the probability that the selected box was A if the ball withdrawn from it turns out to be red?
+Consider these distributions:
+
+* Bernoulli distribution
+* Poisson distribution
+* Binomial distribution 
+* Geometric distribution
+
+For customers entering the Blackwell's Bookshop, we know (from experience) that only 2 out of 5 customers leave the shop with a purchase. Match the following random variables:
 	
-Let $A$ be the event of selecting Box A and $R$ the event of drawing a red ball. Calculate $Pr(A|R)$.
-
-$Pr(A|R)=Pr(A\cap R)/Pr(R)$;
-
-$Pr(A\cap R)=Pr(A)Pr(R|A)=(1/2)\times 1=1/2$.
-
-And,
-
-\begin{eqnarray*}
-	Pr(R) &=&Pr(A\cap R)+Pr(\bar{A}\cap R) \\
-	&=&\Pr (A)\times \Pr (R|A)\,\,\,\,+\,\,\,\,\Pr (\bar{A})\times \Pr (R|\bar{A}%
-	) \\
-	&=&(1/2)\,\,\,\,+\,\,\,\,(1/2)\times (1/2) \\
-	&=&3/4.
-\end{eqnarray*}
-
-Therefore, $\Pr (A|R)=(1/2)/(3/4)=2/3$.
+* Will a randomly chosen customer entering the shop purchase something? `r mcq(c(answer = "Bernoulli distribution","Poisson distribution","Binomial distribution","Geometric distribution"))`
+* How many (non-purchasing) customers will come into the shop before a purchasing customer comes?  `r mcq(c("Bernoulli distribution","Poisson distribution","Binomial distribution",answer = "Geometric distribution"))`
+* If 1000 customers enter the bookshop on a particular day, what is the probability that that more than 500 of these will purchase something? `r mcq(c("Bernoulli distribution","Poisson distribution",answer = "Binomial distribution","Geometric distribution"))`
+* How many sales will the bookshop make in the first hour? `r mcq(c("Bernoulli distribution",answer = "Poisson distribution","Binomial distribution","Geometric distribution"))`
 
 :::
 
-
-Now we come back to the Monty Hall problem which has been introduced at the beginning. 
-
-![Monty Hall](images/Montyhall1.png)
-
-Recall where we ended up in the show. You had selected one door, Door 1, hoping that you would win a car if that was hidden behind that door. The show's host opened one of the other doors revealing a goat (here Door 3). Being an avid viewer of the show you know that the host, at that stage, would never actually open the door with the car or the door which you chose. Should you switch from Door 1 to 2, or does it not matter for your chances of winning a car?
-
-As indicated at the beginning, switching will let you win twice as often as sticking with the original choice. We now have the statistical tools to investigate why this is the case. We could use a table to explicitly list out all the possible outcomes, and count how often you get the car if you stay versus switch. Without loss of generality, suppose your selection was door 1 (This is a fancy way of saying that you can repeat the analysis assuming that you initially chose Door 2. You would find the same result; switching doubles your probability of winning). Then the possible outcomes can be seen in this table:
-
-![Monty Hall](images/Montyhall2.png)
-
-In two out of three cases, you win the car by changing your selection after one of the doors is revealed. This is because there is a greater probability that you choose a door with a goat behind it in the first go, and then Monty is guaranteed to reveal that one of the other doors has a goat behind it. Hence, by changing your option, you double your probability of winning.
-
-It is, admittedly, not straightforward to follow this logic and therefore we will appreciate the formal argument using **Bayes' theorem**. The version you see below is only one of several other ways in which you could see the problem through the Bayes' Theorem lens. But all different perspectives will lead you to the same outcome. We argued earlier that Bayes' theorem allows us to think how new information allows us to update probabilities using the new evidence. When you chose Door 1 initially you knew that the probability of the car being behind Door 1 was 1/3, $Pr(D1)=1/3$, and also $Pr(D2)=Pr(D3)=1/3$.
-
-Now we describe how you can update the probability $Pr(D1)$ with the new information obtained after the quizmaster opened Door 3, event = $OD3$. The following assumes that you have chosen Door 1. Equivalent considerations would apply if you had chosen doors 2 or 3. The Bayes formula adjusted to the new event names looks as follows:
-
-\begin{eqnarray*}
-	\Pr \left( D1|OD3\right)&=&\frac{\Pr \left( D1 \cap OD3\right)}{Pr(OD3)}\\
-	 &=&\frac{\Pr \left( OD3|D1\right) \times \Pr \left(D1\right) }{\Pr \left( OD3|D1\right) \times \Pr \left( D1\right) +\Pr (OD3|D2)\times \Pr \left( D2\right) +\Pr (OD3|D3)\times \Pr \left( D3\right)}
-\end{eqnarray*}
-
-We already know $Pr(D1)=Pr(D2)=Pr(D3)=1/3$. Further we need:
-
-
-* $\Pr(OD3|D1)$ is the probability that Monty shows Door 3, given ($D1$), i.e. that the car is behind Door 1. That probability would 1/2 as Monty has the choice between Doors 2 and 3 as both hide a goat.
-* $\Pr(OD3|D2)$ is the probability that Monty shows Door 3, given that there is a car behind Door 2. As you have chosen Door 1 Monty cannot open Door 1 and he also cannot open Door 2 as that is where the car is. Therefore he is certain to open Door 3, $Pr(OD3|D2)=1$.
-* $\Pr(OD3|D3)$ is the probability that Monty shows Door 3, given that the car is behind Door 3. Monty would never do this, as he does not want the game to end at this stage. Therefore $Pr(OD3|D3)=0$.
-
-
-Combining all of this information gives
-
-\begin{equation*}
-	\Pr \left( D1|OD3\right) =\frac{(1/2) \times (1/3) }{(1/2) \times (1/3) +1 \times (1/3) +0 \times (1/3)}=1/3
-\end{equation*}
-
-So the probability that the car is behind Door 1 has not changed at all through Monty's act of revealing a goat behind Door 3. At this stage you know that the car is not behind Door 3 and therefore the only other possibility is that the car is behind Door 2. Logically the probability, at this stage, that the car is behind Door 2 ought to be $Pr(D2|OD3)=2/3$. This is what can be somewhat unintuitive, but let's update the initial $Pr(D2)=1/3$ with the information provided by the opening of Door 3, again using Bayes's Theorem:
-
-\begin{eqnarray*}
-	\Pr \left( D2|OD3\right) &=& \frac{\Pr \left( D2 \cap OD3\right)}{Pr(OD3)}\\
-	&=&\frac{\Pr \left( OD3|D2\right) \times \Pr \left(D2\right) }{\Pr \left( OD3|D1\right) \times \Pr \left( D1\right) +\Pr (OD3|D2)\times \Pr \left( D2\right) +\Pr (OD3|D3)\times \Pr \left( D3\right)}\\
-	&=&\frac{1 \times (1/3) }{(1/2) \times (1/3) +1 \times (1/3) +0 \times (1/3)}=2/3
-\end{eqnarray*}
-
-Opening Door 3 has doubled the probability that the car is behind Door 2!!! Therefore, switching to Door 2 is twice as likely to get you the car as is staying with Door 1. You can repeat this argument for any other initial choice of Door. You will always find that switching increases the probability of you winning the car.
-
-In this Section you learned that conditional probabilities are important to describe important relationships in society, such as the probabilities of contracting Covid conditional on being vaccinated, the probabilities of cars being stolen depending on where they are parked and the probabilities of having an interesting job, depending on what type of education you have. In addition you learned that, using the incredibly important Bayes' Theorem, you can solve rather complicated probabilistic problems. 
-
-
-### Additional resources
+## Additional resources
 
 Khan Academy:
 
+* This is a set of two clips to explain a poisson random variables. Here is the link to the [first clip](https://www.khanacademy.org/math/probability/random-variables-topic/poisson_process/v/poisson-process-1)
+* How to use [EXCEL to calculate discrete probabilities (Binomial and Poisson)](https://www.youtube.com/watch?v=4atJiXLqzwA)
 
-* A different example that intuitively leads to [Bayes Formula](https://www.khanacademy.org/math/probability/independent-dependent-probability/dependent_probability/v/introduction-to-dependent-probability)
-* Should you switch the door? [A classic problem](https://www.khanacademy.org/math/probability/independent-dependent-probability/dependent_probability/v/monty-hall-problem).
 
-    
+
+
+
+
+
+
+
+
+
+
+

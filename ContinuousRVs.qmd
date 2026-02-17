@@ -658,3 +658,271 @@ Khan Academy:
 
 
 
+### Exponential distribution
+
+We now introduce a continuous distribution, the **exponential distribution**, which is useful in describing the time it takes to complete a task.
+
+An exponential random variables can be used to describe
+
+* Time between successive cars passing a junction on a particular road
+* Time between vehicle arrivals at a toll booth
+* Time required to complete a questionnaire
+* In waiting line applications, the exponential distribution is often used for service times.
+
+
+#### pdf of exponential distribution
+
+Let the continuous random variable, denoted $X$, monitor the elapsed time, measured in minutes, between successive cars passing a junction on a particular road. Traffic along this road in general flows freely, so that vehicles can travel independently of one another, not restricted by the car in front. Occasionally, there are quite long intervals between successive vehicles, while more often there are smaller intervals. To accommodate this, the following pdf for $X$ is defined:
+
+
+\begin{equation*}
+	f(x) =
+	\begin{cases}
+		\frac{1}{\theta} \exp(-\frac{x}{\theta}), & x>0,\\
+		0, & x \leq 0.
+	\end{cases}       
+\end{equation*}
+
+In this case we have one **parameter**, $\theta$. For this initial discussion we shall set that parameter to $\theta=1$, but you should keep in mind that it could be any other positive value.
+
+The pdf of $f(x)$, with $\theta=1$, looks as follows:
+
+![pdf of exponential random variable, $f(x)= exp(-x)$.](images/exponentialpdf.png)
+
+As you can see, the exponential distribution is defined for positive real numbers.
+
+
+::: {.callout-info}
+
+#### Example
+
+Verify that $\int_{0}^{\infty} \exp(-x)dx=1$ and therefore this distribution meets one of the axioms of probability. This is the exponential distribution with parameter $\theta = 1$.
+
+\begin{eqnarray*}
+  \int_0^{\infty} f(x) dx &=& \int_0^{\infty} exp(-x) dx\\
+  &=& \left[-exp(-x)\right]_0^{\infty} \\
+  &=& -exp(-\infty)-(-exp(-0))= -0-(-1)=1
+\end{eqnarray*}
+
+
+:::
+
+
+From the picture of the pdf it is clear that
+
+$Pr(a<X \leq a+1)>Pr(a+1<X \leq a+2)$,
+
+for any number $a>0$. By setting $a=1$, say, this implies that an elapsed time of between 1 and 2 minutes has greater probability than an elapsed time of between 2 and 3 minutes; and, in turn, this has a greater probability than an elapsed time of between 3 and 4 minutes, etc; i.e., smaller intervals between successive vehicles will occur more frequently than longer ones. 
+
+Suppose we are interested in the probability that $1<X \leq 3$, i.e., the probability that the elapsed time between successive cars passing is somewhere between 1 and 3 minutes. To find this, we need
+
+\begin{equation*}
+	Pr(1<X \leq 3)=	\int_{1}^{3}\exp(-x)dx = [-\exp(-x)]_{1}^{3}=-exp(-3)-(-\exp(-1))=0.318
+\end{equation*}
+
+
+One might interprets this as meaning that about 32\% of the time, successive vehicles will be between 1 and 3 minutes apart.
+
+::: {.callout-info}
+
+#### Example
+
+Imagine yo are an aspiring YouTuber and you want to model your viewers' behaviour. In particular you are interested in how long any viewer sticks with your video clip. (Or how long does it take for a viewer to click away).
+
+It is well known that for most videos the majority of viewers leave a video very quickly.
+
+![Distribution of time at which viewers of a particular YouTube video leave a video.](images/Video_Retention.png)
+
+The image above illustrates that the distribution of watching times for a video roughly looks like an exponential distribution. The video is 47min long but many viewers leave early.
+
+:::
+
+
+The exponential distribution we looked at previously is known as the **unit exponential distribution** (as we chose $\theta=1$). In general, we say that the continuous random variable $X$ has an exponential distribution if it has probability density function given by
+
+\begin{equation*}
+	f(x)=\frac{1}{\theta} \exp(-\frac{x}{\theta}), x>0; \theta>0
+\end{equation*}
+
+where $\theta$ is called the parameter of the distribution (sometimes this is also called the mean of the distribution for reasons which will become apparent very soon). Note that when $\theta=1$, we get back to the special case of the unit exponential distribution. Notice that the random variable, here, can only assume positive values and confirm that the pdf integrates to a value of 1 (as any pdf should):
+
+\begin{eqnarray*}
+	\int_{0}^{\infty}f(x)dx &=& \int_{0}^{\infty}\frac{1}{\theta} \exp(-\frac{x}{\theta})dx \\
+	&=& [-\exp(-\frac{x}{\theta})]_{0}^{\infty}\\
+	&=& 1
+\end{eqnarray*}
+
+
+#### cdf of exponential distribution
+
+As we discussed earlier, the fundamental relationship between the cdf and pdf as:
+
+\begin{equation*}
+	F(x)=Pr(X \leq x) =\int_{-\infty}^{x} f(t)\,dt
+\end{equation*}
+
+Then we make use of the pdf of the exponential distribution, and noting that the lower limit of such a random variable always is 0, and derive the cdf as
+
+\begin{eqnarray*}
+	F(x)=Pr(X \leq x) &=&\int_{0}^{x}\frac{1}{\theta} \exp(-\frac{t}{\theta})dt=[-\exp(-\frac{t}{\theta})]_{0}^{x}\\
+	&=& -\exp(-\frac{x}{\theta})-[-\exp(-\frac{0}{\theta})]\\
+	&=& 1-\exp(-\frac{x}{\theta})
+\end{eqnarray*}
+
+The cumulative distribution function of the exponential distribution is as follow
+
+\begin{equation*}
+	F(x) =
+	\begin{cases}
+		1-\exp(-\frac{x}{\theta}), & x>0,\\
+		0, & x \leq 0.
+	\end{cases}       
+\end{equation*}
+
+where $\theta>0$.
+
+
+In this way, we could make use of cdf to calculate the probablity as well. Following above example. Suppose we are interested in the probability that $1<X \leq 3$, i.e., the probability that the elapsed time between successive cars passing is somewhere between 1 and 3 minutes (recall, for this example $\theta = 1$). To find this, we need
+
+\begin{equation*}
+	Pr(1<X \leq 3)=	\int_{1}^{3}\exp(-x)dx = [-\exp(-x)]_{1}^{3}=exp(-1)-exp(-3)=0.318
+\end{equation*}
+
+Alternatively, we could use the cdf
+
+\begin{equation*}
+	Pr(1<X \leq 3)=	F(3)-F(1)=(1-exp(-3))-(1-exp(-1))=exp(-1)-exp(-3)=0.318
+\end{equation*}
+
+::: {.callout-tip}
+#### EXCEL-Tip
+
+In Excel you can calculate exponential probabilities of the type $Pr(X \leq 3)$ with the following function "=EXPON.DIST(3,Lambda,TRUE)". But note that the parameter "Lambda" is defined as $1/\theta$. So, if your $\theta=4$, you should use "=EXPON.DIST(3,0.25,TRUE)".
+
+:::
+
+::: {.callout-info}
+
+#### Example
+
+**Service time at the library information desk.**
+
+Service times (in minutes) for customers at a library information desk can be modeled by an exponential distribution with a mean service time of 5 minutes ($\theta = 5$). What is the probability that a customer service time will take longer than 10 minutes?
+
+Let x denote the service time in minutes. The mean service time is 5 minutes so $\theta=5$.
+
+Using cdf, the required probability can be calculated as follows:
+
+\begin{equation*}
+	Pr(X > 10)=1-Pr(X \leq 10)=1-F(10)=1-(1-exp(-\frac{10}{5}))=exp(-2)=0.1353
+\end{equation*}
+	
+Thus, the probability that a service time exceeds 10 minutes is 0.1353.
+
+:::
+
+#### Distributional properties
+
+The exponential distribution has a parameter $\theta$ (theta), which represents the mean of exponential distribution. The mean and variance of the exponential distribution are determined by $\theta$ as follows:
+
+\begin{eqnarray*}
+	E[X]&=&\theta\\
+	Var[X] &=& \theta^2
+\end{eqnarray*}
+
+In addition, when working with the exponential distribution it is essential to remember rules of calculation with the exponential function. Let $y=exp(x)=e^x$, then
+
+* $y$ is a strictly positive and strictly increasing function of $x$
+* $\frac{dy}{dx}=e^x$ and $\frac{d^2y}{dx^2}=e^x$
+* $\ln y=x$
+* When $x=0$, $y=1$, and $y>1$ when $x>0$, $y<1$ when $x<0$
+* By the chain rule of differentiation, if $y=e^{-x}$ then $\frac{dy}{dx}=-e^{-x}$. 
+
+
+#### Poisson and exponential distribution
+
+The exponential distribution is related to the Poisson distribution.
+
+The Poisson distribution is the distribution of the number of occurrences of an event in a given time interval of length $t$. The single parameter of the Poisson distribution is $\lambda$, the intensity of the process. 
+
+Think of the number $X$ as the average occurrence of the event being counted. For example, say, the average arrival rate of customers at the Brownell Bank is 5 per 100s. And let's say that variable is a Poisson random variable then this variable has a parameter of $\lambda = 5$. 
+
+Suppose that instead of the number of occurrences in a given time period, we are interested in the amount of time until the next customer arrives at the bank (call it random variable $Y$). This is a problem to be solved by the exponential distribution, but it is clearly related to the Poisson distribution. In fact, if $X$ follows a Poisson distribution with $\lambda = 5$ then the $Y$ follows an exponential distribution with parameter $\theta = 1/\lambda = 1/5=0.2$.
+
+Here we will not describe the Poisson distribution in any more detail (as it was discussed in the Section on Discrete random variables), but it is useful to understand that the exponential and Poisson distribution deliver two perspectives of the same problem. 
+
+The following table illustrates this relationship.
+
+| Exponential                                | Poisson                                            |
+|--------------------------------------------|----------------------------------------------------|
+| time from one accident to another          | number of traffic accidents in an interval of time |
+| time between incoming telephone calls      | number of calls in an interval                     |
+| length of time someone must wait for a cab | number of cabs in a certain interval               |
+
+
+::: {.callout-tip}
+#### EXCEL-Tip
+
+The function in Excel to calculate either the pdf or cdf of an exponential distribution is \code{=EXPON.DIST(x,lambda,TRUE or FALSE)}. the last option indicates whether you wish to calculate a pdf (\code{FALSE}) or a cdf (\code{TRUE}). The first input (\code{x}) is the $x$ value in $f(x)$ or $F(x)$. Of course you need to tell Excel what the parameter is that fully describes the exponential distribution. However, Excel is asking not for $\theta$ but for $\lambda$ which is defined as $\lambda = 1/\theta$. So if $\theta = 4$, and you wish to calculate $F(7)$ you should enter \code{=EXPON.DIST(7,0.25,TRUE)}
+
+:::
+
+::: {.callout-note icon=false}
+
+#### Exercise
+
+**Time between accidents in typical British industrial plants (measured in weeks).**
+
+An industrial plant in Britain with 2000 employees has a mean time between accidents of 2.5 weeks. What is the probability that the time between accidents ($X$ measured in weeks) is less than 2 weeks?
+
+$Pr(X < 2) =$ `r fitb(0.5507)` (answer to 4dp)
+
+`r hide("Hint")`	
+
+Let x denote the time between accidents. The mean time between accidents is 2.5 weeks so $\theta=2.5$. 
+
+Poisson distribution provides an appropriate description of the number of occurrences per interval, while the exponential distribution provides an appropriate description of the length of the interval between occurrences.
+
+In this case, we are asking the the probability that the time between accidents, which is exponentialy distribution. 
+
+`r hide("Solution")`
+The required probability can be calculated as follows:
+
+\begin{equation*}
+	Pr(X < 2)=F(2)=1-exp\left(-\frac{2}{2.5}\right)=1-exp(-0.8)=1-0.4493=0.5507
+\end{equation*}
+
+Thus, the probability of less than 2 weeks between accidents is about 55\%.
+
+`r unhide()`
+
+`r unhide()`
+
+**What are the expected value and variance of $X$?**
+
+$E(X) =$ `r fitb(2.5)`
+
+$Var(X) =$ `r fitb(6.25)`
+
+
+**How are the exponential and Poisson distribution related to each other?**
+
+The number of accidents in a week ($Y$, and still for the same example) follows a Poisson distribution. What is the expected value for $Y$?
+
+$E(X) =$ `r fitb(0.4)`
+
+:::
+
+
+
+#### Additional resources
+
+* Wikipedia: [Exponential Distribution](https://en.wikipedia.org/wiki/Exponential_distribution), but note that they use slightly different notation in terms of the parameter of the exponential distribution. They use $\lambda$ which is related to our $\theta$ in the following way,  $\lambda=\frac{1}{\theta}$
+* Wolfram MathWorld: [Exponential Distribution](https://mathworld.wolfram.com/ExponentialDistribution.html), but note that they use slightly different notation in terms of the parameter of the exponential distribution. They use $\lambda$ which is related to our $\theta$ in the following way, $\lambda=\frac{1}{\theta}$.
+* How to use EXCEL to calculate probabilities from an exponential distribution. Here is the link to the [first clip](https://www.youtube.com/watch?v=7SixLei1L_8&ab_channel=RalfBecker).
+
+
+
+
+
+
