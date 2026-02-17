@@ -438,7 +438,7 @@ Two further results on unions, intersections and complements which are of use (a
 
 One hundred students were surveyed about their preference between Math and Statistics. The following two-way table displays data for the sample of students who responded to the survey.
 
-| extbf{Preference}  | \textbf{Male} | \textbf{Female} | \textbf{TOTAL} |
+| Preference         | \textbf{Male} | \textbf{Female} | \textbf{TOTAL} |
 |--------------------|---------------|-----------------|----------------|
 | Prefers Math       | 22            | 18              | 40             |
 | Prefers Statistics | 25            | 12              | 37             |

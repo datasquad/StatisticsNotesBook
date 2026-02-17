@@ -73,7 +73,7 @@ $Pr(160 < X \leq 170) =$ Area `r fitb(2)`
 
 $Pr(180 < X \leq 190) =$ Area `r fitb(4)`
 
-$Pr(160 < X \leq 180) =$ Area `r mcq(c("2","3",answer("2+3")))`
+$Pr(160 < X \leq 180) =$ Area `r mcq(c("2","3",answer="2+3"))`
 
 2. TRUE or FALSE
 
@@ -357,7 +357,7 @@ The graph of $f(x)$ is given below
 
 Calculate the probability that a person waits less than 30 seconds (or 0.5 minutes) for the elevator to arrive. $Pr(0 \leq t \leq 0.5) =$ `r fitb(0.125)`
 
-`r hide("Answer)`
+`r hide("Answer")`
 $Pr(0 \leq t \leq 0.5)= \int_{0}^{0.5} f(t)dt=\int_{0}^{0.5} tdt=\frac{t^2}{2}_{0}^{0.5}=0.125$
 `r unhide()`
 
@@ -446,3 +446,215 @@ Hint: You need to find the integral of $f(x)$ from 0 to $x$: $\int_0^{x} f(x) dx
 
 
 :::
+
+
+
+::: {.callout-note icon=false}
+
+#### Exercise
+
+Which of the following pdfs (left column) match with which cdfs (right column)?
+
+![Find the matching pdfs and cdfs](images/pdfcdf_ex_p4.png)
+
+pdf1 matches with `r mcq(c("cdf1", answer = "cdf2", "cdf3"))`
+
+pdf2 matches with `r mcq(c("cdf1", "cdf2", answer = "cdf3"))`
+
+pdf3 matches with `r mcq(c(answer = "cdf1", "cdf2", "cdf3"))`
+
+
+`r hide("Hint")`
+cdf1 and cdf3 look quite similar. How can you tell which pdf belongs to each? pdf2 and pdf3 look actually quite different. The most important difference being that pdf2 is increasing at the left hand side of the domain. This implies that the corresponding cdf will have to have increasing slope at the left hand side of the domain. The cdf to pdf3 however should become flatter right from the start. cdf1 is therefore the cdf that fits to pdf3.
+`r unhide()`
+
+:::
+
+
+## Mean and variance of a continuous random variable
+
+The pdf of a continuous random variable also contains all the information required to calculate the expected value ($E[X]$ or $\mu$) and the variance ($Var[X]$ or $\sigma^2$) of a random variable.
+
+For a continuous random variable, the mean is defined as
+
+\begin{equation*}
+	E[X]=\mu=\int_{-\infty}^{\infty} x f(x) dx 
+\end{equation*}
+
+The variance of a random variable, which provides a measure of the spread of the possible outcomes around the mean, is also defined as an expected value, namely, the expected value of the squared deviation from the mean:
+
+\begin{eqnarray*}
+	\operatorname{var}[X] &=&E\left[(X-\mu)^{2}\right] \\
+	&=&\int_{-\infty}^{\infty}(x-\mu)^{2} f(x) dx 
+\end{eqnarray*}
+
+Fortunately, in the remainder of this section we will introduce particular types of continuous random variables for which the calculation of the mean and the variance of a distribution does not require the calculation of integrals. These distributions (for example the exponential or normal distribution - yet to be introduced) are described by sets of parameters and if we know these parameters then we can use these (with easy formulae) to calculate the mean and expected values of these distributions. But the above formulae describe how you could derive these by first principles.
+
+
+
+## Example Distributions
+
+With the theory out of the way, let’s think of examples for continuous distributions. In fact we are spoiled for choice. Check out this [list](https://en.wikipedia.org/wiki/Category:Continuous_distributions) of different continuous distributions from Wikipedia. We need this large range of different distributions as any random variable will have different properties and we will, in all cases, have to try and find that distribution that has properties that best represent that of the random variable we are interested in. 
+As it turns out there are more than 100 continuous distribution, we therefore only discuss the most important ones in this section.
+
+
+### Uniform distribution
+
+Let us start by introducing the simplest continuous probability distribution -- the uniform distribution. This probability distribution provides a model for continuous random variables that are evenly (but randomly) distributed over a certain interval.
+
+It should be noted though that there is not only one uniform distribution, there is an infinite number of uniform distributions depending on which interval $\left[a,b\right]$ we define the random variable on.  In the context of distributions we call the $a$ and $b$ parameters. For different distributions parameters have different meanings. Here they are the minimum and maximum values. Almost all distributions do have parameters changing them will have different effects.
+
+Often you will see the uniform distribution defined on $\left[0,1\right]$ discussed. That is the standard uniform distribution. Changing the minimum and maximum would not change the main properties of the uniform distribution, but it would change the actual probabilities, e.g. $Pr(0.25<X \leq 0.5)$.
+
+#### pdf of uniform distribution
+
+For any uniform random variable defined over the range from $a$ to $b$, the probability density function is as follows:
+
+\begin{equation*}
+  f(x) =
+    \begin{cases}
+      \frac{1}{b-a}, & a \leq x \leq b\\
+      0, & \text{otherwise}
+    \end{cases}       
+\end{equation*}
+
+The probability density function can be used to find the probability that the random variable falls within a specific range. Graphically, the shape under the density function forms a rectangle, as shown in Figure 10. The rectangle’s area is equal to 1. @fig-uniform shows a density function for a set of values between $a$ and $b$. Each density is a horizontal line segment with constant height $\frac{1}{b-a}$ over the interval from $a$ and $b$.  Outside the interval, $f(X) = 0$. This means that for a uniformly distributed random variable $X$, values below $a$ and values above $b$ are impossible.
+
+As the distance between $a$ and $b$ increases, the density at any particular value within the distribution boundaries decreases. Since the probability density function integrates to 1, the height of the probability density function decreases as the base length increases. 
+
+![pdf of uniform distribution](images/uniform.jpg)#fig-uniform
+
+#### cdf of uniform distribution
+
+From the introduction of cdf above, we know that the probability that $X$ will fall below a point is provided by the area under the density curve and to the left of that point. 
+In other words, the cumulative probability distribution function, $P(X\leq x)=\frac{(x-a)}{(b-a)}$, is represented by this area. The cumulative function for values of $X$ between $a$ and $b$  is the area of the rectangle, which, again, is found by multiplying the height, $\frac{1}{b-a}$, times the base, $x-a$. To the left of $a$, the cumulative probabilities must be zero, whereas the probability that $X$ lies “below points beyond $b$” must be 1. As such, the cumulative distribution function can be written as follow:
+
+\begin{equation*}
+	F(x) =
+	\begin{cases}
+		0, & x <a\\
+		\frac{x-a}{b-a}, & a \leq x \le b\\
+		1, & x>b
+	\end{cases}       
+\end{equation*}
+
+
+
+#### Distributional properties
+
+We said above that in the case of the uniform distribution the parameters $a$ and $b$ determine the min and max possible values of the uniform distribution. The properties of a random variable we usually are interested in are the mean and the variance (and perhaps other higher order moments like skewness). These properties are related to the parameters of the distribution. How they are linked very much depends on the type of distribution we are looking at. For the uniform distribution they are linked as follows.
+
+The uniform distribution has parameters $a$ and $b$. The mean and variance of the uniform distribution are determined by these two parameters as follows:
+
+\begin{eqnarray*}
+	E[X]&=&\frac{a+b}{2}\\
+	Var[X] &=& \frac{(b-a)^2}{12}
+\end{eqnarray*}
+
+
+::: {.callout-info}
+
+#### Example
+
+**Flight time of an airplane traveling from Chicago to New York**
+
+Suppose the flight time can be any value in the interval from 120 minutes to 140 minutes. 
+	
+\begin{equation*}
+		f(x) =
+		\begin{cases}
+			\frac{1}{20}, & 120 \leq x \leq 140\\
+			0, & \text{otherwise}
+		\end{cases}       
+\end{equation*}
+	
+where: $x$ = Flight time of an airplane traveling from Chicago to New York
+	
+What is the probability of a flight time between 120 and 130 minutes?
+
+$P(120 \leq x \leq 130) =$ `r fitb(0.5)`
+	
+`r hide("Hint")`	
+	Hint: 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{newyorkflight.jpg} 
+		\caption{Uniform distribution}
+	\end{figure}
+	
+	$P(120 \leq x \leq 130) = F(130)-F(120)=1/20 \times 130-1/20 \times120 = 1/20 \times (130-120)= 0.5$
+`r unhide()`
+
+**An application of the uniform distribution in quality control.**
+
+A quality control inspector for Gonsalves Company, which manufactures aluminum water pipes, believes that the product has varying lengths. Suppose the pipes turned out by one of the production lines of Gonsalves Company can be modeled by a uniform probability distribution over the interval 29.50 - 30.05 ft. 
+	
+Calculate the mean and variance. (answer to 4dp)
+
+Mean = `r fitb(29.775)`
+	
+Variance = `r fitb(0.0252)`
+
+`r hide("Solution")`
+The mean and variance of $X$, the length of the aluminum water pipe, can be calculated as follows.
+	
+	\begin{eqnarray*}
+		E[X]&=&\frac{a+b}{2}=\frac{29.50+30.05}{2}=29.775 ft\\
+		Var[X] &=& \frac{(30.05-29.50)^2}{12}=0.0252
+	\end{eqnarray*}
+
+`r unhide()`
+
+This information can be used to create a control chart to determine whether the quality of the water pipes is acceptable.
+
+
+:::
+
+	
+### Applications
+
+We do know many examples of uniform distributions. The outcome of a dice is equally/uniformly distributed from 1 to 6. Whether you get heads or tails on a coin is uniformly distributed between the two possible outcomes. Whether you get, on a roulette wheel any of the outcomes 0 to 36 is uniformly distributed. However, these are all discrete and not continuous distributions.
+ 
+Clearly the continuous uniform distribution is a very special type of distribution. It actually has important uses in statistical theory, but it is not so easy to find real life examples for a continuous-valued uniform distribution. Take the above example for the flight time between Chicago and New York. It is clearly problematic to assume that the flight time could not exceed 140 minutes.
+
+So, a uniform distribution appears inadequate. We shall introduce two more examples of continuous distributions (remember there are 100+): the **exponential** distribution and the **normal** distribution. The latter is so important that we shall have a special lesson on it.
+
+
+::: {.callout-info}
+
+#### Example
+
+For which of the following does uniform random variable appear most appropriate?
+
+```{r}
+#| echo: false
+
+opts_p <- c(
+   "The number of cars passing Old Trafford between 8 and 9am on a Monday morning",
+   answer = "The day of the year (from 1 to 365) someone has their birthday.",
+   "The age of people in a random sample asked outside University Place.","The income of people in a random sample asked outside University Place."
+)
+```
+
+
+`r longmcq(opts_p)`
+
+`r hide("Why this answer?")`
+
+The birthday would be the closest, but even that is not uniformly distributed. See [this website](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/articles/howpopularisyourbirthday/2015-12-18) by the Office for National Statistics (ONS).
+
+
+`r unhide()`
+
+:::
+
+
+### Additional resources
+
+Khan Academy:
+
+* This is a clip to give an introduction of continuous probability distribution using uniform distribution as an example. Here is the [link to the clip](https://www.youtube.com/watch?v=j8XLYFzTJzE&ab_channel=KhanAcademy).
+
+
+
+

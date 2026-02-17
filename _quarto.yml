@@ -17,6 +17,7 @@ book:
   - IntroToProbability.qmd
   - ConditionalProbability.qmd
   - DiscreteRVs.qmd
+  - ContinuousRVs.qmd
   - summary.qmd
   - references.qmd
 bibliography: references.bib
