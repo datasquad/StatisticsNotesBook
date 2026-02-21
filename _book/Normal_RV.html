@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Continuous Random Variables and Probability Distributions – Statistics Notes</title>
+<title>11&nbsp; Normally Distributed Random Variables – Statistics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Normal_RV.html" rel="next">
-<link href="./DiscreteRVs.html" rel="prev">
+<link href="./Comb_of_RVs.html" rel="next">
+<link href="./ContinuousRVs.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -113,7 +113,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ContinuousRVs.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Continuous Random Variables and Probability Distributions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Normal_RV.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Normally Distributed Random Variables</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -200,13 +200,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ContinuousRVs.html" class="sidebar-item-text sidebar-link active">
+  <a href="./ContinuousRVs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Continuous Random Variables and Probability Distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Normal_RV.html" class="sidebar-item-text sidebar-link">
+  <a href="./Normal_RV.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Normally Distributed Random Variables</span></span></a>
   </div>
 </li>
@@ -238,21 +238,31 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">10.1</span> Introduction</a></li>
-  <li><a href="#continuous-random-variables" id="toc-continuous-random-variables" class="nav-link" data-scroll-target="#continuous-random-variables"><span class="header-section-number">10.2</span> Continuous random variables</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">11.1</span> Introduction</a></li>
+  <li><a href="#the-normal-distribution-as-an-approximation-to-the-binomial-distribution" id="toc-the-normal-distribution-as-an-approximation-to-the-binomial-distribution" class="nav-link" data-scroll-target="#the-normal-distribution-as-an-approximation-to-the-binomial-distribution"><span class="header-section-number">11.2</span> The Normal distribution as an approximation to the Binomial distribution</a></li>
+  <li><a href="#the-normal-distribution" id="toc-the-normal-distribution" class="nav-link" data-scroll-target="#the-normal-distribution"><span class="header-section-number">11.3</span> The Normal distribution</a></li>
+  <li><a href="#the-standard-normal-density" id="toc-the-standard-normal-density" class="nav-link" data-scroll-target="#the-standard-normal-density"><span class="header-section-number">11.4</span> The standard normal density</a></li>
+  <li><a href="#the-normal-distribution-as-a-model-for-data" id="toc-the-normal-distribution-as-a-model-for-data" class="nav-link" data-scroll-target="#the-normal-distribution-as-a-model-for-data"><span class="header-section-number">11.5</span> The normal distribution as a model for data</a></li>
+  <li><a href="#calculating-probabilities" id="toc-calculating-probabilities" class="nav-link" data-scroll-target="#calculating-probabilities"><span class="header-section-number">11.6</span> Calculating probabilities</a>
   <ul class="collapse">
-  <li><a href="#probability-density-function-pdf" id="toc-probability-density-function-pdf" class="nav-link" data-scroll-target="#probability-density-function-pdf"><span class="header-section-number">10.2.1</span> Probability density function (pdf)</a></li>
-  <li><a href="#cumulative-distribution-function-cdf" id="toc-cumulative-distribution-function-cdf" class="nav-link" data-scroll-target="#cumulative-distribution-function-cdf"><span class="header-section-number">10.2.2</span> Cumulative distribution function (cdf)</a></li>
-  <li><a href="#properties-of-the-cdf" id="toc-properties-of-the-cdf" class="nav-link" data-scroll-target="#properties-of-the-cdf"><span class="header-section-number">10.2.3</span> Properties of the cdf</a></li>
-  <li><a href="#relations-between-pdf-and-cdf" id="toc-relations-between-pdf-and-cdf" class="nav-link" data-scroll-target="#relations-between-pdf-and-cdf"><span class="header-section-number">10.2.4</span> Relations between pdf and cdf</a></li>
+  <li><a href="#a-few-elementary-properties-zsim-n01" id="toc-a-few-elementary-properties-zsim-n01" class="nav-link" data-scroll-target="#a-few-elementary-properties-zsim-n01"><span class="header-section-number">11.6.1</span> A few elementary properties <span class="math inline">\(Z\sim N(0,1)\)</span></a></li>
+  <li><a href="#calculating-probabilities-when-zsim-n01" id="toc-calculating-probabilities-when-zsim-n01" class="nav-link" data-scroll-target="#calculating-probabilities-when-zsim-n01"><span class="header-section-number">11.6.2</span> Calculating probabilities when <span class="math inline">\(Z\sim N(0,1)\)</span></a></li>
   </ul></li>
-  <li><a href="#mean-and-variance-of-a-continuous-random-variable" id="toc-mean-and-variance-of-a-continuous-random-variable" class="nav-link" data-scroll-target="#mean-and-variance-of-a-continuous-random-variable"><span class="header-section-number">10.3</span> Mean and variance of a continuous random variable</a></li>
-  <li><a href="#example-distributions" id="toc-example-distributions" class="nav-link" data-scroll-target="#example-distributions"><span class="header-section-number">10.4</span> Example Distributions</a>
+  <li><a href="#delete" id="toc-delete" class="nav-link" data-scroll-target="#delete"><span class="header-section-number">11.7</span> DELETE</a></li>
+  <li><a href="#continuous-random-variables" id="toc-continuous-random-variables" class="nav-link" data-scroll-target="#continuous-random-variables"><span class="header-section-number">11.8</span> Continuous random variables</a>
   <ul class="collapse">
-  <li><a href="#uniform-distribution" id="toc-uniform-distribution" class="nav-link" data-scroll-target="#uniform-distribution"><span class="header-section-number">10.4.1</span> Uniform distribution</a></li>
-  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">10.4.2</span> Applications</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">10.4.3</span> Additional resources</a></li>
-  <li><a href="#exponential-distribution" id="toc-exponential-distribution" class="nav-link" data-scroll-target="#exponential-distribution"><span class="header-section-number">10.4.4</span> Exponential distribution</a></li>
+  <li><a href="#probability-density-function-pdf" id="toc-probability-density-function-pdf" class="nav-link" data-scroll-target="#probability-density-function-pdf"><span class="header-section-number">11.8.1</span> Probability density function (pdf)</a></li>
+  <li><a href="#cumulative-distribution-function-cdf" id="toc-cumulative-distribution-function-cdf" class="nav-link" data-scroll-target="#cumulative-distribution-function-cdf"><span class="header-section-number">11.8.2</span> Cumulative distribution function (cdf)</a></li>
+  <li><a href="#properties-of-the-cdf" id="toc-properties-of-the-cdf" class="nav-link" data-scroll-target="#properties-of-the-cdf"><span class="header-section-number">11.8.3</span> Properties of the cdf</a></li>
+  <li><a href="#relations-between-pdf-and-cdf" id="toc-relations-between-pdf-and-cdf" class="nav-link" data-scroll-target="#relations-between-pdf-and-cdf"><span class="header-section-number">11.8.4</span> Relations between pdf and cdf</a></li>
+  </ul></li>
+  <li><a href="#mean-and-variance-of-a-continuous-random-variable" id="toc-mean-and-variance-of-a-continuous-random-variable" class="nav-link" data-scroll-target="#mean-and-variance-of-a-continuous-random-variable"><span class="header-section-number">11.9</span> Mean and variance of a continuous random variable</a></li>
+  <li><a href="#example-distributions" id="toc-example-distributions" class="nav-link" data-scroll-target="#example-distributions"><span class="header-section-number">11.10</span> Example Distributions</a>
+  <ul class="collapse">
+  <li><a href="#uniform-distribution" id="toc-uniform-distribution" class="nav-link" data-scroll-target="#uniform-distribution"><span class="header-section-number">11.10.1</span> Uniform distribution</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">11.10.2</span> Applications</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">11.10.3</span> Additional resources</a></li>
+  <li><a href="#exponential-distribution" id="toc-exponential-distribution" class="nav-link" data-scroll-target="#exponential-distribution"><span class="header-section-number">11.10.4</span> Exponential distribution</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -262,7 +272,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Continuous Random Variables and Probability Distributions</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Normally Distributed Random Variables</span></h1>
 </div>
 
 
@@ -279,16 +289,173 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">10.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">11.1</span> Introduction</h2>
+<p>A short video introduction to why the normal distribution is so important (YouTube, 2min).</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/oxdNC5bXzEs" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>There are three reasons why the normal distribution, which is also a continuous distribution, deserves its own section and is not merely listed as yet another continuous distribution. Briefly the motivation for wishing to study the normal distribution in detail can be summarised in these three points:</p>
+<ul>
+<li>it provides a natural representation for many continuous random variables that arise in the social (and other) sciences.</li>
+<li>it can provide a good approximation to the binomial distribution.</li>
+<li>many functions of interest in statistics deliver random variables which have distributions closely approximated by the normal distribution.</li>
+</ul>
+<p>Let’s look at a particular natural process, the weight of babies at birth. This is a continuous random variable, but the following image shows a histogram of a discretised version.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/birthweight.png" class="img-fluid figure-img"></p>
+<figcaption>Baby birthweight distribution. Source: <a href="https://digital.nhs.uk/data-and-information/publications/statistical/nhs-maternity-statistics/2019-20/births">NHS</a></figcaption>
+</figure>
+</div>
+<p>The key features of this distribution are:</p>
+<ul>
+<li>It is has one bulk of probability in the centre, we sometimes call this unimodal.</li>
+<li>The more extreme the values, the less likely they are to occur.</li>
+<li>The distribution is approximately symmetric around the mean.</li>
+</ul>
+<p>Other natural processes that have similar characteristics are; the height of males at a particular age, the height of females at a particular age and blood pressure. Some technical processes also deliver normal distributions. An example is the measurement errors of measurement instruments (like astronomical observations). If you are interested you can read about the history of the normal distribution in this article by <a href="https://www.researchgate.net/publication/255668423_The_Evolution_of_the_Normal_Distribution">Saul Stahl</a>.</p>
+<p>We shall see shortly that the normal distribution is defined by a particular probability density function it is therefore appropriate (in the strict sense) for modelling continuous random variables. Not withstanding this, it is often the case that it provides an adequate approximation to another distribution, even if the original distribution is discrete in nature, as we shall now see in the case of a binomial random variable.</p>
+<p>Further, the normal distribution plays a unique role in the theory of statistics, in particular in statistical inference (which is discussed in a later section). It is without doubt the most important distribution you will learn about. We introduce it here, and study its characteristics, but you will encounter it many more times in this, and other, statistical or econometric courses.</p>
+</section>
+<section id="the-normal-distribution-as-an-approximation-to-the-binomial-distribution" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="the-normal-distribution-as-an-approximation-to-the-binomial-distribution"><span class="header-section-number">11.2</span> The Normal distribution as an approximation to the Binomial distribution</h2>
+<p>Let us briefly explain what we mean by the ability of the normal distribution to approximate other distributions. The binomial probability distribution encountered previously, monitoring the total number of successes in <span class="math inline">\(n\)</span> independent and identical Bernoulli experiments, is a very important distribution. Indeed, this distribution was proposed as such by Jacob Bernoulli (1654-1705) in about 1700. However as <span class="math inline">\(n\)</span> becomes large, the Binomial distribution becomes difficult to work with and several mathematicians sought approximations to it using various limiting arguments. Following this line of enquiry two other important probability distributions emerged; one was the Poisson distribution, due to the French mathematician Poisson (1781-1840), and published in 1837. The other, is the normal distribution due to De Moivre (French, 1667-1754), but more commonly associated with the later German mathematician, Gauss (1777-1855), and French mathematician, Laplace (1749-1827). Physicists and engineers often refer to it as the Gaussian distribution. There a several pieces of evidence which suggest that the British mathematician/statistician, Karl Pearson (1857-1936) coined the phrase normal distribution.</p>
+<p>For the purpose of illustration we shall use the example of flipping a coin a number of times (<span class="math inline">\(n\)</span>). As we assume that our coin is fair this implies that the probability of success is 0.5, <span class="math inline">\(\pi=0.5\)</span>. Let the random variable of interest be the proportion of times that a HEAD appears and let us consider how this distribution changes as <span class="math inline">\(n\)</span> increases:</p>
+<ul>
+<li>If <span class="math inline">\(n=3\)</span>, the possible proportions could be <span class="math inline">\(0,\,\,1/3,\,\,2/3\,\,\,or \,\,\,1\)</span></li>
+<li>If <span class="math inline">\(n=5\)</span>, the possible proportions could be <span class="math inline">\(0,\,\,1/5,\,\,2/5,\,\,3/5,\,\,4/5\,\,\,or\,\,1\)</span></li>
+<li>If <span class="math inline">\(n=10\)</span>, the possible proportions could be <span class="math inline">\(0,\,\,1/10,\,\,2/10,\)</span> etc …</li>
+</ul>
+<p>The probability distributions, over such proportions (with <span class="math inline">\(\pi=0.5\)</span>), for <span class="math inline">\(n=3\)</span>, <span class="math inline">\(5\)</span>, <span class="math inline">\(10\)</span> and <span class="math inline">\(50\)</span>, are depicted in the following Figure.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ProbNormal_binomialapp.jpg" class="img-fluid figure-img"></p>
+<figcaption>Binomial distributions for various sample sizes.</figcaption>
+</figure>
+</div>
+<p>You can see that these distributions share all the properties listed above (unimodality or bell-shape, symmetry and decreasing probability in the extremes), especially as the sample size increases. At this stage it is not obvious why these proportions should be normally distributed and why increasing the sample size should lead to more normal looking distributions.</p>
+<p>Having motivated the normal distribution via this special approximation argument, let us now investigate the fundamental mathematical properties of this bell-shape.</p>
+</section>
+<section id="the-normal-distribution" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="the-normal-distribution"><span class="header-section-number">11.3</span> The Normal distribution</h2>
+<p>The normal distribution is characterised by a particular probability density function <span class="math inline">\(f(x)\)</span>, the precise definition of which we shall divulge later. For the moment the important things to know about this function are:</p>
+<ul>
+<li>it is bell-shaped</li>
+<li>it tails off to zero as $x$</li>
+<li>area under <span class="math inline">\(f(x)\)</span> gives probability; i.e., <span class="math inline">\(\Pr \left( a&lt;X\leq b\right) =\int_{a}^{b}f(x)dx\)</span>, as for all continuous distributions.</li>
+</ul>
+<p>The Normal density function has the classic bell shape which is shown here</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/normalpdf.png" class="img-fluid figure-img"></p>
+<figcaption>Probability density function of a normal distribution</figcaption>
+</figure>
+</div>
+<p>The specific location and scale of the bell depend upon two parameters (real numbers) denoted <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> (with <span class="math inline">\(\sigma &gt;0\)</span>). $$ is the Greek letter “mu” (with English equivalent m) and <span class="math inline">\(\sigma\)</span> is the Greek letter “sigma” with (English equivalent s). Changing <span class="math inline">\(\mu\)</span> relocates the density (shifting it to the left or right) but leaving it’s scale and shape unaltered. Increasing <span class="math inline">\(\sigma\)</span> makes the density fatter with a lower peak but fatter tails; such changes are illustrated here</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/normalpdf_various.png" class="img-fluid figure-img"></p>
+<figcaption>Probability density function of a normal distribution with various means and variances.</figcaption>
+</figure>
+</div>
+<p>The normal distribution’s pdf is defined by (you will not be expected to remember this formula … unless you are planning to take econometrics classes):</p>
+<p><span class="math display">\[\begin{equation*}
+    f(x)=\frac{1}{\sigma \sqrt{2\pi }}\exp \left( -\frac{(x-\mu )^{2}}{2\sigma ^{2}}\right) ,\quad -\infty &lt;x&lt;\infty ;\quad -\infty &lt;\mu &lt;\infty ,\,\,\,\,\sigma &gt;0,
+\end{equation*}\]</span></p>
+<p>and we say that a continuous random variable <span class="math inline">\(X\)</span> has a normal distribution if and only if it has pdf defined by <span class="math inline">\(f(x)\)</span>, above. Here, <span class="math inline">\(\pi\)</span> is the number Pi <span class="math inline">\(=3.14159..\)</span>. In shorthand, we write <span class="math inline">\(X\sim N\left( \mu ,\sigma ^{2}\right)\)</span>, meaning <code>$X$ is normally distributed with location $\mu$ and standard deviation $\sigma $'. However, a perfectly acceptable alternative is to say</code><span class="math inline">\(X\)</span> is normally distributed with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma ^{2}\)</span>’, for reasons which shall become clear in the next section.</p>
+<p>Within these four normal distriutions above, the first one is an important special case of this distribution arises when <span class="math inline">\(\mu =0\)</span> and <span class="math inline">\(\sigma =1\)</span>, yielding the standard normal density.</p>
+</section>
+<section id="the-standard-normal-density" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="the-standard-normal-density"><span class="header-section-number">11.4</span> The standard normal density</h2>
+<p>If <span class="math inline">\(Z\sim N(0,1)\)</span>, then the pdf for <span class="math inline">\(Z\)</span> is written</p>
+<p><span class="math display">\[\begin{equation*}
+    \phi (z)=\frac{1}{\sqrt{2\pi }}exp(-z^{2}/2),\,\,\,-\infty &lt;z&lt;\infty ,
+\end{equation*}\]</span></p>
+<p>where <span class="math inline">\(\phi\)</span> is the Greek letter “phi”, equivalent to the English . The pdf,<span class="math inline">\(\phi \left( z\right)\)</span>, is given a special symbol because it is used so often and merits distinction. And we would usually call the random variable <span class="math inline">\(Z\)</span> if it is standard normally distributed. Indeed, the standard normal density is used to calculate probabilities associated with a normal distribution, even when <span class="math inline">\(\mu \neq 0\)</span> and/or <span class="math inline">\(\sigma \neq 1\)</span> (see below).</p>
+</section>
+<section id="the-normal-distribution-as-a-model-for-data" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="the-normal-distribution-as-a-model-for-data"><span class="header-section-number">11.5</span> The normal distribution as a model for data</h2>
+<p>Apart from its existence via various mathematical limiting arguments, the normal distribution offers a way of approximating the distribution of many variables of interest in the social (and other) sciences. For example consider the Survey of British Births which recorded the birth-weight of babies born to mothers who smoked and those who didn’t. The following Figure, depicts the histogram of birth-weights for babies born to mothers who had never smoked. Superimposed on top of that is normal density curve with parameters set at <span class="math inline">\(\mu =3353.8\)</span> and <span class="math inline">\(\sigma =572.6\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ProbNormal_birth.jpg" class="img-fluid figure-img"></p>
+<figcaption>Histogram of birth weight distribution and normal approximation.</figcaption>
+</figure>
+</div>
+<p>As can be seen, the fitted normal density does a reasonable job at tracing out the shape of the histogram, as constructed from the data. (I will leave it as a matter of conjecture as to whether the birth-weights of babies born to mothers who smoked are normal.) The nature of the approximation here is that areas under the histogram record the relative frequency, or proportion in the sample, of birth-weights lying in a given interval, whereas the area under the normal density, over the same interval, gives the probability.</p>
+<p>Let us now turn the question of calculating such probabilities associated with a normal distribution.</p>
+</section>
+<section id="calculating-probabilities" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="calculating-probabilities"><span class="header-section-number">11.6</span> Calculating probabilities</h2>
+<p>Since <span class="math inline">\(f(x)\)</span> is a pdf, in order to obtain probabilities we need to think area underneath the pdf. Mathematically we will have to integrate to calculate probabilities. Unfortunately, there is no easy way to integrate <span class="math inline">\(\phi (z)\)</span>, let alone <span class="math inline">\(f(x)\)</span>. To help us, however, special (statistical) tables (or computer packages such as EXCEL) provide probabilities about the standard normal random variable <span class="math inline">\(Z\sim N(0,1)\)</span> and they can be used to obtain probability statements about <span class="math inline">\(X\sim N(\mu ,\sigma ^{2})\)</span>.</p>
+<p>To develop how this works in practice, we require some elementary properties of <span class="math inline">\(Z\sim N(0,1)\)</span>.</p>
+<section id="a-few-elementary-properties-zsim-n01" class="level3" data-number="11.6.1">
+<h3 data-number="11.6.1" class="anchored" data-anchor-id="a-few-elementary-properties-zsim-n01"><span class="header-section-number">11.6.1</span> A few elementary properties <span class="math inline">\(Z\sim N(0,1)\)</span></h3>
+<p>Firstly, we introduce the cdf for <span class="math inline">\(Z\)</span>, This functions is denoted <span class="math inline">\(\Phi \left( z\right)\)</span>, where <span class="math inline">\(\Phi\)</span> is the upper case Greek <span class="math inline">\(F\)</span>, and is defined as follows:</p>
+<p><span class="math display">\[\begin{equation*}
+    \Phi (z)=\Pr (Z\leq z)=\int_{-\infty }^{z}\phi (t)dt,
+\end{equation*}\]</span></p>
+<p>which is the area under <span class="math inline">\(\phi (.)\)</span> up to the point <span class="math inline">\(z\)</span>, with <span class="math inline">\(\phi (z)=d\Phi (z)/dz\)</span>. This is all as per the general recipe for continuous probability distributions. Graphically the cdf has the typical shape of a cdf.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cdf_N01.png" class="img-fluid figure-img"></p>
+<figcaption>Cumulative density function of a standard normal distribution.</figcaption>
+</figure>
+</div>
+<p>Due to the symmetry of <span class="math inline">\(\phi (z)\)</span> around the value <span class="math inline">\(z=0\)</span>, it follows that:</p>
+<p><span class="math display">\[\begin{equation*}
+    \Phi (0)=\Pr (X\leq 0)=1/2
+\end{equation*}\]</span></p>
+<p>and, in general,</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \Phi (-z) &amp;=&amp;\Pr (Z\leq -z) \\
+    &amp;=&amp;\Pr (Z&gt;z) \\
+    &amp;=&amp;1-\Pr (Z\leq z) \\
+    &amp;=&amp;1-\Phi (z).
+\end{eqnarray*}\]</span></p>
+<p>The role of symmetry and calculation of probabilities as areas under <span class="math inline">\(\phi (z)\)</span> is illustrated in the following Figure. In the diagram on the left hand side, the area under <span class="math inline">\(\phi (z)\)</span> is divided up into two parts: the area to the left of <span class="math inline">\(0\)</span> which is <span class="math inline">\(\Phi (0)\)</span>; and the area to the right of <span class="math inline">\(0\)</span> which is <span class="math inline">\(1-\Phi (0)\)</span>. Both areas add up to 1.</p>
+<p>On the right hand side you can see the two highlighted (in green) areas of the distribution’s tails, <span class="math inline">\(\Phi (-a)\)</span> and <span class="math inline">\(1-\Phi(a)\)</span>. You need to recall that <span class="math inline">\(\Phi(a)=Pr(-\infty &lt; Z \leq a)\)</span> and that the highlighted area in the right hand tail represents <span class="math inline">\(Pr(a &lt; Z \leq \infty)\)</span>. As the entire area underneath the probability is 1, this implies that the area is equivalent to <span class="math inline">\(1-\Phi(a)\)</span>. Due to symmetry, both highlighted areas have the same size, say <span class="math inline">\(\Phi (-a)\)</span> = <span class="math inline">\(1-\Phi (a)\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/symmetry.png" class="img-fluid figure-img"></p>
+<figcaption>Symmetry of the distribution.</figcaption>
+</figure>
+</div>
+</section>
+<section id="calculating-probabilities-when-zsim-n01" class="level3" data-number="11.6.2">
+<h3 data-number="11.6.2" class="anchored" data-anchor-id="calculating-probabilities-when-zsim-n01"><span class="header-section-number">11.6.2</span> Calculating probabilities when <span class="math inline">\(Z\sim N(0,1)\)</span></h3>
+<p>Armed with these properties we can now use the “standard normal” table of probabilities. You can download the table with values for <span class="math inline">\(\phi(z)\)</span> from <a href="data/NormalTable.pdf">here</a>. These are exactly the tables which you will be expected to use in any examinations. You will find such tables in any statistics textbook or you can look for them online.</p>
+<p>The probabilities provided by this table are of the form <span class="math inline">\(\Pr (Z\leq z)=\Phi (z)\)</span>, for values of $-&lt;z&lt;$. In practice the tables rarely go beyond <span class="math inline">\(|z|=3\)</span> as the probabilities in the tail get very small. Also, some tables will only show $0&lt;z&lt;$ as all other probabilities can be deduced from the symmetry property. Therefore, you should be carefully check the value range of <span class="math inline">\(z\)</span> before you use the table.</p>
+<p>For example, using the downloadable table above, you should understand <span class="math inline">\(\Pr (Z\leq 0]=0.5000\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ztable.png" class="img-fluid figure-img"></p>
+<figcaption>Symmetry of the distribution.</figcaption>
+</figure>
+</div>
+<p>You should also satisfy yourself that you understand the use of the table by verifying that,</p>
+$
+<span class="math display">\[\begin{array}{ccc}
+        \Pr (Z\leq 0]=0.5000; &amp;  &amp; \Pr (Z\leq 0.5)=0.6915; \\
+        \Pr (Z\leq 1.96)=0.9750; &amp;  &amp; \Pr (Z\geq 1)=\Pr (Z\leq -1)=0.1587,\text{ }etc.%
+    \end{array}\]</span>
+<p>$</p>
+<p>The calculation of the probability</p>
+<p><span class="math display">\[\begin{equation*}
+    \Pr (-1.62 &lt;Z\leq 2.2)=\Pr (Z\leq 2.2)-\Pr (Z\leq -1.62)
+\end{equation*}\]</span></p>
+<p>is illustrated in the following Figure.</p>
+</section>
+</section>
+<section id="delete" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="delete"><span class="header-section-number">11.7</span> DELETE</h2>
 <p>Why do economists have to think about continuous random variables and their distributions? (YouTube, 4min)</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Iau7N3mxcU0" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>In the Discrete random variables Section, we introduced the notion of a random variable and, in particular a discrete random variable. It was then discussed how to use mathematical functions in order to assign probabilities to the various possible numerical values of such a random variable. A probability distribution is a method by which such probabilities can be assigned and in the discrete case this can be achieved via a probability mass function (pmf). We then discussed how a cumulative distribution function (cdf) calculates probabilities for all outcomes smaller than a particular value. Last we discussed several important examples of discrete probability distributions, including the Bernoulli distribution, the Binomial distribution, the Geometric distribution and the Poisson distribution.</p>
 <p>The distributions discussed in the previous section are useful for random variables that have a discrete number of possible outcomes. However, some random variables can take outcomes on a continuous scale and statisticians have derived several important continuous distributions to be able to model such random variables.</p>
 <p>We will soon see a more formal definition and example of distributions for continuous random variables. Before we see them, an understandings of continuous random variables is required. This is what we turn to now.</p>
 </section>
-<section id="continuous-random-variables" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="continuous-random-variables"><span class="header-section-number">10.2</span> Continuous random variables</h2>
+<section id="continuous-random-variables" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="continuous-random-variables"><span class="header-section-number">11.8</span> Continuous random variables</h2>
 <p>Recall that a random variable is a function applied on a sample space, by which we mean that physical attributes of a sample space are mapped (by this function) into a number. When a is applied on a sample space, this implies that the function can be applied to a continuous range of possible numbers (not just discrete numbers as with a discrete random variable). In Figure 1 you can see two random variables. The number of dogs a family owns, which can take values 0, 1, 2, 3 etc. (and hence it is a discrete variable, you cannot own 2.5 dogs). The other would be the weight of a person which can take values on a continuous scale, and not only discrete values.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -298,8 +465,8 @@ window.Quarto = {
 </div>
 <p>As a further example, let <span class="math inline">\(X=\)</span> “the contents of a reservoir”, where the appropriate sample space under consideration allows for the reservoir being just about empty, just about full or somewhere in between. Here we might usefully define the range of possible values for <span class="math inline">\(X\)</span> as <span class="math inline">\(0 &lt; X &lt; 1\)</span>, with 0 signifying ‘empty’ and 1 signifying ‘full’. When talking about the characteristics of continuous variables, we can not list all possible outcomes for <span class="math inline">\(X\)</span>; any value in the interval is possible. The sample space is defined by an interval. That interval could be a closed interval, such as <span class="math inline">\([0,1]\)</span> or an open interval such as <span class="math inline">\((-\infty,\infty)\)</span> or <span class="math inline">\([0,\infty)\)</span>. Make sure you understand on which interval the random variable is defined.</p>
 <p>When we talk about probability distributions for continuous random variable we will also have two representations of the same information. The cumulative distribution function (cdf) which has exactly the same meaning as for discrete random variables, and the probability density function (pdf) which does for continuous random variables what the probability mass function (pmf) does for discrete random variables.</p>
-<section id="probability-density-function-pdf" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="probability-density-function-pdf"><span class="header-section-number">10.2.1</span> Probability density function (pdf)</h3>
+<section id="probability-density-function-pdf" class="level3" data-number="11.8.1">
+<h3 data-number="11.8.1" class="anchored" data-anchor-id="probability-density-function-pdf"><span class="header-section-number">11.8.1</span> Probability density function (pdf)</h3>
 <p>In the discrete random variable section, we showed that the probability distribution of a discrete random variable can be represented by a histogram, being a graphical representation of the probability mass function (pmf). The equivalent representation for a continuous random variable is a probability density function (pdf).</p>
 <p>The following figure gives you (on the left hand side) a representation of a typical pmf and on the right hand side a representation of a typical pdf.</p>
 <p><img src="images/pmf_pdf.jpg" class="img-fluid" alt="Probability mass function and Probability density function">#fig-pmftopdf</p>
@@ -312,8 +479,8 @@ window.Quarto = {
 <p>We therefore must confine our attention to assigning probabilities of the form <span class="math inline">\(Pr(a&lt; X \le b)\)</span> , for some real numbers <span class="math inline">\(a&lt;b\)</span> ; i.e., what is the probability that <span class="math inline">\(X\)</span> takes on values between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>? It is the area under the probability density function between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> which provides that probability, not the probability density function itself. Thus, by the axioms of probability, if <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are in the range of possible values for the continuous random variable, <span class="math inline">\(X\)</span>, then <span class="math inline">\(Pr(a&lt; X \le b)\)</span> must always return a positive number, lying between 0 and 1, no matter how close <span class="math inline">\(b\)</span> is to <span class="math inline">\(a\)</span> (provided only that <span class="math inline">\(b&gt;a\)</span>).</p>
 <p>A short video summary of these points is available from here (YouTube, 8min)</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/H_F2MsrREpQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<section id="example" class="level4 callout-info" data-number="10.2.1.1">
-<h4 data-number="10.2.1.1" class="anchored" data-anchor-id="example"><span class="header-section-number">10.2.1.1</span> Example</h4>
+<section id="example" class="level4 callout-info" data-number="11.8.1.1">
+<h4 data-number="11.8.1.1" class="anchored" data-anchor-id="example"><span class="header-section-number">11.8.1.1</span> Example</h4>
 <p>Below is a pdf for a random variable which is defined on the interval between 150 and 190 (formally <span class="math inline">\((150,190]\)</span>). This means the random variable cannot take any values outside this interval.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -343,8 +510,8 @@ window.Quarto = {
 </ul>
 <p>Recall that random variables are functions which assign probabilities to outcomes. What sorts of mathematical functions can usefully serve as probability density functions? To develop the answer to this question, we begin by considering another question: what mathematical functions would be appropriate as cumulative distribution functions (cdf)?</p>
 </section>
-<section id="cumulative-distribution-function-cdf" class="level3" data-number="10.2.2">
-<h3 data-number="10.2.2" class="anchored" data-anchor-id="cumulative-distribution-function-cdf"><span class="header-section-number">10.2.2</span> Cumulative distribution function (cdf)</h3>
+<section id="cumulative-distribution-function-cdf" class="level3" data-number="11.8.2">
+<h3 data-number="11.8.2" class="anchored" data-anchor-id="cumulative-distribution-function-cdf"><span class="header-section-number">11.8.2</span> Cumulative distribution function (cdf)</h3>
 <p>For a <strong>CONTINUOUS</strong> random variable, <span class="math inline">\(X\)</span>, defined on <span class="math inline">\((-\infty,\infty)\)</span>, the is a <strong>smooth</strong> continuous function defined as</p>
 <p><span class="math display">\[\begin{equation*}
     F(x)=Pr(X \leq x)
@@ -383,8 +550,8 @@ Why smoothly
 <p>All in all then, <span class="math inline">\(F(x)\)</span> appears to be smoothly increasing from 0 to 1 over the range of possible values for <span class="math inline">\(X\)</span>.</p>
 <p>More generally, we now formally state the properties of a <strong>cdf</strong>.</p>
 </section>
-<section id="properties-of-the-cdf" class="level3" data-number="10.2.3">
-<h3 data-number="10.2.3" class="anchored" data-anchor-id="properties-of-the-cdf"><span class="header-section-number">10.2.3</span> Properties of the cdf</h3>
+<section id="properties-of-the-cdf" class="level3" data-number="11.8.3">
+<h3 data-number="11.8.3" class="anchored" data-anchor-id="properties-of-the-cdf"><span class="header-section-number">11.8.3</span> Properties of the cdf</h3>
 <p>A cumulative distribution function is a mathematical function, <span class="math inline">\(F(x)\)</span>, satisfying the following properties:</p>
 <ul>
 <li><span class="math inline">\(0\leq F(x)\leq1\)</span>.<br>
@@ -452,8 +619,8 @@ Why smoothly
 </div>
 </div>
 </section>
-<section id="relations-between-pdf-and-cdf" class="level3" data-number="10.2.4">
-<h3 data-number="10.2.4" class="anchored" data-anchor-id="relations-between-pdf-and-cdf"><span class="header-section-number">10.2.4</span> Relations between pdf and cdf</h3>
+<section id="relations-between-pdf-and-cdf" class="level3" data-number="11.8.4">
+<h3 data-number="11.8.4" class="anchored" data-anchor-id="relations-between-pdf-and-cdf"><span class="header-section-number">11.8.4</span> Relations between pdf and cdf</h3>
 <p>A brief discussion of how the pdf and the cdf are related (YouTube, 8min).</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/5onKKMoTe5c" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>As discussed above, there is a smooth, increasing, function <span class="math inline">\(F(x)\)</span>, the <strong>cdf</strong>, which provides <span class="math inline">\(Pr(X \leq x)\)</span>. We further argued that</p>
@@ -547,8 +714,8 @@ Why smoothly
 <li><span class="math inline">\(F(x)=\int_{-\infty}^{x} f(t)dt\)</span></li>
 <li>Probabilities can be calculated as: <span class="math inline">\(Pr(a&lt;X \leq b) = \int_{a}^{b} f(x)dx\)</span> i.e., it is the area under the pdf which gives probability</li>
 </ul>
-<section id="example-1" class="level4 callout-info" data-number="10.2.4.1">
-<h4 data-number="10.2.4.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">10.2.4.1</span> Example</h4>
+<section id="example-1" class="level4 callout-info" data-number="11.8.4.1">
+<h4 data-number="11.8.4.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">11.8.4.1</span> Example</h4>
 <p>Let the random variable <span class="math inline">\(T\)</span> denote the time a person waits for an elevator to arrive. Suppose the longest one would need to wait for the elevator is 2 minutes, so that the possible values of <span class="math inline">\(T\)</span> (in minutes) are given by the interval [0,2] . A possible pdf for <span class="math inline">\(T\)</span> is given by</p>
 <p><span class="math display">\[\begin{equation*}
   f(t) =
@@ -678,8 +845,8 @@ Hint
 </div>
 </section>
 </section>
-<section id="mean-and-variance-of-a-continuous-random-variable" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="mean-and-variance-of-a-continuous-random-variable"><span class="header-section-number">10.3</span> Mean and variance of a continuous random variable</h2>
+<section id="mean-and-variance-of-a-continuous-random-variable" class="level2" data-number="11.9">
+<h2 data-number="11.9" class="anchored" data-anchor-id="mean-and-variance-of-a-continuous-random-variable"><span class="header-section-number">11.9</span> Mean and variance of a continuous random variable</h2>
 <p>The pdf of a continuous random variable also contains all the information required to calculate the expected value (<span class="math inline">\(E[X]\)</span> or <span class="math inline">\(\mu\)</span>) and the variance (<span class="math inline">\(Var[X]\)</span> or <span class="math inline">\(\sigma^2\)</span>) of a random variable.</p>
 <p>For a continuous random variable, the mean is defined as</p>
 <p><span class="math display">\[\begin{equation*}
@@ -692,16 +859,16 @@ Hint
 \end{eqnarray*}\]</span></p>
 <p>Fortunately, in the remainder of this section we will introduce particular types of continuous random variables for which the calculation of the mean and the variance of a distribution does not require the calculation of integrals. These distributions (for example the exponential or normal distribution - yet to be introduced) are described by sets of parameters and if we know these parameters then we can use these (with easy formulae) to calculate the mean and expected values of these distributions. But the above formulae describe how you could derive these by first principles.</p>
 </section>
-<section id="example-distributions" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="example-distributions"><span class="header-section-number">10.4</span> Example Distributions</h2>
+<section id="example-distributions" class="level2" data-number="11.10">
+<h2 data-number="11.10" class="anchored" data-anchor-id="example-distributions"><span class="header-section-number">11.10</span> Example Distributions</h2>
 <p>With the theory out of the way, let’s think of examples for continuous distributions. In fact we are spoiled for choice. Check out this <a href="https://en.wikipedia.org/wiki/Category:Continuous_distributions">list</a> of different continuous distributions from Wikipedia. We need this large range of different distributions as any random variable will have different properties and we will, in all cases, have to try and find that distribution that has properties that best represent that of the random variable we are interested in. As it turns out there are more than 100 continuous distribution, we therefore only discuss the most important ones in this section.</p>
-<section id="uniform-distribution" class="level3" data-number="10.4.1">
-<h3 data-number="10.4.1" class="anchored" data-anchor-id="uniform-distribution"><span class="header-section-number">10.4.1</span> Uniform distribution</h3>
+<section id="uniform-distribution" class="level3" data-number="11.10.1">
+<h3 data-number="11.10.1" class="anchored" data-anchor-id="uniform-distribution"><span class="header-section-number">11.10.1</span> Uniform distribution</h3>
 <p>Let us start by introducing the simplest continuous probability distribution – the uniform distribution. This probability distribution provides a model for continuous random variables that are evenly (but randomly) distributed over a certain interval.</p>
 <p>It should be noted though that there is not only one uniform distribution, there is an infinite number of uniform distributions depending on which interval <span class="math inline">\(\left[a,b\right]\)</span> we define the random variable on. In the context of distributions we call the <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> parameters. For different distributions parameters have different meanings. Here they are the minimum and maximum values. Almost all distributions do have parameters changing them will have different effects.</p>
 <p>Often you will see the uniform distribution defined on <span class="math inline">\(\left[0,1\right]\)</span> discussed. That is the standard uniform distribution. Changing the minimum and maximum would not change the main properties of the uniform distribution, but it would change the actual probabilities, e.g.&nbsp;<span class="math inline">\(Pr(0.25&lt;X \leq 0.5)\)</span>.</p>
-<section id="pdf-of-uniform-distribution" class="level4" data-number="10.4.1.1">
-<h4 data-number="10.4.1.1" class="anchored" data-anchor-id="pdf-of-uniform-distribution"><span class="header-section-number">10.4.1.1</span> pdf of uniform distribution</h4>
+<section id="pdf-of-uniform-distribution" class="level4" data-number="11.10.1.1">
+<h4 data-number="11.10.1.1" class="anchored" data-anchor-id="pdf-of-uniform-distribution"><span class="header-section-number">11.10.1.1</span> pdf of uniform distribution</h4>
 <p>For any uniform random variable defined over the range from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>, the probability density function is as follows:</p>
 <p><span class="math display">\[\begin{equation*}
   f(x) =
@@ -714,8 +881,8 @@ Hint
 <p>As the distance between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> increases, the density at any particular value within the distribution boundaries decreases. Since the probability density function integrates to 1, the height of the probability density function decreases as the base length increases.</p>
 <p><img src="images/uniform.jpg" class="img-fluid" alt="pdf of uniform distribution">#fig-uniform</p>
 </section>
-<section id="cdf-of-uniform-distribution" class="level4" data-number="10.4.1.2">
-<h4 data-number="10.4.1.2" class="anchored" data-anchor-id="cdf-of-uniform-distribution"><span class="header-section-number">10.4.1.2</span> cdf of uniform distribution</h4>
+<section id="cdf-of-uniform-distribution" class="level4" data-number="11.10.1.2">
+<h4 data-number="11.10.1.2" class="anchored" data-anchor-id="cdf-of-uniform-distribution"><span class="header-section-number">11.10.1.2</span> cdf of uniform distribution</h4>
 <p>From the introduction of cdf above, we know that the probability that <span class="math inline">\(X\)</span> will fall below a point is provided by the area under the density curve and to the left of that point. In other words, the cumulative probability distribution function, <span class="math inline">\(P(X\leq x)=\frac{(x-a)}{(b-a)}\)</span>, is represented by this area. The cumulative function for values of <span class="math inline">\(X\)</span> between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> is the area of the rectangle, which, again, is found by multiplying the height, <span class="math inline">\(\frac{1}{b-a}\)</span>, times the base, <span class="math inline">\(x-a\)</span>. To the left of <span class="math inline">\(a\)</span>, the cumulative probabilities must be zero, whereas the probability that <span class="math inline">\(X\)</span> lies “below points beyond <span class="math inline">\(b\)</span>” must be 1. As such, the cumulative distribution function can be written as follow:</p>
 <p><span class="math display">\[\begin{equation*}
     F(x) =
@@ -726,8 +893,8 @@ Hint
     \end{cases}       
 \end{equation*}\]</span></p>
 </section>
-<section id="distributional-properties" class="level4" data-number="10.4.1.3">
-<h4 data-number="10.4.1.3" class="anchored" data-anchor-id="distributional-properties"><span class="header-section-number">10.4.1.3</span> Distributional properties</h4>
+<section id="distributional-properties" class="level4" data-number="11.10.1.3">
+<h4 data-number="11.10.1.3" class="anchored" data-anchor-id="distributional-properties"><span class="header-section-number">11.10.1.3</span> Distributional properties</h4>
 <p>We said above that in the case of the uniform distribution the parameters <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> determine the min and max possible values of the uniform distribution. The properties of a random variable we usually are interested in are the mean and the variance (and perhaps other higher order moments like skewness). These properties are related to the parameters of the distribution. How they are linked very much depends on the type of distribution we are looking at. For the uniform distribution they are linked as follows.</p>
 <p>The uniform distribution has parameters <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. The mean and variance of the uniform distribution are determined by these two parameters as follows:</p>
 <p><span class="math display">\[\begin{eqnarray*}
@@ -735,8 +902,8 @@ Hint
     Var[X] &amp;=&amp; \frac{(b-a)^2}{12}
 \end{eqnarray*}\]</span></p>
 </section>
-<section id="example-2" class="level4 callout-info" data-number="10.4.1.4">
-<h4 data-number="10.4.1.4" class="anchored" data-anchor-id="example-2"><span class="header-section-number">10.4.1.4</span> Example</h4>
+<section id="example-2" class="level4 callout-info" data-number="11.10.1.4">
+<h4 data-number="11.10.1.4" class="anchored" data-anchor-id="example-2"><span class="header-section-number">11.10.1.4</span> Example</h4>
 <p><strong>Flight time of an airplane traveling from Chicago to New York</strong></p>
 <p>Suppose the flight time can be any value in the interval from 120 minutes to 140 minutes.</p>
 <p><span class="math display">\[\begin{equation*}
@@ -780,16 +947,16 @@ Solution
 <p>This information can be used to create a control chart to determine whether the quality of the water pipes is acceptable.</p>
 </section>
 </section>
-<section id="applications" class="level3" data-number="10.4.2">
-<h3 data-number="10.4.2" class="anchored" data-anchor-id="applications"><span class="header-section-number">10.4.2</span> Applications</h3>
+<section id="applications" class="level3" data-number="11.10.2">
+<h3 data-number="11.10.2" class="anchored" data-anchor-id="applications"><span class="header-section-number">11.10.2</span> Applications</h3>
 <p>We do know many examples of uniform distributions. The outcome of a dice is equally/uniformly distributed from 1 to 6. Whether you get heads or tails on a coin is uniformly distributed between the two possible outcomes. Whether you get, on a roulette wheel any of the outcomes 0 to 36 is uniformly distributed. However, these are all discrete and not continuous distributions.</p>
 <p>Clearly the continuous uniform distribution is a very special type of distribution. It actually has important uses in statistical theory, but it is not so easy to find real life examples for a continuous-valued uniform distribution. Take the above example for the flight time between Chicago and New York. It is clearly problematic to assume that the flight time could not exceed 140 minutes.</p>
 <p>So, a uniform distribution appears inadequate. We shall introduce two more examples of continuous distributions (remember there are 100+): the <strong>exponential</strong> distribution and the <strong>normal</strong> distribution. The latter is so important that we shall have a special lesson on it.</p>
-<section id="example-3" class="level4 callout-info" data-number="10.4.2.1">
-<h4 data-number="10.4.2.1" class="anchored" data-anchor-id="example-3"><span class="header-section-number">10.4.2.1</span> Example</h4>
+<section id="example-3" class="level4 callout-info" data-number="11.10.2.1">
+<h4 data-number="11.10.2.1" class="anchored" data-anchor-id="example-3"><span class="header-section-number">11.10.2.1</span> Example</h4>
 <p>For which of the following does uniform random variable appear most appropriate?</p>
-<div id="radio_EHIRJUFRJN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_EHIRJUFRJN" value=""> <span>The number of cars passing Old Trafford between 8 and 9am on a Monday morning</span></label><label><input type="radio" autocomplete="off" name="radio_EHIRJUFRJN" value="answer"> <span>The day of the year (from 1 to 365) someone has their birthday.</span></label><label><input type="radio" autocomplete="off" name="radio_EHIRJUFRJN" value=""> <span>The age of people in a random sample asked outside University Place.</span></label><label><input type="radio" autocomplete="off" name="radio_EHIRJUFRJN" value=""> <span>The income of people in a random sample asked outside University Place.</span></label>
+<div id="radio_TIOKHVEGPC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TIOKHVEGPC" value=""> <span>The number of cars passing Old Trafford between 8 and 9am on a Monday morning</span></label><label><input type="radio" autocomplete="off" name="radio_TIOKHVEGPC" value="answer"> <span>The day of the year (from 1 to 365) someone has their birthday.</span></label><label><input type="radio" autocomplete="off" name="radio_TIOKHVEGPC" value=""> <span>The age of people in a random sample asked outside University Place.</span></label><label><input type="radio" autocomplete="off" name="radio_TIOKHVEGPC" value=""> <span>The income of people in a random sample asked outside University Place.</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -799,15 +966,15 @@ Why this answer?
 </div>
 </section>
 </section>
-<section id="additional-resources" class="level3" data-number="10.4.3">
-<h3 data-number="10.4.3" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">10.4.3</span> Additional resources</h3>
+<section id="additional-resources" class="level3" data-number="11.10.3">
+<h3 data-number="11.10.3" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">11.10.3</span> Additional resources</h3>
 <p>Khan Academy:</p>
 <ul>
 <li>This is a clip to give an introduction of continuous probability distribution using uniform distribution as an example. Here is the <a href="https://www.youtube.com/watch?v=j8XLYFzTJzE&amp;ab_channel=KhanAcademy">link to the clip</a>.</li>
 </ul>
 </section>
-<section id="exponential-distribution" class="level3" data-number="10.4.4">
-<h3 data-number="10.4.4" class="anchored" data-anchor-id="exponential-distribution"><span class="header-section-number">10.4.4</span> Exponential distribution</h3>
+<section id="exponential-distribution" class="level3" data-number="11.10.4">
+<h3 data-number="11.10.4" class="anchored" data-anchor-id="exponential-distribution"><span class="header-section-number">11.10.4</span> Exponential distribution</h3>
 <p>We now introduce a continuous distribution, the <strong>exponential distribution</strong>, which is useful in describing the time it takes to complete a task.</p>
 <p>An exponential random variables can be used to describe</p>
 <ul>
@@ -816,8 +983,8 @@ Why this answer?
 <li>Time required to complete a questionnaire</li>
 <li>In waiting line applications, the exponential distribution is often used for service times.</li>
 </ul>
-<section id="pdf-of-exponential-distribution" class="level4" data-number="10.4.4.1">
-<h4 data-number="10.4.4.1" class="anchored" data-anchor-id="pdf-of-exponential-distribution"><span class="header-section-number">10.4.4.1</span> pdf of exponential distribution</h4>
+<section id="pdf-of-exponential-distribution" class="level4" data-number="11.10.4.1">
+<h4 data-number="11.10.4.1" class="anchored" data-anchor-id="pdf-of-exponential-distribution"><span class="header-section-number">11.10.4.1</span> pdf of exponential distribution</h4>
 <p>Let the continuous random variable, denoted <span class="math inline">\(X\)</span>, monitor the elapsed time, measured in minutes, between successive cars passing a junction on a particular road. Traffic along this road in general flows freely, so that vehicles can travel independently of one another, not restricted by the car in front. Occasionally, there are quite long intervals between successive vehicles, while more often there are smaller intervals. To accommodate this, the following pdf for <span class="math inline">\(X\)</span> is defined:</p>
 <p><span class="math display">\[\begin{equation*}
     f(x) =
@@ -836,8 +1003,8 @@ Why this answer?
 </div>
 <p>As you can see, the exponential distribution is defined for positive real numbers.</p>
 </section>
-<section id="example-4" class="level4 callout-info" data-number="10.4.4.2">
-<h4 data-number="10.4.4.2" class="anchored" data-anchor-id="example-4"><span class="header-section-number">10.4.4.2</span> Example</h4>
+<section id="example-4" class="level4 callout-info" data-number="11.10.4.2">
+<h4 data-number="11.10.4.2" class="anchored" data-anchor-id="example-4"><span class="header-section-number">11.10.4.2</span> Example</h4>
 <p>Verify that <span class="math inline">\(\int_{0}^{\infty} \exp(-x)dx=1\)</span> and therefore this distribution meets one of the axioms of probability. This is the exponential distribution with parameter <span class="math inline">\(\theta = 1\)</span>.</p>
 <p><span class="math display">\[\begin{eqnarray*}
   \int_0^{\infty} f(x) dx &amp;=&amp; \int_0^{\infty} exp(-x) dx\\
@@ -853,8 +1020,8 @@ Why this answer?
     Pr(1&lt;X \leq 3)= \int_{1}^{3}\exp(-x)dx = [-\exp(-x)]_{1}^{3}=-exp(-3)-(-\exp(-1))=0.318
 \end{equation*}\]</span></p>
 <p>One might interprets this as meaning that about 32% of the time, successive vehicles will be between 1 and 3 minutes apart.</p>
-<section id="example-5" class="level4 callout-info" data-number="10.4.4.3">
-<h4 data-number="10.4.4.3" class="anchored" data-anchor-id="example-5"><span class="header-section-number">10.4.4.3</span> Example</h4>
+<section id="example-5" class="level4 callout-info" data-number="11.10.4.3">
+<h4 data-number="11.10.4.3" class="anchored" data-anchor-id="example-5"><span class="header-section-number">11.10.4.3</span> Example</h4>
 <p>Imagine yo are an aspiring YouTuber and you want to model your viewers’ behaviour. In particular you are interested in how long any viewer sticks with your video clip. (Or how long does it take for a viewer to click away).</p>
 <p>It is well known that for most videos the majority of viewers leave a video very quickly.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -875,8 +1042,8 @@ Why this answer?
     &amp;=&amp; [-\exp(-\frac{x}{\theta})]_{0}^{\infty}\\
     &amp;=&amp; 1
 \end{eqnarray*}\]</span></p>
-<section id="cdf-of-exponential-distribution" class="level4" data-number="10.4.4.4">
-<h4 data-number="10.4.4.4" class="anchored" data-anchor-id="cdf-of-exponential-distribution"><span class="header-section-number">10.4.4.4</span> cdf of exponential distribution</h4>
+<section id="cdf-of-exponential-distribution" class="level4" data-number="11.10.4.4">
+<h4 data-number="11.10.4.4" class="anchored" data-anchor-id="cdf-of-exponential-distribution"><span class="header-section-number">11.10.4.4</span> cdf of exponential distribution</h4>
 <p>As we discussed earlier, the fundamental relationship between the cdf and pdf as:</p>
 <p><span class="math display">\[\begin{equation*}
     F(x)=Pr(X \leq x) =\int_{-\infty}^{x} f(t)\,dt
@@ -918,8 +1085,8 @@ Why this answer?
 </div>
 </div>
 </section>
-<section id="example-6" class="level4 callout-info" data-number="10.4.4.5">
-<h4 data-number="10.4.4.5" class="anchored" data-anchor-id="example-6"><span class="header-section-number">10.4.4.5</span> Example</h4>
+<section id="example-6" class="level4 callout-info" data-number="11.10.4.5">
+<h4 data-number="11.10.4.5" class="anchored" data-anchor-id="example-6"><span class="header-section-number">11.10.4.5</span> Example</h4>
 <p><strong>Service time at the library information desk.</strong></p>
 <p>Service times (in minutes) for customers at a library information desk can be modeled by an exponential distribution with a mean service time of 5 minutes (<span class="math inline">\(\theta = 5\)</span>). What is the probability that a customer service time will take longer than 10 minutes?</p>
 <p>Let x denote the service time in minutes. The mean service time is 5 minutes so <span class="math inline">\(\theta=5\)</span>.</p>
@@ -929,8 +1096,8 @@ Why this answer?
 \end{equation*}\]</span></p>
 <p>Thus, the probability that a service time exceeds 10 minutes is 0.1353.</p>
 </section>
-<section id="distributional-properties-1" class="level4" data-number="10.4.4.6">
-<h4 data-number="10.4.4.6" class="anchored" data-anchor-id="distributional-properties-1"><span class="header-section-number">10.4.4.6</span> Distributional properties</h4>
+<section id="distributional-properties-1" class="level4" data-number="11.10.4.6">
+<h4 data-number="11.10.4.6" class="anchored" data-anchor-id="distributional-properties-1"><span class="header-section-number">11.10.4.6</span> Distributional properties</h4>
 <p>The exponential distribution has a parameter <span class="math inline">\(\theta\)</span> (theta), which represents the mean of exponential distribution. The mean and variance of the exponential distribution are determined by <span class="math inline">\(\theta\)</span> as follows:</p>
 <p><span class="math display">\[\begin{eqnarray*}
     E[X]&amp;=&amp;\theta\\
@@ -945,8 +1112,8 @@ Why this answer?
 <li>By the chain rule of differentiation, if <span class="math inline">\(y=e^{-x}\)</span> then <span class="math inline">\(\frac{dy}{dx}=-e^{-x}\)</span>.</li>
 </ul>
 </section>
-<section id="poisson-and-exponential-distribution" class="level4" data-number="10.4.4.7">
-<h4 data-number="10.4.4.7" class="anchored" data-anchor-id="poisson-and-exponential-distribution"><span class="header-section-number">10.4.4.7</span> Poisson and exponential distribution</h4>
+<section id="poisson-and-exponential-distribution" class="level4" data-number="11.10.4.7">
+<h4 data-number="11.10.4.7" class="anchored" data-anchor-id="poisson-and-exponential-distribution"><span class="header-section-number">11.10.4.7</span> Poisson and exponential distribution</h4>
 <p>The exponential distribution is related to the Poisson distribution.</p>
 <p>The Poisson distribution is the distribution of the number of occurrences of an event in a given time interval of length <span class="math inline">\(t\)</span>. The single parameter of the Poisson distribution is <span class="math inline">\(\lambda\)</span>, the intensity of the process.</p>
 <p>Think of the number <span class="math inline">\(X\)</span> as the average occurrence of the event being counted. For example, say, the average arrival rate of customers at the Brownell Bank is 5 per 100s. And let’s say that variable is a Poisson random variable then this variable has a parameter of <span class="math inline">\(\lambda = 5\)</span>.</p>
@@ -1032,8 +1199,8 @@ Solution
 </div>
 </div>
 </section>
-<section id="additional-resources-1" class="level4" data-number="10.4.4.8">
-<h4 data-number="10.4.4.8" class="anchored" data-anchor-id="additional-resources-1"><span class="header-section-number">10.4.4.8</span> Additional resources</h4>
+<section id="additional-resources-1" class="level4" data-number="11.10.4.8">
+<h4 data-number="11.10.4.8" class="anchored" data-anchor-id="additional-resources-1"><span class="header-section-number">11.10.4.8</span> Additional resources</h4>
 <ul>
 <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Exponential_distribution">Exponential Distribution</a>, but note that they use slightly different notation in terms of the parameter of the exponential distribution. They use <span class="math inline">\(\lambda\)</span> which is related to our <span class="math inline">\(\theta\)</span> in the following way, <span class="math inline">\(\lambda=\frac{1}{\theta}\)</span></li>
 <li>Wolfram MathWorld: <a href="https://mathworld.wolfram.com/ExponentialDistribution.html">Exponential Distribution</a>, but note that they use slightly different notation in terms of the parameter of the exponential distribution. They use <span class="math inline">\(\lambda\)</span> which is related to our <span class="math inline">\(\theta\)</span> in the following way, <span class="math inline">\(\lambda=\frac{1}{\theta}\)</span>.</li>
@@ -1449,13 +1616,13 @@ Solution
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./DiscreteRVs.html" class="pagination-link" aria-label="Discrete Random Variables and Probability Distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Discrete Random Variables and Probability Distributions</span></span>
+      <a href="./ContinuousRVs.html" class="pagination-link" aria-label="Continuous Random Variables and Probability Distributions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Continuous Random Variables and Probability Distributions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Normal_RV.html" class="pagination-link" aria-label="Normally Distributed Random Variables">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Normally Distributed Random Variables</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Comb_of_RVs.html" class="pagination-link" aria-label="Combination of Random Variables">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Combination of Random Variables</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

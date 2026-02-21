@@ -18,6 +18,8 @@ book:
   - ConditionalProbability.qmd
   - DiscreteRVs.qmd
   - ContinuousRVs.qmd
+  - Normal_RV.qmd
+  - Comb_of_RVs.qmd
   - summary.qmd
   - references.qmd
 bibliography: references.bib

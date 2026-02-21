@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Continuous Random Variables and Probability Distributions – Statistics Notes</title>
+<title>12&nbsp; Combination of Random Variables – Statistics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Normal_RV.html" rel="next">
-<link href="./DiscreteRVs.html" rel="prev">
+<link href="./summary.html" rel="next">
+<link href="./Normal_RV.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -113,7 +113,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ContinuousRVs.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Continuous Random Variables and Probability Distributions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Comb_of_RVs.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Combination of Random Variables</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -200,7 +200,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ContinuousRVs.html" class="sidebar-item-text sidebar-link active">
+  <a href="./ContinuousRVs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Continuous Random Variables and Probability Distributions</span></span></a>
   </div>
 </li>
@@ -212,7 +212,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Comb_of_RVs.html" class="sidebar-item-text sidebar-link">
+  <a href="./Comb_of_RVs.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Combination of Random Variables</span></span></a>
   </div>
 </li>
@@ -238,21 +238,22 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">10.1</span> Introduction</a></li>
-  <li><a href="#continuous-random-variables" id="toc-continuous-random-variables" class="nav-link" data-scroll-target="#continuous-random-variables"><span class="header-section-number">10.2</span> Continuous random variables</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">12.1</span> Introduction</a></li>
+  <li><a href="#delete" id="toc-delete" class="nav-link" data-scroll-target="#delete"><span class="header-section-number">12.2</span> DELETE</a></li>
+  <li><a href="#continuous-random-variables" id="toc-continuous-random-variables" class="nav-link" data-scroll-target="#continuous-random-variables"><span class="header-section-number">12.3</span> Continuous random variables</a>
   <ul class="collapse">
-  <li><a href="#probability-density-function-pdf" id="toc-probability-density-function-pdf" class="nav-link" data-scroll-target="#probability-density-function-pdf"><span class="header-section-number">10.2.1</span> Probability density function (pdf)</a></li>
-  <li><a href="#cumulative-distribution-function-cdf" id="toc-cumulative-distribution-function-cdf" class="nav-link" data-scroll-target="#cumulative-distribution-function-cdf"><span class="header-section-number">10.2.2</span> Cumulative distribution function (cdf)</a></li>
-  <li><a href="#properties-of-the-cdf" id="toc-properties-of-the-cdf" class="nav-link" data-scroll-target="#properties-of-the-cdf"><span class="header-section-number">10.2.3</span> Properties of the cdf</a></li>
-  <li><a href="#relations-between-pdf-and-cdf" id="toc-relations-between-pdf-and-cdf" class="nav-link" data-scroll-target="#relations-between-pdf-and-cdf"><span class="header-section-number">10.2.4</span> Relations between pdf and cdf</a></li>
+  <li><a href="#probability-density-function-pdf" id="toc-probability-density-function-pdf" class="nav-link" data-scroll-target="#probability-density-function-pdf"><span class="header-section-number">12.3.1</span> Probability density function (pdf)</a></li>
+  <li><a href="#cumulative-distribution-function-cdf" id="toc-cumulative-distribution-function-cdf" class="nav-link" data-scroll-target="#cumulative-distribution-function-cdf"><span class="header-section-number">12.3.2</span> Cumulative distribution function (cdf)</a></li>
+  <li><a href="#properties-of-the-cdf" id="toc-properties-of-the-cdf" class="nav-link" data-scroll-target="#properties-of-the-cdf"><span class="header-section-number">12.3.3</span> Properties of the cdf</a></li>
+  <li><a href="#relations-between-pdf-and-cdf" id="toc-relations-between-pdf-and-cdf" class="nav-link" data-scroll-target="#relations-between-pdf-and-cdf"><span class="header-section-number">12.3.4</span> Relations between pdf and cdf</a></li>
   </ul></li>
-  <li><a href="#mean-and-variance-of-a-continuous-random-variable" id="toc-mean-and-variance-of-a-continuous-random-variable" class="nav-link" data-scroll-target="#mean-and-variance-of-a-continuous-random-variable"><span class="header-section-number">10.3</span> Mean and variance of a continuous random variable</a></li>
-  <li><a href="#example-distributions" id="toc-example-distributions" class="nav-link" data-scroll-target="#example-distributions"><span class="header-section-number">10.4</span> Example Distributions</a>
+  <li><a href="#mean-and-variance-of-a-continuous-random-variable" id="toc-mean-and-variance-of-a-continuous-random-variable" class="nav-link" data-scroll-target="#mean-and-variance-of-a-continuous-random-variable"><span class="header-section-number">12.4</span> Mean and variance of a continuous random variable</a></li>
+  <li><a href="#example-distributions" id="toc-example-distributions" class="nav-link" data-scroll-target="#example-distributions"><span class="header-section-number">12.5</span> Example Distributions</a>
   <ul class="collapse">
-  <li><a href="#uniform-distribution" id="toc-uniform-distribution" class="nav-link" data-scroll-target="#uniform-distribution"><span class="header-section-number">10.4.1</span> Uniform distribution</a></li>
-  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">10.4.2</span> Applications</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">10.4.3</span> Additional resources</a></li>
-  <li><a href="#exponential-distribution" id="toc-exponential-distribution" class="nav-link" data-scroll-target="#exponential-distribution"><span class="header-section-number">10.4.4</span> Exponential distribution</a></li>
+  <li><a href="#uniform-distribution" id="toc-uniform-distribution" class="nav-link" data-scroll-target="#uniform-distribution"><span class="header-section-number">12.5.1</span> Uniform distribution</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">12.5.2</span> Applications</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">12.5.3</span> Additional resources</a></li>
+  <li><a href="#exponential-distribution" id="toc-exponential-distribution" class="nav-link" data-scroll-target="#exponential-distribution"><span class="header-section-number">12.5.4</span> Exponential distribution</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -262,7 +263,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Continuous Random Variables and Probability Distributions</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Combination of Random Variables</span></h1>
 </div>
 
 
@@ -279,16 +280,63 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">10.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">12.1</span> Introduction</h2>
+<p>A short introduction to the importance of this section is provided in this video (YouTube, 2min).</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/O_p2ToGLwyU" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>We have, thus far, developed the concept of probability distributions for single continuous or discrete random variables. As we have seen, these distributions assign probabilities to various numerical values of the random variable under consideration. Further, for the distributions most commonly used in practice, mathematical expressions can be obtained for the mean and variance of this random variable in terms of the parameters of the distribution. For example, if <span class="math inline">\(X\)</span> is the number of successes in <span class="math inline">\(n\)</span> independent experiments in which the probability of success is <span class="math inline">\(\pi\)</span> (that is, <span class="math inline">\(X\)</span> follows a Binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(\pi)\)</span>, then it was stated that <span class="math inline">\(E[X]=n \pi\)</span> and <span class="math inline">\(Var(X)=n \pi(1-\pi)\)</span>.</p>
+<p>A binomial random variable is actually a special case of a combination of random variables. For this case we have already learned how to calculate its mean and variance.</p>
+<p>In this section we will learn how to derive and calculate the expected value and variance of any combination of random variables. This is extremely important as in practice we are often interested in the outcomes of a combination of random variables. In order to build up to these results we will firstly learn about transformations of individual random variables and how they affect their properties. You will then learn how ot derive some properties of linear combinations of multiple random variables. Finally you will learn about the special case of linear combinations of normally distributed random variables.</p>
+<p>Before extending the ideas, recall the definitions of mean and variance as expected values.</p>
+<p>Recall that the mean, or the expected value of a random variable <span class="math inline">\(X\)</span>, is commonly denoted as either <span class="math inline">\(E[X]\)</span> or <span class="math inline">\(\mu\)</span>. For a discrete random variable, the mean is defined as</p>
+<p><span class="math display">\[\begin{equation*}
+    E[X]=\mu=\sum_{x} x p(x) .
+\end{equation*}\]</span></p>
+<p>If the variable is continuous, the analogous definition is</p>
+<p><span class="math display">\[\begin{equation*}
+E[X]=\mu=\int_{-\infty}^{\infty} x f(x) dx
+\end{equation*}\]</span></p>
+<p>The variance of a random variable, which provides a measure of the spread of the possible outcomes around the mean, is also defined as an expected value, namely:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \operatorname{var}[X] &amp;=&amp;E\left[(X-\mu)^{2}\right] \\
+    &amp;=&amp;\sum_{x}(x-\mu)^{2} p(x) \text{ discrete } \\
+    &amp;=&amp;\int_{-\infty}^{\infty}(x-\mu)^{2} f(x) dx  \text{ continuous }
+\end{eqnarray*}\]</span></p>
+<p>However, for the distributions which were introduced (e.g.&nbsp;the binomial distribution or the normal distribution) we also learned how the mean and variance were related to the parameters that described these distributions.</p>
+<p>Often, information is available about a random variable in one form, but we require this to be converted into another form via a linear transformation. Changing units of measurement provides an important example of this: prices may be expressed in ~and converted to Euros at a specific exchange rate, or temperatures can be expressed in fahrenheit or celsius.</p>
+<p>In fact we already encountered a linear transformation. That from a normally distributed random variable <span class="math inline">\(X\)</span> (where <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>) to a standard normal distribution <span class="math inline">\(Z\)</span> (where <span class="math inline">\(Z \sim N(0, 1)\)</span>). The way we did transform this was according to</p>
+<p><span class="math display">\[\begin{equation*}
+    Z = \frac{X-\mu}{\sigma} = \frac{1}{\sigma}X-\frac{\mu}{\sigma}
+\end{equation*}\]</span></p>
+<p>the last term illustrating that the transformation is a linear one with a multiplicative factor <span class="math inline">\(\frac{1}{\sigma}\)</span> (like a slope coefficient)and a shift factor <span class="math inline">\(-\frac{\mu}{\sigma}\)</span> (like a constant). Let’s learn from that example how the properties of a linear transformation of a rv are related to those of the original rv.</p>
+<p>Let’s consider the following linear transformation</p>
+<p><span class="math display">\[\begin{equation*}
+    Z = c + bX
+\end{equation*}\]</span></p>
+<p>where <span class="math inline">\(X\)</span> is a random variable with <span class="math inline">\(E[X]=\mu\)</span> and <span class="math inline">\(Var[X] = \sigma^2\)</span>. <span class="math inline">\(c\)</span> and <span class="math inline">\(b\)</span> are constants. <span class="math inline">\(Z\)</span> is what we call a linear transformation of <span class="math inline">\(X\)</span>.</p>
+<p>We have the following results:</p>
+<p>For the discrete random variable case the algebra of the proof is very straightforward:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    E[b X+c] &amp;=&amp;\sum_{x}(b x+c) p(x) \\
+    &amp;=&amp;\sum_{x}(b x p(x)+c p(x)) \\
+    &amp;=&amp;b \sum_{x} x p(x)+c \sum_{x} p(x) \\
+    &amp;=&amp;b E[X]+c,
+\end{eqnarray*}\]</span></p>
+<p>since <span class="math inline">\(\sum_{x} p(x)=1\)</span> (i.e.&nbsp;all probabilities sum to 1) and <span class="math inline">\(\sum_{x} x p(x)=E[X]\)</span>, by definition of the expected value for a discrete random variable.</p>
+<p>We learn that any multiplicative constant, like <span class="math inline">\(b\)</span> here, can be moved outside of the expectations operator, <span class="math inline">\(E[]\)</span> . This applies also to continuous variables, because corresponding operations carry over when integrals replace the summations above.</p>
+<p>To calculate the variance of a linearly transformed rv we can ignore any level shift (the addition of <span class="math inline">\(c\)</span>) and we can draw the multiplicative constant (<span class="math inline">\(b\)</span>) outside of the variance operator, <span class="math inline">\(Var[]\)</span>, but need to square it. Here we will not present any proof for that result. It can be derived using similar, but more involved arguments, as for the expected value.</p>
+<p>These relationships between the original rv <span class="math inline">\(X\)</span> and its linear transform <span class="math inline">\(Z\)</span> are generally valid, regardless of how the variable <span class="math inline">\(X\)</span> is distributed.</p>
+</section>
+<section id="delete" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="delete"><span class="header-section-number">12.2</span> DELETE</h2>
 <p>Why do economists have to think about continuous random variables and their distributions? (YouTube, 4min)</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Iau7N3mxcU0" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>In the Discrete random variables Section, we introduced the notion of a random variable and, in particular a discrete random variable. It was then discussed how to use mathematical functions in order to assign probabilities to the various possible numerical values of such a random variable. A probability distribution is a method by which such probabilities can be assigned and in the discrete case this can be achieved via a probability mass function (pmf). We then discussed how a cumulative distribution function (cdf) calculates probabilities for all outcomes smaller than a particular value. Last we discussed several important examples of discrete probability distributions, including the Bernoulli distribution, the Binomial distribution, the Geometric distribution and the Poisson distribution.</p>
 <p>The distributions discussed in the previous section are useful for random variables that have a discrete number of possible outcomes. However, some random variables can take outcomes on a continuous scale and statisticians have derived several important continuous distributions to be able to model such random variables.</p>
 <p>We will soon see a more formal definition and example of distributions for continuous random variables. Before we see them, an understandings of continuous random variables is required. This is what we turn to now.</p>
 </section>
-<section id="continuous-random-variables" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="continuous-random-variables"><span class="header-section-number">10.2</span> Continuous random variables</h2>
+<section id="continuous-random-variables" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="continuous-random-variables"><span class="header-section-number">12.3</span> Continuous random variables</h2>
 <p>Recall that a random variable is a function applied on a sample space, by which we mean that physical attributes of a sample space are mapped (by this function) into a number. When a is applied on a sample space, this implies that the function can be applied to a continuous range of possible numbers (not just discrete numbers as with a discrete random variable). In Figure 1 you can see two random variables. The number of dogs a family owns, which can take values 0, 1, 2, 3 etc. (and hence it is a discrete variable, you cannot own 2.5 dogs). The other would be the weight of a person which can take values on a continuous scale, and not only discrete values.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -298,8 +346,8 @@ window.Quarto = {
 </div>
 <p>As a further example, let <span class="math inline">\(X=\)</span> “the contents of a reservoir”, where the appropriate sample space under consideration allows for the reservoir being just about empty, just about full or somewhere in between. Here we might usefully define the range of possible values for <span class="math inline">\(X\)</span> as <span class="math inline">\(0 &lt; X &lt; 1\)</span>, with 0 signifying ‘empty’ and 1 signifying ‘full’. When talking about the characteristics of continuous variables, we can not list all possible outcomes for <span class="math inline">\(X\)</span>; any value in the interval is possible. The sample space is defined by an interval. That interval could be a closed interval, such as <span class="math inline">\([0,1]\)</span> or an open interval such as <span class="math inline">\((-\infty,\infty)\)</span> or <span class="math inline">\([0,\infty)\)</span>. Make sure you understand on which interval the random variable is defined.</p>
 <p>When we talk about probability distributions for continuous random variable we will also have two representations of the same information. The cumulative distribution function (cdf) which has exactly the same meaning as for discrete random variables, and the probability density function (pdf) which does for continuous random variables what the probability mass function (pmf) does for discrete random variables.</p>
-<section id="probability-density-function-pdf" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="probability-density-function-pdf"><span class="header-section-number">10.2.1</span> Probability density function (pdf)</h3>
+<section id="probability-density-function-pdf" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="probability-density-function-pdf"><span class="header-section-number">12.3.1</span> Probability density function (pdf)</h3>
 <p>In the discrete random variable section, we showed that the probability distribution of a discrete random variable can be represented by a histogram, being a graphical representation of the probability mass function (pmf). The equivalent representation for a continuous random variable is a probability density function (pdf).</p>
 <p>The following figure gives you (on the left hand side) a representation of a typical pmf and on the right hand side a representation of a typical pdf.</p>
 <p><img src="images/pmf_pdf.jpg" class="img-fluid" alt="Probability mass function and Probability density function">#fig-pmftopdf</p>
@@ -312,8 +360,8 @@ window.Quarto = {
 <p>We therefore must confine our attention to assigning probabilities of the form <span class="math inline">\(Pr(a&lt; X \le b)\)</span> , for some real numbers <span class="math inline">\(a&lt;b\)</span> ; i.e., what is the probability that <span class="math inline">\(X\)</span> takes on values between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>? It is the area under the probability density function between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> which provides that probability, not the probability density function itself. Thus, by the axioms of probability, if <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are in the range of possible values for the continuous random variable, <span class="math inline">\(X\)</span>, then <span class="math inline">\(Pr(a&lt; X \le b)\)</span> must always return a positive number, lying between 0 and 1, no matter how close <span class="math inline">\(b\)</span> is to <span class="math inline">\(a\)</span> (provided only that <span class="math inline">\(b&gt;a\)</span>).</p>
 <p>A short video summary of these points is available from here (YouTube, 8min)</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/H_F2MsrREpQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<section id="example" class="level4 callout-info" data-number="10.2.1.1">
-<h4 data-number="10.2.1.1" class="anchored" data-anchor-id="example"><span class="header-section-number">10.2.1.1</span> Example</h4>
+<section id="example" class="level4 callout-info" data-number="12.3.1.1">
+<h4 data-number="12.3.1.1" class="anchored" data-anchor-id="example"><span class="header-section-number">12.3.1.1</span> Example</h4>
 <p>Below is a pdf for a random variable which is defined on the interval between 150 and 190 (formally <span class="math inline">\((150,190]\)</span>). This means the random variable cannot take any values outside this interval.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -343,8 +391,8 @@ window.Quarto = {
 </ul>
 <p>Recall that random variables are functions which assign probabilities to outcomes. What sorts of mathematical functions can usefully serve as probability density functions? To develop the answer to this question, we begin by considering another question: what mathematical functions would be appropriate as cumulative distribution functions (cdf)?</p>
 </section>
-<section id="cumulative-distribution-function-cdf" class="level3" data-number="10.2.2">
-<h3 data-number="10.2.2" class="anchored" data-anchor-id="cumulative-distribution-function-cdf"><span class="header-section-number">10.2.2</span> Cumulative distribution function (cdf)</h3>
+<section id="cumulative-distribution-function-cdf" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="cumulative-distribution-function-cdf"><span class="header-section-number">12.3.2</span> Cumulative distribution function (cdf)</h3>
 <p>For a <strong>CONTINUOUS</strong> random variable, <span class="math inline">\(X\)</span>, defined on <span class="math inline">\((-\infty,\infty)\)</span>, the is a <strong>smooth</strong> continuous function defined as</p>
 <p><span class="math display">\[\begin{equation*}
     F(x)=Pr(X \leq x)
@@ -383,8 +431,8 @@ Why smoothly
 <p>All in all then, <span class="math inline">\(F(x)\)</span> appears to be smoothly increasing from 0 to 1 over the range of possible values for <span class="math inline">\(X\)</span>.</p>
 <p>More generally, we now formally state the properties of a <strong>cdf</strong>.</p>
 </section>
-<section id="properties-of-the-cdf" class="level3" data-number="10.2.3">
-<h3 data-number="10.2.3" class="anchored" data-anchor-id="properties-of-the-cdf"><span class="header-section-number">10.2.3</span> Properties of the cdf</h3>
+<section id="properties-of-the-cdf" class="level3" data-number="12.3.3">
+<h3 data-number="12.3.3" class="anchored" data-anchor-id="properties-of-the-cdf"><span class="header-section-number">12.3.3</span> Properties of the cdf</h3>
 <p>A cumulative distribution function is a mathematical function, <span class="math inline">\(F(x)\)</span>, satisfying the following properties:</p>
 <ul>
 <li><span class="math inline">\(0\leq F(x)\leq1\)</span>.<br>
@@ -452,8 +500,8 @@ Why smoothly
 </div>
 </div>
 </section>
-<section id="relations-between-pdf-and-cdf" class="level3" data-number="10.2.4">
-<h3 data-number="10.2.4" class="anchored" data-anchor-id="relations-between-pdf-and-cdf"><span class="header-section-number">10.2.4</span> Relations between pdf and cdf</h3>
+<section id="relations-between-pdf-and-cdf" class="level3" data-number="12.3.4">
+<h3 data-number="12.3.4" class="anchored" data-anchor-id="relations-between-pdf-and-cdf"><span class="header-section-number">12.3.4</span> Relations between pdf and cdf</h3>
 <p>A brief discussion of how the pdf and the cdf are related (YouTube, 8min).</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/5onKKMoTe5c" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>As discussed above, there is a smooth, increasing, function <span class="math inline">\(F(x)\)</span>, the <strong>cdf</strong>, which provides <span class="math inline">\(Pr(X \leq x)\)</span>. We further argued that</p>
@@ -547,8 +595,8 @@ Why smoothly
 <li><span class="math inline">\(F(x)=\int_{-\infty}^{x} f(t)dt\)</span></li>
 <li>Probabilities can be calculated as: <span class="math inline">\(Pr(a&lt;X \leq b) = \int_{a}^{b} f(x)dx\)</span> i.e., it is the area under the pdf which gives probability</li>
 </ul>
-<section id="example-1" class="level4 callout-info" data-number="10.2.4.1">
-<h4 data-number="10.2.4.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">10.2.4.1</span> Example</h4>
+<section id="example-1" class="level4 callout-info" data-number="12.3.4.1">
+<h4 data-number="12.3.4.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">12.3.4.1</span> Example</h4>
 <p>Let the random variable <span class="math inline">\(T\)</span> denote the time a person waits for an elevator to arrive. Suppose the longest one would need to wait for the elevator is 2 minutes, so that the possible values of <span class="math inline">\(T\)</span> (in minutes) are given by the interval [0,2] . A possible pdf for <span class="math inline">\(T\)</span> is given by</p>
 <p><span class="math display">\[\begin{equation*}
   f(t) =
@@ -678,8 +726,8 @@ Hint
 </div>
 </section>
 </section>
-<section id="mean-and-variance-of-a-continuous-random-variable" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="mean-and-variance-of-a-continuous-random-variable"><span class="header-section-number">10.3</span> Mean and variance of a continuous random variable</h2>
+<section id="mean-and-variance-of-a-continuous-random-variable" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="mean-and-variance-of-a-continuous-random-variable"><span class="header-section-number">12.4</span> Mean and variance of a continuous random variable</h2>
 <p>The pdf of a continuous random variable also contains all the information required to calculate the expected value (<span class="math inline">\(E[X]\)</span> or <span class="math inline">\(\mu\)</span>) and the variance (<span class="math inline">\(Var[X]\)</span> or <span class="math inline">\(\sigma^2\)</span>) of a random variable.</p>
 <p>For a continuous random variable, the mean is defined as</p>
 <p><span class="math display">\[\begin{equation*}
@@ -692,16 +740,16 @@ Hint
 \end{eqnarray*}\]</span></p>
 <p>Fortunately, in the remainder of this section we will introduce particular types of continuous random variables for which the calculation of the mean and the variance of a distribution does not require the calculation of integrals. These distributions (for example the exponential or normal distribution - yet to be introduced) are described by sets of parameters and if we know these parameters then we can use these (with easy formulae) to calculate the mean and expected values of these distributions. But the above formulae describe how you could derive these by first principles.</p>
 </section>
-<section id="example-distributions" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="example-distributions"><span class="header-section-number">10.4</span> Example Distributions</h2>
+<section id="example-distributions" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="example-distributions"><span class="header-section-number">12.5</span> Example Distributions</h2>
 <p>With the theory out of the way, let’s think of examples for continuous distributions. In fact we are spoiled for choice. Check out this <a href="https://en.wikipedia.org/wiki/Category:Continuous_distributions">list</a> of different continuous distributions from Wikipedia. We need this large range of different distributions as any random variable will have different properties and we will, in all cases, have to try and find that distribution that has properties that best represent that of the random variable we are interested in. As it turns out there are more than 100 continuous distribution, we therefore only discuss the most important ones in this section.</p>
-<section id="uniform-distribution" class="level3" data-number="10.4.1">
-<h3 data-number="10.4.1" class="anchored" data-anchor-id="uniform-distribution"><span class="header-section-number">10.4.1</span> Uniform distribution</h3>
+<section id="uniform-distribution" class="level3" data-number="12.5.1">
+<h3 data-number="12.5.1" class="anchored" data-anchor-id="uniform-distribution"><span class="header-section-number">12.5.1</span> Uniform distribution</h3>
 <p>Let us start by introducing the simplest continuous probability distribution – the uniform distribution. This probability distribution provides a model for continuous random variables that are evenly (but randomly) distributed over a certain interval.</p>
 <p>It should be noted though that there is not only one uniform distribution, there is an infinite number of uniform distributions depending on which interval <span class="math inline">\(\left[a,b\right]\)</span> we define the random variable on. In the context of distributions we call the <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> parameters. For different distributions parameters have different meanings. Here they are the minimum and maximum values. Almost all distributions do have parameters changing them will have different effects.</p>
 <p>Often you will see the uniform distribution defined on <span class="math inline">\(\left[0,1\right]\)</span> discussed. That is the standard uniform distribution. Changing the minimum and maximum would not change the main properties of the uniform distribution, but it would change the actual probabilities, e.g.&nbsp;<span class="math inline">\(Pr(0.25&lt;X \leq 0.5)\)</span>.</p>
-<section id="pdf-of-uniform-distribution" class="level4" data-number="10.4.1.1">
-<h4 data-number="10.4.1.1" class="anchored" data-anchor-id="pdf-of-uniform-distribution"><span class="header-section-number">10.4.1.1</span> pdf of uniform distribution</h4>
+<section id="pdf-of-uniform-distribution" class="level4" data-number="12.5.1.1">
+<h4 data-number="12.5.1.1" class="anchored" data-anchor-id="pdf-of-uniform-distribution"><span class="header-section-number">12.5.1.1</span> pdf of uniform distribution</h4>
 <p>For any uniform random variable defined over the range from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>, the probability density function is as follows:</p>
 <p><span class="math display">\[\begin{equation*}
   f(x) =
@@ -714,8 +762,8 @@ Hint
 <p>As the distance between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> increases, the density at any particular value within the distribution boundaries decreases. Since the probability density function integrates to 1, the height of the probability density function decreases as the base length increases.</p>
 <p><img src="images/uniform.jpg" class="img-fluid" alt="pdf of uniform distribution">#fig-uniform</p>
 </section>
-<section id="cdf-of-uniform-distribution" class="level4" data-number="10.4.1.2">
-<h4 data-number="10.4.1.2" class="anchored" data-anchor-id="cdf-of-uniform-distribution"><span class="header-section-number">10.4.1.2</span> cdf of uniform distribution</h4>
+<section id="cdf-of-uniform-distribution" class="level4" data-number="12.5.1.2">
+<h4 data-number="12.5.1.2" class="anchored" data-anchor-id="cdf-of-uniform-distribution"><span class="header-section-number">12.5.1.2</span> cdf of uniform distribution</h4>
 <p>From the introduction of cdf above, we know that the probability that <span class="math inline">\(X\)</span> will fall below a point is provided by the area under the density curve and to the left of that point. In other words, the cumulative probability distribution function, <span class="math inline">\(P(X\leq x)=\frac{(x-a)}{(b-a)}\)</span>, is represented by this area. The cumulative function for values of <span class="math inline">\(X\)</span> between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> is the area of the rectangle, which, again, is found by multiplying the height, <span class="math inline">\(\frac{1}{b-a}\)</span>, times the base, <span class="math inline">\(x-a\)</span>. To the left of <span class="math inline">\(a\)</span>, the cumulative probabilities must be zero, whereas the probability that <span class="math inline">\(X\)</span> lies “below points beyond <span class="math inline">\(b\)</span>” must be 1. As such, the cumulative distribution function can be written as follow:</p>
 <p><span class="math display">\[\begin{equation*}
     F(x) =
@@ -726,8 +774,8 @@ Hint
     \end{cases}       
 \end{equation*}\]</span></p>
 </section>
-<section id="distributional-properties" class="level4" data-number="10.4.1.3">
-<h4 data-number="10.4.1.3" class="anchored" data-anchor-id="distributional-properties"><span class="header-section-number">10.4.1.3</span> Distributional properties</h4>
+<section id="distributional-properties" class="level4" data-number="12.5.1.3">
+<h4 data-number="12.5.1.3" class="anchored" data-anchor-id="distributional-properties"><span class="header-section-number">12.5.1.3</span> Distributional properties</h4>
 <p>We said above that in the case of the uniform distribution the parameters <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> determine the min and max possible values of the uniform distribution. The properties of a random variable we usually are interested in are the mean and the variance (and perhaps other higher order moments like skewness). These properties are related to the parameters of the distribution. How they are linked very much depends on the type of distribution we are looking at. For the uniform distribution they are linked as follows.</p>
 <p>The uniform distribution has parameters <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. The mean and variance of the uniform distribution are determined by these two parameters as follows:</p>
 <p><span class="math display">\[\begin{eqnarray*}
@@ -735,8 +783,8 @@ Hint
     Var[X] &amp;=&amp; \frac{(b-a)^2}{12}
 \end{eqnarray*}\]</span></p>
 </section>
-<section id="example-2" class="level4 callout-info" data-number="10.4.1.4">
-<h4 data-number="10.4.1.4" class="anchored" data-anchor-id="example-2"><span class="header-section-number">10.4.1.4</span> Example</h4>
+<section id="example-2" class="level4 callout-info" data-number="12.5.1.4">
+<h4 data-number="12.5.1.4" class="anchored" data-anchor-id="example-2"><span class="header-section-number">12.5.1.4</span> Example</h4>
 <p><strong>Flight time of an airplane traveling from Chicago to New York</strong></p>
 <p>Suppose the flight time can be any value in the interval from 120 minutes to 140 minutes.</p>
 <p><span class="math display">\[\begin{equation*}
@@ -780,16 +828,16 @@ Solution
 <p>This information can be used to create a control chart to determine whether the quality of the water pipes is acceptable.</p>
 </section>
 </section>
-<section id="applications" class="level3" data-number="10.4.2">
-<h3 data-number="10.4.2" class="anchored" data-anchor-id="applications"><span class="header-section-number">10.4.2</span> Applications</h3>
+<section id="applications" class="level3" data-number="12.5.2">
+<h3 data-number="12.5.2" class="anchored" data-anchor-id="applications"><span class="header-section-number">12.5.2</span> Applications</h3>
 <p>We do know many examples of uniform distributions. The outcome of a dice is equally/uniformly distributed from 1 to 6. Whether you get heads or tails on a coin is uniformly distributed between the two possible outcomes. Whether you get, on a roulette wheel any of the outcomes 0 to 36 is uniformly distributed. However, these are all discrete and not continuous distributions.</p>
 <p>Clearly the continuous uniform distribution is a very special type of distribution. It actually has important uses in statistical theory, but it is not so easy to find real life examples for a continuous-valued uniform distribution. Take the above example for the flight time between Chicago and New York. It is clearly problematic to assume that the flight time could not exceed 140 minutes.</p>
 <p>So, a uniform distribution appears inadequate. We shall introduce two more examples of continuous distributions (remember there are 100+): the <strong>exponential</strong> distribution and the <strong>normal</strong> distribution. The latter is so important that we shall have a special lesson on it.</p>
-<section id="example-3" class="level4 callout-info" data-number="10.4.2.1">
-<h4 data-number="10.4.2.1" class="anchored" data-anchor-id="example-3"><span class="header-section-number">10.4.2.1</span> Example</h4>
+<section id="example-3" class="level4 callout-info" data-number="12.5.2.1">
+<h4 data-number="12.5.2.1" class="anchored" data-anchor-id="example-3"><span class="header-section-number">12.5.2.1</span> Example</h4>
 <p>For which of the following does uniform random variable appear most appropriate?</p>
-<div id="radio_EHIRJUFRJN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_EHIRJUFRJN" value=""> <span>The number of cars passing Old Trafford between 8 and 9am on a Monday morning</span></label><label><input type="radio" autocomplete="off" name="radio_EHIRJUFRJN" value="answer"> <span>The day of the year (from 1 to 365) someone has their birthday.</span></label><label><input type="radio" autocomplete="off" name="radio_EHIRJUFRJN" value=""> <span>The age of people in a random sample asked outside University Place.</span></label><label><input type="radio" autocomplete="off" name="radio_EHIRJUFRJN" value=""> <span>The income of people in a random sample asked outside University Place.</span></label>
+<div id="radio_TVLVCQVFPB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TVLVCQVFPB" value=""> <span>The number of cars passing Old Trafford between 8 and 9am on a Monday morning</span></label><label><input type="radio" autocomplete="off" name="radio_TVLVCQVFPB" value="answer"> <span>The day of the year (from 1 to 365) someone has their birthday.</span></label><label><input type="radio" autocomplete="off" name="radio_TVLVCQVFPB" value=""> <span>The age of people in a random sample asked outside University Place.</span></label><label><input type="radio" autocomplete="off" name="radio_TVLVCQVFPB" value=""> <span>The income of people in a random sample asked outside University Place.</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -799,15 +847,15 @@ Why this answer?
 </div>
 </section>
 </section>
-<section id="additional-resources" class="level3" data-number="10.4.3">
-<h3 data-number="10.4.3" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">10.4.3</span> Additional resources</h3>
+<section id="additional-resources" class="level3" data-number="12.5.3">
+<h3 data-number="12.5.3" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">12.5.3</span> Additional resources</h3>
 <p>Khan Academy:</p>
 <ul>
 <li>This is a clip to give an introduction of continuous probability distribution using uniform distribution as an example. Here is the <a href="https://www.youtube.com/watch?v=j8XLYFzTJzE&amp;ab_channel=KhanAcademy">link to the clip</a>.</li>
 </ul>
 </section>
-<section id="exponential-distribution" class="level3" data-number="10.4.4">
-<h3 data-number="10.4.4" class="anchored" data-anchor-id="exponential-distribution"><span class="header-section-number">10.4.4</span> Exponential distribution</h3>
+<section id="exponential-distribution" class="level3" data-number="12.5.4">
+<h3 data-number="12.5.4" class="anchored" data-anchor-id="exponential-distribution"><span class="header-section-number">12.5.4</span> Exponential distribution</h3>
 <p>We now introduce a continuous distribution, the <strong>exponential distribution</strong>, which is useful in describing the time it takes to complete a task.</p>
 <p>An exponential random variables can be used to describe</p>
 <ul>
@@ -816,8 +864,8 @@ Why this answer?
 <li>Time required to complete a questionnaire</li>
 <li>In waiting line applications, the exponential distribution is often used for service times.</li>
 </ul>
-<section id="pdf-of-exponential-distribution" class="level4" data-number="10.4.4.1">
-<h4 data-number="10.4.4.1" class="anchored" data-anchor-id="pdf-of-exponential-distribution"><span class="header-section-number">10.4.4.1</span> pdf of exponential distribution</h4>
+<section id="pdf-of-exponential-distribution" class="level4" data-number="12.5.4.1">
+<h4 data-number="12.5.4.1" class="anchored" data-anchor-id="pdf-of-exponential-distribution"><span class="header-section-number">12.5.4.1</span> pdf of exponential distribution</h4>
 <p>Let the continuous random variable, denoted <span class="math inline">\(X\)</span>, monitor the elapsed time, measured in minutes, between successive cars passing a junction on a particular road. Traffic along this road in general flows freely, so that vehicles can travel independently of one another, not restricted by the car in front. Occasionally, there are quite long intervals between successive vehicles, while more often there are smaller intervals. To accommodate this, the following pdf for <span class="math inline">\(X\)</span> is defined:</p>
 <p><span class="math display">\[\begin{equation*}
     f(x) =
@@ -836,8 +884,8 @@ Why this answer?
 </div>
 <p>As you can see, the exponential distribution is defined for positive real numbers.</p>
 </section>
-<section id="example-4" class="level4 callout-info" data-number="10.4.4.2">
-<h4 data-number="10.4.4.2" class="anchored" data-anchor-id="example-4"><span class="header-section-number">10.4.4.2</span> Example</h4>
+<section id="example-4" class="level4 callout-info" data-number="12.5.4.2">
+<h4 data-number="12.5.4.2" class="anchored" data-anchor-id="example-4"><span class="header-section-number">12.5.4.2</span> Example</h4>
 <p>Verify that <span class="math inline">\(\int_{0}^{\infty} \exp(-x)dx=1\)</span> and therefore this distribution meets one of the axioms of probability. This is the exponential distribution with parameter <span class="math inline">\(\theta = 1\)</span>.</p>
 <p><span class="math display">\[\begin{eqnarray*}
   \int_0^{\infty} f(x) dx &amp;=&amp; \int_0^{\infty} exp(-x) dx\\
@@ -853,8 +901,8 @@ Why this answer?
     Pr(1&lt;X \leq 3)= \int_{1}^{3}\exp(-x)dx = [-\exp(-x)]_{1}^{3}=-exp(-3)-(-\exp(-1))=0.318
 \end{equation*}\]</span></p>
 <p>One might interprets this as meaning that about 32% of the time, successive vehicles will be between 1 and 3 minutes apart.</p>
-<section id="example-5" class="level4 callout-info" data-number="10.4.4.3">
-<h4 data-number="10.4.4.3" class="anchored" data-anchor-id="example-5"><span class="header-section-number">10.4.4.3</span> Example</h4>
+<section id="example-5" class="level4 callout-info" data-number="12.5.4.3">
+<h4 data-number="12.5.4.3" class="anchored" data-anchor-id="example-5"><span class="header-section-number">12.5.4.3</span> Example</h4>
 <p>Imagine yo are an aspiring YouTuber and you want to model your viewers’ behaviour. In particular you are interested in how long any viewer sticks with your video clip. (Or how long does it take for a viewer to click away).</p>
 <p>It is well known that for most videos the majority of viewers leave a video very quickly.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -875,8 +923,8 @@ Why this answer?
     &amp;=&amp; [-\exp(-\frac{x}{\theta})]_{0}^{\infty}\\
     &amp;=&amp; 1
 \end{eqnarray*}\]</span></p>
-<section id="cdf-of-exponential-distribution" class="level4" data-number="10.4.4.4">
-<h4 data-number="10.4.4.4" class="anchored" data-anchor-id="cdf-of-exponential-distribution"><span class="header-section-number">10.4.4.4</span> cdf of exponential distribution</h4>
+<section id="cdf-of-exponential-distribution" class="level4" data-number="12.5.4.4">
+<h4 data-number="12.5.4.4" class="anchored" data-anchor-id="cdf-of-exponential-distribution"><span class="header-section-number">12.5.4.4</span> cdf of exponential distribution</h4>
 <p>As we discussed earlier, the fundamental relationship between the cdf and pdf as:</p>
 <p><span class="math display">\[\begin{equation*}
     F(x)=Pr(X \leq x) =\int_{-\infty}^{x} f(t)\,dt
@@ -918,8 +966,8 @@ Why this answer?
 </div>
 </div>
 </section>
-<section id="example-6" class="level4 callout-info" data-number="10.4.4.5">
-<h4 data-number="10.4.4.5" class="anchored" data-anchor-id="example-6"><span class="header-section-number">10.4.4.5</span> Example</h4>
+<section id="example-6" class="level4 callout-info" data-number="12.5.4.5">
+<h4 data-number="12.5.4.5" class="anchored" data-anchor-id="example-6"><span class="header-section-number">12.5.4.5</span> Example</h4>
 <p><strong>Service time at the library information desk.</strong></p>
 <p>Service times (in minutes) for customers at a library information desk can be modeled by an exponential distribution with a mean service time of 5 minutes (<span class="math inline">\(\theta = 5\)</span>). What is the probability that a customer service time will take longer than 10 minutes?</p>
 <p>Let x denote the service time in minutes. The mean service time is 5 minutes so <span class="math inline">\(\theta=5\)</span>.</p>
@@ -929,8 +977,8 @@ Why this answer?
 \end{equation*}\]</span></p>
 <p>Thus, the probability that a service time exceeds 10 minutes is 0.1353.</p>
 </section>
-<section id="distributional-properties-1" class="level4" data-number="10.4.4.6">
-<h4 data-number="10.4.4.6" class="anchored" data-anchor-id="distributional-properties-1"><span class="header-section-number">10.4.4.6</span> Distributional properties</h4>
+<section id="distributional-properties-1" class="level4" data-number="12.5.4.6">
+<h4 data-number="12.5.4.6" class="anchored" data-anchor-id="distributional-properties-1"><span class="header-section-number">12.5.4.6</span> Distributional properties</h4>
 <p>The exponential distribution has a parameter <span class="math inline">\(\theta\)</span> (theta), which represents the mean of exponential distribution. The mean and variance of the exponential distribution are determined by <span class="math inline">\(\theta\)</span> as follows:</p>
 <p><span class="math display">\[\begin{eqnarray*}
     E[X]&amp;=&amp;\theta\\
@@ -945,8 +993,8 @@ Why this answer?
 <li>By the chain rule of differentiation, if <span class="math inline">\(y=e^{-x}\)</span> then <span class="math inline">\(\frac{dy}{dx}=-e^{-x}\)</span>.</li>
 </ul>
 </section>
-<section id="poisson-and-exponential-distribution" class="level4" data-number="10.4.4.7">
-<h4 data-number="10.4.4.7" class="anchored" data-anchor-id="poisson-and-exponential-distribution"><span class="header-section-number">10.4.4.7</span> Poisson and exponential distribution</h4>
+<section id="poisson-and-exponential-distribution" class="level4" data-number="12.5.4.7">
+<h4 data-number="12.5.4.7" class="anchored" data-anchor-id="poisson-and-exponential-distribution"><span class="header-section-number">12.5.4.7</span> Poisson and exponential distribution</h4>
 <p>The exponential distribution is related to the Poisson distribution.</p>
 <p>The Poisson distribution is the distribution of the number of occurrences of an event in a given time interval of length <span class="math inline">\(t\)</span>. The single parameter of the Poisson distribution is <span class="math inline">\(\lambda\)</span>, the intensity of the process.</p>
 <p>Think of the number <span class="math inline">\(X\)</span> as the average occurrence of the event being counted. For example, say, the average arrival rate of customers at the Brownell Bank is 5 per 100s. And let’s say that variable is a Poisson random variable then this variable has a parameter of <span class="math inline">\(\lambda = 5\)</span>.</p>
@@ -1032,8 +1080,8 @@ Solution
 </div>
 </div>
 </section>
-<section id="additional-resources-1" class="level4" data-number="10.4.4.8">
-<h4 data-number="10.4.4.8" class="anchored" data-anchor-id="additional-resources-1"><span class="header-section-number">10.4.4.8</span> Additional resources</h4>
+<section id="additional-resources-1" class="level4" data-number="12.5.4.8">
+<h4 data-number="12.5.4.8" class="anchored" data-anchor-id="additional-resources-1"><span class="header-section-number">12.5.4.8</span> Additional resources</h4>
 <ul>
 <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Exponential_distribution">Exponential Distribution</a>, but note that they use slightly different notation in terms of the parameter of the exponential distribution. They use <span class="math inline">\(\lambda\)</span> which is related to our <span class="math inline">\(\theta\)</span> in the following way, <span class="math inline">\(\lambda=\frac{1}{\theta}\)</span></li>
 <li>Wolfram MathWorld: <a href="https://mathworld.wolfram.com/ExponentialDistribution.html">Exponential Distribution</a>, but note that they use slightly different notation in terms of the parameter of the exponential distribution. They use <span class="math inline">\(\lambda\)</span> which is related to our <span class="math inline">\(\theta\)</span> in the following way, <span class="math inline">\(\lambda=\frac{1}{\theta}\)</span>.</li>
@@ -1449,13 +1497,13 @@ Solution
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./DiscreteRVs.html" class="pagination-link" aria-label="Discrete Random Variables and Probability Distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Discrete Random Variables and Probability Distributions</span></span>
+      <a href="./Normal_RV.html" class="pagination-link" aria-label="Normally Distributed Random Variables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Normally Distributed Random Variables</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Normal_RV.html" class="pagination-link" aria-label="Normally Distributed Random Variables">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Normally Distributed Random Variables</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

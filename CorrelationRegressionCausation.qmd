@@ -532,7 +532,7 @@ Convert the height of people from inches to cm (1 inch = 2.54 cm), but leaving t
 
 Video explaining the effect of re-scaling the explanatory variable (YouTube, 8min).
 
-{{ < video https://youtu.be/aDNUHA4h4Xo >}}
+{{< video https://youtu.be/aDNUHA4h4Xo >}}
 
 The results as presented by EXCEL are shown here:
 
