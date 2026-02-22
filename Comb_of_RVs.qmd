@@ -238,7 +238,6 @@ The **Axioms of Probability** discussed in the Introduction to Probability Secti
 	and delivers a probability of 1. This implies that it is certain that one of the possible outcomes does occur.
 
 
-
 ::: {.callout-info}
 
 #### Example
@@ -316,7 +315,7 @@ The table above gives the probabilities for $X$, and $\Pr \left( Y = y\right) =0
 | 3             | 0.01           | `r fitb(0.01)`  | 0.01 | 0.01 | `r fitb(0.01)` | `r fitb(0.05)` |
 | 4             | 0.02           | `r fitb(0.02)`  | 0.02 | 0.02 | `r fitb(0.02)` | `r fitb(0.10)` |
 | 5             | 0.05           | 0.05  | 0.05 | 0.05 | `r fitb(0.05)` | `r fitb(0.25)`|
-| Column Total  | `r fitb(0.20)` | `r fitb(0.20)` | `r fitb(0.20)` | `r fitb(0.20)` | $\textcolor{blue}{0.20}$ | 0.20                   |
+| Column Total  | `r fitb(0.20)` | `r fitb(0.20)` | `r fitb(0.20)` | `r fitb(0.20)` | $\textcolor{blue}{0.20}$ | 1.00                  |
 
 `r hide("Hint")`
 
@@ -332,6 +331,649 @@ Make sure you understand how the joint probabilities are calculated, using your 
 * $p\left( 5,5\right) =$ `r fitb(0.05)`
 
 :::
+
+
+In the above example we assumed that the random variables $X$ and $Y$ were independent. That allowed us to calculate the joint probabilities according to
+
+\begin{equation*}
+	\Pr \left( X\cap Y\right) =\Pr \left( X\right) \Pr \left( Y\right) .
+\end{equation*}
+
+A typical problem we may later want to investigate is whether two random variables are in fact independent. This will be discussed later in the section.
+
+
+### Marginal Probabilities
+
+Let us replicate the earlier table with joint probabilities
+
+
+| Probabilities |  machine ($Y$) |       |      |      |      |              |
+|---------------|----------------|-------|------|------|------|--------------|
+| player ($X$)  | $1$            | $2$   | $3$  | $4$  | $5$  | Row Total    |
+| 1             | 0.08           | 0.08  | 0.08 | 0.08 | 0.08 | $\textcolor{orange}{0.40}$ |
+| 2             | 0.04           | 0.04  | 0.04 | 0.04 | 0.04 | $\textcolor{orange}{0.20}$ |
+| 3             | 0.01           | 0.01  | 0.01 | 0.01 | 0.01 | $\textcolor{orange}{0.05}$ |
+| 4             | 0.02           | 0.02  | 0.02 | 0.02 | 0.02 | $\textcolor{orange}{0.50}$ |
+| 5             | 0.05           | 0.05  | 0.05 | 0.05 | 0.05 | $\textcolor{orange}{0.25}$|
+| Column Total  | $\textcolor{blue}{0.20}$ | $\textcolor{blue}{0.20}$  | $\textcolor{blue}{0.20}$ | $\textcolor{blue}{0.20}$  | $\textcolor{blue}{0.20}$ | 1.00                   |
+
+Given a joint probability distribution
+
+\begin{equation*}
+	p\left( x,y\right) =\Pr \left( X=x,Y=y\right)
+\end{equation*}
+
+for the random variables $X$ and $Y$, a probability of the form $\Pr \left(X=x\right)$ or $\Pr \left(Y=y\right)$ is called a marginal probability. You can remember the term marginal probabilities as in the above joint probability table these probabilities appeared in the margin of the table. The collection of these probabilities for all values of $X$ is the marginal probability distribution for $X$ (in the above table illustrated by the orange coloured numbers),
+
+\begin{equation*}
+	p_{X}\left( x\right) =\Pr \left( X=x\right) .
+\end{equation*}
+
+If it is clear from the context, write $p_{X}\left( x\right)$ as $p\left(x\right)$. 
+
+\begin{eqnarray*}
+	\Pr \left( X=x\right) &=&\Pr \left( X=x,Y=1\right) +\Pr \left( X=x,Y=2\right)+\Pr \left( X=x,Y=3\right) +\\
+	&&\Pr \left( X=x,Y=4\right)+\Pr \left( X=x,Y=5\right)
+\end{eqnarray*}
+
+the sum of all the joint probabilities contributing to $X=x$. So, marginal probability distributions are found by summing joint probabilities over all the values of the other variable:
+
+\begin{equation*}
+	p_{X}\left( x\right) =\sum_{y}p\left( x,y\right) ,\;\;\;\;\;p_{Y}\left(y\right) =\sum_{x}p\left( x,y\right) .
+\end{equation*}
+
+Confirm for yourself that orange marginal probabilities are the sum of the respective row of joint probabilities.
+
+Notice that a marginal probability distribution has to satisfy the usual properties expected of a probability distribution (for a discrete random variable):
+
+\begin{eqnarray*}
+	0 &\leq &p_{X}\left( x\right) \leq 1,\;\;\;\;\;\sum_{x}p_{X}\left( x\right)=1, \\
+	0 &\leq &p_{Y}\left( y\right) \leq 1,\;\;\;\;\;\sum_{y}p_{Y}\left( y\right)=1.
+\end{eqnarray*}
+
+In the above table we can also see the marginal probability for the random variable $Y$, $p_{Y}\left( y\right)$, this is the probability distribution coloured in blue. Each of these probabilities equal the sum of the respective column of joint probabilities.
+
+The joint probability distribution contains all the information there is about these two random variables. That means we can infer, from that information, the expected values, variances and the correlation between the variables. We will see later how to derive the correlation from the joint probability distribution. Here we will use these marginal probabilities to calculate expected values and variances of the two random variables:
+
+
+::: {.callout-info}
+
+#### Example
+	
+By calculation, we can find the expected value and variance of $X$, using the formula established in the discrete random variable section:
+	
+\begin{eqnarray*}
+		E\left[ X\right] &=& \sum_{X=1}^{5} p_X(x) x = 0.4 \cdot 1 + 0.2 \cdot 2 +0.05 \cdot 3+ 0.10 \cdot 4 + 0.25 \cdot 5 = 2.60\\
+		Var\left[ X\right] &=& E[X^2]-E[X]^2=  (0.4 \cdot 1^2 + 0.2 \cdot 2^2 +0.05 \cdot 3^2+ 0.10 \cdot 4^2 + 0.25 \cdot 5^2)-2.6^2=2.74.
+\end{eqnarray*}
+
+
+:::
+
+::: {.callout-note icon=false}
+
+#### Exercise
+
+Find the expected value and variance of $Y$, 
+
+$E[Y] =$ `r fitb(3.00)`
+
+$Var[Y] =$ `r fitb(2.00)`
+
+`r hide("Solution")`
+
+\begin{eqnarray*}
+	E\left[ Y\right] &=& \sum_{y=1}^{5} p_Y(y) y = 0.2 \cdot 1 + 0.2 \cdot 2 +0.2 \cdot 3+ 0.2 \cdot 4 + 0.2 \cdot 5 = 3.00\\
+	Var\left[ Y\right] &=& E[Y^2]-E[Y]^2=  (0.2 \cdot 1^2 + 0.2 \cdot 2^2 +0.2 \cdot 3^2+ 0.2 \cdot 4^2 + 0.2 \cdot 5^2)-3^2=2.00.
+\end{eqnarray*}
+
+`r unhide()`
+	
+
+:::
+
+
+
+## Independence, Covariance and Correlation
+
+Joint probability distributions have interesting characteristics that are irrelevant (or better not defined) when we look at one random variable only. These characteristics describe how the two individual random variables relate to each other. The relevant concepts are independence, covariance and correlation and will be discussed in turn.
+
+### Independence
+
+Let's first define the following joint probability
+
+\begin{equation*}
+	p\left( x,y\right) =\Pr \left( X=x,Y=y\right) ,
+\end{equation*}
+
+which represents the probability that simultaneously $X=x$ and $Y=y$. Also $p\left( x\right)$ and $p\left(y\right)$ are defined as the respective marginal probabilities.
+
+Before discussing the definition of independence it is worth recalling a result of the Bayes' Theorem, that was discussed earlier in the Conditional Probability Section. That Theorem established that a conditional probability was to be calculated according to
+
+\begin{equation*}
+	p\left( x|y\right) = \frac{p\left( x,y\right)}{p(y)}.
+\end{equation*}
+
+From this it follows that the joint probability can be derived from
+
+\begin{equation*}
+	p\left( x,y\right) = p\left(y\right) p\left( x|y\right).
+\end{equation*}
+
+The remarkable feature of this result is that it is always valid regardless of how the two random variables $X$ and $Y$ relate to each other. There is one special case of relation between the two random variables, that special case is called **independence**. 
+
+Let's think of our little toy example of incomes of two partners in a household, say a husband and  wife. Each of these have marginal distributions. So if you just picked a husband in any household, the marginal distribution $p(h)$ tells you all there is to know about the possible incomes for that husband. If the random variables $H$ and $W$ were not independent (i.e. dependent) then knowing what the household's wife's income is would change that probability. For instance it could be that knowing that the wife's income is high (UKP 200) makes it more likely that the husband's income is also high. In that case $p(h|w=200) \neq p(h)$. If the two random variables were independent then knowing what the wife's income is does not change the probability distribution of the husband's income, $p(h|w=200) = p(h)$.
+
+The statistical definition of **independence** of the random variables $X$ and $Y$ is that for all values of $x$ and $y$ the following relationship holds:
+
+\begin{equation*}
+	p\left( x,y\right) =p\left( x\right) p\left( y\right) .
+\end{equation*}
+
+If this relationship indeed holds for all values of  $x$ and $y$, the random variables$X$ and $Y$ are said to be **independent**:
+
+* Independence means that $\Pr \left( Y=y\right)$ would not be affected by knowing that $X=x$: knowing the value taken on by one random variable does not affect the probabilities of the outcomes of the other random variable. This is also expressed by the following relationship that **is only valid if X and Y are independent**:  
+
+	\begin{equation*}
+		p\left( x,y\right) =p\left( x\right) p\left( y\right) .
+	\end{equation*}
+
+Each joint probability is the product of the corresponding marginal probabilities.
+
+* A corollary of this is that if two random variables $X$ and $Y$ are independent, then there can be no relationship of any kind, linear or non-linear, between them.
+
+
+In this video we go through an example of two categorical random variables (Study effort and Exam result) which we examine for independence (YouTube, 14min). 
+
+{{< video https://youtu.be/R3WZMM4pJv8 >}}
+
+
+::: {.callout-info}
+
+#### Example
+
+	The joint probabilities and marginal probabilities (taken from the household incomes example) are
+	
+|                                      |                | $H:$         |                |                | Row Sums                |
+|--------------------------------------|----------------|--------------|----------------|----------------|-------------------------|
+| Probabilities                        |                | UKP $0$ | UKP $100$ | UKP $200$ | $p_{W}\left( w\right) $ |
+| Values of $W:$                       | UKP $0$   | $0.05$       | $0.15$         | $0.10$         | $0.30$                  |
+|                                      | UKP $100$ | $0.10$       | $0.10$         | $0.30$         | $0.50$                  |
+|                                      | UKP $200$ | $0.05$       | $0.05$         | $0.10$         | $0.20$                  |
+| Column Sums: $p_{H}\left( h\right) $ |                | $0.20$       | $0.30$         | $0.50$         | $1.00$                  |
+
+If the two variables were independent we should be able to reconstruct the joint probabilities using the formula that is only valid in the case of independence: $p\left( h,w\right) =p(h) p(w)$. Let's try that for the outcome $(H=0, W=0)$ for which the table shows $p\left( 0,0\right) =0.05$. If $H$ and $W$ were independent this should be
+	
+\begin{equation*}
+	p(0,0)= p(h=0) p(w=0)=0.2 \cdot 0.3 = 0.06
+\end{equation*} 
+	
+The result is not identical and hence this potentially provides evidence that the variables $H$ and $W$ in the above joint distribution are not independent. 
+	
+For $H$ and $W$ to be independent, $p\left( h,w\right) =p_{H}\left( h\right) p_{W}\left( w\right)$ has to hold for all $h,w$. Finding one pair of values $h,w$ for which this fails is sufficient to conclude that $H$ and $W$ are not independent. 
+	
+However, the two values are very close. If the joint probabilities in the above table come from sample information then we should expect some sample variation even if the two variables were independent. In a later section we will see how we would use sample information to test whether two variables are independent. Such a test will be based on comparing these two numbers.
+		
+:::
+
+
+::: {.callout-note icon=false}
+
+#### Exercise
+
+Continuing with the above example, what would be the following joint probabilities if $H$ and $W$ were independent (where we now, for simplicity, represent UKP 100 by 1)?
+
+* $p(0,2)=$ `r fitb(0.25)`
+* $p(2,1)=$ `r fitb(0.25)`
+* $p(1,2)=$ `r fitb(0.06)`
+
+`r hide("Solution")`
+
+* $p(0,2)= p(h=0) p(w=2)=0.2 \cdot 0.2 = 0.04$
+* $p(2,1)= p(h=0) p(w=2)=0.5 \cdot 0.5 = 0.25$
+* $p(1,2)= p(h=0) p(w=2)=0.3 \cdot 0.2 = 0.06$
+
+`r unhide()`
+
+Is any of these probabilities (calculated under the assumption of independence) equal to the respective joint probability? `r mcq(c(answer = "No", "Yes"))`
+
+:::
+
+
+
+## Covariance and Correlation
+
+We previously discussed how the sample covariance and in particular the sample correlation coefficient could be used to establish whether sample data for two variables display a linear relationship. When we know the joint probability distribution we can calculate the population equivalent of these two measures. Recall that the (population) correlation coefficient is really only a measure of strength of any linear relationship between the random variables.
+
+### Covariance
+
+The first step is to define the (population) covariance as a characteristic of the joint probability distribution of $X$ and $Y$. Let
+
+\begin{equation*}
+	E\left[ X\right] =\mu _{X},\;\;\;\;\;E\left[ Y\right] =\mu _{Y}.
+\end{equation*}
+
+The (population) covariance is defined as
+	
+\begin{eqnarray*}
+	cov\left[ X,Y\right] &=&E\left[ \left( X-\mu _{X}\right) \left(Y-\mu _{Y}\right) \right] \\
+		&=&\sigma _{XY}.
+\end{eqnarray*}
+	
+Notice that $cov\left[ X,Y\right] =cov\left[ Y,X\right] $. $cov\left[ X,Y\right] >0$ represents a positive relationship between $X$ and $Y$, $cov\left[ X,Y\right] <0$ means a negative relationship.
+	
+There are a number of alternative expressions for the covariance. Let us note that $\left( X-\mu _{X}\right) \left( Y-\mu _{Y}\right)$ can be seen as a function of $X$ and $Y$,  $g(X,Y)=\left( X-\mu _{X}\right) \left( Y-\mu _{Y}\right)$. We can think of $cov\left[ X,Y\right] =E[g(X,Y)]$ and then apply the general formula for the expectation of this function of the random variables.
+	
+\begin{equation*}
+		cov\left[ X,Y\right] =\sum_{x}\sum_{y}\left( x-\mu _{X}\right)\left( y-\mu _{Y}\right) p\left( x,y\right)
+\end{equation*}
+	
+We can see from this expression that if enough $\left( x,y\right)$ pairs have $x-\mu _{X}$ and $y-\mu _{Y}$ values with the same sign, $cov\left[ X,Y\right] >0$, so that large (small) values of $x-\mu _{X}$ tend to occur with large (small) values of $y-\mu _{Y}$. Similarly, if enough $\left( x,y\right)$  pairs have $x-\mu _{X}$ and $y-\mu _{Y}$ values with different signs, $cov\left[ X,Y\right] <0$. Here, large (small) values of $x-\mu _{X}$ tend to occur with small (large) values of $y-\mu _{Y}$.
+	
+There is a shorthand calculation for covariance, analogous to that given for the variance in the discrete random variable section:
+
+\begin{eqnarray*}
+		cov\left[ X,Y\right] &=&E\left[ \left( X-\mu _{X}\right) \left(Y-\mu _{Y}\right) \right] \\
+		&=&E\left[ XY-X\mu _{Y}-\mu _{X}Y+\mu _{X}\mu _{Y}\right] \\
+		&=&E\left[ XY\right] -E\left[ X\right] \mu _{Y}-\mu _{X}E\left[ Y\right]+\mu _{X}\mu _{Y} \\
+		&=&E\left[ XY\right] -\mu _{X}\mu _{Y}-\mu _{X}\mu _{Y}+\mu _{X}\mu _{Y} \\
+		&=&E\left[ XY\right] -\mu _{X}\mu _{Y}.
+\end{eqnarray*}
+	
+As in the earlier section on linear transformations of random variables, the expected value of a sum of terms is equal to the sum of the expected values. Also, constants, like $\mu_{X}$ and $\mu_{Y}$ can be drawn outside the expectations operator, such that $E\left[ X\mu _{Y}\right] =E\left[ X\right] \mu _{Y}$.
+
+Even with this shorthand method, the calculation of the covariance is rather tedious. To calculate $cov\left[ W,H\right]$ in the income example, the best approach is to imitate the way in which $E\left[ T\right]$ was calculated above. Rather than display the values of $T$ (total income), here we display the values of $w\times h$ as we need to calculate $E\left[ WH\right]$ as part of the variance calculation using the shorthand formula:
+
+|     |              | $h$                      |                              |                             |
+|-----|--------------|--------------------------|------------------------------|-----------------------------|
+|     | $(w	imes h)$ | $0$                      | $100$                        | $200$                       |
+| $w$ | $0$          | $\left( 0\right) \;0.05$ | $\left( 0\right) \;0.15$     | $\left(0\right) \;0.10$     |
+|     | $100$        | $\left( 0\right) \;0.10$ | $\left( 10000\right) \;0.10$ | $\left(20000\right) \;0.30$ |
+|     | $200$        | $\left( 0\right) \;0.05$ | $\left( 20000\right) \;0.05$ | $\left(40000\right) \;0.10$ |
+
+
+Therefore, using the same strategy of multiplication within cells, and adding up along each row in turn, we find the following
+
+\begin{eqnarray*}
+	E\left[ WH\right] &=&\left( 0\right) \times 0.05+\left( 0\right) \times 0.15+\left( 0\right) \times 0.10 \\
+	&&+\left( 0\right) \times 0.10+\left( 10000\right) \times 0.10+\left(20000\right) \times 0.30 \\
+	&&+\left( 0\right) \times 0.05+\left( 20000\right) \times 0.05+\left(40000\right) \times 0.10 \\
+	&=&1000+6000+1000+4000 \\
+	&=&12000.
+\end{eqnarray*}
+
+Previously we found that $E\left[ W\right] =90$ and $E\left[ H\right] =130$, so that
+
+\begin{eqnarray*}
+	Cov\left[ W,H\right] &=&E\left[ WH\right] -E\left[ W\right] E\left[H\right] \\
+	&=&12000-\left( 90\right) \left( 130\right) \\
+	&=&300.
+\end{eqnarray*}
+
+
+
+::: {.callout-note icon=false}
+
+#### Exercise
+
+Consider the following joint probability distribution for random variables  $R$ and $Q$ both of which can take values of ether 0 or 1 (this is what we call a binary random variable). Complete the table by calculating the respective marginal probabilities.
+
+| $p(q,r)$    | $q=0$   | $q=1$    | $Pr(r)$  |
+|-------------|---------|----------|----------|
+| $r=0$       | 0.05    | 0.25     | `r fitb(0.30)` |
+| $r=1$       | 0.15    | 0.55     | `r fitb(0.70)` |
+| $Pr(q)$     | `r fitb(0.20)` | `r fitb(0.80)` | 1.00 |
+
+Calculate:
+
+$E[Q]=$ `r fitb(0.8)`
+
+$E[R]=$ `r fitb(0.7)`
+
+Complete the following table of  $q \cdot r$ values to facilitate the calculation of  $Cov[R,Q]$.
+
+| $q \cdot r$ | $q=0$   | $q=1$    | 
+|-------------|---------|----------|
+| $r=0$       | `r fitb(0)` | `r fitb(0)` | 
+| $r=1$       | `r fitb(0)` | `r fitb(1)` |
+
+Calculate:
+
+$E[RQ]=$ `r fitb(0.55)`
+
+$Cov[R,Q]=$ `r fitb(-0.01)`
+
+`r hide("Solution")`
+
+\begin{eqnarray*}
+	Cov\left[ R,Q\right] &=&E\left[ RQ\right] -E\left[ R\right] E\left[Q\right] \\
+	&=&0.55- (0.8 \cdot 0.7) \\
+	&=&-0.01
+\end{eqnarray*}
+
+`r unhide()`
+
+:::
+
+
+For an individual random variable $X$ we previously learned how expectations and variances of linear transformation of that random variable relates to the characteristics of $X$ itself. In particular you learned that
+
+\begin{enumerate}
+	\item $E[Z]=E[b X+c]=b E[X]+c$
+	\item $Var[Z]=Var[b X+c]=b^{2} Var[X]$
+\end{enumerate}  
+
+We can ask the same question about the covariance of two linearly transformed random variables $X$ and $Y$, e.g. $Q=b X+c$ and $Z = d Y+e$ . Here is the result
+
+\begin{enumerate}
+	\item $Cov[Q,Z]=Cov[(b X+c),(d Y+e)]=Cov[(b X),(d Y)]=bdCov[X,Y]$
+\end{enumerate}  
+
+The additive terms are irrelevant for the covariance (as they are for the variance) and the two factors are drawn outside of the covariance operator.
+
+::: {.callout-info}
+
+#### Example
+
+You have two random variables $X$ and $Y$ with the following properties: $E[X] = 3, Var[X]=2, E[Y] = -4, Var[Y] = 3$ and $Cov[X,Y] = 1.22$.
+
+Consider the two linear transformations, $Q=2+8X$ and $Z=-6-4Y$. What are the following?
+
+* $E[Q] =$ `r fitb(26)`
+* $Var[Q] =$ `r fitb(128)` 
+* $E[Z] =$ `r fitb(10)`
+* $Var[Z] =$ `r fitb(48)`
+* $Cov[Q,Z] =$ `r fitb(-39.04)` 
+
+`r hide("Solution")`
+
+* $E[Q] = 2+8 E[X] = 26$
+* $Var[Q] = 8^2 Var[X] = 64 \cdot 2 = 128$
+* $E[Z] = -6-4 E[Y] = -6-4 \cdot (-4) = -6+16=10$
+* $Var[Z] = (-4)^2 Var[Y] = 16 \cdot 3 = 48$
+* $Cov[Q,Z] = 8 \cdot (-4) Cov[X,Y]= -32 \cdot 1.22 = -39.04$ 
+
+
+`r unhide()`
+
+
+:::
+
+
+### Additional Resources
+
+* The link between covariance and regressions from the [Khan Academy](https://www.khanacademy.org/math/probability/regression/regression-correlation/v/covariance-and-the-regression-line}{Khan Academy).
+
+
+## Strength of Association and Units of Measurement
+
+How does covariance measure the **strength** of a relationship between two random variables? Not well is the answer, because the value of the covariance is dependent on the units of measurement. Take the above example in which both random variables $W$ and $H$ captured the income in UKP. When we calculated $cov\left[ W,H\right]$ we needed to calculate terms like $100 \times 100$ and hence the units of measurement of the covariance is UKP$^2$ which is difficult to interpret.
+
+Perhaps even more worrying, if we had calculated the covariance with 1 and 2 instead of 100 and 200 (and hence measuring income in 100s of pounds rather than pounds) we would have obtained a value of 0.03 (check this yourself by repeating the above calculation). Of course, we just changed the unit of measurement and nothing really has changed in the relationship between the two variables.
+
+In the section on Correlation and Regression as a descriptive statistic we only briefly mentioned covariance for exactly these reasons. There we introduced the correlation statistic as the preferred measure of (linear) association. As discussed there, the correlation statistics is actually based on the covariance statistic, but it does avoid the weaknesses just discussed.
+
+## Correlation
+
+What is required is a measure of the strength of association which is invariant to changes in units of measurement. Recall that the (population) **correlation coefficient** between $X$ and $Y$ is defined by
+
+\begin{equation*}
+	\rho _{XY}=\dfrac{cov\left[ X,Y\right] }{\sqrt{var\left[
+			X\right] var\left[ Y\right] }}.
+\end{equation*}
+
+This is also the correlation between $\alpha X$ and $\beta Y$ as we can see when we apply the rules for linear transformations discussed earlier:
+
+\begin{eqnarray*}
+	\rho _{\alpha X,\beta Y} &=&\dfrac{cov\left[ \alpha X,\beta Y\right] }{\sqrt{var\left[ \alpha X\right] var\left[\beta Y\right] }} \\
+	&=&\dfrac{\alpha \beta cov\left[ X,Y\right] }{\sqrt{\alpha^{2}\beta ^{2}var\left[ X\right] var\left[ Y\right] }} \\
+	&=&\rho _{XY},
+\end{eqnarray*}
+
+The correlation coefficient does not depend on the units of measurement.
+
+You got to be careful with the above formula. You will note that, to get to the last line we had to rely on the term
+
+\begin{equation*}
+\frac{\alpha~\beta}{\sqrt{\alpha^2~\beta^2}}=\frac{\alpha~\beta}{|\alpha|~|\beta|}=1
+\end{equation*}	
+
+cancelling out. And this will indeed happen if both $\alpha$ and $\beta$ have the same sign. However, if the two coefficients have opposite signs, say, $\alpha <0$ and $\beta>0$, then the result will actually be
+
+\begin{equation*}
+	\frac{\alpha~\beta}{\sqrt{\alpha^2~\beta^2}}=\frac{\alpha~\beta}{|\alpha|~|\beta|}=(-1)
+\end{equation*}
+	
+This means that in such a case $\rho _{\alpha X,\beta Y}=-\rho _{X,Y}$, meaning that the strength of the correlation remains the same but the sign changes.
+
+For the income example we calculated the covariance statistic to be 300. If we calculate the variances, $var[H]$ and $var[W]$ we will get $var[H]=6100$ and $var[W]=4900$ respectively when using the UKP as the unit of measurement. We then get
+
+\begin{eqnarray*}
+	\rho _{WH} &=&\dfrac{300}{\sqrt{\left( 4900\right) \left( 6100\right) }} \\
+	&=&0.0549.
+\end{eqnarray*}
+
+Is this indicative of a strong relationship? Just like the sample correlation coefficient of the Regression and Correlation Section, it can be shown that
+
+* the correlation coefficient $\rho _{XY}$ always satisfies $-1\leqslant \rho _{XY}\leqslant 1$.
+* The closer $\rho $ is to $1$ or $-1$, the stronger the relationship.
+
+![Correlation coefficient, strength and direction](images/correlation_coefficient.png)
+
+So, $\rho_{WH}=0.0549$ is indicative of a very weak relationship.
+
+It can shown that if $X$ and $Y$ are exactly linearly related by
+
+\begin{equation*}
+	Y=a+bX \quad \text{with\ \ \ }b>0
+\end{equation*}
+
+then $\rho _{XY}=1$ - that is, $X$ and $Y$ are perfectly correlated. $X$ and $Y$ are also perfectly correlated if they are exactly linearly related by
+
+\begin{equation*}
+	Y=a+bX \quad \text{with\ \ \ }b<0,
+\end{equation*}
+
+but $\rho _{XY}=-1$. Thus correlation measures the strength of a linear relationship between $X$ and $Y$. It is important to remember that correlation does not imply causation.
+
+Other notations for the correlation coefficient are
+
+\begin{eqnarray*}
+	\rho _{XY}&=&\dfrac{\sigma _{XY}}{\sigma _{X}\sigma _{Y}}\\
+	\rho _{XY}&=&\dfrac{E\left[ \left( X-\mu _{X}\right) \left( Y-\mu _{Y}\right) \right] }{\sqrt{E\left[ \left( X-\mu _{X}\right) ^{2}\right] E\left[ \left(Y-\mu _{Y}\right) ^{2}\right] }}.
+\end{eqnarray*}
+
+which uses covariance and standard deviation notation, and recognises the definitions of covariances and variances.
+
+::: {.callout-info}
+
+#### Example
+
+You have two random variables $X$ and $Y$ with the following properties: $E[X] = 3, Var[X]=2, E[Y] = -4, Var[Y] = 3$ and $Cov[X,Y] = 1.22$.
+
+Consider the two linear transformations, $Q=2+8X$ and $Z=-6-4Y$. What are the following?
+	
+* $E[Q] =$ `r hide(26)`
+* $Var[Q] =$ `r hide(128)`
+* $E[Z] =$ `r hide(10)`
+* $Var[Z] =$ `r hide(48)`
+* $Cov[Q,Z] =$ `r hide(39.04)` 
+* $Corr[X,Y] =$ `r hide(0.4981)`
+* $Corr[Q,Z] =$ `r hide(0.4981)`
+
+`r hide("Solution")`
+
+* $E[Q] = 2+8 E[X] = 26$
+* $Var[Q] = 8^2 Var[X] = 64 \cdot 2 = 128 $
+* $E[Z] = -6-4 E[Y] = -6-4 \cdot (-4) = -6+16=10$
+* $Var[Z] = (-4)^2 Var[Y] = 16 \cdot 3 = 48 $
+* $Cov[Q,Z] = 8 \cdot (-4) Cov[X,Y]= -32 \cdot 1.22= 39.04$ 
+* $Corr[X,Y] = \frac{Cov[X,Y]}{\sqrt{Var[X]Var[Y]}}=\frac{1.22}{\sqrt{2\cdot3}}= 0.4981$
+* $Corr[Q,Z] = \frac{Cov[Q,Z]}{\sqrt{Var[Q]Var[Z]}}= \frac{39.04}{\sqrt{128\cdot48}}= 0.4981$
+
+`r unhide()`
+
+
+:::
+
+
+## The relation between Correlation, Covariance and Independence
+
+Non-zero correlation and covariance between random variables $X$ and $Y$ indicate some linear association between them, whilst independence of $X$ and $Y$ implies no relationship or association of any kind between them. So, it is not surprising that
+
+* **independence** of $X$ and $Y$ implies **zero covariance**: $Cov\left[ X,Y\right] =0$;
+* **independence** of $X$ and $Y$ implies **zero correlation**:	$\rho _{XY}=0$.
+
+The converse is not true, in general:
+
+* **zero covariance or correlation** does not imply independence.
+
+The reason is that there may be a relationship between $X$ and $Y$ which is not linear.
+
+::: {.callout-info}
+
+#### Example
+
+Here is an example of a joint probability distribution.
+	
+|     |            | $y$    |        |        |
+|-----|------------|--------|--------|--------|
+|     | $p(x,y)$   | $1$    | $2$    | $3$    |
+| $x$ | $1$        | $0.1$  | $0.02$ | $0.2$  |
+|     | $2$        | $0.08$ | $0.2$  | $0.05$ |
+|     | $3$        | $0.25$ | $0.05$ | $0.05$ |
+
+
+Can you use the information, without going through a full correlation calculation to see whether, here, $X$ and $Y$ are independent or not and whether there is correlation between the two random variables?
+	
+The answer is, they are not independent and there is a negative correlation. To illustrate that it may be useful to think graphically about this distribution. Let us firstly graphically display the joint probability distribution.
+	
+![Joint probability distribution](images/jointpmf1.png)
+
+From here you can see that the highest probability is for values where either $X$ is high and $Y$ is low or vice versa. So that indicates that there is a negative correlation. This would be even easier to see if you could see a sample of data randomly drawn from that distribution. In the following scatter diagram you can see just that. 100 observations were drawn from the above distribution. Each point is slightly randomly offset, such that you can see see which combinations have been generated more frequently.
+
+![Joint probability mass function.](images/jointpmfsample1.png)
+
+You can see that a line of best fit would show a negative slope.
+
+:::
+
+::: {.callout-info}
+
+#### Example
+
+Here is another example of a joint probability distribution.
+	
+|     |          | $y$    |        |        |
+|-----|----------|--------|--------|--------|
+|     | $p(x,y)$ | $1$    | $2$    | $3$    |
+| $x$ | $1$      | $0.25$ | $0.03$ | $0.05$ |
+|     | $2$      | $0.02$ | $0.04$ | $0.25$ |
+|     | $3$      | $0.25$ | $0.03$ | $0.08$ |
+
+	
+Can you use the information, without going through a full correlation calculation to see whether, here, $X$ and $Y$ are independent or not and whether there is correlation between the two random variables?
+	
+Let us firstly graphically display the joint probability distribution.
+
+
+![Joint probability distribution](images/jointpmf2.png)
+
+The answer is, they are not independent. When $X=2$ then it is very likely that $Y=3$, whereas for values for $X$ of 1 and 2, a value of $Y=1$ becomes much more likely. This can also be seen from a scatter plot of 100 randomly drawn pairs of observations (each point is slightly randomly offset, such that you can see see which combinations have been generated more frequently).
+	
+![Joint probability mass function.](images/jointpmfsample2.png)
+
+You can see that a line of best fit would likely show a zero slope. Let us actually calculate the covariance and calculation. We do this in this following video (YouTube, 14min).
+
+{{< video https://youtu.be/2jBUJMFEQHA >}}
+	
+
+:::
+
+::: {.callout-note icon=false}
+
+#### Exercise
+
+Here are three joint probability distributions. What are these distributions' properties.
+
+| **D1**    |            | $y$    |        |        |
+|-----------|------------|--------|--------|--------|
+|           | $p(x,y)$   | $1$    | $2$    | $3$    |
+| $x$       | $1$        | $0.10$ | $0.06$ | $0.04$ |
+|           | $2$        | $0.25$ | $0.15$ | $0.10$ |
+|           | $3$        | $0.15$ | $0.09$ | $0.06$ |
+
+
+In this distribution $X$ and $Y$ are independent random variables. `r tof(TRUE)` 
+
+`r hide("Hint")`
+
+The joint probabilities can be replicated from the marginal probabilities, hence the two variables are independent
+
+`r unhide()`
+
+In distribution **D1** $X$ and $Y$ are `r mcq(c(answer = "not correlated","positively correlated","positively correlated"))`
+
+`r hide("Hint")`
+
+As the two random variables are independent, the correlation is 0.
+
+`r unhide()`
+
+
+| **D2**    |          | $y$    |        |        |
+|-----------|----------|--------|--------|--------|
+|           | $p(x,y)$ | $1$    | $2$    | $3$    |
+| $x$       | $1$      | $0.25$ | $0.03$ | $0.28$ |
+|           | $2$      | $0.04$ | $0.04$ | $0.05$ |
+|           | $3$      | $0.03$ | $0.26$ | $0.02$ |
+
+
+In this distribution (**D2**) $X$ and $Y$ are independent random variables. `r tof(FALSE)`
+
+`r hide("Hint")`
+
+The joint probabilities can not be replicated from the marginal probabilities, hence the two variables are dependent
+
+`r unhide()`
+
+In distribution **D2** $X$ and $Y$ are `r mcq(c(answer = "not correlated","positively correlated","positively correlated"))`
+
+`r hide("Hint")`
+
+While the two variables are not independent (they are dependent), there is no correlation as the relationship is not a linear one. For low values of $X$ very high and very low values of $Y$ are more likely. You can think of this as a nonlinear (quadratic) relationship.
+
+`r unhide()`
+
+	
+| **D3**    |          | $y$    |        |        |
+|-----------|----------|--------|--------|--------|
+|           | $p(x,y)$ | $1$    | $2$    | $3$    |
+| $x$       | $1$      | $0.25$ | $0.09$ | $0.01$ |
+|           | $2$      | $0.08$ | $0.18$ | $0.07$ |
+|           | $3$      | $0.01$ | $0.10$ | $0.21$ |
+
+In this distribution (**D3**) $X$ and $Y$ are independent random variables. `r tof(FALSE)`
+
+`r hide("Hint")`
+
+The Probabilities on the diagonal are higher. This is a sign of two dependent random variables.
+
+`r unhide()`
+
+In distribution **D3** $X$ and $Y$ are `r mcq(c("not correlated",answer = "positively correlated","positively correlated"))`
+
+`r hide("Hint")`
+
+If $X$ is low (high) lower (higher) values of $Y$ are more likely. This is the sign of a positive linear relationship.
+
+`r unhide()`
+	
+
+:::
+
+
+
 
 
 
