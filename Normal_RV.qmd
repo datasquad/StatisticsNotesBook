@@ -156,11 +156,12 @@ For example, using the downloadable table above, you should understand $\Pr (Z\l
 
 You should also satisfy yourself that you understand the use of the table by verifying that,
 
+\begin{equation*}
 	\begin{array}{ccc}
 		\Pr (Z\leq 0]=0.5000; &  & \Pr (Z\leq 0.5)=0.6915; \\
 		\Pr (Z\leq 1.96)=0.9750; &  & \Pr (Z\geq 1)=\Pr (Z\leq -1)=0.1587,\text{ }etc.%
 	\end{array}
-
+\end{equation*}
 The calculation of the probability
 
 \begin{equation*}
