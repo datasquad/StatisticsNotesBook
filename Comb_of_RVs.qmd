@@ -133,7 +133,7 @@ There is also another element to complement the above result: namely, if $X$ has
 
 ::: {.callout-important}
 
-## Linear transormations of normal rvs are normal again
+## Linear transformations of normal rvs are normal again
 
 If $X \sim N(\mu, \sigma^2)$ then $Y=bX+c \sim N(b\mu+c,b^2\sigma^2)$ for constants $b$ and $c$.
 
@@ -1097,9 +1097,9 @@ Notice that nothing need be known about the joint probability distribution $p(x,
 #### Example
 For the joint income of husbands and wives example, we defined $T=W+H$, where $E[W]=130$, $E[H]=90$. Therefore, using the expected value of the linear combination gives
 
-	\begin{equation}
+\begin{equation*}
 		E[T] =E[W]+E[H] =220
-	\end{equation}
+\end{equation*}
 
 confirming the result obtained earlier.
 
@@ -1111,12 +1111,11 @@ confirming the result obtained earlier.
 
 Suppose that random variables $X$ and $Y$ have $E[X]=0.5$ and $E[Y]=3.5$, and let $V=5 X-Y$. Then,	
 	
-	\begin{eqnarray*}
+\begin{eqnarray*}
 		E[V] &=&5 E[X]-E[Y] \\
 		&=&5 \times 0.5-3.5 \\
 		&=&-1 
-	\end{eqnarray*}	
-
+\end{eqnarray*}	
 
 :::
 
