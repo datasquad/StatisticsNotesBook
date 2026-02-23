@@ -165,7 +165,7 @@ Recognising that the expected value of rolling a fair dice is ‌E[X]=3.5. Hence
 
 #### Exercise
 
-You flip a fair coin three times and the random variable ‌X records how many times the coin shows HEAD. You convince your friend that he should play a game with the following payoff. Every round (equivalent to three coin flips) will cost £1. He will receive £ 0.5 for every coin showing HEAD.
+You flip a fair coin three times and the random variable ‌X records how many times the coin shows HEAD. You convince your friend that he should play a game with the following payoff. Every round (equivalent to three coin flips) will cost UKP1. He will receive UKP 0.5 for every coin showing HEAD.
 
 What type of random variable is $X$? 
 
@@ -904,7 +904,7 @@ Here are three joint probability distributions. What are these distributions' pr
 |           | $3$        | $0.15$ | $0.09$ | $0.06$ |
 
 
-In this distribution $X$ and $Y$ are independent random variables. `r tof(TRUE)` 
+In this distribution $X$ and $Y$ are independent random variables. `r torf(TRUE)` 
 
 `r hide("Hint")`
 
@@ -929,7 +929,7 @@ As the two random variables are independent, the correlation is 0.
 |           | $3$      | $0.03$ | $0.26$ | $0.02$ |
 
 
-In this distribution (**D2**) $X$ and $Y$ are independent random variables. `r tof(FALSE)`
+In this distribution (**D2**) $X$ and $Y$ are independent random variables. `r torf(FALSE)`
 
 `r hide("Hint")`
 
@@ -953,7 +953,7 @@ While the two variables are not independent (they are dependent), there is no co
 |           | $2$      | $0.08$ | $0.18$ | $0.07$ |
 |           | $3$      | $0.01$ | $0.10$ | $0.21$ |
 
-In this distribution (**D3**) $X$ and $Y$ are independent random variables. `r tof(FALSE)`
+In this distribution (**D3**) $X$ and $Y$ are independent random variables. `r torf(FALSE)`
 
 `r hide("Hint")`
 
@@ -974,6 +974,434 @@ If $X$ is low (high) lower (higher) values of $Y$ are more likely. This is the s
 
 
 
+
+
+## Linear Combinations of Several Random Variables
+
+Reconsider the previous example on the incomes of two partners in a household, where the random variables $H$ and $W$ represent the respective salaries. The joint probability distribution of $H$ and $W$ is given here, displaying $p(h,w)$:
+
+|                |              | $H$        |              |        |
+|----------------|--------------|------------|--------------|--------|
+| Probabilities  |              | UKP 0 | UKP 100 | UKP 200 |
+| Values of $W:$ | UKP  0    | $0.05$     | $0.15$       | $0.10$ |
+|                |  UKP 100 | $0.10$     | $0.10$       | $0.30$ |
+|                |  UKP 200 | $0.05$     | $0.05$       | $0.10$ |
+
+
+You may now be interested in the total household income, $T$:
+
+\begin{equation*}
+	T=g(H,W)=H+W.
+\end{equation*}
+
+This new random variable is a function of $H$ and $W$, and we can deduce the probability distribution of $T$ from the joint distribution of $H$ and $W$. You can directly calculate the new variable's expected value and variance from the joint probability distribution $p\left( h,w\right):$ the expected value of $T$ is
+
+\begin{eqnarray*}
+	E\left[ T\right] &=&E\left[ g\left( H,W\right) \right] \\
+	&=& \sum_h \sum_w g\left( h,w\right) p\left( h,w\right) \\
+	&=& 0 \cdot 0.05 + 100 \cdot  0.15 +200 \cdot 0.10 + \\
+	&& 100 \cdot 0.10 + 200 \cdot 0.10 +300 \cdot  0.3 +\\
+	&& 200 \cdot 0.05 + 300 \cdot 0.05 +400 \cdot 0.10\\
+	&=&220
+\end{eqnarray*}
+
+We sum up the product of all joint probabilities and their associated outcome for $T$.
+
+This is what one may call a pedestrian way of getting the expected value for a function of two (or more) random variables. This will actually work for any type of function of the two random variables, even if that function is a nonlinear one. 
+
+If the function $g(X,Y)$ of the two random variables $X$ and $Y$ is a linear one, like the generic 
+
+\begin{equation*}
+	V=a X+b Y+c
+\end{equation*}
+
+then things simplify significantly. In what follows we shall demonstrate how to get the expected value and the variance of a linear combination of random variables directly if we know what $E[X]$, $E[Y]$, $Var[X]$, $Var[Y]$ and $Cov[X,Y]$ are.
+
+
+### A preliminary result
+
+Let's start with the simplest of all cases and consider
+
+\begin{equation*}
+	V=g(X, Y)=X
+\end{equation*}
+
+We should find that the properties of $V$ are exactly the same as the properties of $X$. Applying the generic formula for the expectation of a discrete random variable used in the above example
+
+\begin{equation*}
+	E[V]=\sum_{x} \sum_{y} =g(x, y) p(x, y) =\sum_{x} \sum_{y} x p(x, y)
+\end{equation*}
+
+For any given $x$ the probabilities for all the possible outcomes for $Y$ can be collected, so that
+
+\begin{equation*}
+	E[V]=\sum_{x} x\left[\sum_{y} p(x, y)\right] 
+\end{equation*}
+
+By the definition of the marginal distribution of $y$, the summation in brackets is the marginal probability $p_{X}(x)$ such that 
+
+\begin{equation*}
+	E[V]=\sum_{x} x p_{X}(x) =E[X]
+\end{equation*}
+
+This shows that the expected value of $X$ is the same whether calculated from the joint probability distribution of $X$ and $Y$, or from the marginal distribution of $X$. The same, obviously, applies for $E[Y]$. This is just another way of saying that the joint distribution contains all the information regarding the marginal distributions.
+
+### Expected value of a Linear Combination
+
+The result we need for the expected value of a linear combination is easy to remember: it amounts to saying that
+
+* the expected value of a linear combination is the linear combination of the expected values, or
+* more simply, the expected value of a sum is equal to the sum of expected values.
+
+If $V=a X+b Y+c$, where $a, b, c$ are constants, then
+
+\begin{equation*}
+	E[V]=E[a X+b Y+c]=a E[X]+b E[Y]+c 
+\end{equation*}
+
+This result is a natural generalisation of the linear transformation result that $E[b X+c]=b E[X]+c$.
+
+Proof: (discrete random variables case). Consider
+
+\begin{eqnarray*}
+	E[V] &=&E[a X+b Y+c] \\
+	&=&\sum_{x} \sum_{y}(a x+b y+c) \times p(x, y) \\
+	&=&\sum_{x} \sum_{y}a x\times p(x, y)+ \sum_{x} \sum_{y}b y\times p(x, y)+\sum_{x} \sum_{y}c\times p(x, y)  
+\end{eqnarray*}
+
+
+Examine each of the three terms on the right hand side:
+
+
+\begin{eqnarray*}
+	\sum_{x} \sum_{y} a x p(x, y) &=&a \sum_{x} \sum_{y} x p(x, y)=a \sum_{x} x \sum_{y} p(x, y)=a E[X] \\
+	\sum_{x} \sum_{y} b y p(x, y) &=&b \sum_{y} \sum_{x} y p(x, y)=b \sum_{y} y \sum_{x} p(x, y)=b E[Y] \\
+	\sum_{x} \sum_{y} c p(x, y) &=&c \sum_{x} \sum_{y} p(x, y)=c \times 1 .
+\end{eqnarray*}
+
+The result that the probabilities in a joint probability distribution must sum to 1 over all $x$ and $y$ combinations is used in the line immediately above. Summing the three terms then gives the earlier result
+
+\begin{eqnarray*}
+	E[V] &=&E[a X+b Y+c] \\
+	&=&a E[X]+b E[Y]+c
+\end{eqnarray*}
+
+This video walks you through these arguments (YouTube, 16min)
+
+{{< video https://youtu.be/cPCXtX1h14k >}}
+
+Notice that nothing need be known about the joint probability distribution $p(x, y)$ of $X$ and $Y$ to prove the result: it applies, for example, irrespective of whether the variables are independent or not. The result is also valid for continuous random variables.
+
+::: {.callout-info}
+
+#### Example
+For the joint income of husbands and wives example, we defined $T=W+H$, where $E[W]=130$, $E[H]=90$. Therefore, using the expected value of the linear combination gives
+
+	\begin{equation}
+		E[T] =E[W]+E[H] =220
+	\end{equation}
+
+confirming the result obtained earlier.
+
+:::
+
+::: {.callout-info}
+
+#### Example
+
+Suppose that random variables $X$ and $Y$ have $E[X]=0.5$ and $E[Y]=3.5$, and let $V=5 X-Y$. Then,	
+	
+	\begin{eqnarray*}
+		E[V] &=&5 E[X]-E[Y] \\
+		&=&5 \times 0.5-3.5 \\
+		&=&-1 
+	\end{eqnarray*}	
+
+
+:::
+
+
+Let $X_{1}, \ldots, X_{n}$ be random variables with $a_{1}, \ldots ., a_{n}, c$ being constants, and define the random variable $W$ by
+
+\begin{eqnarray*}
+	W &=&c+a_{1} X_{1}+\ldots+a_{n} X_{n} \\
+	&=&c+\sum_{i=1}^{n} a_{i} X_{i}
+\end{eqnarray*}
+
+Then,
+
+\begin{equation*} 
+	E[W]=c+\sum_{i=1}^{n} a_{i} E\left[X_{i}\right] 
+\end{equation*}
+
+This can be proved by repeatedly using the linear combination result for two variables.
+
+::: {.callout-info}
+
+#### Example
+
+Let's consider the case where we combine $n=3$ random variables with $E\left[X_{1}\right]=2, E\left[X_{2}\right]=-1, E\left[X_{3}\right]=3, W=2 X_{1}+5 X_{2}-3 X_{3}+4$. What is $E[W]$?
+	
+\begin{eqnarray*}
+		E[W] &=&E\left[2 X_{1}+5 X_{2}-3 X_{3}+4\right] \\
+		&=&2 E\left[X_{1}\right]+5 E\left[X_{2}\right]-3 E\left[X_{3}\right]+4 \\
+		&=&2 \times 2+5 \times(-1)-3 \times 3+4 \\
+		&=&-6 
+\end{eqnarray*}
+	
+:::
+
+
+### Variance of a Linear Combination
+
+The result for the mean (or expected value) of a linear combination is fairly intuitive. That for a variance, however, is less so. We start with the two variable case.
+
+#### Two variables
+Let $V$ be the random variable $V=a X+b Y+c$. To find $Var[V]$ we start from the alternative form for the variance calculation:
+
+\begin{eqnarray*}
+	Var[V] &=& E[V^2] - E[V]^2\\
+			&=& E[(a X+b Y+c)^2] - E[a X+b Y+c]^2
+\end{eqnarray*}
+
+Now we will just apply the above rule for the expectation of a linear combination and multiply out the squared terms. It is a little tedious algebra, but if you do it carefully you should be able to account for all terms.
+
+\begin{eqnarray*}
+	Var[V] &=& Var[a X+b Y+c]\\
+	&=& E[(a X+b Y+c)^2] - E[a X+b Y+c]^2\\
+	&=& E[(a X+b Y+c)(a X+b Y+c)] - (a E[X]+b E[Y]+c)^2\\
+	&=& E[(a X+b Y+c)(a X+b Y+c)] - (a E[X]+b E[Y]+c)(a E[X]+b E[Y]+c)\\
+	&=& E[a^2X^2+abXY+acX + abXY + b^2Y^2 + bcY + acX + bcY +c^2]\\
+	&& - a^2E[x]^2 - abE[X]E[Y] - acE[X] - abE[X]E[Y] - b^2E[Y]^2 - bcE[Y] - acE[X] - bcE[Y] - c^2 
+\end{eqnarray*}
+
+The next step is to apply again the result for the expected value of a linear combination and then rearrange terms in a useful manner, remembering that $Var[X] = E[X^2]-E[X]^2$ and $Cov[X,Y]=E[XY]-E[X]E[Y]$:
+
+\begin{eqnarray*}
+	Var[V]&=& a^2E[X^2]+abE[XY]+acE[X] + abE[XY] + b^2E[Y^2] + bcE[Y] + acE[X] + bcE[Y] +c^2\\
+	&& - a^2E[x]^2 - abE[X]E[Y] - acE[X] - abE[X]E[Y] - b^2E[Y]^2 - bcE[Y] - acE[X] - bcE[Y] - c^2 \\
+	&=& a^2(\underbrace{E[X^2]-E[X]^2}_{Var[X]}) + b^2(\underbrace{E[Y^2]-E[Y]^2}_{Var[Y]}) \\
+	&& -2ab(\underbrace{E[XY]-E[X]E[Y]}_{Cov[X,Y]}) \\
+	&& +2acE[X]+2bcE[Y] +c^2 - 2acE[X]-2bcE[Y] -c^2
+\end{eqnarray*}
+
+Now you can note that all the terms in the last line cancel out, which leaves us with the following very important result:
+
+\begin{equation*}
+	Var[V] = Var[a X+b Y+c] = a^2Var[x] + b^2Var[Y]+2abCov[X,Y]
+\end{equation*}
+
+Summarising, for $V=a X+b Y+c$, the following holds:
+
+* $Var[V]=a^{2} Var[X]+2 a b Cov[X, Y]+b^{2} Var[Y]$
+* If $X$ and $Y$ are independent, then $Cov[X, Y]=0$ and  
+		\begin{equation*}
+			Var[V]=a^{2} Var[X]+b^{2} Var[Y]
+		\end{equation*}
+* If $X$ and $Y$ are dependent, but linearly uncorrelated such that $Cov[X, Y]=0$, then the same result holds.
+
+It was worth going through the details of this calculation as it lies at the heart of modern finance theory (in particular portfolio theory). It is this formula which justifies the benefits of portfolio diversification, the idea that it is better to hold several risky assets rather than just one as long as they are not perfectly correlated. This is true for investors but also for companies which may want to invest in several products rather than just one. 
+
+Let's use the following example to illustrate this
+
+![Do not put all your eggs into one basket - Diversification](images/diversification.jpeg)
+
+::: {.callout-info}
+
+#### Example
+
+Assume you have two assets you can invest in, asset A which has random annual returns with $E[R_A] = 0.05$ and variance $Var[R_A] = 0.2$. Asset B has $E[R_B] = 0.05$ and variance $Var[R_B] = 0.25$. The correlation between the returns is $Corr[R_A,R_B]=0.3$, so they are mildly positively correlated.
+
+The variance in asset returns gives you a measure of the risk you carry with that investment. So Asset B has a higher risk at the same expected return. Most of us would, everything else being equal, prefer lower risk. Which asset would you invest in if you had to invest all your money into either asset A or asset B? In that case you would choose asset A as it gives you the same expected return but at a lower risk.
+	
+Let's say you form a portfolio where you invest 50\% of your money into asset A and 50\% into asset B. What would be the expected return and the variance of your portfolio? You need to consider a new random variable $P=0.5R_A+0.5R_B$. This is a linear combination of two random variables and we can apply the results we learned above:
+	
+\begin{eqnarray*}
+		E[P]&=&0.5~E[R_A]+0.5~E[R_B]\\
+		Var[P] &=& Var[0.5~R_A+0.5~R_B] = 0.5^2Var[R_A] + 0.5^2Var[R_B]+2\cdot0.5\cdot0.5~Cov[R_A,R_B]
+\end{eqnarray*}
+	
+This means that we need $Cov[R_A,R_B]$ which we have not been provided with. However, we know the correlation and the variances, such that we can use the following relationship
+	
+\begin{eqnarray*}
+		Corr[R_A,R_B]&=&\frac{Cov[R_A,R_B]}{\sqrt{Var[R_A]\cdot Var[R_B]}}\\
+		Cov[R_A,R_B]&=&Corr[R_A,R_B] \cdot \sqrt{Var[R_A]\cdot Var[R_B]}\\
+		&=& 0.3 \cdot \sqrt{0.2\cdot0.25} = 0.06708
+\end{eqnarray*}
+
+Now we can calculate the portfolio characteristics:
+	
+\begin{eqnarray*}
+		E[P]&=&0.5~E[R_A]+0.5~E[R_B] = 0.5 \cdot 0.05 + 0.5 \cdot 0.05 = 0.05\\
+		Var[P] &=& Var[0.5~R_A+0.5~R_B] = 0.5^2Var[R_A] + 0.5^2Var[R_B]+2\cdot0.5\cdot0.5~Cov[R_A,R_B]\\
+		&=&  0.5^2\cdot0.2 + 0.5^2\cdot0.25+2\cdot0.5\cdot0.5\cdot 0.06708 =0.14604
+\end{eqnarray*}
+
+And this is the wonder of diversification. Your portfolio, consisting of 50\% asset A and 50\% of asset B has the same expected return, but its variance (risk) is smaller than the individual assets'.
+	
+Financial portfolio theory then thinks about what the best possible way of mixing assets A and B would be, i.e. how can you minimise $Var[P]$ and also how the above relationship generalises to the case where you have more than two assets.
+
+:::
+
+
+::: {.callout-note icon=false}
+
+#### Exercise
+
+Suppose that $X$ and $Y$ are random variables with $Var[X]=0.25, Var[Y]=2.5$ and $Cov[X,Y]= 0.5$. Calculate $Var[V]$ if $V = 2X+0.5Y$. 
+
+$Var[V] =$ `r fitb(2.625)`
+
+`r hide("Solution")`
+
+\begin{eqnarray*}
+	Var[V] &=& Var[a~X+b~Y] = a^2Var[X] + b^2Var[Y]+2\cdot a\cdot b~Cov[X,Y]\\
+	&=&  2^2\cdot0.25 + 0.5^2\cdot2.5+2\cdot2\cdot0.5\cdot 0.5 =2.625
+\end{eqnarray*}
+
+`r unhide()`
+
+
+What is the variance of $W=2X-0.5Y$
+
+$Var[W] =$ `r fitb(0.625)`
+
+`r hide("Solution")`
+
+\begin{eqnarray*}
+	Var[W] &=& Var[a~X+b~Y] = a^2Var[X] + b^2Var[Y]+2\cdot a\cdot b~Cov[X,Y]\\
+	&=&  2^2\cdot0.25 + 0.5^2\cdot2.5+2\cdot2\cdot(-0.5)\cdot 0.5 =0.625
+\end{eqnarray*}
+
+When you have a negative contribution in the linear combination you got to be careful with the signs. The variance still contributes positively but the covariance term now has a negative sign.
+
+`r unhide()`
+
+:::
+
+
+
+
+### Variance of linear combinations of many uncorrelated variables
+
+Extend the earlier result to the case of a linear combination of $n$ random variables $X_{1}, \ldots, X_{n}$ is messy because of the large number of covariance terms involved. But that is exactly what is required to develop portfolio theory. We leave that to finance courses. However, in the special case when $X_{1}, \ldots, X_{n}$ are uncorrelated random variables then all covariances are equal to zero: $Cov\left[X_{i}, X_{j}\right]=0, i \neq j$. And therefore, for $X_{1}, \ldots, X_{n}$ uncorrelated,
+
+\begin{equation*}
+	Var\left[\sum_{i=1}^{n} a_{i} X_{i}\right]=\sum_{i=1}^{n} a_{i}^{2} Var\left[X_{i}\right]
+\end{equation*}
+
+This also applies when $X_{1}, \ldots, X_{n}$ are independent random variables as they are, by definition, uncorrelated.
+
+Be careful to remember, however, that this result only applies if the variables are uncorrelated. If they are correlated, then the covariance terms are nonzero and these will enter the computation of the variance of a linear combination.
+
+There is no short-cut to computing the standard deviation of a linear combination. You will have to calculate the variance of the linear combination and then take the square root to get the standard deviation.
+
+
+## Normal Random Variables
+
+The results so far on linear combinations relate to characteristics of the probability distribution of a linear combination like
+
+\begin{equation*}
+	V=a X+b Y+c
+\end{equation*}
+
+not to the probability distribution itself. In particular, we have considered the mean and variance. Indeed, part of the attraction of these results is that they can be obtained without having to find the probability distribution of $V$. In fact it is, in general, not easily possible to find the probability distribution of $V$ itself, which is why it is so nice that at least we can easily get the mean and the variance. Also note that we did not have to make any assumption about how the random variables $X$ and $Y$ were distributed. These results hold for random variables of any distribution.
+
+However, if we know that $X$ and $Y$ have normal distributions then it follows that $V$ itself is normally distributed. This is an extension of the result for the linear transformation of a single normally distributed random variable. The linear combination result is, however, much more powerful. It is EXTREMELY IMPORTANT! It is also rather unusual: there are not many distributions for which this type of result holds.
+
+
+If $X \sim N\left(\mu_{X}, \sigma_{X}^{2}\right)$ and $Y \sim N\left(\mu_{Y}, \sigma_{Y}^{2}\right)$, with $V=a X+b Y+c$ for constants $a, b, c$ then
+
+\begin{equation*}
+	V \sim N\left(\mu_{V}, \sigma_{V}^{2}\right)
+\end{equation*}
+
+for which
+\begin{eqnarray*}
+	\mu_{V}&=& a \mu_{X}+b \mu_{Y}+c \\
+	\sigma_{V}^{2}&=&a^{2} \sigma_{X}^{2}+2 a b \sigma_{X Y}+b^{2} \sigma_{Y}^{2}
+\end{eqnarray*}
+
+In the above we merely applied the generic earlier results on $E[V]=\mu_V$ and $Var[V]=\sigma^2_V$. Note that independence of $X$ and $Y$ has not been assumed and is irrelevant to the general result. - If $X_{1}, \ldots X_{n}$ are uncorrelated random variables with $X_{i} \sim N\left(\mu_{i}, \sigma_{i}^{2}\right)$ and $W=\sum_{i=1}^{n} a_{i} X_{i}$, where $a_{1}, \ldots, a_{n}$ are constants, then
+
+\begin{equation*}
+	W \sim N\left(\sum_{i=1}^{n} a_{i} \mu_{i}, \sum_{i=1}^{n} a_{i}^{2} \sigma_{i}^{2}\right) .
+\end{equation*}
+
+In this case, the assumption that the variables are uncorrelated plays a role only in specifying the variance of the linear combination. If the variables were to be correlated, the normal distribution also applies to the linear combination with the mean being $\sum_{i} a_{i} \mu_{i}$, but the variance of the sum will change (to include terms involving the covariances - but we did not discuss this case here unless $n=2$).
+
+Of course, standard normal distribution tables can be used in the usual way to compute probabilities of events involving linear combinations like $V$ and $W$. This is illustrated in the following.
+
+::: {.callout-info}
+
+#### Example
+
+If $X$ and $Y$ are independent, $X \sim N(20,5), Y \sim N(30,11)$, while $D=X-Y$, then	$D \sim N(-10,16)$ as
+	
+\begin{eqnarray*}
+		E[D] &=& 1\cdot E[X] + (-1) \cdot E[Y] = 1\cdot 20 + (-1) \cdot 30 = -10\\
+		Var[D] &=& 1^2\cdot Var[X] + (-1)^2 \cdot Var[Y] = 1\cdot 5 + 1 \cdot 11 = 16. 
+\end{eqnarray*}
+	
+What is the probability that $D>0$? As $D$ is normally, but not standard normally distributed we shall standardise it to a $Z \sim N(0,1)$ variable and then apply the standard normal probability table.
+	
+\begin{eqnarray*}
+		Pr(D>0) &=&Pr\left(Z>\frac{0-(-10)}{4}\right) \\
+		&=&Pr(Z>2.5) \\
+		&=&0.00621.
+\end{eqnarray*}
+	
+Therefore, there is a 0.621\% probability that the random variable $D$ takes a value of larger than 0.
+	
+This video provides a walkthrough of this example (YouTube, 10min).
+
+{{< video https://youtu.be/kIsUQAKXSkw >}}
+	
+
+:::
+
+::: {.callout-note icon=false}
+
+#### Exercise
+
+Suppose that $X$ and $Y$ are normally distributed random variables  $X \sim N(2,3), Y \sim N(-3,10)$ with correlation $Corr[X,Y] = -0.5$. Calculate $Pr(V>0)$ if $V = 2X+0.5Y$. 
+
+$Pr(V>0) =$ `r fitb(0.7967)`
+	
+`r hide("Solution")`
+
+Start by calculating the properties of $V$.
+
+\begin{eqnarray*}
+	Cov[X,Y] &=& Corr[X,Y] \cdot \sqrt{Var[X]Var[Y]} = (-0.5) \cdot \sqrt{3 \cdot 10} = -2.7386\\ 
+	E[V] &=& 2\cdot E[X] + 0.5 \cdot E[Y] = 2\cdot 2 + 0.5 \cdot (-3) = 2.5\\
+	Var[V] &=& 2^2\cdot Var[X] + 0.5^2 \cdot Var[Y] +2\cdot 2 \cdot 0.5 \cdot Cov[X,Y]  \\
+	&=& 4\cdot 3 + \frac{1}{4} \cdot 10 + 2 \cdot (-2.7386) = 9.0228. 
+\end{eqnarray*}
+
+What is the probability that $V>0$? 
+
+\begin{eqnarray*}
+	Pr(V>0) &=&Pr\left(Z>\frac{0-2.5}{\sqrt{9.0228}}\right) \\
+		&=&Pr(Z>-0.83) = 1 - Pr(Z\leq-0.83)\\
+		&=&1- 0.2033= 0.7967.
+\end{eqnarray*}
+
+![Using the standard normal table.](images/ztable.png)
+
+Therefore, there is a 79.67\% probability that the random variable $V$ takes a value larger than 0.
+
+`r unhide()`
+
+:::
+
+
+## Summary
+In this section you learned how to think about two random variables. The joint distribution of two random variables gives you all the information you need to establish whether the two random variables are correlated or not and whether they are independent or not.
+
+Further it was discussed how to calculate expected values of linear combinations of random variables. You learned that you can always calculate the expected value and variance of such linear combinations, but that, in general, you cannot say anything about the distribution of the resulting random variable. An exception to this was where the random variables being combined are normally distributed random variables. In that case, the resulting linear combination is also normally distributed. This, however, is clearly a special case.
+
+Through the discussion of linear combinations you also learned the statistics behind one of the most fundamental insights of finance theory, the value of diversification. This insight is important for all financial but also more generally all business investment. Further, knowing how to deal with multiple random variables and their combinations is crucial when it comes to learning more statistics and econometrics.
 
 
 

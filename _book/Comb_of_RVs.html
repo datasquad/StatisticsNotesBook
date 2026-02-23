@@ -244,7 +244,31 @@ window.Quarto = {
   <li><a href="#means-and-variances-a-recap" id="toc-means-and-variances-a-recap" class="nav-link" data-scroll-target="#means-and-variances-a-recap"><span class="header-section-number">12.2.1</span> Means and variances: a recap</a></li>
   </ul></li>
   <li><a href="#linear-transformations-of-random-variables" id="toc-linear-transformations-of-random-variables" class="nav-link" data-scroll-target="#linear-transformations-of-random-variables"><span class="header-section-number">12.3</span> Linear transformations of random variables</a></li>
-  <li><a href="#joint-probability-distributions" id="toc-joint-probability-distributions" class="nav-link" data-scroll-target="#joint-probability-distributions"><span class="header-section-number">12.4</span> Joint Probability Distributions</a></li>
+  <li><a href="#joint-probability-distributions" id="toc-joint-probability-distributions" class="nav-link" data-scroll-target="#joint-probability-distributions"><span class="header-section-number">12.4</span> Joint Probability Distributions</a>
+  <ul class="collapse">
+  <li><a href="#marginal-probabilities" id="toc-marginal-probabilities" class="nav-link" data-scroll-target="#marginal-probabilities"><span class="header-section-number">12.4.1</span> Marginal Probabilities</a></li>
+  </ul></li>
+  <li><a href="#independence-covariance-and-correlation" id="toc-independence-covariance-and-correlation" class="nav-link" data-scroll-target="#independence-covariance-and-correlation"><span class="header-section-number">12.5</span> Independence, Covariance and Correlation</a>
+  <ul class="collapse">
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"><span class="header-section-number">12.5.1</span> Independence</a></li>
+  </ul></li>
+  <li><a href="#covariance-and-correlation" id="toc-covariance-and-correlation" class="nav-link" data-scroll-target="#covariance-and-correlation"><span class="header-section-number">12.6</span> Covariance and Correlation</a>
+  <ul class="collapse">
+  <li><a href="#covariance" id="toc-covariance" class="nav-link" data-scroll-target="#covariance"><span class="header-section-number">12.6.1</span> Covariance</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">12.6.2</span> Additional Resources</a></li>
+  </ul></li>
+  <li><a href="#strength-of-association-and-units-of-measurement" id="toc-strength-of-association-and-units-of-measurement" class="nav-link" data-scroll-target="#strength-of-association-and-units-of-measurement"><span class="header-section-number">12.7</span> Strength of Association and Units of Measurement</a></li>
+  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation"><span class="header-section-number">12.8</span> Correlation</a></li>
+  <li><a href="#the-relation-between-correlation-covariance-and-independence" id="toc-the-relation-between-correlation-covariance-and-independence" class="nav-link" data-scroll-target="#the-relation-between-correlation-covariance-and-independence"><span class="header-section-number">12.9</span> The relation between Correlation, Covariance and Independence</a></li>
+  <li><a href="#linear-combinations-of-several-random-variables" id="toc-linear-combinations-of-several-random-variables" class="nav-link" data-scroll-target="#linear-combinations-of-several-random-variables"><span class="header-section-number">12.10</span> Linear Combinations of Several Random Variables</a>
+  <ul class="collapse">
+  <li><a href="#a-preliminary-result" id="toc-a-preliminary-result" class="nav-link" data-scroll-target="#a-preliminary-result"><span class="header-section-number">12.10.1</span> A preliminary result</a></li>
+  <li><a href="#expected-value-of-a-linear-combination" id="toc-expected-value-of-a-linear-combination" class="nav-link" data-scroll-target="#expected-value-of-a-linear-combination"><span class="header-section-number">12.10.2</span> Expected value of a Linear Combination</a></li>
+  <li><a href="#variance-of-a-linear-combination" id="toc-variance-of-a-linear-combination" class="nav-link" data-scroll-target="#variance-of-a-linear-combination"><span class="header-section-number">12.10.3</span> Variance of a Linear Combination</a></li>
+  <li><a href="#variance-of-linear-combinations-of-many-uncorrelated-variables" id="toc-variance-of-linear-combinations-of-many-uncorrelated-variables" class="nav-link" data-scroll-target="#variance-of-linear-combinations-of-many-uncorrelated-variables"><span class="header-section-number">12.10.4</span> Variance of linear combinations of many uncorrelated variables</a></li>
+  </ul></li>
+  <li><a href="#normal-random-variables" id="toc-normal-random-variables" class="nav-link" data-scroll-target="#normal-random-variables"><span class="header-section-number">12.11</span> Normal Random Variables</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">12.12</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -396,7 +420,7 @@ Solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You flip a fair coin three times and the random variable&nbsp;‌X records how many times the coin shows HEAD. You convince your friend that he should play a game with the following payoff. Every round (equivalent to three coin flips) will cost £1. He will receive £ 0.5 for every coin showing HEAD.</p>
+<p>You flip a fair coin three times and the random variable&nbsp;‌X records how many times the coin shows HEAD. You convince your friend that he should play a game with the following payoff. Every round (equivalent to three coin flips) will cost UKP1. He will receive UKP 0.5 for every coin showing HEAD.</p>
 <p>What type of random variable is <span class="math inline">\(X\)</span>?</p>
 <p><select class="webex-select"><option value="blank"></option><option value="">normally distributed</option><option value="answer">binomially distributed</option><option value="">poisson distributed</option><option value="">uniformly distributed</option></select></p>
 <p>What are the expected value and variance of X?</p>
@@ -470,7 +494,7 @@ and delivers a probability of 1. This implies that it is certain that one of the
 <td></td>
 <td>UKP 0</td>
 <td>UKP 100</td>
-<td>£ 200</td>
+<td>UKP 200</td>
 </tr>
 <tr class="even">
 <td>Values of <span class="math inline">\(W:\)</span></td>
@@ -602,6 +626,115 @@ Solution
 </tr>
 <tr class="even">
 <td>1</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.08&quot;,&quot;.08&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.08&quot;,&quot;.08&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.08&quot;,&quot;.08&quot;]"></td>
+<td>0.08</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.08&quot;,&quot;.08&quot;]"></td>
+<td><span class="math inline">\(\textcolor{orange}{0.40}\)</span></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>0.04</td>
+<td>0.04</td>
+<td>0.04</td>
+<td>0.04</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.04&quot;,&quot;.04&quot;]"></td>
+<td><span class="math inline">\(\textcolor{orange}{0.20}\)</span></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>0.01</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.01&quot;,&quot;.01&quot;]"></td>
+<td>0.01</td>
+<td>0.01</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.01&quot;,&quot;.01&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.05&quot;,&quot;.05&quot;]"></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>0.02</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.02&quot;,&quot;.02&quot;]"></td>
+<td>0.02</td>
+<td>0.02</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.02&quot;,&quot;.02&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.1&quot;,&quot;.1&quot;]"></td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>0.05</td>
+<td>0.05</td>
+<td>0.05</td>
+<td>0.05</td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.05&quot;,&quot;.05&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.25&quot;,&quot;.25&quot;]"></td>
+</tr>
+<tr class="odd">
+<td>Column Total</td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.2&quot;,&quot;.2&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.2&quot;,&quot;.2&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.2&quot;,&quot;.2&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.2&quot;,&quot;.2&quot;]"></td>
+<td><span class="math inline">\(\textcolor{blue}{0.20}\)</span></td>
+<td>1.00</td>
+</tr>
+</tbody>
+</table>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Use the knowledge about marginal probabilities to complete the table.</p>
+</div>
+<p>You may think that making the probabilities of the numbers on the tickets uneven was somewhat strange. That does mimic a very real issue. When people choose numbers (e.g.&nbsp;for lottery tickets or for passwords) they do not choose random numbers, they choose “lucky” numbers. Lucky numbers are often dates (birthdays, wedding days, etc.). That implies that people choose numbers from 1 - 12 and again numbers from 1 - 31 more often than numbers that are larger than 31. If you do choose such “lucky” numbers you are not less likely to win, but if you win you will have to share the prize with more people!</p>
+<p>Make sure you understand how the joint probabilities are calculated, using your knowledge that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent?</p>
+<ul>
+<li><span class="math inline">\(p\left( 2,1\right) = Pr(X=2) \cdot Pr(Y=1) = 0.20 \cdot 0.20 = 0.04\)</span></li>
+<li><span class="math inline">\(p\left( 4,3\right) =\)</span> <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.02&quot;,&quot;.02&quot;]"></li>
+<li><span class="math inline">\(p\left( 5,5\right) =\)</span> <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.05&quot;,&quot;.05&quot;]"></li>
+</ul>
+</section>
+<p>In the above example we assumed that the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> were independent. That allowed us to calculate the joint probabilities according to</p>
+<p><span class="math display">\[\begin{equation*}
+    \Pr \left( X\cap Y\right) =\Pr \left( X\right) \Pr \left( Y\right) .
+\end{equation*}\]</span></p>
+<p>A typical problem we may later want to investigate is whether two random variables are in fact independent. This will be discussed later in the section.</p>
+<section id="marginal-probabilities" class="level3" data-number="12.4.1">
+<h3 data-number="12.4.1" class="anchored" data-anchor-id="marginal-probabilities"><span class="header-section-number">12.4.1</span> Marginal Probabilities</h3>
+<p>Let us replicate the earlier table with joint probabilities</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 22%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Probabilities</th>
+<th>machine (<span class="math inline">\(Y\)</span>)</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>player (<span class="math inline">\(X\)</span>)</td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(4\)</span></td>
+<td><span class="math inline">\(5\)</span></td>
+<td>Row Total</td>
+</tr>
+<tr class="even">
+<td>1</td>
 <td>0.08</td>
 <td>0.08</td>
 <td>0.08</td>
@@ -634,7 +767,7 @@ Solution
 <td>0.02</td>
 <td>0.02</td>
 <td>0.02</td>
-<td><span class="math inline">\(\textcolor{orange}{0.10}\)</span></td>
+<td><span class="math inline">\(\textcolor{orange}{0.50}\)</span></td>
 </tr>
 <tr class="even">
 <td>5</td>
@@ -652,12 +785,1226 @@ Solution
 <td><span class="math inline">\(\textcolor{blue}{0.20}\)</span></td>
 <td><span class="math inline">\(\textcolor{blue}{0.20}\)</span></td>
 <td><span class="math inline">\(\textcolor{blue}{0.20}\)</span></td>
-<td>0.20</td>
+<td>1.00</td>
 </tr>
 </tbody>
 </table>
-<p>You may think that making the probabilities of the numbers on the tickets uneven was somewhat strange. That does mimic a very real issue. When people choose numbers (e.g.&nbsp;for lottery tickets or for passwords) they do not choose random numbers, they choose “lucky” numbers. Lucky numbers are often dates (birthdays, wedding days, etc.). That implies that people choose numbers from 1 - 12 and again numbers from 1 - 31 more often than numbers that are larger than 31. If you do choose such “lucky” numbers you are not less likely to win, but if you win you will have to share the prize with more people!</p>
+<p>Given a joint probability distribution</p>
+<p><span class="math display">\[\begin{equation*}
+    p\left( x,y\right) =\Pr \left( X=x,Y=y\right)
+\end{equation*}\]</span></p>
+<p>for the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, a probability of the form <span class="math inline">\(\Pr \left(X=x\right)\)</span> or <span class="math inline">\(\Pr \left(Y=y\right)\)</span> is called a marginal probability. You can remember the term marginal probabilities as in the above joint probability table these probabilities appeared in the margin of the table. The collection of these probabilities for all values of <span class="math inline">\(X\)</span> is the marginal probability distribution for <span class="math inline">\(X\)</span> (in the above table illustrated by the orange coloured numbers),</p>
+<p><span class="math display">\[\begin{equation*}
+    p_{X}\left( x\right) =\Pr \left( X=x\right) .
+\end{equation*}\]</span></p>
+<p>If it is clear from the context, write <span class="math inline">\(p_{X}\left( x\right)\)</span> as <span class="math inline">\(p\left(x\right)\)</span>.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \Pr \left( X=x\right) &amp;=&amp;\Pr \left( X=x,Y=1\right) +\Pr \left( X=x,Y=2\right)+\Pr \left( X=x,Y=3\right) +\\
+    &amp;&amp;\Pr \left( X=x,Y=4\right)+\Pr \left( X=x,Y=5\right)
+\end{eqnarray*}\]</span></p>
+<p>the sum of all the joint probabilities contributing to <span class="math inline">\(X=x\)</span>. So, marginal probability distributions are found by summing joint probabilities over all the values of the other variable:</p>
+<p><span class="math display">\[\begin{equation*}
+    p_{X}\left( x\right) =\sum_{y}p\left( x,y\right) ,\;\;\;\;\;p_{Y}\left(y\right) =\sum_{x}p\left( x,y\right) .
+\end{equation*}\]</span></p>
+<p>Confirm for yourself that orange marginal probabilities are the sum of the respective row of joint probabilities.</p>
+<p>Notice that a marginal probability distribution has to satisfy the usual properties expected of a probability distribution (for a discrete random variable):</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    0 &amp;\leq &amp;p_{X}\left( x\right) \leq 1,\;\;\;\;\;\sum_{x}p_{X}\left( x\right)=1, \\
+    0 &amp;\leq &amp;p_{Y}\left( y\right) \leq 1,\;\;\;\;\;\sum_{y}p_{Y}\left( y\right)=1.
+\end{eqnarray*}\]</span></p>
+<p>In the above table we can also see the marginal probability for the random variable <span class="math inline">\(Y\)</span>, <span class="math inline">\(p_{Y}\left( y\right)\)</span>, this is the probability distribution coloured in blue. Each of these probabilities equal the sum of the respective column of joint probabilities.</p>
+<p>The joint probability distribution contains all the information there is about these two random variables. That means we can infer, from that information, the expected values, variances and the correlation between the variables. We will see later how to derive the correlation from the joint probability distribution. Here we will use these marginal probabilities to calculate expected values and variances of the two random variables:</p>
+<section id="example-3" class="level4 callout-info" data-number="12.4.1.1">
+<h4 data-number="12.4.1.1" class="anchored" data-anchor-id="example-3"><span class="header-section-number">12.4.1.1</span> Example</h4>
+<p>By calculation, we can find the expected value and variance of <span class="math inline">\(X\)</span>, using the formula established in the discrete random variable section:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+        E\left[ X\right] &amp;=&amp; \sum_{X=1}^{5} p_X(x) x = 0.4 \cdot 1 + 0.2 \cdot 2 +0.05 \cdot 3+ 0.10 \cdot 4 + 0.25 \cdot 5 = 2.60\\
+        Var\left[ X\right] &amp;=&amp; E[X^2]-E[X]^2=  (0.4 \cdot 1^2 + 0.2 \cdot 2^2 +0.05 \cdot 3^2+ 0.10 \cdot 4^2 + 0.25 \cdot 5^2)-2.6^2=2.74.
+\end{eqnarray*}\]</span></p>
 </section>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the expected value and variance of <span class="math inline">\(Y\)</span>,</p>
+<p><span class="math inline">\(E[Y] =\)</span> <input class="webex-solveme nospaces" size="1" data-answer="[&quot;3&quot;]"></p>
+<p><span class="math inline">\(Var[Y] =\)</span> <input class="webex-solveme nospaces" size="1" data-answer="[&quot;2&quot;]"></p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p><span class="math display">\[\begin{eqnarray*}
+    E\left[ Y\right] &amp;=&amp; \sum_{y=1}^{5} p_Y(y) y = 0.2 \cdot 1 + 0.2 \cdot 2 +0.2 \cdot 3+ 0.2 \cdot 4 + 0.2 \cdot 5 = 3.00\\
+    Var\left[ Y\right] &amp;=&amp; E[Y^2]-E[Y]^2=  (0.2 \cdot 1^2 + 0.2 \cdot 2^2 +0.2 \cdot 3^2+ 0.2 \cdot 4^2 + 0.2 \cdot 5^2)-3^2=2.00.
+\end{eqnarray*}\]</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="independence-covariance-and-correlation" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="independence-covariance-and-correlation"><span class="header-section-number">12.5</span> Independence, Covariance and Correlation</h2>
+<p>Joint probability distributions have interesting characteristics that are irrelevant (or better not defined) when we look at one random variable only. These characteristics describe how the two individual random variables relate to each other. The relevant concepts are independence, covariance and correlation and will be discussed in turn.</p>
+<section id="independence" class="level3" data-number="12.5.1">
+<h3 data-number="12.5.1" class="anchored" data-anchor-id="independence"><span class="header-section-number">12.5.1</span> Independence</h3>
+<p>Let’s first define the following joint probability</p>
+<p><span class="math display">\[\begin{equation*}
+    p\left( x,y\right) =\Pr \left( X=x,Y=y\right) ,
+\end{equation*}\]</span></p>
+<p>which represents the probability that simultaneously <span class="math inline">\(X=x\)</span> and <span class="math inline">\(Y=y\)</span>. Also <span class="math inline">\(p\left( x\right)\)</span> and <span class="math inline">\(p\left(y\right)\)</span> are defined as the respective marginal probabilities.</p>
+<p>Before discussing the definition of independence it is worth recalling a result of the Bayes’ Theorem, that was discussed earlier in the Conditional Probability Section. That Theorem established that a conditional probability was to be calculated according to</p>
+<p><span class="math display">\[\begin{equation*}
+    p\left( x|y\right) = \frac{p\left( x,y\right)}{p(y)}.
+\end{equation*}\]</span></p>
+<p>From this it follows that the joint probability can be derived from</p>
+<p><span class="math display">\[\begin{equation*}
+    p\left( x,y\right) = p\left(y\right) p\left( x|y\right).
+\end{equation*}\]</span></p>
+<p>The remarkable feature of this result is that it is always valid regardless of how the two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> relate to each other. There is one special case of relation between the two random variables, that special case is called <strong>independence</strong>.</p>
+<p>Let’s think of our little toy example of incomes of two partners in a household, say a husband and wife. Each of these have marginal distributions. So if you just picked a husband in any household, the marginal distribution <span class="math inline">\(p(h)\)</span> tells you all there is to know about the possible incomes for that husband. If the random variables <span class="math inline">\(H\)</span> and <span class="math inline">\(W\)</span> were not independent (i.e.&nbsp;dependent) then knowing what the household’s wife’s income is would change that probability. For instance it could be that knowing that the wife’s income is high (UKP 200) makes it more likely that the husband’s income is also high. In that case <span class="math inline">\(p(h|w=200) \neq p(h)\)</span>. If the two random variables were independent then knowing what the wife’s income is does not change the probability distribution of the husband’s income, <span class="math inline">\(p(h|w=200) = p(h)\)</span>.</p>
+<p>The statistical definition of <strong>independence</strong> of the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is that for all values of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> the following relationship holds:</p>
+<p><span class="math display">\[\begin{equation*}
+    p\left( x,y\right) =p\left( x\right) p\left( y\right) .
+\end{equation*}\]</span></p>
+<p>If this relationship indeed holds for all values of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, the random variables<span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are said to be <strong>independent</strong>:</p>
+<ul>
+<li><p>Independence means that <span class="math inline">\(\Pr \left( Y=y\right)\)</span> would not be affected by knowing that <span class="math inline">\(X=x\)</span>: knowing the value taken on by one random variable does not affect the probabilities of the outcomes of the other random variable. This is also expressed by the following relationship that <strong>is only valid if X and Y are independent</strong>:</p>
+<p><span class="math display">\[\begin{equation*}
+      p\left( x,y\right) =p\left( x\right) p\left( y\right) .
+  \end{equation*}\]</span></p></li>
+</ul>
+<p>Each joint probability is the product of the corresponding marginal probabilities.</p>
+<ul>
+<li>A corollary of this is that if two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then there can be no relationship of any kind, linear or non-linear, between them.</li>
+</ul>
+<p>In this video we go through an example of two categorical random variables (Study effort and Exam result) which we examine for independence (YouTube, 14min).</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/R3WZMM4pJv8" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="example-4" class="level4 callout-info" data-number="12.5.1.1">
+<h4 data-number="12.5.1.1" class="anchored" data-anchor-id="example-4"><span class="header-section-number">12.5.1.1</span> Example</h4>
+<pre><code>The joint probabilities and marginal probabilities (taken from the household incomes example) are</code></pre>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th><span class="math inline">\(H:\)</span></th>
+<th></th>
+<th></th>
+<th>Row Sums</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Probabilities</td>
+<td></td>
+<td>UKP <span class="math inline">\(0\)</span></td>
+<td>UKP <span class="math inline">\(100\)</span></td>
+<td>UKP <span class="math inline">\(200\)</span></td>
+<td>$p_{W}( w) $</td>
+</tr>
+<tr class="even">
+<td>Values of <span class="math inline">\(W:\)</span></td>
+<td>UKP <span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0.05\)</span></td>
+<td><span class="math inline">\(0.15\)</span></td>
+<td><span class="math inline">\(0.10\)</span></td>
+<td><span class="math inline">\(0.30\)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>UKP <span class="math inline">\(100\)</span></td>
+<td><span class="math inline">\(0.10\)</span></td>
+<td><span class="math inline">\(0.10\)</span></td>
+<td><span class="math inline">\(0.30\)</span></td>
+<td><span class="math inline">\(0.50\)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>UKP <span class="math inline">\(200\)</span></td>
+<td><span class="math inline">\(0.05\)</span></td>
+<td><span class="math inline">\(0.05\)</span></td>
+<td><span class="math inline">\(0.10\)</span></td>
+<td><span class="math inline">\(0.20\)</span></td>
+</tr>
+<tr class="odd">
+<td>Column Sums: $p_{H}( h) $</td>
+<td></td>
+<td><span class="math inline">\(0.20\)</span></td>
+<td><span class="math inline">\(0.30\)</span></td>
+<td><span class="math inline">\(0.50\)</span></td>
+<td><span class="math inline">\(1.00\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>If the two variables were independent we should be able to reconstruct the joint probabilities using the formula that is only valid in the case of independence: <span class="math inline">\(p\left( h,w\right) =p(h) p(w)\)</span>. Let’s try that for the outcome <span class="math inline">\((H=0, W=0)\)</span> for which the table shows <span class="math inline">\(p\left( 0,0\right) =0.05\)</span>. If <span class="math inline">\(H\)</span> and <span class="math inline">\(W\)</span> were independent this should be</p>
+<p><span class="math display">\[\begin{equation*}
+    p(0,0)= p(h=0) p(w=0)=0.2 \cdot 0.3 = 0.06
+\end{equation*}\]</span></p>
+<p>The result is not identical and hence this potentially provides evidence that the variables <span class="math inline">\(H\)</span> and <span class="math inline">\(W\)</span> in the above joint distribution are not independent.</p>
+<p>For <span class="math inline">\(H\)</span> and <span class="math inline">\(W\)</span> to be independent, <span class="math inline">\(p\left( h,w\right) =p_{H}\left( h\right) p_{W}\left( w\right)\)</span> has to hold for all <span class="math inline">\(h,w\)</span>. Finding one pair of values <span class="math inline">\(h,w\)</span> for which this fails is sufficient to conclude that <span class="math inline">\(H\)</span> and <span class="math inline">\(W\)</span> are not independent.</p>
+<p>However, the two values are very close. If the joint probabilities in the above table come from sample information then we should expect some sample variation even if the two variables were independent. In a later section we will see how we would use sample information to test whether two variables are independent. Such a test will be based on comparing these two numbers.</p>
+</section>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Continuing with the above example, what would be the following joint probabilities if <span class="math inline">\(H\)</span> and <span class="math inline">\(W\)</span> were independent (where we now, for simplicity, represent UKP 100 by 1)?</p>
+<ul>
+<li><span class="math inline">\(p(0,2)=\)</span> <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.25&quot;,&quot;.25&quot;]"></li>
+<li><span class="math inline">\(p(2,1)=\)</span> <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.25&quot;,&quot;.25&quot;]"></li>
+<li><span class="math inline">\(p(1,2)=\)</span> <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.06&quot;,&quot;.06&quot;]"></li>
+</ul>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<ul>
+<li><span class="math inline">\(p(0,2)= p(h=0) p(w=2)=0.2 \cdot 0.2 = 0.04\)</span></li>
+<li><span class="math inline">\(p(2,1)= p(h=0) p(w=2)=0.5 \cdot 0.5 = 0.25\)</span></li>
+<li><span class="math inline">\(p(1,2)= p(h=0) p(w=2)=0.3 \cdot 0.2 = 0.06\)</span></li>
+</ul>
+</div>
+<p>Is any of these probabilities (calculated under the assumption of independence) equal to the respective joint probability? <select class="webex-select"><option value="blank"></option><option value="answer">No</option><option value="">Yes</option></select></p>
+</div>
+</div>
+</section>
+</section>
+<section id="covariance-and-correlation" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="covariance-and-correlation"><span class="header-section-number">12.6</span> Covariance and Correlation</h2>
+<p>We previously discussed how the sample covariance and in particular the sample correlation coefficient could be used to establish whether sample data for two variables display a linear relationship. When we know the joint probability distribution we can calculate the population equivalent of these two measures. Recall that the (population) correlation coefficient is really only a measure of strength of any linear relationship between the random variables.</p>
+<section id="covariance" class="level3" data-number="12.6.1">
+<h3 data-number="12.6.1" class="anchored" data-anchor-id="covariance"><span class="header-section-number">12.6.1</span> Covariance</h3>
+<p>The first step is to define the (population) covariance as a characteristic of the joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Let</p>
+<p><span class="math display">\[\begin{equation*}
+    E\left[ X\right] =\mu _{X},\;\;\;\;\;E\left[ Y\right] =\mu _{Y}.
+\end{equation*}\]</span></p>
+<p>The (population) covariance is defined as</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    cov\left[ X,Y\right] &amp;=&amp;E\left[ \left( X-\mu _{X}\right) \left(Y-\mu _{Y}\right) \right] \\
+        &amp;=&amp;\sigma _{XY}.
+\end{eqnarray*}\]</span></p>
+<p>Notice that $cov=cov$. <span class="math inline">\(cov\left[ X,Y\right] &gt;0\)</span> represents a positive relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, <span class="math inline">\(cov\left[ X,Y\right] &lt;0\)</span> means a negative relationship.</p>
+<p>There are a number of alternative expressions for the covariance. Let us note that <span class="math inline">\(\left( X-\mu _{X}\right) \left( Y-\mu _{Y}\right)\)</span> can be seen as a function of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, <span class="math inline">\(g(X,Y)=\left( X-\mu _{X}\right) \left( Y-\mu _{Y}\right)\)</span>. We can think of <span class="math inline">\(cov\left[ X,Y\right] =E[g(X,Y)]\)</span> and then apply the general formula for the expectation of this function of the random variables.</p>
+<p><span class="math display">\[\begin{equation*}
+        cov\left[ X,Y\right] =\sum_{x}\sum_{y}\left( x-\mu _{X}\right)\left( y-\mu _{Y}\right) p\left( x,y\right)
+\end{equation*}\]</span></p>
+<p>We can see from this expression that if enough <span class="math inline">\(\left( x,y\right)\)</span> pairs have <span class="math inline">\(x-\mu _{X}\)</span> and <span class="math inline">\(y-\mu _{Y}\)</span> values with the same sign, <span class="math inline">\(cov\left[ X,Y\right] &gt;0\)</span>, so that large (small) values of <span class="math inline">\(x-\mu _{X}\)</span> tend to occur with large (small) values of <span class="math inline">\(y-\mu _{Y}\)</span>. Similarly, if enough <span class="math inline">\(\left( x,y\right)\)</span> pairs have <span class="math inline">\(x-\mu _{X}\)</span> and <span class="math inline">\(y-\mu _{Y}\)</span> values with different signs, <span class="math inline">\(cov\left[ X,Y\right] &lt;0\)</span>. Here, large (small) values of <span class="math inline">\(x-\mu _{X}\)</span> tend to occur with small (large) values of <span class="math inline">\(y-\mu _{Y}\)</span>.</p>
+<p>There is a shorthand calculation for covariance, analogous to that given for the variance in the discrete random variable section:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+        cov\left[ X,Y\right] &amp;=&amp;E\left[ \left( X-\mu _{X}\right) \left(Y-\mu _{Y}\right) \right] \\
+        &amp;=&amp;E\left[ XY-X\mu _{Y}-\mu _{X}Y+\mu _{X}\mu _{Y}\right] \\
+        &amp;=&amp;E\left[ XY\right] -E\left[ X\right] \mu _{Y}-\mu _{X}E\left[ Y\right]+\mu _{X}\mu _{Y} \\
+        &amp;=&amp;E\left[ XY\right] -\mu _{X}\mu _{Y}-\mu _{X}\mu _{Y}+\mu _{X}\mu _{Y} \\
+        &amp;=&amp;E\left[ XY\right] -\mu _{X}\mu _{Y}.
+\end{eqnarray*}\]</span></p>
+<p>As in the earlier section on linear transformations of random variables, the expected value of a sum of terms is equal to the sum of the expected values. Also, constants, like <span class="math inline">\(\mu_{X}\)</span> and <span class="math inline">\(\mu_{Y}\)</span> can be drawn outside the expectations operator, such that <span class="math inline">\(E\left[ X\mu _{Y}\right] =E\left[ X\right] \mu _{Y}\)</span>.</p>
+<p>Even with this shorthand method, the calculation of the covariance is rather tedious. To calculate <span class="math inline">\(cov\left[ W,H\right]\)</span> in the income example, the best approach is to imitate the way in which <span class="math inline">\(E\left[ T\right]\)</span> was calculated above. Rather than display the values of <span class="math inline">\(T\)</span> (total income), here we display the values of <span class="math inline">\(w\times h\)</span> as we need to calculate <span class="math inline">\(E\left[ WH\right]\)</span> as part of the variance calculation using the shorthand formula:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 13%">
+<col style="width: 25%">
+<col style="width: 28%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th><span class="math inline">\(h\)</span></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\((w imes h)\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(100\)</span></td>
+<td><span class="math inline">\(200\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(w\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(\left( 0\right) \;0.05\)</span></td>
+<td><span class="math inline">\(\left( 0\right) \;0.15\)</span></td>
+<td><span class="math inline">\(\left(0\right) \;0.10\)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(100\)</span></td>
+<td><span class="math inline">\(\left( 0\right) \;0.10\)</span></td>
+<td><span class="math inline">\(\left( 10000\right) \;0.10\)</span></td>
+<td><span class="math inline">\(\left(20000\right) \;0.30\)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><span class="math inline">\(200\)</span></td>
+<td><span class="math inline">\(\left( 0\right) \;0.05\)</span></td>
+<td><span class="math inline">\(\left( 20000\right) \;0.05\)</span></td>
+<td><span class="math inline">\(\left(40000\right) \;0.10\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Therefore, using the same strategy of multiplication within cells, and adding up along each row in turn, we find the following</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    E\left[ WH\right] &amp;=&amp;\left( 0\right) \times 0.05+\left( 0\right) \times 0.15+\left( 0\right) \times 0.10 \\
+    &amp;&amp;+\left( 0\right) \times 0.10+\left( 10000\right) \times 0.10+\left(20000\right) \times 0.30 \\
+    &amp;&amp;+\left( 0\right) \times 0.05+\left( 20000\right) \times 0.05+\left(40000\right) \times 0.10 \\
+    &amp;=&amp;1000+6000+1000+4000 \\
+    &amp;=&amp;12000.
+\end{eqnarray*}\]</span></p>
+<p>Previously we found that <span class="math inline">\(E\left[ W\right] =90\)</span> and <span class="math inline">\(E\left[ H\right] =130\)</span>, so that</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    Cov\left[ W,H\right] &amp;=&amp;E\left[ WH\right] -E\left[ W\right] E\left[H\right] \\
+    &amp;=&amp;12000-\left( 90\right) \left( 130\right) \\
+    &amp;=&amp;300.
+\end{eqnarray*}\]</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the following joint probability distribution for random variables <span class="math inline">\(R\)</span> and <span class="math inline">\(Q\)</span> both of which can take values of ether 0 or 1 (this is what we call a binary random variable). Complete the table by calculating the respective marginal probabilities.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 21%">
+<col style="width: 23%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p(q,r)\)</span></th>
+<th><span class="math inline">\(q=0\)</span></th>
+<th><span class="math inline">\(q=1\)</span></th>
+<th><span class="math inline">\(Pr(r)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(r=0\)</span></td>
+<td>0.05</td>
+<td>0.25</td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.3&quot;,&quot;.3&quot;]"></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(r=1\)</span></td>
+<td>0.15</td>
+<td>0.55</td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.7&quot;,&quot;.7&quot;]"></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Pr(q)\)</span></td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.2&quot;,&quot;.2&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.8&quot;,&quot;.8&quot;]"></td>
+<td>1.00</td>
+</tr>
+</tbody>
+</table>
+<p>Calculate:</p>
+<p><span class="math inline">\(E[Q]=\)</span> <input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.8&quot;,&quot;.8&quot;]"></p>
+<p><span class="math inline">\(E[R]=\)</span> <input class="webex-solveme nospaces" size="3" data-answer="[&quot;0.7&quot;,&quot;.7&quot;]"></p>
+<p>Complete the following table of <span class="math inline">\(q \cdot r\)</span> values to facilitate the calculation of <span class="math inline">\(Cov[R,Q]\)</span>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 28%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(q \cdot r\)</span></th>
+<th><span class="math inline">\(q=0\)</span></th>
+<th><span class="math inline">\(q=1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(r=0\)</span></td>
+<td><input class="webex-solveme nospaces" size="1" data-answer="[&quot;0&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="1" data-answer="[&quot;0&quot;]"></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(r=1\)</span></td>
+<td><input class="webex-solveme nospaces" size="1" data-answer="[&quot;0&quot;]"></td>
+<td><input class="webex-solveme nospaces" size="1" data-answer="[&quot;1&quot;]"></td>
+</tr>
+</tbody>
+</table>
+<p>Calculate:</p>
+<p><span class="math inline">\(E[RQ]=\)</span> <input class="webex-solveme nospaces" size="4" data-answer="[&quot;0.55&quot;,&quot;.55&quot;]"></p>
+<p><span class="math inline">\(Cov[R,Q]=\)</span> <input class="webex-solveme nospaces" size="5" data-answer="[&quot;-0.01&quot;,&quot;-.01&quot;]"></p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p><span class="math display">\[\begin{eqnarray*}
+    Cov\left[ R,Q\right] &amp;=&amp;E\left[ RQ\right] -E\left[ R\right] E\left[Q\right] \\
+    &amp;=&amp;0.55- (0.8 \cdot 0.7) \\
+    &amp;=&amp;-0.01
+\end{eqnarray*}\]</span></p>
+</div>
+</div>
+</div>
+<p>For an individual random variable <span class="math inline">\(X\)</span> we previously learned how expectations and variances of linear transformation of that random variable relates to the characteristics of <span class="math inline">\(X\)</span> itself. In particular you learned that</p>
+<p>We can ask the same question about the covariance of two linearly transformed random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, e.g.&nbsp;<span class="math inline">\(Q=b X+c\)</span> and <span class="math inline">\(Z = d Y+e\)</span> . Here is the result</p>
+<p>The additive terms are irrelevant for the covariance (as they are for the variance) and the two factors are drawn outside of the covariance operator.</p>
+<section id="example-5" class="level4 callout-info" data-number="12.6.1.1">
+<h4 data-number="12.6.1.1" class="anchored" data-anchor-id="example-5"><span class="header-section-number">12.6.1.1</span> Example</h4>
+<p>You have two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with the following properties: <span class="math inline">\(E[X] = 3, Var[X]=2, E[Y] = -4, Var[Y] = 3\)</span> and <span class="math inline">\(Cov[X,Y] = 1.22\)</span>.</p>
+<p>Consider the two linear transformations, <span class="math inline">\(Q=2+8X\)</span> and <span class="math inline">\(Z=-6-4Y\)</span>. What are the following?</p>
+<ul>
+<li><span class="math inline">\(E[Q] =\)</span> <input class="webex-solveme nospaces" size="2" data-answer="[&quot;26&quot;]"></li>
+<li><span class="math inline">\(Var[Q] =\)</span> <input class="webex-solveme nospaces" size="3" data-answer="[&quot;128&quot;]"></li>
+<li><span class="math inline">\(E[Z] =\)</span> <input class="webex-solveme nospaces" size="2" data-answer="[&quot;10&quot;]"></li>
+<li><span class="math inline">\(Var[Z] =\)</span> <input class="webex-solveme nospaces" size="2" data-answer="[&quot;48&quot;]"></li>
+<li><span class="math inline">\(Cov[Q,Z] =\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;-39.04&quot;]"></li>
+</ul>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<ul>
+<li><span class="math inline">\(E[Q] = 2+8 E[X] = 26\)</span></li>
+<li><span class="math inline">\(Var[Q] = 8^2 Var[X] = 64 \cdot 2 = 128\)</span></li>
+<li><span class="math inline">\(E[Z] = -6-4 E[Y] = -6-4 \cdot (-4) = -6+16=10\)</span></li>
+<li><span class="math inline">\(Var[Z] = (-4)^2 Var[Y] = 16 \cdot 3 = 48\)</span></li>
+<li><span class="math inline">\(Cov[Q,Z] = 8 \cdot (-4) Cov[X,Y]= -32 \cdot 1.22 = -39.04\)</span></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="additional-resources" class="level3" data-number="12.6.2">
+<h3 data-number="12.6.2" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">12.6.2</span> Additional Resources</h3>
+<ul>
+<li>The link between covariance and regressions from the <a href="https://www.khanacademy.org/math/probability/regression/regression-correlation/v/covariance-and-the-regression-line%7D%7BKhan%20Academy">Khan Academy</a>.</li>
+</ul>
+</section>
+</section>
+<section id="strength-of-association-and-units-of-measurement" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="strength-of-association-and-units-of-measurement"><span class="header-section-number">12.7</span> Strength of Association and Units of Measurement</h2>
+<p>How does covariance measure the <strong>strength</strong> of a relationship between two random variables? Not well is the answer, because the value of the covariance is dependent on the units of measurement. Take the above example in which both random variables <span class="math inline">\(W\)</span> and <span class="math inline">\(H\)</span> captured the income in UKP. When we calculated <span class="math inline">\(cov\left[ W,H\right]\)</span> we needed to calculate terms like <span class="math inline">\(100 \times 100\)</span> and hence the units of measurement of the covariance is UKP<span class="math inline">\(^2\)</span> which is difficult to interpret.</p>
+<p>Perhaps even more worrying, if we had calculated the covariance with 1 and 2 instead of 100 and 200 (and hence measuring income in 100s of pounds rather than pounds) we would have obtained a value of 0.03 (check this yourself by repeating the above calculation). Of course, we just changed the unit of measurement and nothing really has changed in the relationship between the two variables.</p>
+<p>In the section on Correlation and Regression as a descriptive statistic we only briefly mentioned covariance for exactly these reasons. There we introduced the correlation statistic as the preferred measure of (linear) association. As discussed there, the correlation statistics is actually based on the covariance statistic, but it does avoid the weaknesses just discussed.</p>
+</section>
+<section id="correlation" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="correlation"><span class="header-section-number">12.8</span> Correlation</h2>
+<p>What is required is a measure of the strength of association which is invariant to changes in units of measurement. Recall that the (population) <strong>correlation coefficient</strong> between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is defined by</p>
+<p><span class="math display">\[\begin{equation*}
+    \rho _{XY}=\dfrac{cov\left[ X,Y\right] }{\sqrt{var\left[
+            X\right] var\left[ Y\right] }}.
+\end{equation*}\]</span></p>
+<p>This is also the correlation between <span class="math inline">\(\alpha X\)</span> and <span class="math inline">\(\beta Y\)</span> as we can see when we apply the rules for linear transformations discussed earlier:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \rho _{\alpha X,\beta Y} &amp;=&amp;\dfrac{cov\left[ \alpha X,\beta Y\right] }{\sqrt{var\left[ \alpha X\right] var\left[\beta Y\right] }} \\
+    &amp;=&amp;\dfrac{\alpha \beta cov\left[ X,Y\right] }{\sqrt{\alpha^{2}\beta ^{2}var\left[ X\right] var\left[ Y\right] }} \\
+    &amp;=&amp;\rho _{XY},
+\end{eqnarray*}\]</span></p>
+<p>The correlation coefficient does not depend on the units of measurement.</p>
+<p>You got to be careful with the above formula. You will note that, to get to the last line we had to rely on the term</p>
+<p><span class="math display">\[\begin{equation*}
+\frac{\alpha~\beta}{\sqrt{\alpha^2~\beta^2}}=\frac{\alpha~\beta}{|\alpha|~|\beta|}=1
+\end{equation*}\]</span></p>
+<p>cancelling out. And this will indeed happen if both <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> have the same sign. However, if the two coefficients have opposite signs, say, <span class="math inline">\(\alpha &lt;0\)</span> and <span class="math inline">\(\beta&gt;0\)</span>, then the result will actually be</p>
+<p><span class="math display">\[\begin{equation*}
+    \frac{\alpha~\beta}{\sqrt{\alpha^2~\beta^2}}=\frac{\alpha~\beta}{|\alpha|~|\beta|}=(-1)
+\end{equation*}\]</span></p>
+<p>This means that in such a case <span class="math inline">\(\rho _{\alpha X,\beta Y}=-\rho _{X,Y}\)</span>, meaning that the strength of the correlation remains the same but the sign changes.</p>
+<p>For the income example we calculated the covariance statistic to be 300. If we calculate the variances, <span class="math inline">\(var[H]\)</span> and <span class="math inline">\(var[W]\)</span> we will get <span class="math inline">\(var[H]=6100\)</span> and <span class="math inline">\(var[W]=4900\)</span> respectively when using the UKP as the unit of measurement. We then get</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \rho _{WH} &amp;=&amp;\dfrac{300}{\sqrt{\left( 4900\right) \left( 6100\right) }} \\
+    &amp;=&amp;0.0549.
+\end{eqnarray*}\]</span></p>
+<p>Is this indicative of a strong relationship? Just like the sample correlation coefficient of the Regression and Correlation Section, it can be shown that</p>
+<ul>
+<li>the correlation coefficient <span class="math inline">\(\rho _{XY}\)</span> always satisfies <span class="math inline">\(-1\leqslant \rho _{XY}\leqslant 1\)</span>.</li>
+<li>The closer $$ is to <span class="math inline">\(1\)</span> or <span class="math inline">\(-1\)</span>, the stronger the relationship.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/correlation_coefficient.png" class="img-fluid figure-img"></p>
+<figcaption>Correlation coefficient, strength and direction</figcaption>
+</figure>
+</div>
+<p>So, <span class="math inline">\(\rho_{WH}=0.0549\)</span> is indicative of a very weak relationship.</p>
+<p>It can shown that if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are exactly linearly related by</p>
+<p><span class="math display">\[\begin{equation*}
+    Y=a+bX \quad \text{with\ \ \ }b&gt;0
+\end{equation*}\]</span></p>
+<p>then <span class="math inline">\(\rho _{XY}=1\)</span> - that is, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are perfectly correlated. <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are also perfectly correlated if they are exactly linearly related by</p>
+<p><span class="math display">\[\begin{equation*}
+    Y=a+bX \quad \text{with\ \ \ }b&lt;0,
+\end{equation*}\]</span></p>
+<p>but <span class="math inline">\(\rho _{XY}=-1\)</span>. Thus correlation measures the strength of a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. It is important to remember that correlation does not imply causation.</p>
+<p>Other notations for the correlation coefficient are</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \rho _{XY}&amp;=&amp;\dfrac{\sigma _{XY}}{\sigma _{X}\sigma _{Y}}\\
+    \rho _{XY}&amp;=&amp;\dfrac{E\left[ \left( X-\mu _{X}\right) \left( Y-\mu _{Y}\right) \right] }{\sqrt{E\left[ \left( X-\mu _{X}\right) ^{2}\right] E\left[ \left(Y-\mu _{Y}\right) ^{2}\right] }}.
+\end{eqnarray*}\]</span></p>
+<p>which uses covariance and standard deviation notation, and recognises the definitions of covariances and variances.</p>
+<section id="example-6" class="level4 callout-info" data-number="12.8.0.1">
+<h4 data-number="12.8.0.1" class="anchored" data-anchor-id="example-6"><span class="header-section-number">12.8.0.1</span> Example</h4>
+<p>You have two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with the following properties: <span class="math inline">\(E[X] = 3, Var[X]=2, E[Y] = -4, Var[Y] = 3\)</span> and <span class="math inline">\(Cov[X,Y] = 1.22\)</span>.</p>
+<p>Consider the two linear transformations, <span class="math inline">\(Q=2+8X\)</span> and <span class="math inline">\(Z=-6-4Y\)</span>. What are the following?</p>
+<ul>
+<li><span class="math inline">\(E[Q] =\)</span>
+<div class="webex-solution">
+<button>
+26
+</button>
+</div></li>
+<li><span class="math inline">\(Var[Q] =\)</span>
+<div class="webex-solution">
+<button>
+128
+</button>
+</div></li>
+<li><span class="math inline">\(E[Z] =\)</span>
+<div class="webex-solution">
+<button>
+10
+</button>
+</div></li>
+<li><span class="math inline">\(Var[Z] =\)</span>
+<div class="webex-solution">
+<button>
+48
+</button>
+</div></li>
+<li><span class="math inline">\(Cov[Q,Z] =\)</span>
+<div class="webex-solution">
+<button>
+39.04
+</button>
+</div></li>
+<li><span class="math inline">\(Corr[X,Y] =\)</span>
+<div class="webex-solution">
+<button>
+0.4981
+</button>
+</div></li>
+<li><span class="math inline">\(Corr[Q,Z] =\)</span>
+<div class="webex-solution">
+<button>
+0.4981
+</button>
+</div></li>
+</ul>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<ul>
+<li><span class="math inline">\(E[Q] = 2+8 E[X] = 26\)</span></li>
+<li>$Var[Q] = 8^2 Var[X] = 64 = 128 $</li>
+<li><span class="math inline">\(E[Z] = -6-4 E[Y] = -6-4 \cdot (-4) = -6+16=10\)</span></li>
+<li>$Var[Z] = (-4)^2 Var[Y] = 16 = 48 $</li>
+<li><span class="math inline">\(Cov[Q,Z] = 8 \cdot (-4) Cov[X,Y]= -32 \cdot 1.22= 39.04\)</span></li>
+<li><span class="math inline">\(Corr[X,Y] = \frac{Cov[X,Y]}{\sqrt{Var[X]Var[Y]}}=\frac{1.22}{\sqrt{2\cdot3}}= 0.4981\)</span></li>
+<li><span class="math inline">\(Corr[Q,Z] = \frac{Cov[Q,Z]}{\sqrt{Var[Q]Var[Z]}}= \frac{39.04}{\sqrt{128\cdot48}}= 0.4981\)</span></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="the-relation-between-correlation-covariance-and-independence" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="the-relation-between-correlation-covariance-and-independence"><span class="header-section-number">12.9</span> The relation between Correlation, Covariance and Independence</h2>
+<p>Non-zero correlation and covariance between random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> indicate some linear association between them, whilst independence of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> implies no relationship or association of any kind between them. So, it is not surprising that</p>
+<ul>
+<li><strong>independence</strong> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> implies <strong>zero covariance</strong>: <span class="math inline">\(Cov\left[ X,Y\right] =0\)</span>;</li>
+<li><strong>independence</strong> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> implies <strong>zero correlation</strong>: <span class="math inline">\(\rho _{XY}=0\)</span>.</li>
+</ul>
+<p>The converse is not true, in general:</p>
+<ul>
+<li><strong>zero covariance or correlation</strong> does not imply independence.</li>
+</ul>
+<p>The reason is that there may be a relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> which is not linear.</p>
+<section id="example-7" class="level4 callout-info" data-number="12.9.0.1">
+<h4 data-number="12.9.0.1" class="anchored" data-anchor-id="example-7"><span class="header-section-number">12.9.0.1</span> Example</h4>
+<p>Here is an example of a joint probability distribution.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th><span class="math inline">\(y\)</span></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(p(x,y)\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0.1\)</span></td>
+<td><span class="math inline">\(0.02\)</span></td>
+<td><span class="math inline">\(0.2\)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(0.08\)</span></td>
+<td><span class="math inline">\(0.2\)</span></td>
+<td><span class="math inline">\(0.05\)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(0.25\)</span></td>
+<td><span class="math inline">\(0.05\)</span></td>
+<td><span class="math inline">\(0.05\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Can you use the information, without going through a full correlation calculation to see whether, here, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent or not and whether there is correlation between the two random variables?</p>
+<p>The answer is, they are not independent and there is a negative correlation. To illustrate that it may be useful to think graphically about this distribution. Let us firstly graphically display the joint probability distribution.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/jointpmf1.png" class="img-fluid figure-img"></p>
+<figcaption>Joint probability distribution</figcaption>
+</figure>
+</div>
+<p>From here you can see that the highest probability is for values where either <span class="math inline">\(X\)</span> is high and <span class="math inline">\(Y\)</span> is low or vice versa. So that indicates that there is a negative correlation. This would be even easier to see if you could see a sample of data randomly drawn from that distribution. In the following scatter diagram you can see just that. 100 observations were drawn from the above distribution. Each point is slightly randomly offset, such that you can see see which combinations have been generated more frequently.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/jointpmfsample1.png" class="img-fluid figure-img"></p>
+<figcaption>Joint probability mass function.</figcaption>
+</figure>
+</div>
+<p>You can see that a line of best fit would show a negative slope.</p>
+</section>
+<section id="example-8" class="level4 callout-info" data-number="12.9.0.2">
+<h4 data-number="12.9.0.2" class="anchored" data-anchor-id="example-8"><span class="header-section-number">12.9.0.2</span> Example</h4>
+<p>Here is another example of a joint probability distribution.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th><span class="math inline">\(y\)</span></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(p(x,y)\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0.25\)</span></td>
+<td><span class="math inline">\(0.03\)</span></td>
+<td><span class="math inline">\(0.05\)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(0.02\)</span></td>
+<td><span class="math inline">\(0.04\)</span></td>
+<td><span class="math inline">\(0.25\)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(0.25\)</span></td>
+<td><span class="math inline">\(0.03\)</span></td>
+<td><span class="math inline">\(0.08\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Can you use the information, without going through a full correlation calculation to see whether, here, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent or not and whether there is correlation between the two random variables?</p>
+<p>Let us firstly graphically display the joint probability distribution.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/jointpmf2.png" class="img-fluid figure-img"></p>
+<figcaption>Joint probability distribution</figcaption>
+</figure>
+</div>
+<p>The answer is, they are not independent. When <span class="math inline">\(X=2\)</span> then it is very likely that <span class="math inline">\(Y=3\)</span>, whereas for values for <span class="math inline">\(X\)</span> of 1 and 2, a value of <span class="math inline">\(Y=1\)</span> becomes much more likely. This can also be seen from a scatter plot of 100 randomly drawn pairs of observations (each point is slightly randomly offset, such that you can see see which combinations have been generated more frequently).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/jointpmfsample2.png" class="img-fluid figure-img"></p>
+<figcaption>Joint probability mass function.</figcaption>
+</figure>
+</div>
+<p>You can see that a line of best fit would likely show a zero slope. Let us actually calculate the covariance and calculation. We do this in this following video (YouTube, 14min).</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/2jBUJMFEQHA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here are three joint probability distributions. What are these distributions’ properties.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>D1</strong></th>
+<th></th>
+<th><span class="math inline">\(y\)</span></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(p(x,y)\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0.10\)</span></td>
+<td><span class="math inline">\(0.06\)</span></td>
+<td><span class="math inline">\(0.04\)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(0.25\)</span></td>
+<td><span class="math inline">\(0.15\)</span></td>
+<td><span class="math inline">\(0.10\)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(0.15\)</span></td>
+<td><span class="math inline">\(0.09\)</span></td>
+<td><span class="math inline">\(0.06\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In this distribution <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent random variables. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>The joint probabilities can be replicated from the marginal probabilities, hence the two variables are independent</p>
+</div>
+<p>In distribution <strong>D1</strong> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <select class="webex-select"><option value="blank"></option><option value="answer">not correlated</option><option value="">positively correlated</option><option value="">positively correlated</option></select></p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>As the two random variables are independent, the correlation is 0.</p>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>D2</strong></th>
+<th></th>
+<th><span class="math inline">\(y\)</span></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(p(x,y)\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0.25\)</span></td>
+<td><span class="math inline">\(0.03\)</span></td>
+<td><span class="math inline">\(0.28\)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(0.04\)</span></td>
+<td><span class="math inline">\(0.04\)</span></td>
+<td><span class="math inline">\(0.05\)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(0.03\)</span></td>
+<td><span class="math inline">\(0.26\)</span></td>
+<td><span class="math inline">\(0.02\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In this distribution (<strong>D2</strong>) <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent random variables. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>The joint probabilities can not be replicated from the marginal probabilities, hence the two variables are dependent</p>
+</div>
+<p>In distribution <strong>D2</strong> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <select class="webex-select"><option value="blank"></option><option value="answer">not correlated</option><option value="">positively correlated</option><option value="">positively correlated</option></select></p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>While the two variables are not independent (they are dependent), there is no correlation as the relationship is not a linear one. For low values of <span class="math inline">\(X\)</span> very high and very low values of <span class="math inline">\(Y\)</span> are more likely. You can think of this as a nonlinear (quadratic) relationship.</p>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>D3</strong></th>
+<th></th>
+<th><span class="math inline">\(y\)</span></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(p(x,y)\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0.25\)</span></td>
+<td><span class="math inline">\(0.09\)</span></td>
+<td><span class="math inline">\(0.01\)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(0.08\)</span></td>
+<td><span class="math inline">\(0.18\)</span></td>
+<td><span class="math inline">\(0.07\)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(0.01\)</span></td>
+<td><span class="math inline">\(0.10\)</span></td>
+<td><span class="math inline">\(0.21\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In this distribution (<strong>D3</strong>) <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent random variables. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>The Probabilities on the diagonal are higher. This is a sign of two dependent random variables.</p>
+</div>
+<p>In distribution <strong>D3</strong> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <select class="webex-select"><option value="blank"></option><option value="">not correlated</option><option value="answer">positively correlated</option><option value="">positively correlated</option></select></p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>If <span class="math inline">\(X\)</span> is low (high) lower (higher) values of <span class="math inline">\(Y\)</span> are more likely. This is the sign of a positive linear relationship.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="linear-combinations-of-several-random-variables" class="level2" data-number="12.10">
+<h2 data-number="12.10" class="anchored" data-anchor-id="linear-combinations-of-several-random-variables"><span class="header-section-number">12.10</span> Linear Combinations of Several Random Variables</h2>
+<p>Reconsider the previous example on the incomes of two partners in a household, where the random variables <span class="math inline">\(H\)</span> and <span class="math inline">\(W\)</span> represent the respective salaries. The joint probability distribution of <span class="math inline">\(H\)</span> and <span class="math inline">\(W\)</span> is given here, displaying <span class="math inline">\(p(h,w)\)</span>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th><span class="math inline">\(H\)</span></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Probabilities</td>
+<td></td>
+<td>UKP 0</td>
+<td>UKP 100</td>
+<td>UKP 200</td>
+</tr>
+<tr class="even">
+<td>Values of <span class="math inline">\(W:\)</span></td>
+<td>UKP 0</td>
+<td><span class="math inline">\(0.05\)</span></td>
+<td><span class="math inline">\(0.15\)</span></td>
+<td><span class="math inline">\(0.10\)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>UKP 100</td>
+<td><span class="math inline">\(0.10\)</span></td>
+<td><span class="math inline">\(0.10\)</span></td>
+<td><span class="math inline">\(0.30\)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>UKP 200</td>
+<td><span class="math inline">\(0.05\)</span></td>
+<td><span class="math inline">\(0.05\)</span></td>
+<td><span class="math inline">\(0.10\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>You may now be interested in the total household income, <span class="math inline">\(T\)</span>:</p>
+<p><span class="math display">\[\begin{equation*}
+    T=g(H,W)=H+W.
+\end{equation*}\]</span></p>
+<p>This new random variable is a function of <span class="math inline">\(H\)</span> and <span class="math inline">\(W\)</span>, and we can deduce the probability distribution of <span class="math inline">\(T\)</span> from the joint distribution of <span class="math inline">\(H\)</span> and <span class="math inline">\(W\)</span>. You can directly calculate the new variable’s expected value and variance from the joint probability distribution <span class="math inline">\(p\left( h,w\right):\)</span> the expected value of <span class="math inline">\(T\)</span> is</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    E\left[ T\right] &amp;=&amp;E\left[ g\left( H,W\right) \right] \\
+    &amp;=&amp; \sum_h \sum_w g\left( h,w\right) p\left( h,w\right) \\
+    &amp;=&amp; 0 \cdot 0.05 + 100 \cdot  0.15 +200 \cdot 0.10 + \\
+    &amp;&amp; 100 \cdot 0.10 + 200 \cdot 0.10 +300 \cdot  0.3 +\\
+    &amp;&amp; 200 \cdot 0.05 + 300 \cdot 0.05 +400 \cdot 0.10\\
+    &amp;=&amp;220
+\end{eqnarray*}\]</span></p>
+<p>We sum up the product of all joint probabilities and their associated outcome for <span class="math inline">\(T\)</span>.</p>
+<p>This is what one may call a pedestrian way of getting the expected value for a function of two (or more) random variables. This will actually work for any type of function of the two random variables, even if that function is a nonlinear one.</p>
+<p>If the function <span class="math inline">\(g(X,Y)\)</span> of the two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is a linear one, like the generic</p>
+<p><span class="math display">\[\begin{equation*}
+    V=a X+b Y+c
+\end{equation*}\]</span></p>
+<p>then things simplify significantly. In what follows we shall demonstrate how to get the expected value and the variance of a linear combination of random variables directly if we know what <span class="math inline">\(E[X]\)</span>, <span class="math inline">\(E[Y]\)</span>, <span class="math inline">\(Var[X]\)</span>, <span class="math inline">\(Var[Y]\)</span> and <span class="math inline">\(Cov[X,Y]\)</span> are.</p>
+<section id="a-preliminary-result" class="level3" data-number="12.10.1">
+<h3 data-number="12.10.1" class="anchored" data-anchor-id="a-preliminary-result"><span class="header-section-number">12.10.1</span> A preliminary result</h3>
+<p>Let’s start with the simplest of all cases and consider</p>
+<p><span class="math display">\[\begin{equation*}
+    V=g(X, Y)=X
+\end{equation*}\]</span></p>
+<p>We should find that the properties of <span class="math inline">\(V\)</span> are exactly the same as the properties of <span class="math inline">\(X\)</span>. Applying the generic formula for the expectation of a discrete random variable used in the above example</p>
+<p><span class="math display">\[\begin{equation*}
+    E[V]=\sum_{x} \sum_{y} =g(x, y) p(x, y) =\sum_{x} \sum_{y} x p(x, y)
+\end{equation*}\]</span></p>
+<p>For any given <span class="math inline">\(x\)</span> the probabilities for all the possible outcomes for <span class="math inline">\(Y\)</span> can be collected, so that</p>
+<p><span class="math display">\[\begin{equation*}
+    E[V]=\sum_{x} x\left[\sum_{y} p(x, y)\right]
+\end{equation*}\]</span></p>
+<p>By the definition of the marginal distribution of <span class="math inline">\(y\)</span>, the summation in brackets is the marginal probability <span class="math inline">\(p_{X}(x)\)</span> such that</p>
+<p><span class="math display">\[\begin{equation*}
+    E[V]=\sum_{x} x p_{X}(x) =E[X]
+\end{equation*}\]</span></p>
+<p>This shows that the expected value of <span class="math inline">\(X\)</span> is the same whether calculated from the joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, or from the marginal distribution of <span class="math inline">\(X\)</span>. The same, obviously, applies for <span class="math inline">\(E[Y]\)</span>. This is just another way of saying that the joint distribution contains all the information regarding the marginal distributions.</p>
+</section>
+<section id="expected-value-of-a-linear-combination" class="level3" data-number="12.10.2">
+<h3 data-number="12.10.2" class="anchored" data-anchor-id="expected-value-of-a-linear-combination"><span class="header-section-number">12.10.2</span> Expected value of a Linear Combination</h3>
+<p>The result we need for the expected value of a linear combination is easy to remember: it amounts to saying that</p>
+<ul>
+<li>the expected value of a linear combination is the linear combination of the expected values, or</li>
+<li>more simply, the expected value of a sum is equal to the sum of expected values.</li>
+</ul>
+<p>If <span class="math inline">\(V=a X+b Y+c\)</span>, where <span class="math inline">\(a, b, c\)</span> are constants, then</p>
+<p><span class="math display">\[\begin{equation*}
+    E[V]=E[a X+b Y+c]=a E[X]+b E[Y]+c
+\end{equation*}\]</span></p>
+<p>This result is a natural generalisation of the linear transformation result that <span class="math inline">\(E[b X+c]=b E[X]+c\)</span>.</p>
+<p>Proof: (discrete random variables case). Consider</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    E[V] &amp;=&amp;E[a X+b Y+c] \\
+    &amp;=&amp;\sum_{x} \sum_{y}(a x+b y+c) \times p(x, y) \\
+    &amp;=&amp;\sum_{x} \sum_{y}a x\times p(x, y)+ \sum_{x} \sum_{y}b y\times p(x, y)+\sum_{x} \sum_{y}c\times p(x, y)  
+\end{eqnarray*}\]</span></p>
+<p>Examine each of the three terms on the right hand side:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \sum_{x} \sum_{y} a x p(x, y) &amp;=&amp;a \sum_{x} \sum_{y} x p(x, y)=a \sum_{x} x \sum_{y} p(x, y)=a E[X] \\
+    \sum_{x} \sum_{y} b y p(x, y) &amp;=&amp;b \sum_{y} \sum_{x} y p(x, y)=b \sum_{y} y \sum_{x} p(x, y)=b E[Y] \\
+    \sum_{x} \sum_{y} c p(x, y) &amp;=&amp;c \sum_{x} \sum_{y} p(x, y)=c \times 1 .
+\end{eqnarray*}\]</span></p>
+<p>The result that the probabilities in a joint probability distribution must sum to 1 over all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> combinations is used in the line immediately above. Summing the three terms then gives the earlier result</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    E[V] &amp;=&amp;E[a X+b Y+c] \\
+    &amp;=&amp;a E[X]+b E[Y]+c
+\end{eqnarray*}\]</span></p>
+<p>This video walks you through these arguments (YouTube, 16min)</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/cPCXtX1h14k" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Notice that nothing need be known about the joint probability distribution <span class="math inline">\(p(x, y)\)</span> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> to prove the result: it applies, for example, irrespective of whether the variables are independent or not. The result is also valid for continuous random variables.</p>
+<section id="example-9" class="level4 callout-info" data-number="12.10.2.1">
+<h4 data-number="12.10.2.1" class="anchored" data-anchor-id="example-9"><span class="header-section-number">12.10.2.1</span> Example</h4>
+<p>For the joint income of husbands and wives example, we defined <span class="math inline">\(T=W+H\)</span>, where <span class="math inline">\(E[W]=130\)</span>, <span class="math inline">\(E[H]=90\)</span>. Therefore, using the expected value of the linear combination gives</p>
+<pre><code>\begin{equation}
+    E[T] =E[W]+E[H] =220
+\end{equation}</code></pre>
+<p>confirming the result obtained earlier.</p>
+</section>
+<section id="example-10" class="level4 callout-info" data-number="12.10.2.2">
+<h4 data-number="12.10.2.2" class="anchored" data-anchor-id="example-10"><span class="header-section-number">12.10.2.2</span> Example</h4>
+<p>Suppose that random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have <span class="math inline">\(E[X]=0.5\)</span> and <span class="math inline">\(E[Y]=3.5\)</span>, and let <span class="math inline">\(V=5 X-Y\)</span>. Then,</p>
+<pre><code>\begin{eqnarray*}
+    E[V] &amp;=&amp;5 E[X]-E[Y] \\
+    &amp;=&amp;5 \times 0.5-3.5 \\
+    &amp;=&amp;-1 
+\end{eqnarray*} </code></pre>
+</section>
+<p>Let <span class="math inline">\(X_{1}, \ldots, X_{n}\)</span> be random variables with <span class="math inline">\(a_{1}, \ldots ., a_{n}, c\)</span> being constants, and define the random variable <span class="math inline">\(W\)</span> by</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    W &amp;=&amp;c+a_{1} X_{1}+\ldots+a_{n} X_{n} \\
+    &amp;=&amp;c+\sum_{i=1}^{n} a_{i} X_{i}
+\end{eqnarray*}\]</span></p>
+<p>Then,</p>
+<p><span class="math display">\[\begin{equation*}
+    E[W]=c+\sum_{i=1}^{n} a_{i} E\left[X_{i}\right]
+\end{equation*}\]</span></p>
+<p>This can be proved by repeatedly using the linear combination result for two variables.</p>
+<section id="example-11" class="level4 callout-info" data-number="12.10.2.3">
+<h4 data-number="12.10.2.3" class="anchored" data-anchor-id="example-11"><span class="header-section-number">12.10.2.3</span> Example</h4>
+<p>Let’s consider the case where we combine <span class="math inline">\(n=3\)</span> random variables with <span class="math inline">\(E\left[X_{1}\right]=2, E\left[X_{2}\right]=-1, E\left[X_{3}\right]=3, W=2 X_{1}+5 X_{2}-3 X_{3}+4\)</span>. What is <span class="math inline">\(E[W]\)</span>?</p>
+<p><span class="math display">\[\begin{eqnarray*}
+        E[W] &amp;=&amp;E\left[2 X_{1}+5 X_{2}-3 X_{3}+4\right] \\
+        &amp;=&amp;2 E\left[X_{1}\right]+5 E\left[X_{2}\right]-3 E\left[X_{3}\right]+4 \\
+        &amp;=&amp;2 \times 2+5 \times(-1)-3 \times 3+4 \\
+        &amp;=&amp;-6
+\end{eqnarray*}\]</span></p>
+</section>
+</section>
+<section id="variance-of-a-linear-combination" class="level3" data-number="12.10.3">
+<h3 data-number="12.10.3" class="anchored" data-anchor-id="variance-of-a-linear-combination"><span class="header-section-number">12.10.3</span> Variance of a Linear Combination</h3>
+<p>The result for the mean (or expected value) of a linear combination is fairly intuitive. That for a variance, however, is less so. We start with the two variable case.</p>
+<section id="two-variables" class="level4" data-number="12.10.3.1">
+<h4 data-number="12.10.3.1" class="anchored" data-anchor-id="two-variables"><span class="header-section-number">12.10.3.1</span> Two variables</h4>
+<p>Let <span class="math inline">\(V\)</span> be the random variable <span class="math inline">\(V=a X+b Y+c\)</span>. To find <span class="math inline">\(Var[V]\)</span> we start from the alternative form for the variance calculation:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    Var[V] &amp;=&amp; E[V^2] - E[V]^2\\
+            &amp;=&amp; E[(a X+b Y+c)^2] - E[a X+b Y+c]^2
+\end{eqnarray*}\]</span></p>
+<p>Now we will just apply the above rule for the expectation of a linear combination and multiply out the squared terms. It is a little tedious algebra, but if you do it carefully you should be able to account for all terms.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    Var[V] &amp;=&amp; Var[a X+b Y+c]\\
+    &amp;=&amp; E[(a X+b Y+c)^2] - E[a X+b Y+c]^2\\
+    &amp;=&amp; E[(a X+b Y+c)(a X+b Y+c)] - (a E[X]+b E[Y]+c)^2\\
+    &amp;=&amp; E[(a X+b Y+c)(a X+b Y+c)] - (a E[X]+b E[Y]+c)(a E[X]+b E[Y]+c)\\
+    &amp;=&amp; E[a^2X^2+abXY+acX + abXY + b^2Y^2 + bcY + acX + bcY +c^2]\\
+    &amp;&amp; - a^2E[x]^2 - abE[X]E[Y] - acE[X] - abE[X]E[Y] - b^2E[Y]^2 - bcE[Y] - acE[X] - bcE[Y] - c^2
+\end{eqnarray*}\]</span></p>
+<p>The next step is to apply again the result for the expected value of a linear combination and then rearrange terms in a useful manner, remembering that <span class="math inline">\(Var[X] = E[X^2]-E[X]^2\)</span> and <span class="math inline">\(Cov[X,Y]=E[XY]-E[X]E[Y]\)</span>:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    Var[V]&amp;=&amp; a^2E[X^2]+abE[XY]+acE[X] + abE[XY] + b^2E[Y^2] + bcE[Y] + acE[X] + bcE[Y] +c^2\\
+    &amp;&amp; - a^2E[x]^2 - abE[X]E[Y] - acE[X] - abE[X]E[Y] - b^2E[Y]^2 - bcE[Y] - acE[X] - bcE[Y] - c^2 \\
+    &amp;=&amp; a^2(\underbrace{E[X^2]-E[X]^2}_{Var[X]}) + b^2(\underbrace{E[Y^2]-E[Y]^2}_{Var[Y]}) \\
+    &amp;&amp; -2ab(\underbrace{E[XY]-E[X]E[Y]}_{Cov[X,Y]}) \\
+    &amp;&amp; +2acE[X]+2bcE[Y] +c^2 - 2acE[X]-2bcE[Y] -c^2
+\end{eqnarray*}\]</span></p>
+<p>Now you can note that all the terms in the last line cancel out, which leaves us with the following very important result:</p>
+<p><span class="math display">\[\begin{equation*}
+    Var[V] = Var[a X+b Y+c] = a^2Var[x] + b^2Var[Y]+2abCov[X,Y]
+\end{equation*}\]</span></p>
+<p>Summarising, for <span class="math inline">\(V=a X+b Y+c\)</span>, the following holds:</p>
+<ul>
+<li><span class="math inline">\(Var[V]=a^{2} Var[X]+2 a b Cov[X, Y]+b^{2} Var[Y]\)</span></li>
+<li>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then <span class="math inline">\(Cov[X, Y]=0\)</span> and<br>
+<span class="math display">\[\begin{equation*}
+          Var[V]=a^{2} Var[X]+b^{2} Var[Y]
+      \end{equation*}\]</span></li>
+<li>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are dependent, but linearly uncorrelated such that <span class="math inline">\(Cov[X, Y]=0\)</span>, then the same result holds.</li>
+</ul>
+<p>It was worth going through the details of this calculation as it lies at the heart of modern finance theory (in particular portfolio theory). It is this formula which justifies the benefits of portfolio diversification, the idea that it is better to hold several risky assets rather than just one as long as they are not perfectly correlated. This is true for investors but also for companies which may want to invest in several products rather than just one.</p>
+<p>Let’s use the following example to illustrate this</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/diversification.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Do not put all your eggs into one basket - Diversification</figcaption>
+</figure>
+</div>
+</section>
+<section id="example-12" class="level4 callout-info" data-number="12.10.3.2">
+<h4 data-number="12.10.3.2" class="anchored" data-anchor-id="example-12"><span class="header-section-number">12.10.3.2</span> Example</h4>
+<p>Assume you have two assets you can invest in, asset A which has random annual returns with <span class="math inline">\(E[R_A] = 0.05\)</span> and variance <span class="math inline">\(Var[R_A] = 0.2\)</span>. Asset B has <span class="math inline">\(E[R_B] = 0.05\)</span> and variance <span class="math inline">\(Var[R_B] = 0.25\)</span>. The correlation between the returns is <span class="math inline">\(Corr[R_A,R_B]=0.3\)</span>, so they are mildly positively correlated.</p>
+<p>The variance in asset returns gives you a measure of the risk you carry with that investment. So Asset B has a higher risk at the same expected return. Most of us would, everything else being equal, prefer lower risk. Which asset would you invest in if you had to invest all your money into either asset A or asset B? In that case you would choose asset A as it gives you the same expected return but at a lower risk.</p>
+<p>Let’s say you form a portfolio where you invest 50% of your money into asset A and 50% into asset B. What would be the expected return and the variance of your portfolio? You need to consider a new random variable <span class="math inline">\(P=0.5R_A+0.5R_B\)</span>. This is a linear combination of two random variables and we can apply the results we learned above:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+        E[P]&amp;=&amp;0.5~E[R_A]+0.5~E[R_B]\\
+        Var[P] &amp;=&amp; Var[0.5~R_A+0.5~R_B] = 0.5^2Var[R_A] + 0.5^2Var[R_B]+2\cdot0.5\cdot0.5~Cov[R_A,R_B]
+\end{eqnarray*}\]</span></p>
+<p>This means that we need <span class="math inline">\(Cov[R_A,R_B]\)</span> which we have not been provided with. However, we know the correlation and the variances, such that we can use the following relationship</p>
+<p><span class="math display">\[\begin{eqnarray*}
+        Corr[R_A,R_B]&amp;=&amp;\frac{Cov[R_A,R_B]}{\sqrt{Var[R_A]\cdot Var[R_B]}}\\
+        Cov[R_A,R_B]&amp;=&amp;Corr[R_A,R_B] \cdot \sqrt{Var[R_A]\cdot Var[R_B]}\\
+        &amp;=&amp; 0.3 \cdot \sqrt{0.2\cdot0.25} = 0.06708
+\end{eqnarray*}\]</span></p>
+<p>Now we can calculate the portfolio characteristics:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+        E[P]&amp;=&amp;0.5~E[R_A]+0.5~E[R_B] = 0.5 \cdot 0.05 + 0.5 \cdot 0.05 = 0.05\\
+        Var[P] &amp;=&amp; Var[0.5~R_A+0.5~R_B] = 0.5^2Var[R_A] + 0.5^2Var[R_B]+2\cdot0.5\cdot0.5~Cov[R_A,R_B]\\
+        &amp;=&amp;  0.5^2\cdot0.2 + 0.5^2\cdot0.25+2\cdot0.5\cdot0.5\cdot 0.06708 =0.14604
+\end{eqnarray*}\]</span></p>
+<p>And this is the wonder of diversification. Your portfolio, consisting of 50% asset A and 50% of asset B has the same expected return, but its variance (risk) is smaller than the individual assets’.</p>
+<p>Financial portfolio theory then thinks about what the best possible way of mixing assets A and B would be, i.e.&nbsp;how can you minimise <span class="math inline">\(Var[P]\)</span> and also how the above relationship generalises to the case where you have more than two assets.</p>
+</section>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are random variables with <span class="math inline">\(Var[X]=0.25, Var[Y]=2.5\)</span> and <span class="math inline">\(Cov[X,Y]= 0.5\)</span>. Calculate <span class="math inline">\(Var[V]\)</span> if <span class="math inline">\(V = 2X+0.5Y\)</span>.</p>
+<p><span class="math inline">\(Var[V] =\)</span> <input class="webex-solveme nospaces" size="5" data-answer="[&quot;2.625&quot;]"></p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p><span class="math display">\[\begin{eqnarray*}
+    Var[V] &amp;=&amp; Var[a~X+b~Y] = a^2Var[X] + b^2Var[Y]+2\cdot a\cdot b~Cov[X,Y]\\
+    &amp;=&amp;  2^2\cdot0.25 + 0.5^2\cdot2.5+2\cdot2\cdot0.5\cdot 0.5 =2.625
+\end{eqnarray*}\]</span></p>
+</div>
+<p>What is the variance of <span class="math inline">\(W=2X-0.5Y\)</span></p>
+<p><span class="math inline">\(Var[W] =\)</span> <input class="webex-solveme nospaces" size="5" data-answer="[&quot;0.625&quot;,&quot;.625&quot;]"></p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p><span class="math display">\[\begin{eqnarray*}
+    Var[W] &amp;=&amp; Var[a~X+b~Y] = a^2Var[X] + b^2Var[Y]+2\cdot a\cdot b~Cov[X,Y]\\
+    &amp;=&amp;  2^2\cdot0.25 + 0.5^2\cdot2.5+2\cdot2\cdot(-0.5)\cdot 0.5 =0.625
+\end{eqnarray*}\]</span></p>
+<p>When you have a negative contribution in the linear combination you got to be careful with the signs. The variance still contributes positively but the covariance term now has a negative sign.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="variance-of-linear-combinations-of-many-uncorrelated-variables" class="level3" data-number="12.10.4">
+<h3 data-number="12.10.4" class="anchored" data-anchor-id="variance-of-linear-combinations-of-many-uncorrelated-variables"><span class="header-section-number">12.10.4</span> Variance of linear combinations of many uncorrelated variables</h3>
+<p>Extend the earlier result to the case of a linear combination of <span class="math inline">\(n\)</span> random variables <span class="math inline">\(X_{1}, \ldots, X_{n}\)</span> is messy because of the large number of covariance terms involved. But that is exactly what is required to develop portfolio theory. We leave that to finance courses. However, in the special case when <span class="math inline">\(X_{1}, \ldots, X_{n}\)</span> are uncorrelated random variables then all covariances are equal to zero: <span class="math inline">\(Cov\left[X_{i}, X_{j}\right]=0, i \neq j\)</span>. And therefore, for <span class="math inline">\(X_{1}, \ldots, X_{n}\)</span> uncorrelated,</p>
+<p><span class="math display">\[\begin{equation*}
+    Var\left[\sum_{i=1}^{n} a_{i} X_{i}\right]=\sum_{i=1}^{n} a_{i}^{2} Var\left[X_{i}\right]
+\end{equation*}\]</span></p>
+<p>This also applies when <span class="math inline">\(X_{1}, \ldots, X_{n}\)</span> are independent random variables as they are, by definition, uncorrelated.</p>
+<p>Be careful to remember, however, that this result only applies if the variables are uncorrelated. If they are correlated, then the covariance terms are nonzero and these will enter the computation of the variance of a linear combination.</p>
+<p>There is no short-cut to computing the standard deviation of a linear combination. You will have to calculate the variance of the linear combination and then take the square root to get the standard deviation.</p>
+</section>
+</section>
+<section id="normal-random-variables" class="level2" data-number="12.11">
+<h2 data-number="12.11" class="anchored" data-anchor-id="normal-random-variables"><span class="header-section-number">12.11</span> Normal Random Variables</h2>
+<p>The results so far on linear combinations relate to characteristics of the probability distribution of a linear combination like</p>
+<p><span class="math display">\[\begin{equation*}
+    V=a X+b Y+c
+\end{equation*}\]</span></p>
+<p>not to the probability distribution itself. In particular, we have considered the mean and variance. Indeed, part of the attraction of these results is that they can be obtained without having to find the probability distribution of <span class="math inline">\(V\)</span>. In fact it is, in general, not easily possible to find the probability distribution of <span class="math inline">\(V\)</span> itself, which is why it is so nice that at least we can easily get the mean and the variance. Also note that we did not have to make any assumption about how the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> were distributed. These results hold for random variables of any distribution.</p>
+<p>However, if we know that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have normal distributions then it follows that <span class="math inline">\(V\)</span> itself is normally distributed. This is an extension of the result for the linear transformation of a single normally distributed random variable. The linear combination result is, however, much more powerful. It is EXTREMELY IMPORTANT! It is also rather unusual: there are not many distributions for which this type of result holds.</p>
+<p>If <span class="math inline">\(X \sim N\left(\mu_{X}, \sigma_{X}^{2}\right)\)</span> and <span class="math inline">\(Y \sim N\left(\mu_{Y}, \sigma_{Y}^{2}\right)\)</span>, with <span class="math inline">\(V=a X+b Y+c\)</span> for constants <span class="math inline">\(a, b, c\)</span> then</p>
+<p><span class="math display">\[\begin{equation*}
+    V \sim N\left(\mu_{V}, \sigma_{V}^{2}\right)
+\end{equation*}\]</span></p>
+<p>for which <span class="math display">\[\begin{eqnarray*}
+    \mu_{V}&amp;=&amp; a \mu_{X}+b \mu_{Y}+c \\
+    \sigma_{V}^{2}&amp;=&amp;a^{2} \sigma_{X}^{2}+2 a b \sigma_{X Y}+b^{2} \sigma_{Y}^{2}
+\end{eqnarray*}\]</span></p>
+<p>In the above we merely applied the generic earlier results on <span class="math inline">\(E[V]=\mu_V\)</span> and <span class="math inline">\(Var[V]=\sigma^2_V\)</span>. Note that independence of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> has not been assumed and is irrelevant to the general result. - If <span class="math inline">\(X_{1}, \ldots X_{n}\)</span> are uncorrelated random variables with <span class="math inline">\(X_{i} \sim N\left(\mu_{i}, \sigma_{i}^{2}\right)\)</span> and <span class="math inline">\(W=\sum_{i=1}^{n} a_{i} X_{i}\)</span>, where <span class="math inline">\(a_{1}, \ldots, a_{n}\)</span> are constants, then</p>
+<p><span class="math display">\[\begin{equation*}
+    W \sim N\left(\sum_{i=1}^{n} a_{i} \mu_{i}, \sum_{i=1}^{n} a_{i}^{2} \sigma_{i}^{2}\right) .
+\end{equation*}\]</span></p>
+<p>In this case, the assumption that the variables are uncorrelated plays a role only in specifying the variance of the linear combination. If the variables were to be correlated, the normal distribution also applies to the linear combination with the mean being <span class="math inline">\(\sum_{i} a_{i} \mu_{i}\)</span>, but the variance of the sum will change (to include terms involving the covariances - but we did not discuss this case here unless <span class="math inline">\(n=2\)</span>).</p>
+<p>Of course, standard normal distribution tables can be used in the usual way to compute probabilities of events involving linear combinations like <span class="math inline">\(V\)</span> and <span class="math inline">\(W\)</span>. This is illustrated in the following.</p>
+<section id="example-13" class="level4 callout-info" data-number="12.11.0.1">
+<h4 data-number="12.11.0.1" class="anchored" data-anchor-id="example-13"><span class="header-section-number">12.11.0.1</span> Example</h4>
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, <span class="math inline">\(X \sim N(20,5), Y \sim N(30,11)\)</span>, while <span class="math inline">\(D=X-Y\)</span>, then <span class="math inline">\(D \sim N(-10,16)\)</span> as</p>
+<p><span class="math display">\[\begin{eqnarray*}
+        E[D] &amp;=&amp; 1\cdot E[X] + (-1) \cdot E[Y] = 1\cdot 20 + (-1) \cdot 30 = -10\\
+        Var[D] &amp;=&amp; 1^2\cdot Var[X] + (-1)^2 \cdot Var[Y] = 1\cdot 5 + 1 \cdot 11 = 16.
+\end{eqnarray*}\]</span></p>
+<p>What is the probability that <span class="math inline">\(D&gt;0\)</span>? As <span class="math inline">\(D\)</span> is normally, but not standard normally distributed we shall standardise it to a <span class="math inline">\(Z \sim N(0,1)\)</span> variable and then apply the standard normal probability table.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+        Pr(D&gt;0) &amp;=&amp;Pr\left(Z&gt;\frac{0-(-10)}{4}\right) \\
+        &amp;=&amp;Pr(Z&gt;2.5) \\
+        &amp;=&amp;0.00621.
+\end{eqnarray*}\]</span></p>
+<p>Therefore, there is a 0.621% probability that the random variable <span class="math inline">\(D\)</span> takes a value of larger than 0.</p>
+<p>This video provides a walkthrough of this example (YouTube, 10min).</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/kIsUQAKXSkw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are normally distributed random variables <span class="math inline">\(X \sim N(2,3), Y \sim N(-3,10)\)</span> with correlation <span class="math inline">\(Corr[X,Y] = -0.5\)</span>. Calculate <span class="math inline">\(Pr(V&gt;0)\)</span> if <span class="math inline">\(V = 2X+0.5Y\)</span>.</p>
+<p><span class="math inline">\(Pr(V&gt;0) =\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.7967&quot;,&quot;.7967&quot;]"></p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>Start by calculating the properties of <span class="math inline">\(V\)</span>.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    Cov[X,Y] &amp;=&amp; Corr[X,Y] \cdot \sqrt{Var[X]Var[Y]} = (-0.5) \cdot \sqrt{3 \cdot 10} = -2.7386\\
+    E[V] &amp;=&amp; 2\cdot E[X] + 0.5 \cdot E[Y] = 2\cdot 2 + 0.5 \cdot (-3) = 2.5\\
+    Var[V] &amp;=&amp; 2^2\cdot Var[X] + 0.5^2 \cdot Var[Y] +2\cdot 2 \cdot 0.5 \cdot Cov[X,Y]  \\
+    &amp;=&amp; 4\cdot 3 + \frac{1}{4} \cdot 10 + 2 \cdot (-2.7386) = 9.0228.
+\end{eqnarray*}\]</span></p>
+<p>What is the probability that <span class="math inline">\(V&gt;0\)</span>?</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    Pr(V&gt;0) &amp;=&amp;Pr\left(Z&gt;\frac{0-2.5}{\sqrt{9.0228}}\right) \\
+        &amp;=&amp;Pr(Z&gt;-0.83) = 1 - Pr(Z\leq-0.83)\\
+        &amp;=&amp;1- 0.2033= 0.7967.
+\end{eqnarray*}\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ztable.png" class="img-fluid figure-img"></p>
+<figcaption>Using the standard normal table.</figcaption>
+</figure>
+</div>
+<p>Therefore, there is a 79.67% probability that the random variable <span class="math inline">\(V\)</span> takes a value larger than 0.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="summary" class="level2" data-number="12.12">
+<h2 data-number="12.12" class="anchored" data-anchor-id="summary"><span class="header-section-number">12.12</span> Summary</h2>
+<p>In this section you learned how to think about two random variables. The joint distribution of two random variables gives you all the information you need to establish whether the two random variables are correlated or not and whether they are independent or not.</p>
+<p>Further it was discussed how to calculate expected values of linear combinations of random variables. You learned that you can always calculate the expected value and variance of such linear combinations, but that, in general, you cannot say anything about the distribution of the resulting random variable. An exception to this was where the random variables being combined are normally distributed random variables. In that case, the resulting linear combination is also normally distributed. This, however, is clearly a special case.</p>
+<p>Through the discussion of linear combinations you also learned the statistics behind one of the most fundamental insights of finance theory, the value of diversification. This insight is important for all financial but also more generally all business investment. Further, knowing how to deal with multiple random variables and their combinations is crucial when it comes to learning more statistics and econometrics.</p>
 
 
 </section>
