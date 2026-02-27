@@ -20,6 +20,7 @@ book:
   - ContinuousRVs.qmd
   - Normal_RV.qmd
   - Comb_of_RVs.qmd
+  - Sampling_Dist.qmd
   - summary.qmd
   - references.qmd
 bibliography: references.bib
