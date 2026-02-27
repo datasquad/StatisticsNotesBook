@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>13&nbsp; Sampling Distributions – Statistics Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./summary.html" rel="next">
+<link href="./Comb_of_RVs.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="include/webex.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Sampling_Dist.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Sampling Distributions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistics Notes</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datatypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Types</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./graphical_descriptive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphical Descriptive Statistics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./descriptive_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Numerical Descriptive Statistics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CorrelationRegressionCausation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Correlation, Regression and Causation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DealingWithDataSets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dealing with real life datasets</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./IntroToProbability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducing Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ConditionalProbability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conditional Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DiscreteRVs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Discrete Random Variables and Probability Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ContinuousRVs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Continuous Random Variables and Probability Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Normal_RV.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Normally Distributed Random Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Comb_of_RVs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Combination of Random Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Sampling_Dist.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Sampling Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">13.1</span> Introduction</a></li>
+  <li><a href="#repeated-sampling" id="toc-repeated-sampling" class="nav-link" data-scroll-target="#repeated-sampling"><span class="header-section-number">13.2</span> Repeated Sampling</a></li>
+  <li><a href="#sampling-distributions" id="toc-sampling-distributions" class="nav-link" data-scroll-target="#sampling-distributions"><span class="header-section-number">13.3</span> Sampling Distributions</a>
+  <ul class="collapse">
+  <li><a href="#special-case-samples-from-a-normal-distribution" id="toc-special-case-samples-from-a-normal-distribution" class="nav-link" data-scroll-target="#special-case-samples-from-a-normal-distribution"><span class="header-section-number">13.3.1</span> Special Case: Samples from a normal distribution</a></li>
+  <li><a href="#the-general-case-the-central-limit-theorem" id="toc-the-general-case-the-central-limit-theorem" class="nav-link" data-scroll-target="#the-general-case-the-central-limit-theorem"><span class="header-section-number">13.3.2</span> The General Case: The Central Limit Theorem</a></li>
+  </ul></li>
+  <li><a href="#summary-and-outlook" id="toc-summary-and-outlook" class="nav-link" data-scroll-target="#summary-and-outlook"><span class="header-section-number">13.4</span> Summary and Outlook</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Sampling Distributions</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">13.1</span> Introduction</h2>
+<p>So far we learned about descriptive statistics, where we described samples or populations of data, either through statistics (like the sample or population mean, sample or population variance/standard deviation, etc.) or through graphical representations. We also learned what random variables were and that we characterise them using distributions.</p>
+<p>A short introduction to sampling (YouTube, 2min).</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/bGy2lGr3pzA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>The reality of life for an applied researcher is that you will rarely have access to population data. If you have, then you know everything there is to know about this data. More often you would have access to only a sample.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Commercial Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As commercial operations are often continuously recorded it is actually increasingly plausible that you do have population data. For instance all transactions on Amazon will leave a digital record. However, even if you had access to all the data generated by a company (see for example an <a href="https://www.invisibly.com/learn-blog/how-amazon-uses-big-data/#:~:text=Loads%20of%20Data&amp;text=All%20in%20all%2C%20Amazon%20collects,1.1%20million%20requests%20a%20second">overview of the data generated by Amazon</a>) you would likely have to use a sample of these data for analysis as very few computers would have the storage and processing power to use all the data.</p>
+</div>
+</div>
+<p>So, let us assume that you are using a sample of data to analyse a question, yet you are actually interested in the characteristics of the population. To make this concrete. Let’s consider the data we have on house price sales in Greater Manchester. We may be interested in the average price of a sold house in Manchester. Let’s call that unknown population parameter, <span class="math inline">\(\mu\)</span>. In the <a href="data/Manchester_House_Prices.csv">Manchester House Price file</a> we have all 91,907 registered house sales in Greater Manchester in 2018 and 2021 (There is no substantial reason to not look at 2019 and 2020. These years were left out to reduce the size of the data file). This is the population of data we are interested in.</p>
+<p>While this is a big dataset it is not that big that standard computers couldn’t deal with this, but for arguments sake let’s consider taking a sample from this population. For now we shall draw a sample with <span class="math inline">\(n=6\)</span> observations.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Sample 1.png" class="img-fluid figure-img"></p>
+<figcaption>House Sale population and one sample.</figcaption>
+</figure>
+</div>
+<p>The sample contains house sales which occurred at the following prices: UKP140,140, UKP125,000, UKP99,950, UKP125,000, UKP160,000 and UKP1,250,000. The average in that sample is <span class="math inline">\(\bar{x}=UKP316,681.70\)</span>.</p>
+<p>What can we learn from this particular sample about the population mean, <span class="math inline">\(\mu\)</span>? Is <span class="math inline">\(\mu\)</span> equal to <span class="math inline">\(\bar{x}\)</span>? This answer is obviously “no”. Yet, we can learn something from that sample. In order to understand how we can learn anything from such a sample about the population, such as the population mean <span class="math inline">\(\mu\)</span>, we need to learn some statistical theory. In fact, in this section we will learn about one of the most important statistical results, the central limit theory (CLT).</p>
+<p>The process of using sample information to learn something about the population is called statistical inference. In this process we will use and combine what we have learned about descriptive statistics and probability theory. When these techniques are combined with the insight of the CLT, we will be able to see how we can use sample information to learn something about a population.</p>
+</section>
+<section id="repeated-sampling" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="repeated-sampling"><span class="header-section-number">13.2</span> Repeated Sampling</h2>
+<p>In order to understand the insight of the central limit theorem we shall conduct an experiment. We will draw repeated samples from the population of house prices. This is best illustrated in the following image where we added three more samples of <span class="math inline">\(n=6\)</span> to the earlier sample.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Sample 1to4.png" class="img-fluid figure-img"></p>
+<figcaption>House Sale population and four samples.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Sampling
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When we repeatedly sample, in this case, it is possible that we re-sample one of the observations which was drawn for the first sample. We call this sampling with re-placement. It is easiest to think about this case. You could think about sampling without re-placement. In that case all transactions that were chosen for Sample 1 would be “taken out” of the pot.</p>
+<p>In essence, whenever we think about sampling we are thinking about the probability for each particular transaction to be drawn as being identical, here <span class="math inline">\(1/91907\)</span>. Think about a huge pot with all of these transactions. You draw the first and write down the price. Then you return this transaction into the pot, give it a good mix and then draw the second observation. You repeat this prices six times to get a sample of size <span class="math inline">\(n=6\)</span>. For obvious reasons we would also call this process random sampling.</p>
+<p>You will realise that it is actually possible, under such a scheme, that the same transaction appears more than once in a particular sample. Given the size of the population, it is not very likely, but even if it happens it not an issue.</p>
+</div>
+</div>
+<p>In the image you can see that all these samples return different sample averages. This confirms our earlier conclusion that we cannot just assume that the population mean is the same as any particular sample mean. If we draw another sample the sample mean changes but the population mean remains unchanged. So by drawing repeated samples, all we have done so far is illustrated the size of our challenge.</p>
+<p>It turns out that we can learn a little more if we repeat the above sampling process many more times, say 1,000 times, and we shall also increase the sample size to <span class="math inline">\(n=30\)</span> (we will later learn why we did that). This means that we end up with 1,000 sample means. We can now display these in a histogram/frequency plot.</p>
+<p>This short video demonstrates how you could draw samples from a population using Excel (YouTube, 6 min).</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/KMULNC7zCMY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Histn30.png" class="img-fluid figure-img"></p>
+<figcaption>Histogram of 1,000 sample house sale price means, <span class="math inline">\(n=30\)</span>. Mean of sample means indicated by red line.</figcaption>
+</figure>
+</div>
+<p>The red line indicates the average value of the 1,000 sample means, which for this particular set of samples is equal to UKP249,705.73. This distribution is called a sampling distribution for the sample mean. We shall talk more about this below.</p>
+<p>Some of the 1,000 samples of size <span class="math inline">\(n=30\)</span> actually have sample means which fall outside the range of the above figure (which displays only a range from UKP0 to UKP500,000 to better display the distributions properties). The reason for that is that some of the property sales recorded in our dataset have very high sale prices, some exceeding UKP100m. These are most likely commercial property sales. If any such sale is randomly picked to be included into a sample then the resulting sample average is extremely high. It is of course still a perfectly legitimate sample from our population.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>What is the right population?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You have just learned that our spreadsheet with property sales contains some very high sale prices for commercial properties. For instance the ITV Television Studios at Trafford Wharf were sold for UKP50m on 31 December 2018.</p>
+<p>You may question whether it is right to include sales of such property in the same population of data as the sales of standard family homes and flats. There is no one correct answer to this question. The answer depends on what you are investigating. Say you are ultimately interested in all property sales which generate tax revenue for Greater Manchester. Then you should indeed include all such sales. If, however, you are interested in investigating the average price of a family home in Greater Manchester (or any other feature of the distribution of family homes) then you should really exclude commercial property transactions.</p>
+<p>In practical work you will have to put significant thinking into such questions. And if you decided that you wanted to exclude commercial property deals you would have to find a way of identifying which of the more than 91 thousand transactions were commercial. The spreadsheet you have been given does not contain a clear identifier of such transactions.</p>
+</div>
+</div>
+<section id="example" class="level4 callout-info" data-number="13.2.0.1">
+<h4 data-number="13.2.0.1" class="anchored" data-anchor-id="example"><span class="header-section-number">13.2.0.1</span> Example</h4>
+<p>Consider taking a sample of property transactions and calculate the sample mean of the sampled transaction prices. This is the definition of a</p>
+<p><select class="webex-select"><option value="blank"></option><option value="answer">random variable</option><option value="">probability distribution</option><option value="">random outcome</option><option value="">sample variance</option></select></p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Recall the definition of a random variable: A random variable assigns a number to the outcome of an experiment.</p>
+</div>
+<p>Taking different samples will result in <select class="webex-select"><option value="blank"></option><option value="">identical</option><option value="answer">different</option></select> sample means.</p>
+<p>The above sampling distribution for the sample mean is the distribution of a <select class="webex-select"><option value="blank"></option><option value="">Discrete random variable</option><option value="answer">Continuous random variable</option></select>.</p>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>The sample mean could take any value on the real line (or positive real line given there are unlikely to be negative property prices).</p>
+</div>
+<p>The above sampling distribution for the sample mean is best approximated by which of the following distributions?</p>
+<div id="radio_MEXCDGTFGN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MEXCDGTFGN" value=""> <span>Binomial distribution</span></label><label><input type="radio" autocomplete="off" name="radio_MEXCDGTFGN" value=""> <span>Uniform distribution</span></label><label><input type="radio" autocomplete="off" name="radio_MEXCDGTFGN" value=""> <span>Exponential distribution</span></label><label><input type="radio" autocomplete="off" name="radio_MEXCDGTFGN" value="answer"> <span>Normal distribution</span></label><label><input type="radio" autocomplete="off" name="radio_MEXCDGTFGN" value=""> <span>Bernoulli distribution</span></label><label><input type="radio" autocomplete="off" name="radio_MEXCDGTFGN" value=""> <span>Geometric distribution</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>We need a continuous distribution and amongst those (Uniform, Normal and Exponential) the normal is the only one which has approximately these properties - high mass around the centre decreasing mass in the tails. Although it is not perfect as the sampling distribution shows some distinct skewness.</p>
+</div>
+</section>
+<p>The sample mean is a sample statistics (as are the sample variance or other sample statistics). After thinking about the above questions you should understand the following. This sample statistic (as a concept, rather than a mean in a particular sample) is indeed a random variable. When we introduced random variables we said that we would usually label these with capital letters. So let’s label this <span class="math inline">\(\bar{X}\)</span>, the sample mean. When we have a random variable then we know that we can get different outcomes when drawing from that random variable. We shall call these outcomes <span class="math inline">\(\bar{x}\)</span> (note the lower case). In the above example we calculated 1,000 such outcomes.</p>
+<p>Eventually we will want to know how this random variable is distributed. In particular we will want to know what distribution this random variable will follow and what parameters describe that distribution. The Central Limit Theorem will give us exactly that knowledge. But perhaps, after answering the above questions, you should not be surprised to hear that <span class="math inline">\(\bar{X}\)</span>, under certain circumstances, is best approximated by a normal distribution. More details to follow later!</p>
+<p>In the experiment above we drew 1,000 samples of size <span class="math inline">\(n=30\)</span>. Remember that this is really a rather artificial experiment. In practice you will have one sample only from which you wish to make inference on the population. As it turns out, the number of samples we took (here 1,000) is not a critical number for what we want to find out. However, as we will see now, the size of a particular sample does matter. This will be illustrated in the following figure in which we replicate the above sampling distribution (<span class="math inline">\(n=30\)</span>) but also similar ones for different sample sizes, <span class="math inline">\(n=6,15,1000\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Histvarn.png" class="img-fluid figure-img"></p>
+<figcaption>Histogram of 1,000 sample house sale price means, with sample sizes <span class="math inline">\(n=6,15,30,1000\)</span>. Mean of sample means indicated by red line.</figcaption>
+</figure>
+</div>
+<p>As we increase the sample size two things happen</p>
+<ol type="1">
+<li>The variance of the resulting distribution decreases.</li>
+<li>The distribution becomes less skewed. You can see that as the mean of the distribution indicated by the red vertical line moves more into the area of the distribution with the highest probability mass.</li>
+</ol>
+<p>One thing that does not change is that the average of the respective samples (as indicated by the red vertical line) does not change. It does actually change slightly but stays (for the given samples) between UKP233,000 and UKP250,000.</p>
+<p>Recall how we started this section. We wanted to understand how we can use the information from a random sample to learn something about the population. For instance, can we learn from the sample mean of property transactions anything about the population mean of property transactions. You would be forgiven to say, at this point, that you don’t feel that much closer to that aim. And indeed we are not quite there yet, but we collected a number of nuggets of insight which we will need.</p>
+<ul>
+<li>Sample means are approximately normally distributed</li>
+<li>The mean of a sampling distribution appears to be roughly constant</li>
+</ul>
+<p>Importantly, we established the above without ever looking at the distribution of property transactions itself, i.e.&nbsp;the distribution of the more than 90K transactions. You can imagine that this is a highly skewed distributions with many property sales below, say UKP500,000 and very few very high sale prices.</p>
+<p>In what follows we shall learn the following things</p>
+<ul>
+<li>We will derive the sampling distribution of the sample mean for two special cases, when the original distribution from which we draw samples is a binomial distribution and where it is a normal distribution.</li>
+<li>We will introduce the Central Limit Theorem which will formalise the statistical theory required to link information from the sample to that from the population. In particular it will establish the form of the sampling distribution of a sample mean <strong>irrespective</strong> of the distribution from which we are drawing samples.</li>
+<li>We will use a small number of examples to demonstrate this statistical underpinnings of the CLT.</li>
+<li>In future lessons we will apply the CLT to demonstrate how we link sample data to population information (confidence intervals and hypothesis tests).</li>
+</ul>
+</section>
+<section id="sampling-distributions" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="sampling-distributions"><span class="header-section-number">13.3</span> Sampling Distributions</h2>
+<p>In this section we will formally think about the sampling distribution for the sample mean statistic. You can also think about sampling distributions for other sample statistics, such as the sample variance, or the sample maximum, but we will only look at the most important one, the sample mean.</p>
+<p>We discussed previously that the sample mean is a random variable. Here we are after three things: how is that random variable distributed, what is its expected value and what is its variance?</p>
+<p>Suppose that a random sample of size <span class="math inline">\(n\)</span> is drawn from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^{2}\)</span>, or equivalently, from the probability distribution of a random variable <span class="math inline">\(X\)</span> with <span class="math inline">\(E\left[ X\right]=\mu\)</span>, <span class="math inline">\(var\left[X\right] =\sigma^{2}\)</span>.</p>
+<p>Since</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \bar{X}&amp;=&amp;\dfrac{1}{n}\sum_{i=1}^{n}X_{i}\\
+    &amp;=&amp;\sum_{i=1}^{n}\frac{1}{n}X_{i}
+\end{eqnarray*}\]</span></p>
+<p><span class="math inline">\(\bar{X}\)</span> is a linear combination of the sample random variables <span class="math inline">\(X_{1},...,X_{n}\)</span>, so that the results on the linear combination of random variables apply here and we can find <span class="math inline">\(E\left[ \bar{X}\right]\)</span> and <span class="math inline">\(var\left[\bar{X}\right]\)</span>.</p>
+<p>As we draw random samples from <span class="math inline">\(X\)</span>, we know that</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    E\left[ X_{i}\right] &amp;=&amp;E\left[ X\right] =\mu , \\
+    var\left[ X_{i}\right] &amp;=&amp;var\left[ X\right] =\sigma^{2}.
+\end{eqnarray*}\]</span></p>
+<p>We now have all the information to derive the expected value of <span class="math inline">\(\bar{X}\)</span>, the expected value or expectation of the sampling distribution of the sample mean.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    E\left[ \bar{X}\right] &amp;=&amp;E\left[ \dfrac{1}{n}\sum_{i=1}^{n}X_{i}\right] \\
+    &amp;=&amp;\dfrac{1}{n}\sum_{i=1}^{n}E\left[ X_{i}\right] \\
+    &amp;=&amp;\dfrac{1}{n}\sum_{i=1}^{n}\mu = \dfrac{1}{n}(n\mu)\\
+    &amp;=&amp;\mu .
+\end{eqnarray*}\]</span></p>
+<p>We have only re-applied what we learned in the section on linear combinations of random variables.</p>
+<p>Turning our attention to the calculation of the variance of the sample mean random variable we should notice that random sampling makes the sample random variables <span class="math inline">\(X_{1},...,X_{n}\)</span> independent and therefore uncorrelated. This is nice as it simplifies the job of obtaining the variance of <span class="math inline">\(\bar{X}\)</span>. In the case of independence the variance of a weighted sum is a weighted sum of variances (this is as discussed in the lesson on linear combinations of random variables).</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    var\left[ \bar{X}\right] &amp;=&amp;var\left[ \dfrac{1}{n}\sum_{i=1}^{n}X_{i}\right] \\
+    &amp;=&amp;\sum_{i=1}^{n}var\left[ \dfrac{1}{n}X_{i}\right] \\
+    &amp;=&amp;\sum_{i=1}^{n}\left( \dfrac{1}{n}\right) ^{2}var\left[ X_{i}\right] \\
+    &amp;=&amp;\sum_{i=1}^{n}\left( \dfrac{1}{n}\right) ^{2}\sigma ^{2} \\
+    &amp;=&amp;\dfrac{n\sigma ^{2}}{n^{2}} \\
+    &amp;=&amp;\dfrac{\sigma ^{2}}{n}.
+\end{eqnarray*}\]</span></p>
+<p>The square root of <span class="math inline">\(var\left[ \bar{X}\right]\)</span> is the <strong>standard deviation</strong> of <span class="math inline">\(\bar{X}\)</span>, and this is usually given the specific name of <strong>standard error</strong>. So far, we have identified population parameters with the parameters of the distribution of the corresponding random variable <span class="math inline">\(X\)</span>. We can extend this to cover characteristics or parameters of the probability distributions of sample statistics like <span class="math inline">\(\bar{X}\)</span>. So, <span class="math inline">\(var\left[ \bar{X}\right]\)</span> is a <strong>parameter</strong> of the probability distribution of <span class="math inline">\(\bar{X}\)</span>, and so is the standard error,</p>
+<p><span class="math display">\[\begin{equation*}
+    SE\left[ \bar{X}\right] =\dfrac{\sigma }{\sqrt{n}} = \sigma_{\bar{X}}.
+\end{equation*}\]</span></p>
+<p>So far none of the results dependent on us making any assumption about the distribution of <span class="math inline">\(X\)</span>. We only assumed that the expected value and variance were <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> respectively. Also the rules for linear combinations of random variables we used so far were not reliant on any distributional assumption for <span class="math inline">\(X\)</span>. Hence, even without that knowledge we could establish two of the three things we wanted, the expected value and the variance of the sample mean. What we do not know yet is the type of distribution of <span class="math inline">\(\bar{X}\)</span>.</p>
+<p>This video walks you through the above arguments (YouTube, 12min)</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/GDRJyXzRlgE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="example-1" class="level4 callout-info" data-number="13.3.0.1">
+<h4 data-number="13.3.0.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">13.3.0.1</span> Example</h4>
+<p>You have a random variable <span class="math inline">\(Z\)</span> with <span class="math inline">\(E[Z] = 1.3\)</span> and <span class="math inline">\(Var[Z] = 0.61\)</span>. You draw a sample of size <span class="math inline">\(n=5\)</span>. What are the expected value, variance and standard error for the sample mean <span class="math inline">\(\bar{Z}\)</span>?</p>
+<p><span class="math inline">\(E[\bar{Z}] =\)</span> <input class="webex-solveme nospaces" size="3" data-answer="[&quot;1.3&quot;]"></p>
+<p><span class="math inline">\(Var[\bar{Z}]  =\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.3483&quot;,&quot;.3483&quot;]"> (to 4 dp)</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p><span class="math display">\[\begin{eqnarray*}
+    E[\bar{Z}] &amp;=&amp; 1.3\\
+    Var[\bar{Z}] &amp;=&amp; \frac{Var[Z]}{n}= \frac{0.61}{5} = 0.122\\
+    \sigma_{\bar{Z}}&amp;=&amp; \sqrt{\frac{Var[Z]}{n}} = \sqrt{0.122} = 0.3483
+\end{eqnarray*}\]</span></p>
+</div>
+<p>What is the smallest sample size, <span class="math inline">\(n^*\)</span>, that would deliver a standard error smaller than 0.1?</p>
+<p><span class="math inline">\(n^* =\)</span> <input class="webex-solveme nospaces" size="2" data-answer="[&quot;62&quot;]"></p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>Set <span class="math inline">\(\sigma_{\bar{Z}}= \sqrt{\frac{Var[Z]}{n^*}} &lt; 0.1\)</span>. You know <span class="math inline">\(Var[Z]\)</span> such that you can solve the resulting inequality for <span class="math inline">\(n^*\)</span>: <span class="math inline">\(n^* &gt; 10^2 Var[Z] &gt; 61\)</span> hence <span class="math inline">\(n^*=62\)</span>.</p>
+</div>
+</section>
+<section id="special-case-samples-from-a-normal-distribution" class="level3" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="special-case-samples-from-a-normal-distribution"><span class="header-section-number">13.3.1</span> Special Case: Samples from a normal distribution</h3>
+<p>Even without making a distributional assumption about the random variable <span class="math inline">\(X\)</span> from which we considered drawing a sample of size <span class="math inline">\(n\)</span> we were able to derive the expected value and variance of the sample mean random variable, <span class="math inline">\(\bar{X}\)</span>. What would happen if we knew that <span class="math inline">\(X\)</span> is actually normally distributed, <span class="math inline">\(X \sim N(\mu,\sigma^2)\)</span>.</p>
+<p>As we are drawing random samples we know that <span class="math inline">\(X_i \sim N(\mu,\sigma^2)\)</span> and the sample mean is still calculated according to:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \bar{X}&amp;=&amp;\dfrac{1}{n}\sum_{i=1}^{n}X_{i}\\
+    &amp;=&amp;\sum_{i=1}^{n}\frac{1}{n}X_{i}
+\end{eqnarray*}\]</span></p>
+<p>This is a linear combination of <span class="math inline">\(n\)</span> normally distributed random variables. The earlier results still apply as they were universally valid, <span class="math inline">\(E[\bar{X}]=\mu\)</span> and <span class="math inline">\(Var[\bar{X}]= \frac{\sigma^2}{n}\)</span>. But in the section on the combinations of random variables we also learned that a linear combination of normally distributed random variables is also normally distributed. The result that</p>
+<p><span class="math display">\[\begin{equation*}
+    \bar{X} \sim N(\mu, \frac{\sigma^2}{n})
+\end{equation*}\]</span></p>
+<p>follows directly. This is a very important result. The sample mean is a random variable which is normally distributed if the random variable we draw from is normally distributed itself.</p>
+</section>
+<section id="the-general-case-the-central-limit-theorem" class="level3" data-number="13.3.2">
+<h3 data-number="13.3.2" class="anchored" data-anchor-id="the-general-case-the-central-limit-theorem"><span class="header-section-number">13.3.2</span> The General Case: The Central Limit Theorem</h3>
+<p>Let us now consider the case where the distribution of <span class="math inline">\(X\)</span> is not normal. We are now back in the case of the data on property transactions in Manchester in 2018 and 2021. We did note that this is an extremely skewed distribution and therefore a non-normal distribution (as normal distributions are symmetric distributions).</p>
+<p>In fact, let us now look at the actual distribution of prices for property transactions.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/HistSP.png" class="img-fluid figure-img"></p>
+<figcaption>Histogram of property sale prices in Greater Manchester, 2018 and 2021.</figcaption>
+</figure>
+</div>
+<p>The mean and the population standard deviations for the entire dataset are <span class="math inline">\(\mu = UKP248,934.33\)</span> and <span class="math inline">\(\sigma=1,068,362\)</span> respectively. The distribution is highly skewed to the right, meaning that there are sales which attract prices which are much much higher than the mean of prices. This is illustrated by the right tail of the distribution which stretches much further to the right than the left hand tail stretches to the left.</p>
+<p>Although we have now recognised that this distribution is highly non-normal we can recognise some of the same patterns as those in the previous chapter. The sampling distributions we created by sampling from these property prices looked fairly close to normally distributed. The average of the sample means was also fairly close to the average house price. However, even then, all four sampling distributions still showed a noticeable skew to the right.</p>
+<p>However, if we imagine that the sample size <span class="math inline">\(n\)</span> is allowed to increase without bound, so that <span class="math inline">\(n\rightarrow \infty\)</span>, we can appeal to a famous theorem (more accurately, a collection of theorems) in probability theory called the <strong>Central Limit Theorem</strong>, often abbreviated as <strong>CLT</strong>. This states that</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>The Central Limit Theorem (CLT)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(\bar{X}\)</span> is obtained from a random sample of size <span class="math inline">\(n\)</span> from a population with mean $$ and variance <span class="math inline">\(\sigma ^{2}\)</span>, then, irrespective of the distribution sampled,</p>
+<p><span class="math display">\[\begin{equation*}
+    \bar{X}\rightarrow N\left( \mu,SE\left[ \bar{X}\right]^2\right) \;\;\;\text{as }n\rightarrow \infty .
+\end{equation*}\]</span></p>
+<p>or, applying rules for transformations of random variables</p>
+<p><span class="math display">\[\begin{equation*}
+        \dfrac{\bar{X}-\mu }{SE\left[ \bar{X}\right] }=\dfrac{\bar{X}-\mu}{ \sigma /\sqrt{n} }=\dfrac{\bar{X}-\mu}{\sigma_{\bar{X} }}\rightarrow N\left( 0,1\right) \;\;\;\text{as }n\rightarrow \infty .
+\end{equation*}\]</span></p>
+<p>That is, the probability distribution of <span class="math inline">\(\dfrac{\bar{X}-\mu }{SE\left[ \bar{X}\right] }\)</span> approaches the standard normal distribution as $n$.</p>
+</div>
+</div>
+<p>This is an incredibly strong result! Whatever the distribution of the random variable <span class="math inline">\(X\)</span> from which you randomly sample, the sampling distribution of the sample mean is a normal distribution if we just use the sample size <span class="math inline">\(n\)</span> big enough.</p>
+<p>We <strong>interpret</strong> this as saying that</p>
+<p><span class="math display">\[\begin{equation*}
+    \dfrac{\bar{X}-\mu }{SE\left[ \bar{X}\right] }=\dfrac{\bar{X}-\mu}{\left( \sigma /\sqrt{n}\right) }\sim N\left( 0,1\right) ,\;\;\;approximately
+\end{equation*}\]</span></p>
+<p>for finite <span class="math inline">\(n\)</span>. Or alternatively is to say that</p>
+<p><span class="math display">\[\begin{equation*}
+        \bar{X}\sim N\left( \mu ,\dfrac{\sigma ^{2}}{n}\right) \;\;\;approximately
+\end{equation*}\]</span></p>
+<p>for finite <span class="math inline">\(n\)</span>.</p>
+<p>A brief discussion of this result (YouTube, 5 min).</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/1b3Z01ukHow" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>In our example above we could see that even for a large sample size of <span class="math inline">\(n=1000\)</span> the distribution had distinct non-normal features, in particular the skew to the right. You may then wonder how large a sample size one would have to use in the property transaction example to find the sampling distribution to be well approximated by a normal distribution.</p>
+<p>It turns out that in this case you need a really large sample. When producing 1,000 samples each of sample size <span class="math inline">\(n=10,000\)</span> you get the following sampling distribution</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Histn10000.png" class="img-fluid figure-img"></p>
+<figcaption>Histogram of 1,000 sample house sale price means, <span class="math inline">\(n=10000\)</span>. Theoretical sampling distribution in blue.</figcaption>
+</figure>
+</div>
+<p>In this picture we overlayed the sampling distribution which is implied by the CLT, namely</p>
+<p><span class="math display">\[\begin{equation*}
+    \bar{X}\sim N\left( \mu ,\dfrac{\sigma ^{2}}{n}\right)
+\end{equation*}\]</span></p>
+<p>or using <span class="math inline">\(\mu = UKP248,934.33\)</span> and <span class="math inline">\(\sigma=1,068,362\)</span></p>
+<p><span class="math display">\[\begin{equation*}
+    \bar{X}\sim N\left( 248,934.33 ,10,683^2\right).
+\end{equation*}\]</span></p>
+<p>You may quibble about whether there aren’t still systematic deviations from a normal distribution, but the point to take away here is that the sampling distribution of <span class="math inline">\(\bar{X}\)</span> is approximated by the normal distribution and increasing the sample size improves this approximation.</p>
+<p>Textbooks often claim that the approximation is good enough if $n $ or <span class="math inline">\(30\)</span>. As you have seen above this can be over-optimistic if the original distribution is extremely skewed as is the distribution of prices for properties we used here. However, for many practical examples the above advice is not far off the mark.</p>
+<section id="example-2" class="level4 callout-info" data-number="13.3.2.1">
+<h4 data-number="13.3.2.1" class="anchored" data-anchor-id="example-2"><span class="header-section-number">13.3.2.1</span> Example</h4>
+<p>Consider a random variable <span class="math inline">\(M\)</span> which is known to be normally distributed <span class="math inline">\(M \sim N(3,25)\)</span>.</p>
+<p>What is the probability that an individual draw of <span class="math inline">\(M\)</span> delivers a value which is smaller than 0?</p>
+<p><span class="math inline">\(Pr(M&lt;0) = Pr\left(Z&lt;\frac{0-3}{5}\right) = Pr\left(Z&lt;-0.6\right)=0.2743\)</span></p>
+<p>What is the distribution of <span class="math inline">\(\bar{M}\)</span> if <span class="math inline">\(\bar{M}\)</span> is the sample average calculated for a sample of size <span class="math inline">\(n=16\)</span>?</p>
+<p><span class="math inline">\(\bar{M} \sim N\left(3,\frac{25}{16}\right)\)</span></p>
+<p>Calculate the probability that a particular sample mean (of a sample of size <span class="math inline">\(n=16\)</span>) is smaller than 0.</p>
+<p><span class="math inline">\(Pr(\bar{M}&lt;0) = Pr\left(Z&lt;\frac{0-3}{\sqrt{25/16}}\right) = Pr\left(Z&lt;-2.4\right)=0.0082\)</span></p>
+<p>Note the difference in the two probabilities.</p>
+</section>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider a random variable <span class="math inline">\(Q\)</span> which is known to have expected value of <span class="math inline">\(E[Q]=1\)</span> and variance of <span class="math inline">\(Var[Q]=16\)</span>. You do not know the distribution of <span class="math inline">\(Q\)</span>.</p>
+<p>What is the probability that an individual draw of <span class="math inline">\(Q\)</span> delivers a value which is smaller than 0?</p>
+<div id="radio_FVGDFHZBWY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FVGDFHZBWY" value=""> <span>the same as if <span class="math inline">\(Q\)</span> was normally distributed</span></label><label><input type="radio" autocomplete="off" name="radio_FVGDFHZBWY" value=""> <span>50%</span></label><label><input type="radio" autocomplete="off" name="radio_FVGDFHZBWY" value=""> <span>40.13%</span></label><label><input type="radio" autocomplete="off" name="radio_FVGDFHZBWY" value="answer"> <span>cannot be calculated</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>Without knowing the distribution, we cannot calculate this.</p>
+</div>
+<p>What is the distribution of <span class="math inline">\(\bar{Q}\)</span> if <span class="math inline">\(\bar{Q}\)</span> is the sample average calculated for a sample of size <span class="math inline">\(n=16\)</span> which you know to be big enough for the CLT to apply?</p>
+<div id="radio_WFZGCNRQPL" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WFZGCNRQPL" value=""> <span>N(1,0.25)</span></label><label><input type="radio" autocomplete="off" name="radio_WFZGCNRQPL" value=""> <span>N(0,1)</span></label><label><input type="radio" autocomplete="off" name="radio_WFZGCNRQPL" value=""> <span>N(1,4)</span></label><label><input type="radio" autocomplete="off" name="radio_WFZGCNRQPL" value="answer"> <span>N(1,1)</span></label><label><input type="radio" autocomplete="off" name="radio_WFZGCNRQPL" value=""> <span>N(1,1/16)</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>Use the general CLT result that <span class="math inline">\(\bar{Q}\sim N\left( \mu_Q ,\dfrac{\sigma_Q ^{2}}{n}\right)\)</span></p>
+<p><span class="math inline">\(\bar{Q} \sim N\left(1,\frac{16}{16}\right)\)</span></p>
+</div>
+<p>Calculate the probability that a particular sample mean (of a sample of size <span class="math inline">\(n=16\)</span>) is smaller than 0.</p>
+<p><span class="math inline">\(Pr(\bar{Q}&lt;0) =\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.1587&quot;,&quot;.1587&quot;]"></p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p><span class="math inline">\(Pr(\bar{Q}&lt;0) = Pr\left(Z&lt;\frac{0-1}{\sqrt{1}}\right) = Pr\left(Z&lt;-1\right)=0.1587\)</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="summary-and-outlook" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="summary-and-outlook"><span class="header-section-number">13.4</span> Summary and Outlook</h2>
+<p>In this section we engaged in a thought experiment, an experiment that does not reflect the realities of an applied researcher. We thought about the situation in which we can draw repeated samples from a known population. We then used that thought experiment to understand that sample statistics are random variables and to derive how these sample statistics are distributed.</p>
+<p>The reality of an applied researcher is that she will not know the properties of the population and she has one (not repeated!) samples available for analysis. The task is then to show how the information from that one sample can be used to learn anything about the population as that is usually what the researcher is interested in.</p>
+<p>The next sections on confidence intervals and hypothesis testing will help you learn what and how we can draw inference from a sample on the population. But you should note that this section has prepared the ground for that. The Central Limit Theorem shows how sample statistics, like <span class="math inline">\(\bar{X}\)</span> are linked to population parameters (<span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>). It is that link, which will allow us to draw inference on population parameters.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script src="include/webex.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Comb_of_RVs.html" class="pagination-link" aria-label="Combination of Random Variables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Combination of Random Variables</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
