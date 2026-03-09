@@ -77,8 +77,7 @@ The normal distribution's pdf is defined by (you will not be expected to remembe
 	f(x)=\frac{1}{\sigma \sqrt{2\pi }}\exp \left( -\frac{(x-\mu )^{2}}{2\sigma ^{2}}\right) ,\quad -\infty <x<\infty ;\quad -\infty <\mu <\infty ,\,\,\,\,\sigma >0,
 \end{equation*}
 
-and we say that a continuous random variable $X$ has a normal distribution if and only if it has pdf defined by $f(x)$, above. Here, $\pi$ is the number Pi $=3.14159..$. In shorthand, we write $X\sim N\left( \mu ,\sigma ^{2}\right)$, meaning "$X$ is normally distributed with location $\mu$ and standard deviation $\sigma $". However, a perfectly acceptable alternative is to say `$X$ is normally distributed with mean $\mu$
-and variance $\sigma ^{2}$', for reasons which shall become clear in the next section.
+and we say that a continuous random variable $X$ has a normal distribution if and only if it has pdf defined by $f(x)$, above. Here, $\pi$ is the number Pi $=3.14159..$. In shorthand, we write $X\sim N\left( \mu ,\sigma ^{2}\right)$, meaning "$X$ is normally distributed with location $\mu$ and standard deviation $\sigma $. However, a perfectly acceptable alternative is to say `$X$ is normally distributed with mean $\mu$ and variance $\sigma ^{2}$, for reasons which shall become clear in the next section.
 
 Within these four normal distriutions above, the first one is an important special case of this distribution arises when $\mu =0$ and $\sigma =1$, yielding the standard normal density.
 
