@@ -36,7 +36,7 @@ In the discrete random variable section, we showed that the probability distribu
 
 The following figure gives you (on the left hand side) a representation of a typical pmf and on the right hand side a representation of a typical pdf.
 
-![Probability mass function and Probability density function](images/pmf_pdf.jpg)#fig-pmftopdf
+![Probability mass function and Probability density function](images/pmf_pdf.jpg){#fig-pmftopdf}
 
 Given that the sample space of a continuous random variable is not just discrete numbers, how do we distribute probability for such a continuous random variable? The probability must be distributed over the range of possible values for $X$; which, in the reservoir example, is over the unit interval $\left(0,1\right)$. As shown by @fig-pmftopdf, unlike the discrete case where a specific **mass** of probability is dropped on each of the discrete outcomes, for continuous random variables probability is distributed smoothly over the **whole interval** of defined possible outcomes. This is what we call a probability density function (pdf).
 
@@ -44,7 +44,7 @@ In a histogram (representing a pmf) the height of the bars represented the proba
 
 This is illustrated in @fig-pdf_example. The area underneath the pdf between $a$ and $b$ represents the probability that the random variable $X$ will take a value between  $a$ and $b$, $Pr(a < X \leq b)$. Any such value will be smaller or equal to 1 and the area underneath the entire pdf will be equal to one. 
 
-![Probability density function](images/ProbDistCont_density1.jpg)#fig-pdf_example
+![Probability density function](images/ProbDistCont_density1.jpg){#fig-pdf_example}
 
 Some thought should convince you that for a **continuous** random variable, $X$, it must be the case that $Pr(X=a)=0$ for all real numbers $a$ contained in the range of possible outcomes of $X$. If this were not the case, then the axioms of probability would be violated. However, there should be a positive probability of $X$ being close, or in the neighbourhood, of $a$. (A neighbourhood of $a$ might be $a\pm0.01$, say.) For example, although the probability that the reservoir is **exactly** 90\% full must be **zero** there will be a positive probability that the reservoir has a level between 89.99\% and 90.01\%.
 
@@ -166,7 +166,7 @@ Any function satisfying the above may be considered suitable for modelling cumul
 
 Some possible examples of \textit{cdfs}, in other situations, are depicted in the following Figure 5.
 
-![Cumulative distribution function](images/ProbDistCont_density2.jpeg)#fig-var_cdfs
+![Cumulative distribution function](images/ProbDistCont_density2.jpeg){#fig-var_cdfs}
 
 * The first of these is strictly increasing over the whole real line, indicating possible values of $X$ can fall anywhere.
 * The second is increasing, but only strictly over the interval $x>0$; this indicates that the range of possible values for the random variable is $x>0$ with the implication that $Pr(X\leq 0)=0$. 
