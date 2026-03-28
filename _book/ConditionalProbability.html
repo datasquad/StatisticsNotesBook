@@ -224,8 +224,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./HypothesisTesting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -341,11 +347,20 @@ window.Quarto = {
 <p>and from the axioms of probability will generate a number lying between 0 and 1, since <span class="math inline">\(\Pr (F)\geq \Pr (E\cap F)\geq 0\)</span>.</p>
 </div>
 </div>
-<section id="example" class="level4 callout-info" data-number="8.2.0.1">
-<h4 data-number="8.2.0.1" class="anchored" data-anchor-id="example"><span class="header-section-number">8.2.0.1</span> Example</h4>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>A Manufacturer of electrical components knows that the probability is 0.8 that an order will be ready for shipment on time and it is 0.6 that it will also be delivered on time. What is the probability that such an order will be delivered on time given that it was ready for shipment on time?</p>
 <p>Let <span class="math inline">\(R=\)</span> “READY”, <span class="math inline">\(D=\)</span> “DELIVERED ON TIME”. <span class="math inline">\(Pr(R)=0.8,Pr(R\cap D)=0.6\)</span>. From this we need to calculate <span class="math inline">\(Pr(D|R)\)</span>, using the above formula. This gives, <span class="math inline">\(Pr(D|R)=Pr(R\cap D)/Pr(R)=6/8\)</span>, or, <span class="math inline">\(75\%\)</span>.</p>
-</section>
+</div>
+</div>
 <section id="multiplication-rule-of-probability" class="level3" data-number="8.2.1">
 <h3 data-number="8.2.1" class="anchored" data-anchor-id="multiplication-rule-of-probability"><span class="header-section-number">8.2.1</span> Multiplication rule of probability</h3>
 <p>If we re-arrange the above formula for conditional probability, we obtain the so-called <strong>multiplication rule of probability</strong> for <strong>intersections</strong> of events. The multiplication rule of probability can be stated as follows:</p>
@@ -457,8 +472,16 @@ Solutions
 <p>As you can see, the multiplication rule of probabilities, in the case of independent events, is <span class="math inline">\(Pr(E\cap F)=Pr(E)\times Pr(F)\)</span> whereas in general it is <span class="math inline">\(Pr(E\cap F)=Pr(E)\times Pr(F|E)\)</span> or <span class="math inline">\(Pr(E\cap F)=Pr(F)\times Pr(E|F)\)</span>.</p>
 <p>This concept of independence is of enormous importance in practice. Consider the case of lung cancer and its connection to smoking (apologies to all smokers for being picked upon here). The first connection between smoking and lung cancer was made in the 1920s. However, for many decades, with the tobacco industry spending a lot of money and effort to convince people that there was no connection between the two, there was no certainty about a causal connection. In other words, the tobacco industry claimed that the two events are <strong>independent</strong>, or <span class="math inline">\(Pr(Cancer|Smoking)=Pr(Cancer|\bar{Smoking})=Pr(Cancer)\)</span>. It was then the task of epidemiologists to show otherwise. This was famously and comprehensively achieved by the <a href="http://en.wikipedia.org/wiki/British_Doctors_Study">British Doctors Study</a>.</p>
 <p>In the smoking - lung cancer example the question is really whether smoking <strong>causes</strong> lung cancer. It has now been established that this is indeed the case. That however, is not the same as the two events being dependent. There can be statistical dependence between two events without there being such a causal relationship. For instance, the number of umbrellas being sold in a year could well be positively related to the size of the grain harvest in a country. So, statistically these two variables are likely to be dependent. But that does not imply that people buying more umbrellas increases the grain harvest or vice versa. The reason the two are related to each other is that they are both dependent on a common third variable, the weather. Questions of causality are super important in economics and the sub-field of econometrics thinks very carefully about methods that can be used to establish causal relationships (which are a sub-group of correlation relationships). In other words: not all correlations do correspond to causal relationships.</p>
-<section id="example-1" class="level4 callout-info" data-number="8.3.0.1">
-<h4 data-number="8.3.0.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">8.3.0.1</span> Example</h4>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Two fair dice are rolled. Use a probability tree diagram to determine the probability of obtaining:</p>
 <ol type="a">
 <li><p>two sixes,</p></li>
@@ -485,7 +508,8 @@ Solutions
     P(D1_{6} \cap D2_{1-5}) + P(D1_{1-5} \cap D2_{6})  &amp;=&amp; P(D1_{6}) \times P(D2_{1-5}) +  P(D1_{1-5}) \times P(D2_{6})\\
      &amp;=&amp; (1/6)(5/6) + (5/6)(1/6) = 10/36
 \end{eqnarray*}\]</span></p>
-</section>
+</div>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -545,8 +569,16 @@ Figure&nbsp;8.1: Bayes’ Theorem
 \end{equation*}\]</span></p>
 <p>which is convenient to work with since <span class="math inline">\(\Pr \left( P|D\right)\)</span> and <span class="math inline">\(\Pr\left( P|\bar{D}\right)\)</span> can be estimated from clinical trials and <span class="math inline">\(\Pr\left( D\right)\)</span> estimated from recent historical survey data. We sometimes call probabilities like <span class="math inline">\(Pr(D)\)</span> and probabilities like $( D|P) $ . You can think of the and representing before and after the revealing of the information <span class="math inline">\(P\)</span>.</p>
 <p>This is all pretty abstract,so let’s work through an example.</p>
-<section id="example-2" class="level4 callout-info" data-number="8.3.1.1">
-<h4 data-number="8.3.1.1" class="anchored" data-anchor-id="example-2"><span class="header-section-number">8.3.1.1</span> Example</h4>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Let’s assume that you are worried about having contracted Covid. You know that at the time around 10% of the population have Covid. This number comes from a regular survey undertaken by the Office for National Statistics. We also call this the prevalence of the disease, <span class="math inline">\(P(D)=0.1\)</span>. You want to take a test. You did your research about the test and found that, from clinical tests, it is known that the test has an accuracy of 95%. In this context this implies that, if you do have the disease, then there is a 95% probability that the test will tell yo that you are positive. Also, if you do not have the disease the test will also tell you, with probability of 95% that you are not positive (or in 5% of cases it would tell a non-infected person that they are positive). These two probabilities do not need to be identical (see example below). In statistical language we know that <span class="math inline">\(\Pr \left( P|D\right)=0.95\)</span> and <span class="math inline">\(\Pr \left( P|\bar{D}\right)= 1-0.95 = 0.05\)</span>.</p>
 <p>After doing all this research you actually get to take the test. The test tells you that you are positive. Given all this information, what is the probability that you do have Covid? 100%? 95%? Neither of these, the probability is significantly lower. There are two ways how you could have ended up testing positive. Either you have Covid and, correctly tested positive, or you do not have Covid and the test erroneously showed a positive result. So, given you did test positive, what is actually the probability that you have Covid, <span class="math inline">\(Pr(D|P)\)</span>. Just to benchmark this. If you just had not tested, the probability would be 10%, the population prevalence.</p>
 <p>This is where the previous result comes in useful, as we actually do have all the terms required:</p>
@@ -558,7 +590,8 @@ Figure&nbsp;8.1: Bayes’ Theorem
 <p>So, this is certainly much less than certainty. But you should also note that after the positive test the probability that you have Covid increased substantially from 10% (before the test, prior probability) to almost 68% (posterior probability).</p>
 <p>This is a workthrough of the above example (YouTube, 15min).</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/rAOsyHvsUS4" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</section>
+</div>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -607,8 +640,16 @@ Solutions
   Pr(F_{j}|E)=\frac{\Pr (F_{j} \cap E)}{Pr(E)}=\frac{\Pr (E|F_{j})\times \Pr (F_{j})}{\sum_{s=1}^{k}\left\{\Pr (E|F_{s})\times \Pr (F_{s})\right\} }.
 \end{equation*}\]</span></p>
 <p>From the above formula, you should be able to satisfy yourself that <span class="math inline">\(\sum_{j=1}^{k}\Pr \left( F_{j}|E\right) =1\)</span>. If this is not at first clear, consider case (1.) and show that <span class="math inline">\(\Pr \left( A|E\right) +\Pr \left(B|E\right) +\Pr \left( C|E\right) =1\)</span>. The reason for this is that since <span class="math inline">\(A,B\)</span> and <span class="math inline">\(C\)</span> form a partition of <span class="math inline">\(S\)</span>, they must also form a partition of any event <span class="math inline">\(E\subset S\)</span>. In the above conditional probabilities, we are regarding <span class="math inline">\(E\)</span> as the restricted sample space and therefore the probabilities assigned the mutually exclusive events $( A,B,C) $ which this (restricted) sample space, <span class="math inline">\(E\)</span>, must sum to 1.</p>
-<section id="example-3" class="level4 callout-info" data-number="8.3.1.2">
-<h4 data-number="8.3.1.2" class="anchored" data-anchor-id="example-3"><span class="header-section-number">8.3.1.2</span> Example</h4>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Box A contains 2 red balls. Box B contains 1 red and 1 white ball. Other than which balls they contain, Box A and Box B are identical. If a box is selected at random and one ball is withdrawn from it, what is the probability that the selected box was A if the ball withdrawn from it turns out to be red?</p>
 <p>Let <span class="math inline">\(A\)</span> be the event of selecting Box A and <span class="math inline">\(R\)</span> the event of drawing a red ball. Calculate <span class="math inline">\(Pr(A|R)\)</span>.</p>
 <p><span class="math inline">\(Pr(A|R)=Pr(A\cap R)/Pr(R)\)</span>;</p>
@@ -622,7 +663,8 @@ Solutions
     &amp;=&amp;3/4.
 \end{eqnarray*}\]</span></p>
 <p>Therefore, <span class="math inline">\(\Pr (A|R)=(1/2)/(3/4)=2/3\)</span>.</p>
-</section>
+</div>
+</div>
 <p>Now we come back to the Monty Hall problem which has been introduced at the beginning.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">

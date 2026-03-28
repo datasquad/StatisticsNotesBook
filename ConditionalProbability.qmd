@@ -65,7 +65,7 @@ and from the axioms of probability will generate a number lying between 0 and 1,
 :::
 
 
-::: {.callout-info}
+::: {.callout-note}
 
 #### Example
 
@@ -206,7 +206,7 @@ In the smoking - lung cancer example the question is really whether smoking **ca
 
 
 
-::: {.callout-info}
+::: {.callout-note}
 
 #### Example
 
@@ -308,7 +308,7 @@ which is convenient to work with since $\Pr \left( P|D\right)$ and $\Pr\left( P|
 
 This is all pretty abstract,so let's work through an example.
 
-::: {.callout-info}
+::: {.callout-note}
 
 #### Example
 
@@ -383,7 +383,7 @@ This sort of calculation is an example of **Bayes' Theorem**. Of course, we may 
 From the above formula, you should be able to satisfy yourself that $\sum_{j=1}^{k}\Pr \left( F_{j}|E\right) =1$. If this is not at first clear, consider case (1.) and show that $\Pr \left( A|E\right) +\Pr \left(B|E\right) +\Pr \left( C|E\right) =1$. The reason for this is that since $A,B$ and $C$ form a partition of $S$, they must also form a partition of any event $E\subset S$. In the above conditional probabilities, we are regarding $E$ as the restricted sample space and therefore the probabilities assigned the mutually exclusive events $\left( A,B,C\right) $ which \emph{cover} this (restricted) sample space, $E$, must sum to 1.
 
 
-::: {.callout-info}
+::: {.callout-note}
 
 #### Example
 
