@@ -84,7 +84,7 @@ In practical work you will have to put significant thinking into such questions.
 
 :::
 
-::: {.callout-info}
+::: {.callout-note}
 
 #### Example
 
@@ -222,7 +222,7 @@ This video walks you through the above arguments (YouTube, 12min)
 
 {{< video https://youtu.be/GDRJyXzRlgE >}}
 
-::: {.callout-info}
+::: {.callout-note}
 
 #### Example
 
@@ -293,7 +293,7 @@ However, if we imagine that the sample size $n$ is allowed to increase without b
 
 ## The Central Limit Theorem (CLT)
 
-If $\bar{X}$ is obtained from a random sample of size $n$ from a population with mean $\mu $ and variance $\sigma ^{2}$, then, irrespective of the distribution sampled,
+If $\bar{X}$ is obtained from a random sample of size $n$ from a population with mean $\mu$ and variance $\sigma ^{2}$, then, irrespective of the distribution sampled,
 	
 \begin{equation*}
 	\bar{X}\rightarrow N\left( \mu,SE\left[ \bar{X}\right]^2\right) \;\;\;\text{as }n\rightarrow \infty .
@@ -353,7 +353,7 @@ You may quibble about whether there aren't still systematic deviations from a no
 
 Textbooks often claim that the approximation is good enough if $n \geq 20 $ or $30$. As you have seen above this can be over-optimistic if the original distribution is extremely skewed as is the distribution of prices for properties we used here. However, for many practical examples the above advice is not far off the mark.
  
-::: {.callout-info}
+::: {.callout-note}
 
 #### Example
 
@@ -435,6 +435,15 @@ $Pr(\bar{Q}<0) = Pr\left(Z<\frac{0-1}{\sqrt{1}}\right) = Pr\left(Z<-1\right)=0.1
 `r unhide()`
 
 :::
+
+
+## Visualisation of Sampling Distributions
+
+There are some excellent websites that visualise sampling distributions and how they arise from sampling from a population distribution. Here is a selection. It will certainly help your understanding if you go to one of these and experiment
+
+* [Onlinestatbook.com](https://onlinestatbook.com/stat_sim/sampling_dist/index.html)
+* [Statcrunch.com](https://www.statcrunch.com/applets/type3&samplingdist)
+* [University of Albany](https://shiny.rit.albany.edu/stat/sampdist/)
 
 
 ## Summary and Outlook

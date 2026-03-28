@@ -308,11 +308,29 @@ window.Quarto = {
 <h3 data-number="10.2.1" class="anchored" data-anchor-id="probability-density-function-pdf"><span class="header-section-number">10.2.1</span> Probability density function (pdf)</h3>
 <p>In the discrete random variable section, we showed that the probability distribution of a discrete random variable can be represented by a histogram, being a graphical representation of the probability mass function (pmf). The equivalent representation for a continuous random variable is a probability density function (pdf).</p>
 <p>The following figure gives you (on the left hand side) a representation of a typical pmf and on the right hand side a representation of a typical pdf.</p>
-<p><img src="images/pmf_pdf.jpg" class="img-fluid" alt="Probability mass function and Probability density function">#fig-pmftopdf</p>
-<p>Given that the sample space of a continuous random variable is not just discrete numbers, how do we distribute probability for such a continuous random variable? The probability must be distributed over the range of possible values for <span class="math inline">\(X\)</span>; which, in the reservoir example, is over the unit interval <span class="math inline">\(\left(0,1\right)\)</span>. As shown by <span class="quarto-unresolved-ref">?fig-pmftopdf</span>, unlike the discrete case where a specific <strong>mass</strong> of probability is dropped on each of the discrete outcomes, for continuous random variables probability is distributed smoothly over the <strong>whole interval</strong> of defined possible outcomes. This is what we call a probability density function (pdf).</p>
+<div id="fig-pmftopdf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pmftopdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/pmf_pdf.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pmftopdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.1: Probability mass function and Probability density function
+</figcaption>
+</figure>
+</div>
+<p>Given that the sample space of a continuous random variable is not just discrete numbers, how do we distribute probability for such a continuous random variable? The probability must be distributed over the range of possible values for <span class="math inline">\(X\)</span>; which, in the reservoir example, is over the unit interval <span class="math inline">\(\left(0,1\right)\)</span>. As shown by <a href="#fig-pmftopdf" class="quarto-xref">Figure&nbsp;<span>10.1</span></a>, unlike the discrete case where a specific <strong>mass</strong> of probability is dropped on each of the discrete outcomes, for continuous random variables probability is distributed smoothly over the <strong>whole interval</strong> of defined possible outcomes. This is what we call a probability density function (pdf).</p>
 <p>In a histogram (representing a pmf) the height of the bars represented the probability of that particular outcome. When summing up all such probabilities you would get the value one. The probability density function (pdf) for a <strong>CONTINUOUS</strong> random variable is a curve, <span class="math inline">\(f(x)\)</span>, that shows the probability of a range of values as the area under the curve.</p>
-<p>This is illustrated in <span class="quarto-unresolved-ref">?fig-pdf_example</span>. The area underneath the pdf between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> represents the probability that the random variable <span class="math inline">\(X\)</span> will take a value between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, <span class="math inline">\(Pr(a &lt; X \leq b)\)</span>. Any such value will be smaller or equal to 1 and the area underneath the entire pdf will be equal to one.</p>
-<p><img src="images/ProbDistCont_density1.jpg" class="img-fluid" alt="Probability density function">#fig-pdf_example</p>
+<p>This is illustrated in <a href="#fig-pdf_example" class="quarto-xref">Figure&nbsp;<span>10.2</span></a>. The area underneath the pdf between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> represents the probability that the random variable <span class="math inline">\(X\)</span> will take a value between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, <span class="math inline">\(Pr(a &lt; X \leq b)\)</span>. Any such value will be smaller or equal to 1 and the area underneath the entire pdf will be equal to one.</p>
+<div id="fig-pdf_example" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pdf_example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/ProbDistCont_density1.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pdf_example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.2: Probability density function
+</figcaption>
+</figure>
+</div>
 <p>Some thought should convince you that for a <strong>continuous</strong> random variable, <span class="math inline">\(X\)</span>, it must be the case that <span class="math inline">\(Pr(X=a)=0\)</span> for all real numbers <span class="math inline">\(a\)</span> contained in the range of possible outcomes of <span class="math inline">\(X\)</span>. If this were not the case, then the axioms of probability would be violated. However, there should be a positive probability of <span class="math inline">\(X\)</span> being close, or in the neighbourhood, of <span class="math inline">\(a\)</span>. (A neighbourhood of <span class="math inline">\(a\)</span> might be <span class="math inline">\(a\pm0.01\)</span>, say.) For example, although the probability that the reservoir is <strong>exactly</strong> 90% full must be <strong>zero</strong> there will be a positive probability that the reservoir has a level between 89.99% and 90.01%.</p>
 <p>This can be difficult to grasp. When we are talking about the reservoir being exactly 90% full, given this is a continuous variable, we are really thinking about 90.00000000000%. It would be impossible to assign a positive probability to every exact outcome. If we did assign a positive probability to an infinite number of possible outcomes then these probabilities would sum to more than one! This emphasizes that we cannot think of probability being assigned at specific outcomes, rather probability is <strong>distributed</strong> over intervals of outcomes.</p>
 <p>We therefore must confine our attention to assigning probabilities of the form <span class="math inline">\(Pr(a&lt; X \le b)\)</span> , for some real numbers <span class="math inline">\(a&lt;b\)</span> ; i.e., what is the probability that <span class="math inline">\(X\)</span> takes on values between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>? It is the area under the probability density function between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> which provides that probability, not the probability density function itself. Thus, by the axioms of probability, if <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are in the range of possible values for the continuous random variable, <span class="math inline">\(X\)</span>, then <span class="math inline">\(Pr(a&lt; X \le b)\)</span> must always return a positive number, lying between 0 and 1, no matter how close <span class="math inline">\(b\)</span> is to <span class="math inline">\(a\)</span> (provided only that <span class="math inline">\(b&gt;a\)</span>).</p>
@@ -401,7 +419,16 @@ Why smoothly
 <p>For complete generality, <span class="math inline">\(F(x)\)</span> must be defined over the whole real line even though in any given application the random variable under consideration may only be defined on an interval of that real line. Such an example would be if we were to look at the water level in a reservoir which is defined on the interval 0 (empty) to 1 (100% full).</p>
 <p>Any function satisfying the above may be considered suitable for modelling cumulative probabilities, <span class="math inline">\(Pr(X \leq x)\)</span>, for a continuous random variable. Careful consideration of these properties reveals that <span class="math inline">\(F(x)\)</span> can be <strong>flat</strong> (i.e., non-increasing) over some regions. This is perfectly acceptable since the regions over which <span class="math inline">\(F(x)\)</span> is flat correspond to those where values of <span class="math inline">\(X\)</span> cannot occur and therefore, zero probability is distributed over such regions. In the reservoir example, <span class="math inline">\(F(x)=0\)</span>, for all <span class="math inline">\(x\leq 0\)</span>, and <span class="math inline">\(F(x)=1\)</span>, for all <span class="math inline">\(x\geq1\)</span>; it is therefore flat over these two regions of the real line. This particular example also demonstrates that the last of the three properties can be viewed as completely general; for example, the fact that <span class="math inline">\(F(x)=0\)</span>, in this case, for all <span class="math inline">\(x \leq 0\)</span> can be thought of as simply a special case of the requirement that <span class="math inline">\(F(x)\to 0\)</span> as <span class="math inline">\(x \to -\infty\)</span>.</p>
 <p>Some possible examples of , in other situations, are depicted in the following Figure 5.</p>
-<p><img src="images/ProbDistCont_density2.jpeg" class="img-fluid" alt="Cumulative distribution function">#fig-var_cdfs</p>
+<div id="fig-var_cdfs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-var_cdfs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/ProbDistCont_density2.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-var_cdfs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.3: Cumulative distribution function
+</figcaption>
+</figure>
+</div>
 <ul>
 <li>The first of these is strictly increasing over the whole real line, indicating possible values of <span class="math inline">\(X\)</span> can fall anywhere.</li>
 <li>The second is increasing, but only strictly over the interval <span class="math inline">\(x&gt;0\)</span>; this indicates that the range of possible values for the random variable is <span class="math inline">\(x&gt;0\)</span> with the implication that <span class="math inline">\(Pr(X\leq 0)=0\)</span>.</li>
@@ -466,7 +493,7 @@ Why smoothly
 <p><span class="math display">\[\begin{equation*}
     Pr(a&lt;X \leq b)=F(b)-F(a)
 \end{equation*}\]</span></p>
-<p>for real numbers <span class="math inline">\(b&gt;a\)</span>. Also, since <span class="math inline">\(F(x)\)</span> is smoothly continuous and differentiable over the range of possible values for <span class="math inline">\(X\)</span> (see the above <span class="quarto-unresolved-ref">?fig-var_cdfs</span> with different <strong>cdfs</strong>), then there must exist a function <span class="math inline">\(f(x)=dF(x)/dx\)</span>, the derivative of <span class="math inline">\(F(x)\)</span>. Note that <span class="math inline">\(f(x)\)</span> must be positive over ranges where <span class="math inline">\(F(x)\)</span> is increasing; i.e., over ranges of possible values for <span class="math inline">\(X\)</span>. On the other hand, <span class="math inline">\(f(x)=0\)</span>, over ranges where <span class="math inline">\(F(x)\)</span> is flat; i.e., over ranges where values of <span class="math inline">\(X\)</span> cannot occur.</p>
+<p>for real numbers <span class="math inline">\(b&gt;a\)</span>. Also, since <span class="math inline">\(F(x)\)</span> is smoothly continuous and differentiable over the range of possible values for <span class="math inline">\(X\)</span> (see the above <a href="#fig-var_cdfs" class="quarto-xref">Figure&nbsp;<span>10.3</span></a> with different <strong>cdfs</strong>), then there must exist a function <span class="math inline">\(f(x)=dF(x)/dx\)</span>, the derivative of <span class="math inline">\(F(x)\)</span>. Note that <span class="math inline">\(f(x)\)</span> must be positive over ranges where <span class="math inline">\(F(x)\)</span> is increasing; i.e., over ranges of possible values for <span class="math inline">\(X\)</span>. On the other hand, <span class="math inline">\(f(x)=0\)</span>, over ranges where <span class="math inline">\(F(x)\)</span> is flat; i.e., over ranges where values of <span class="math inline">\(X\)</span> cannot occur.</p>
 <p>Moreover, the <strong>Fundamental Theorem of Calculus</strong> (which simply states that differentiation is the opposite of integration) implies that if <span class="math inline">\(f(x)=dF(x)/dx\)</span>, then</p>
 <p><span class="math display">\[\begin{equation*}
     F(b)-F(a)=\int_{a}^{b} f(x)\,dx
@@ -716,9 +743,18 @@ Hint
       0, &amp; \text{otherwise}
     \end{cases}       
 \end{equation*}\]</span></p>
-<p>The probability density function can be used to find the probability that the random variable falls within a specific range. Graphically, the shape under the density function forms a rectangle, as shown in Figure 10. The rectangle’s area is equal to 1. <span class="quarto-unresolved-ref">?fig-uniform</span> shows a density function for a set of values between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Each density is a horizontal line segment with constant height <span class="math inline">\(\frac{1}{b-a}\)</span> over the interval from <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Outside the interval, <span class="math inline">\(f(X) = 0\)</span>. This means that for a uniformly distributed random variable <span class="math inline">\(X\)</span>, values below <span class="math inline">\(a\)</span> and values above <span class="math inline">\(b\)</span> are impossible.</p>
+<p>The probability density function can be used to find the probability that the random variable falls within a specific range. Graphically, the shape under the density function forms a rectangle, as shown in Figure 10. The rectangle’s area is equal to 1. <a href="#fig-uniform" class="quarto-xref">Figure&nbsp;<span>10.4</span></a> shows a density function for a set of values between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Each density is a horizontal line segment with constant height <span class="math inline">\(\frac{1}{b-a}\)</span> over the interval from <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Outside the interval, <span class="math inline">\(f(X) = 0\)</span>. This means that for a uniformly distributed random variable <span class="math inline">\(X\)</span>, values below <span class="math inline">\(a\)</span> and values above <span class="math inline">\(b\)</span> are impossible.</p>
 <p>As the distance between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> increases, the density at any particular value within the distribution boundaries decreases. Since the probability density function integrates to 1, the height of the probability density function decreases as the base length increases.</p>
-<p><img src="images/uniform.jpg" class="img-fluid" alt="pdf of uniform distribution">#fig-uniform</p>
+<div id="fig-uniform" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-uniform-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/uniform.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-uniform-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.4: pdf of uniform distribution
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="cdf-of-uniform-distribution" class="level4" data-number="10.4.1.2">
 <h4 data-number="10.4.1.2" class="anchored" data-anchor-id="cdf-of-uniform-distribution"><span class="header-section-number">10.4.1.2</span> cdf of uniform distribution</h4>
@@ -794,8 +830,8 @@ Solution
 <section id="example-3" class="level4 callout-info" data-number="10.4.2.1">
 <h4 data-number="10.4.2.1" class="anchored" data-anchor-id="example-3"><span class="header-section-number">10.4.2.1</span> Example</h4>
 <p>For which of the following does uniform random variable appear most appropriate?</p>
-<div id="radio_QIHKKIQZVU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QIHKKIQZVU" value=""> <span>The number of cars passing Old Trafford between 8 and 9am on a Monday morning</span></label><label><input type="radio" autocomplete="off" name="radio_QIHKKIQZVU" value="answer"> <span>The day of the year (from 1 to 365) someone has their birthday.</span></label><label><input type="radio" autocomplete="off" name="radio_QIHKKIQZVU" value=""> <span>The age of people in a random sample asked outside University Place.</span></label><label><input type="radio" autocomplete="off" name="radio_QIHKKIQZVU" value=""> <span>The income of people in a random sample asked outside University Place.</span></label>
+<div id="radio_NEUSMHFTZA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NEUSMHFTZA" value=""> <span>The number of cars passing Old Trafford between 8 and 9am on a Monday morning</span></label><label><input type="radio" autocomplete="off" name="radio_NEUSMHFTZA" value="answer"> <span>The day of the year (from 1 to 365) someone has their birthday.</span></label><label><input type="radio" autocomplete="off" name="radio_NEUSMHFTZA" value=""> <span>The age of people in a random sample asked outside University Place.</span></label><label><input type="radio" autocomplete="off" name="radio_NEUSMHFTZA" value=""> <span>The income of people in a random sample asked outside University Place.</span></label>
 </div>
 <div class="webex-solution">
 <button>

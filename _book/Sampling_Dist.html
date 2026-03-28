@@ -251,7 +251,8 @@ window.Quarto = {
   <li><a href="#special-case-samples-from-a-normal-distribution" id="toc-special-case-samples-from-a-normal-distribution" class="nav-link" data-scroll-target="#special-case-samples-from-a-normal-distribution"><span class="header-section-number">13.3.1</span> Special Case: Samples from a normal distribution</a></li>
   <li><a href="#the-general-case-the-central-limit-theorem" id="toc-the-general-case-the-central-limit-theorem" class="nav-link" data-scroll-target="#the-general-case-the-central-limit-theorem"><span class="header-section-number">13.3.2</span> The General Case: The Central Limit Theorem</a></li>
   </ul></li>
-  <li><a href="#summary-and-outlook" id="toc-summary-and-outlook" class="nav-link" data-scroll-target="#summary-and-outlook"><span class="header-section-number">13.4</span> Summary and Outlook</a></li>
+  <li><a href="#visualisation-of-sampling-distributions" id="toc-visualisation-of-sampling-distributions" class="nav-link" data-scroll-target="#visualisation-of-sampling-distributions"><span class="header-section-number">13.4</span> Visualisation of Sampling Distributions</a></li>
+  <li><a href="#summary-and-outlook" id="toc-summary-and-outlook" class="nav-link" data-scroll-target="#summary-and-outlook"><span class="header-section-number">13.5</span> Summary and Outlook</a></li>
   </ul>
 </nav>
     </div>
@@ -359,8 +360,16 @@ window.Quarto = {
 <p>In practical work you will have to put significant thinking into such questions. And if you decided that you wanted to exclude commercial property deals you would have to find a way of identifying which of the more than 91 thousand transactions were commercial. The spreadsheet you have been given does not contain a clear identifier of such transactions.</p>
 </div>
 </div>
-<section id="example" class="level4 callout-info" data-number="13.2.0.1">
-<h4 data-number="13.2.0.1" class="anchored" data-anchor-id="example"><span class="header-section-number">13.2.0.1</span> Example</h4>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Consider taking a sample of property transactions and calculate the sample mean of the sampled transaction prices. This is the definition of a</p>
 <p><select class="webex-select"><option value="blank"></option><option value="answer">random variable</option><option value="">probability distribution</option><option value="">random outcome</option><option value="">sample variance</option></select></p>
 <div class="webex-solution">
@@ -378,8 +387,8 @@ Hint
 <p>The sample mean could take any value on the real line (or positive real line given there are unlikely to be negative property prices).</p>
 </div>
 <p>The above sampling distribution for the sample mean is best approximated by which of the following distributions?</p>
-<div id="radio_RUXWEDHOFW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RUXWEDHOFW" value=""> <span>Binomial distribution</span></label><label><input type="radio" autocomplete="off" name="radio_RUXWEDHOFW" value=""> <span>Uniform distribution</span></label><label><input type="radio" autocomplete="off" name="radio_RUXWEDHOFW" value=""> <span>Exponential distribution</span></label><label><input type="radio" autocomplete="off" name="radio_RUXWEDHOFW" value="answer"> <span>Normal distribution</span></label><label><input type="radio" autocomplete="off" name="radio_RUXWEDHOFW" value=""> <span>Bernoulli distribution</span></label><label><input type="radio" autocomplete="off" name="radio_RUXWEDHOFW" value=""> <span>Geometric distribution</span></label>
+<div id="radio_TLXTJWFTJH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TLXTJWFTJH" value=""> <span>Binomial distribution</span></label><label><input type="radio" autocomplete="off" name="radio_TLXTJWFTJH" value=""> <span>Uniform distribution</span></label><label><input type="radio" autocomplete="off" name="radio_TLXTJWFTJH" value=""> <span>Exponential distribution</span></label><label><input type="radio" autocomplete="off" name="radio_TLXTJWFTJH" value="answer"> <span>Normal distribution</span></label><label><input type="radio" autocomplete="off" name="radio_TLXTJWFTJH" value=""> <span>Bernoulli distribution</span></label><label><input type="radio" autocomplete="off" name="radio_TLXTJWFTJH" value=""> <span>Geometric distribution</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -387,7 +396,8 @@ Hint
 </button>
 <p>We need a continuous distribution and amongst those (Uniform, Normal and Exponential) the normal is the only one which has approximately these properties - high mass around the centre decreasing mass in the tails. Although it is not perfect as the sampling distribution shows some distinct skewness.</p>
 </div>
-</section>
+</div>
+</div>
 <p>The sample mean is a sample statistics (as are the sample variance or other sample statistics). After thinking about the above questions you should understand the following. This sample statistic (as a concept, rather than a mean in a particular sample) is indeed a random variable. When we introduced random variables we said that we would usually label these with capital letters. So let’s label this <span class="math inline">\(\bar{X}\)</span>, the sample mean. When we have a random variable then we know that we can get different outcomes when drawing from that random variable. We shall call these outcomes <span class="math inline">\(\bar{x}\)</span> (note the lower case). In the above example we calculated 1,000 such outcomes.</p>
 <p>Eventually we will want to know how this random variable is distributed. In particular we will want to know what distribution this random variable will follow and what parameters describe that distribution. The Central Limit Theorem will give us exactly that knowledge. But perhaps, after answering the above questions, you should not be surprised to hear that <span class="math inline">\(\bar{X}\)</span>, under certain circumstances, is best approximated by a normal distribution. More details to follow later!</p>
 <p>In the experiment above we drew 1,000 samples of size <span class="math inline">\(n=30\)</span>. Remember that this is really a rather artificial experiment. In practice you will have one sample only from which you wish to make inference on the population. As it turns out, the number of samples we took (here 1,000) is not a critical number for what we want to find out. However, as we will see now, the size of a particular sample does matter. This will be illustrated in the following figure in which we replicate the above sampling distribution (<span class="math inline">\(n=30\)</span>) but also similar ones for different sample sizes, <span class="math inline">\(n=6,15,1000\)</span>.</p>
@@ -457,8 +467,16 @@ Hint
 <p>So far none of the results dependent on us making any assumption about the distribution of <span class="math inline">\(X\)</span>. We only assumed that the expected value and variance were <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> respectively. Also the rules for linear combinations of random variables we used so far were not reliant on any distributional assumption for <span class="math inline">\(X\)</span>. Hence, even without that knowledge we could establish two of the three things we wanted, the expected value and the variance of the sample mean. What we do not know yet is the type of distribution of <span class="math inline">\(\bar{X}\)</span>.</p>
 <p>This video walks you through the above arguments (YouTube, 12min)</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/GDRJyXzRlgE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<section id="example-1" class="level4 callout-info" data-number="13.3.0.1">
-<h4 data-number="13.3.0.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">13.3.0.1</span> Example</h4>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>You have a random variable <span class="math inline">\(Z\)</span> with <span class="math inline">\(E[Z] = 1.3\)</span> and <span class="math inline">\(Var[Z] = 0.61\)</span>. You draw a sample of size <span class="math inline">\(n=5\)</span>. What are the expected value, variance and standard error for the sample mean <span class="math inline">\(\bar{Z}\)</span>?</p>
 <p><span class="math inline">\(E[\bar{Z}] =\)</span> <input class="webex-solveme nospaces" size="3" data-answer="[&quot;1.3&quot;]"></p>
 <p><span class="math inline">\(Var[\bar{Z}]  =\)</span> <input class="webex-solveme nospaces" size="6" data-answer="[&quot;0.3483&quot;,&quot;.3483&quot;]"> (to 4 dp)</p>
@@ -480,7 +498,8 @@ Solution
 </button>
 <p>Set <span class="math inline">\(\sigma_{\bar{Z}}= \sqrt{\frac{Var[Z]}{n^*}} &lt; 0.1\)</span>. You know <span class="math inline">\(Var[Z]\)</span> such that you can solve the resulting inequality for <span class="math inline">\(n^*\)</span>: <span class="math inline">\(n^* &gt; 10^2 Var[Z] &gt; 61\)</span> hence <span class="math inline">\(n^*=62\)</span>.</p>
 </div>
-</section>
+</div>
+</div>
 <section id="special-case-samples-from-a-normal-distribution" class="level3" data-number="13.3.1">
 <h3 data-number="13.3.1" class="anchored" data-anchor-id="special-case-samples-from-a-normal-distribution"><span class="header-section-number">13.3.1</span> Special Case: Samples from a normal distribution</h3>
 <p>Even without making a distributional assumption about the random variable <span class="math inline">\(X\)</span> from which we considered drawing a sample of size <span class="math inline">\(n\)</span> we were able to derive the expected value and variance of the sample mean random variable, <span class="math inline">\(\bar{X}\)</span>. What would happen if we knew that <span class="math inline">\(X\)</span> is actually normally distributed, <span class="math inline">\(X \sim N(\mu,\sigma^2)\)</span>.</p>
@@ -518,7 +537,7 @@ Solution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If <span class="math inline">\(\bar{X}\)</span> is obtained from a random sample of size <span class="math inline">\(n\)</span> from a population with mean $$ and variance <span class="math inline">\(\sigma ^{2}\)</span>, then, irrespective of the distribution sampled,</p>
+<p>If <span class="math inline">\(\bar{X}\)</span> is obtained from a random sample of size <span class="math inline">\(n\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma ^{2}\)</span>, then, irrespective of the distribution sampled,</p>
 <p><span class="math display">\[\begin{equation*}
     \bar{X}\rightarrow N\left( \mu,SE\left[ \bar{X}\right]^2\right) \;\;\;\text{as }n\rightarrow \infty .
 \end{equation*}\]</span></p>
@@ -559,8 +578,16 @@ Solution
 \end{equation*}\]</span></p>
 <p>You may quibble about whether there aren’t still systematic deviations from a normal distribution, but the point to take away here is that the sampling distribution of <span class="math inline">\(\bar{X}\)</span> is approximated by the normal distribution and increasing the sample size improves this approximation.</p>
 <p>Textbooks often claim that the approximation is good enough if $n $ or <span class="math inline">\(30\)</span>. As you have seen above this can be over-optimistic if the original distribution is extremely skewed as is the distribution of prices for properties we used here. However, for many practical examples the above advice is not far off the mark.</p>
-<section id="example-2" class="level4 callout-info" data-number="13.3.2.1">
-<h4 data-number="13.3.2.1" class="anchored" data-anchor-id="example-2"><span class="header-section-number">13.3.2.1</span> Example</h4>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Consider a random variable <span class="math inline">\(M\)</span> which is known to be normally distributed <span class="math inline">\(M \sim N(3,25)\)</span>.</p>
 <p>What is the probability that an individual draw of <span class="math inline">\(M\)</span> delivers a value which is smaller than 0?</p>
 <p><span class="math inline">\(Pr(M&lt;0) = Pr\left(Z&lt;\frac{0-3}{5}\right) = Pr\left(Z&lt;-0.6\right)=0.2743\)</span></p>
@@ -569,7 +596,8 @@ Solution
 <p>Calculate the probability that a particular sample mean (of a sample of size <span class="math inline">\(n=16\)</span>) is smaller than 0.</p>
 <p><span class="math inline">\(Pr(\bar{M}&lt;0) = Pr\left(Z&lt;\frac{0-3}{\sqrt{25/16}}\right) = Pr\left(Z&lt;-2.4\right)=0.0082\)</span></p>
 <p>Note the difference in the two probabilities.</p>
-</section>
+</div>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -582,8 +610,8 @@ Solution
 <div class="callout-body-container callout-body">
 <p>Consider a random variable <span class="math inline">\(Q\)</span> which is known to have expected value of <span class="math inline">\(E[Q]=1\)</span> and variance of <span class="math inline">\(Var[Q]=16\)</span>. You do not know the distribution of <span class="math inline">\(Q\)</span>.</p>
 <p>What is the probability that an individual draw of <span class="math inline">\(Q\)</span> delivers a value which is smaller than 0?</p>
-<div id="radio_SAJHNUOPSD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SAJHNUOPSD" value=""> <span>the same as if <span class="math inline">\(Q\)</span> was normally distributed</span></label><label><input type="radio" autocomplete="off" name="radio_SAJHNUOPSD" value=""> <span>50%</span></label><label><input type="radio" autocomplete="off" name="radio_SAJHNUOPSD" value=""> <span>40.13%</span></label><label><input type="radio" autocomplete="off" name="radio_SAJHNUOPSD" value="answer"> <span>cannot be calculated</span></label>
+<div id="radio_OYXBKNMWJI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OYXBKNMWJI" value=""> <span>the same as if <span class="math inline">\(Q\)</span> was normally distributed</span></label><label><input type="radio" autocomplete="off" name="radio_OYXBKNMWJI" value=""> <span>50%</span></label><label><input type="radio" autocomplete="off" name="radio_OYXBKNMWJI" value=""> <span>40.13%</span></label><label><input type="radio" autocomplete="off" name="radio_OYXBKNMWJI" value="answer"> <span>cannot be calculated</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -592,8 +620,8 @@ Solution
 <p>Without knowing the distribution, we cannot calculate this.</p>
 </div>
 <p>What is the distribution of <span class="math inline">\(\bar{Q}\)</span> if <span class="math inline">\(\bar{Q}\)</span> is the sample average calculated for a sample of size <span class="math inline">\(n=16\)</span> which you know to be big enough for the CLT to apply?</p>
-<div id="radio_GUIWBOCOGM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GUIWBOCOGM" value=""> <span>N(1,0.25)</span></label><label><input type="radio" autocomplete="off" name="radio_GUIWBOCOGM" value=""> <span>N(0,1)</span></label><label><input type="radio" autocomplete="off" name="radio_GUIWBOCOGM" value=""> <span>N(1,4)</span></label><label><input type="radio" autocomplete="off" name="radio_GUIWBOCOGM" value="answer"> <span>N(1,1)</span></label><label><input type="radio" autocomplete="off" name="radio_GUIWBOCOGM" value=""> <span>N(1,1/16)</span></label>
+<div id="radio_DHUICXKHYH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DHUICXKHYH" value=""> <span>N(1,0.25)</span></label><label><input type="radio" autocomplete="off" name="radio_DHUICXKHYH" value=""> <span>N(0,1)</span></label><label><input type="radio" autocomplete="off" name="radio_DHUICXKHYH" value=""> <span>N(1,4)</span></label><label><input type="radio" autocomplete="off" name="radio_DHUICXKHYH" value="answer"> <span>N(1,1)</span></label><label><input type="radio" autocomplete="off" name="radio_DHUICXKHYH" value=""> <span>N(1,1/16)</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -614,8 +642,17 @@ Solution
 </div>
 </section>
 </section>
-<section id="summary-and-outlook" class="level2" data-number="13.4">
-<h2 data-number="13.4" class="anchored" data-anchor-id="summary-and-outlook"><span class="header-section-number">13.4</span> Summary and Outlook</h2>
+<section id="visualisation-of-sampling-distributions" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="visualisation-of-sampling-distributions"><span class="header-section-number">13.4</span> Visualisation of Sampling Distributions</h2>
+<p>There are some excellent websites that visualise sampling distributions and how they arise from sampling from a population distribution. Here is a selection. It will certainly help your understanding if you go to one of these and experiment</p>
+<ul>
+<li><a href="https://onlinestatbook.com/stat_sim/sampling_dist/index.html">Onlinestatbook.com</a></li>
+<li><a href="https://www.statcrunch.com/applets/type3&amp;samplingdist">Statcrunch.com</a></li>
+<li><a href="https://shiny.rit.albany.edu/stat/sampdist/">University of Albany</a></li>
+</ul>
+</section>
+<section id="summary-and-outlook" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="summary-and-outlook"><span class="header-section-number">13.5</span> Summary and Outlook</h2>
 <p>In this section we engaged in a thought experiment, an experiment that does not reflect the realities of an applied researcher. We thought about the situation in which we can draw repeated samples from a known population. We then used that thought experiment to understand that sample statistics are random variables and to derive how these sample statistics are distributed.</p>
 <p>The reality of an applied researcher is that she will not know the properties of the population and she has one (not repeated!) samples available for analysis. The task is then to show how the information from that one sample can be used to learn anything about the population as that is usually what the researcher is interested in.</p>
 <p>The next sections on confidence intervals and hypothesis testing will help you learn what and how we can draw inference from a sample on the population. But you should note that this section has prepared the ground for that. The Central Limit Theorem shows how sample statistics, like <span class="math inline">\(\bar{X}\)</span> are linked to population parameters (<span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>). It is that link, which will allow us to draw inference on population parameters.</p>

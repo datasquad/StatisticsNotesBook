@@ -1,0 +1,397 @@
+# Hypothesis Testing
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(webexercises)
+```
+
+## Introduction
+
+A short introductory video on hypothesis testing (YouTube, 2min).
+
+{{< video https://youtu.be/HZpxXdzc1RM >}}
+
+Parameters in a population of interest are usually unknown. Say the average house price in Greater Manchester 2021, or the median, or the 90th percentile, or the variance of house prices, or the proportion of property transactions that happened at a price larger than UKP 1million. All of these are population parameters which typically are unknown.
+
+You have learned that we can use the information in a sample, for instance the sample mean, to estimate such unknown population parameters. So we now know how to estimate population means, variances and proportions. In the section on sampling you learned that sample means $\bar{X}$ are random variables which have a distribution. In particular you learned from the CLT that the sample mean is, for a big enough sample, normally distributed.
+
+While we talked about the sample mean $\bar{X}$ as an estimate for the population mean ($\mu$), there are different population parameters we may be interested in and their sample estimators.
+
+
+| Population Parameter       | Estimator                                                                                           | Estimate                                                                                            |
+|----------------------------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| mean: $\mu$               | $\bar{X}=\dfrac{1}{n}\sum\limits_{i=1}^{n}X_{i}$                                                   | $\bar{x}=\dfrac{1}{n}\sum\limits_{i=1}^{n}x_{i}$                                                    |
+| variance: $\sigma ^{2}$    | $S^{2}=\dfrac{1}{n-1}\sum\limits_{i=1}^{n}\left( X_{i}-\bar{X}\right) ^{2}$                         | $s^{2}=\dfrac{1}{n-1}\sum\limits_{i=1}^{n}\left( x_{i}-\bar{x}\right) ^{2}$                         |
+| covariance: $\sigma _{XY}$ | $S_{XY}=\dfrac{1}{n-1}\sum\limits_{i=1}^{n}\left( X_{i}-\bar{X}\right) \left( Y_{i}-\bar{Y}\right)$ | $s_{XY}=\dfrac{1}{n-1}\sum\limits_{i=1}^{n}\left( x_{i}-\bar{x}\right) \left( y_{i}-\bar{y}\right)$ |
+| correlation: $\rho$        | $R=\dfrac{S_{XY}}{S_{X}S_{Y}}$                                                                     | $r=\dfrac{s_{XY}}{s_{X}s_{Y}}$                                                                      |
+| proportion: $\pi$          | $P$                                                                                                 | $p$                                                                                                 |
+
+
+You will recognise all of these statistics from the descriptive statistics section. The estimators (in the middle column) are expressed as functions of random variables (random draws from the population, $X_i$). The estimates are the actual values you calculate once you have a sample (formulated on the basis of sample values $x_i$). 
+
+In this and the next section we will demonstrate how you can use a sample estimate (i.e. the realisation of a sample mean, $\bar{x}$) to learn something about an unknown population mean ($\mu$). In particular you will learn about two commonly used techniques, the hypothesis test (in this section) and the confidence interval (next section). Both inference techniques are only possible if you know what distribution your sample estimator follows. This is why the CLT is so crucial!
+
+## Hypothesis Testing
+
+Hypothesis testing is a widely used concept. In fact it is a very subtle concept and often applications (or communications of applications) do not pay significant tribute to the subtleness.
+
+We start by reviewing what we were able to do following the introduction of the CLT.
+
+::: {.callout-note}
+
+#### Example
+
+Consider a random variable $M$ which is known to be normally distributed $M \sim N(3,25)$. 
+
+What is the probability that an individual draw of $M$ delivers a value which is smaller than 0?
+
+$Pr(M<0) = Pr\left(Z<\frac{0-3}{5}\right) = Pr\left(Z<-0.6\right)=0.2743$
+
+What is the distribution of $\bar{M}$ if $\bar{M}$ is the sample average calculated for a sample of size $n=16$?
+
+$\bar{M} \sim N\left(3,\frac{25}{16}\right)$
+
+Calculate the probability that a particular sample mean (of a sample of size $n=16$) is smaller than 0.
+
+$Pr(\bar{M}<0) = Pr\left(Z<\frac{0-3}{\sqrt{25/16}}\right) = Pr\left(Z<-2.4\right)=0.0082$
+	
+:::
+
+What you learned from this example is, that, if you know the distribution of the original random variable to be normal and if you know the population parameters, then you can calculate probabilities for certain outcomes of the sample mean random variable, here $\bar{M}$.
+
+Let's look at another example.
+
+::: {.callout-note}
+
+#### Example
+	
+Consider a random variable $R$. which you know to have expected value $E[R] = 10$ and population variance $Var[R]=16$. While you do not know how $R$ is distributed, you do have a sample of size $n=100$ which you are confident to be large enough to apply the CLT. 
+	
+With that information you can derive that 
+	
+\begin{equation*}
+	\bar{R} \sim N\left(10,\frac{16}{100}\right)
+\end{equation*}	
+	
+Calculate the probability that a particular sample mean (of a sample of size $n=100$) is larger than 11.2?
+		
+\begin{eqnarray*}
+	Pr(\bar{R}>11.2) &=& Pr\left(Z>\frac{11.2-10}{\sqrt{16/100}}\right)\\
+	 &=&Pr\left(Z>\frac{1.2}{0.4}\right)= Pr\left(Z>3.0\right)\\
+	 &=& 1-  Pr\left(Z \leq 3.0\right)\\
+	 &=&1- 0.9987=0.0013~\text{from the Normal distribution table}
+\end{eqnarray*}
+	
+:::
+
+Let's be clear about the interpretation. If we know that the population mean is 10 (and the population variance is 16) then the probability to draw a sample of size $n=100$ with a sample mean ($\bar{R}$) larger than 11.2 is 0.0013, or 0.13%. So that is rather unlikely. We knew things about the population and calculated a probability about a sample outcome. 
+
+Now we turn the table. The reality of an applied researcher is that she has information about a sample but we need to find out something about the population. Here comes the trick in hypothesis testing. Let's say you do have a sample of size $n=100$ and in that sample the sample mean was $\bar{r}=11.2$ (note now the small $\bar{r}$ as we are now talking about an actual realisation, one particular sample with that sample mean.). As we turned the table (we know sample information but we do not know the population mean $\mu$) we now hypothesise that the population mean takes a certain value. 
+
+
+::: {.callout-note}
+
+#### Example
+	
+Lets hypothesise that the sample mean was 10. Do you think that having obtained the actual sample mean of $\bar{r}=11.2$ is consistent with that hypothesised population mean of $\mu=10$?
+	
+
+`r mcq(c("Yes", answer = "No"))`
+
+
+`r hide("Solution")`
+
+No, there is only a very small probability of getting a sample with such a mean (or larger) if the population mean indeed was 10, as the probability for that happening was previously calculated to be $Pr(\bar{r} \geq 11.2)=0.0013$.
+
+`r unhide()`
+
+Feedback: 
+
+:::
+
+So, we conclude that the obtained sample mean of 11.2 is not consistent with the hypothesised population mean of 10, as there is too small a probability to actually obtain such a sample mean (or larger) if the true population mean was actually 10. What we have done here is basically, what we call a hypothesis test. We stated a hypothesis, looked at the evidence in the light of this hypothesis and decided that the evidence is too unlikely to have occurred if the hypothesis was true. The probability we calculated earlier, $Pr(\bar{x} \geq 11.2)=0.0013$, now takes a very different interpretation: If the population mean was $\mu=10$, then the probability of obtaining a sample mean ($\bar{r}$) of 11.2 (or larger) is 0.13%. This is an incredibly important interpretation of the above probability. In fact it has its own name, it is called a **p-value**.
+
+::: {.callout-tip}
+
+#### Hypothesis testing in "real life"
+
+Here is a "real life" equivalent of the above strategy. 
+
+You return home from a long overseas holiday. You are jet-lagged and you sleep on the couch in your darkened flat for a long time. You wake up and just as you wonder whether the sun is shining (you hypothesise that the sun is shining) your flat mate enters the flat with soaking wet clothes (your flatmate is the sample information).
+
+Is the evidence consistent with your hypothesis? No, it isn't. You judge that it is unlikely that your flatmate entered the flat with wet clothes if the sun was shining. YOu there conclude that your original hypothesis is not correct.
+
+:::
+
+
+There are some wrinkles in the work-out above. For instance we said that we did not know the population mean, and therefore had to hypothesise a value for $\mu$, but we happily relied on calculations which also did require a known value for the population variance. As it turns out, as we perform a formal hypothesis test, we will have to solve the following issues.
+
+\begin{itemize}
+	\item What is the hypothesis we should chose
+	\item What is the sampling distribution of the sample statistic (as we need the distribution to calculate the p-value)? 
+	\item How do we get the variance of the population (as we will need that to calculate the p-value)?
+	\item When is the p-value low enough for us to reject our hypothesis?
+\end{itemize}
+
+## Hypotheses
+
+From the above example it should be obvious that the value which we hypothesised the population mean $\mu$ to be was crucial. Had we changed it, to say 11, the calculation of the p-value would have changed.
+
+::: {.callout-note}
+
+#### Example
+	
+Following on from the above example, there is a random variable $R$ with a population variance of $Var[R]=16$. You have a sample ($n=100$) with sample mean of $\bar{r}=11.2$. You hypothesis that the population mean is $\mu=11$. What is the probability of obtaining a sample mean of 11.2 (or larger) if the population mean was $\mu=11$?
+
+\begin{eqnarray*}
+	Pr(\bar{R}>11.2) &=& Pr\left(Z>\frac{11.2-11}{\sqrt{16/100}}\right)\\
+	&=&Pr\left(Z>\frac{0.2}{0.4}\right)= Pr\left(Z>0.5\right)\\
+	&=& 1-  Pr\left(Z \leq 0.5\right)\\
+	&=&1- 0.6915=0.3085~\text{from the Normal distribution table}
+\end{eqnarray*}
+	
+:::
+
+So clearly, how we set the hypothesis matters. If the population mean was hyothesised to be $\mu=11$ we would have a probability of around 30% of obtaining a sample mean of 11.2 or larger. That is a sizeable probability and we would not easily dismiss the hypothesis. It is apparent from this that the p-value is a property of the combination of the sample and the hypothesised population value. 
+
+In fact, when we perform a hypothesis test we need to think about a null and an alternative hypothesis. 
+
+## Null hypotheses
+
+A null hypothesis is a claim about the value of some population parameter, for example $\mu =20,\pi=0.45$ or $\sigma ^{2}=1$. Recall that we have only used the population mean as an example but we could form hypotheses about other population parameters. For now we will stick with the population mean.
+
+A null hypothesis can also be much more general than this, and refer to functions of population parameters. For example, we may obtain a random sample from a population with population mean $\mu_1$ ,and then a random sample from another population with mean $\mu_2$ and ask whether $\mu _{1}=\mu _{2}$ or equivalently $\mu _{1}-\mu _{2}=0$.  
+
+The last example shows the link between the adjective "null" and the numerical value $0$. The earlier examples can also be rephrased to emphasise this as $\mu -20=0,\pi-0.45=0$ and $\sigma ^{2}-1=0$.
+
+A null hypothesis expresses the preconception or expectation about the value of the population parameter. There is a standard, compact, notation for this:
+
+\begin{equation*}
+	H_{0}:\mu =\mu_{0}
+\end{equation*}
+
+expresses the null hypothesis that $\mu =\mu_{0}$ where $\mu_0$ represents a particular value like 20 above.
+
+Deciding whether or not $\mu =\mu _{0}$ on the basis of sample information is usually called testing the hypothesis. 
+
+As you saw from the earlier example we may end up in the situation where we wish to dismiss (or formally reject) the null hypothesis. In fact, it turns out that when we perform a hypothesis test we are basically making a binary decision, we either reject, or not reject the null hypothesis. 
+
+It is important to note that even if we do not reject a null hypothesis, we are not saying that the null hypothesis is correct or the truth. For instance, in the earlier example, we possibly would not have rejected the null hypothesis that $\mu=11$. But equally we would have not rejected the null hypothesis that $\mu=11.4$. There would be many null hypotheses we would not want to reject. 
+
+
+## Alternative hypotheses
+
+What happens if we reject a null hypothesis, like the above hypothesis that $\mu=10$? The strategy when performing a hypothesis is to divide the space of possibilities into two areas, the area covered by the null hypothesis and the rest, which we then call the alternative hypothesis. If we reject the null hypothesis we "adopt" the alternative hypothesis. You will see below that the alternative hypothesis is always a range of possible values. It does not point to any specific value. So, in rejecting the null hypothesis, we are not deciding in favour of another specific value of $\mu$.
+
+There are three different ways in which the alternative hypothesis can be set up (and the null hypothesis will be the complement). These are illustrated in the following image:
+
+![Illustration of hypotheses setup.](images/Hypotheses.png)
+
+You should always think of the null and alternative hypothesis as pairs. The value $\mu_0$ is the value we "hypothesise".
+
+\begin{eqnarray*}
+		H_{0}:\mu \geq \mu _{0};	H_{A}:\mu <\mu _{0}\\
+		H_{0}:\mu \leq \mu _{0};	H_{A}:\mu >\mu _{0}\\
+		H_{0}:\mu = \mu _{0};	H_{A}:\mu \neq \mu _{0}\\
+\end{eqnarray*}
+
+Here, $H_{A}$ stands for the alternative hypothesis. In some textbooks, this is denoted $H_{1}$, but is still called the alternative hypothesis. Notice that the null and alternative hypotheses are expected to be mutually exclusive: it would make no sense to reject $H_{0}$ if it was also contained in $H_{A}$.
+
+Note that for the one-sided tests, we sometimes state $H_{0}:\mu = \mu _{0}$ rather than 	$H_{0}:\mu \geq \mu _{0}$ or $H_{0}:\mu \leq \mu _{0}$. This makes no substantial difference as we will see later. The alternative hypothesis will always reveal what sort of set-up you are looking at.
+
+::: {.callout-note}
+
+#### Example
+
+Which sort of alternative hypothesis should be chosen? This all depends on context and perspective. Suppose that a random sample of jars of jam coming off a packing line is obtained. The jars are supposed to weigh, on average, 454g. You have to decide, on the basis of the sample evidence, whether or not this is true. So, the null hypothesis here is
+
+\begin{equation*}
+	H_{0}:\mu =454.
+\end{equation*}%
+
+What should be the alternative hypothesis?
+
+`r hide("Hint")`
+As a jam manufacturer, you may be happy to get away with selling, on average, lighter jars, since this gives more profit, but be unhappy at selling, on average, overweight jars, owing to the loss of profit. So, the manufacturer might choose the alternative hypothesis
+
+\begin{equation*}
+	H_{A}:\mu >454.
+\end{equation*}%
+
+A consumer, or a trading standards conscious jam manufacturer, might be more concerned about underweight jars, so the alternative might be
+
+\begin{equation*}
+	H_{A}:\mu <454.
+\end{equation*}%
+
+A mechanic from the packing machine company might simply want evidence whether or not the machine is working to specification, and would choose
+
+\begin{equation*}
+	H_{A}:\mu \neq 454
+\end{equation*}%
+
+as the alternative.
+
+`r unhide()`
+
+:::
+
+This short video explains the thinking behind building the null and alternative hypotheses (YouTube, 4min)
+
+{{< video https://youtu.be/hCKwJBUsum8 >}}
+
+
+::: {.callout-note}
+
+#### Example
+
+You are working for a car manufacturer and you are testing whether the speedometers in your cars are working accurately. On your test track you are driving cars exactly at a speed of 110 km/h. You then take a sample of the speeds which are shown on the cars speedometers. 
+
+Which of the following hypotheses should you be testing?
+
+* A: $H_{0}:\mu \geq 110;	H_{A}:\mu <110$
+* B: $H_{0}:\mu \leq 110;	H_{A}:\mu >110$
+* C: $H_{0}:\mu = 110;	H_{A}:\mu \neq 110$
+
+`r mcq(c(answer = "A","B","C"))`
+
+`r hide("Hint")`
+Feedback: A good answer is $H_{0}:\mu \geq 110;	H_{A}:\mu <110$. You do not want the speed to show lower than it is. That would bring the drivers in your car into trouble with the police. 
+
+If your speeds showed too high your customers may actually drive somewhat slower than they think. Everyone wins. Therefore speeds showing too high is not really a concern. Check out this [website](https://www.startrescue.co.uk/breakdown-cover/motoring-advice/safety-and-security/how-accurate-is-my-speedometer) which explains why this is by design.
+
+`r unhide()`
+:::
+
+## Types of Error
+
+After discussing the set-up of the hypotheses, we are now getting closer to understanding for what sort of p-values you should be rejecting the null hypothesis. As it turns out that is a crucial question and understanding this point will lead you to a very good understanding of what hypothesis testing does.
+
+By setting the null and alternative hypothesis we basically divided all the possibilities for the population parameter into two categories. One called the null hypothesis and the other the alternative hypothesis. When we use a two-tailed (or two-sided) alternative, then the null hypothesis actually only consists of one particular value. 
+
+The unknown truth will be in either of the two categories and we will eventually make a decision of either rejecting or not rejecting the null hypothesis. This means there are four possible outcomes as illustrated in the following table.
+
+![Hypotheses and the Truth.](images/HypMatrix.png)
+
+To explain this, let us return to the example of the jam manufacturer who investigates whether the filling machine works as it should. Let's say they do worry about jars being filled with less than the advertised 454g, wanting to avoid unfavourable consumer feedback. They therefore design the following hypotheses:
+
+\begin{eqnarray*}
+	H_0&:&\mu \geq 454\\
+	H_A&:&\mu < 454
+\end{eqnarray*}
+
+If in truth, the population parameter is correctly described by the null hypotheses, i.e. the mean filling weight of the machine is 454g or higher, then performing a hypothesis test and coming to the conclusion that $H_0$ should not be rejected would be a correct decision. Equally, if in truth the filling machine had a mean filling weight of less than 454g and the hypothesis test made us conclude that we should reject $H_0$ would again be a correct decision.
+
+However, if in truth the mean filling weight is larger or equal to 454g ($H_0$) and after looking at a sample and performing a hypothesis test we conclude that we should reject $H_0$ then we would have made a mistake. We call this type of mistake a Type 1 error. And if in truth the average filling weight is below 454g but after performing a hypothesis test using sample information we decide to not reject $H_0$ then we have again made an incorrect decision, a Type 2 error.
+
+Of course, the problem is that we do not know the truth! All we know is what we decided after performing a hypothesis test on the basis of sample information. We have to accept that, when we make a decision then there will be a probability that we are right and another probability that we are wrong.
+
+The objective in designing a procedure to test an $H_{0}$ against an $H_{A}$ - i.e. decide whether to accept $H_{0}$ or to reject $H_{0}$, is to ensure that a Type 1 error does not occur to often. More precisely, the objective is to design a procedure which fixes the probability of a Type 1 error occurring at a prespecified level, $\alpha$, which is small and therefore presumably tolerable. 
+
+
+## p-values
+
+At this stage it is worth thinking a little more carefully about p-values. 
+
+::: {.callout-note}
+
+#### Example
+
+You measure the weight of the jam ($W$) in a random sample of 50 jam jars. You obtain a sample mean of $\bar{w}=453.78$. You know the standard deviation of the filling machine to be 10g and indeed you know that the distribution of the weight coming from the filling machine is a normal distribution.
+	
+What is the p-value when testing the following hypotheses?
+
+\begin{eqnarray*}
+	H_{0}&:&\mu \geq 454\\
+	H_{A}&:&\mu <454
+\end{eqnarray*}
+
+The p-value is the probability to obtain a sample mean of $\bar{w}=453.78$ (or more extreme) if in truth the population mean was 454. There are two elements of implementation we need to explain. First, what does "or more extreme" mean in this context. We are thinking from the alternative hypothesis here. The evidence that would make us reject $H_0$ is very low sample means. So more extreme than the actual sample mean in this example would be sample means even lower than $\bar{w}$. Second, in order to calculate a p-value we need to fix a hypothesised population mean which comes from the null hypothesis. But $H_0$ is $\mu \geq 454$ which includes a range of potential population means. We shall always fix to the value at the margin, i.e. in this example $\mu = 454$.
+	
+With this in mind we now know that we need to calculate $Pr(\bar{W}<453.78)$.
+
+\begin{equation*}
+	Pr(\bar{W}<453.78) = Pr\left(Z<\frac{453.78-454}{\sqrt{100/50}}\right)\\
+\end{equation*}
+
+To calculate the probability we refer to the sampling distribution of $\bar{W}$. Graphically this is represented by the red area in the following picture:
+	
+![](images/samplingdistribution1.png)
+
+We can complete the calculation.
+	
+\begin{eqnarray*}
+	Pr(\bar{W}<453.78) &=& Pr\left(Z<\frac{453.78-454}{\sqrt{100/50}}\right)\\
+	&=&Pr\left(Z<-\frac{0.22}{1.4142}\right)= Pr\left(Z<-0.1556\right)\\
+	&=&0.4364~\text{from the Normal distribution table}
+\end{eqnarray*}
+	
+The probability to obtain a sample mean of $\bar{w}=453.78$ (or more extreme, i.e. lower) if in truth the population mean was 454 is 43.65\%.
+
+:::
+
+In the above example we calculated the p-value to be almost 44%. What do we conclude from here about $H_0$? Well, we would have to conclude that it is indeed quite likely to have obtained a sample mean of 453.78 or lower if the null hypothesis was true. This means that this sample did not deliver strong evidence against the null hypothesis. And this is indeed how you should think about p-values. The lower the p-value, the less likely it is that you should have obtained the sample you have if the null hypothesis was true.
+
+In order to calculate this p-value we had to assume that the null hypothesis was true (here $\mu=454$). This is very important to remember as it means that the p-value is not the probability that $H_0$ is true. It would actually be nice if we could calculate that probability of the null hypothesis being true. Unfortunately, just on the basis of the sample information we cannot calculate that probability. 
+
+
+::: {.callout-note}
+
+#### Example
+	
+You measure the weight of the jam ($W$) in a random sample of 40 jam jars. You obtain a sample mean of $\bar{w}=456.12$. You know the standard deviation of the filling machine to be 10g and indeed you know that the distribution of the weight coming from the filling machine is a normal distribution.
+	
+What is the p-value when testing the following hypotheses?
+\begin{eqnarray*}
+	H_{0}&:&\mu \leq 454\\
+	H_{A}&:&\mu > 454
+\end{eqnarray*}
+	
+Which of the following pictures best reflects the situation you are confronted with (red areas representing p-values).
+	
+* Picture **A**
+* Picture **B**
+* Picture **C**
+* Picture **D**
+
+`r mcq(c("A",answer="B","C","D"))`
+	
+![](images/pvalueexample1.png)	
+	
+`r hide("Explanation")`
+The sampling distribution has to be centred around the hypothesised mean of 454 (so C is false). Extreme is defined by the alternative hypothesis which, here is $H_{A}:\mu > 454$, hence we are looking at a right-tailed test represented by Picture B.
+`r unhide()`
+	
+What is the p-value?
+
+`r fitb(0.0901, tol = .001)`
+
+`r hide("Solution")`
+
+\begin{eqnarray*}
+	Pr(\bar{W}>456.12) &=& Pr\left(Z>\frac{456.12-454}{\sqrt{100/40}}\right)\\
+	&=&Pr\left(Z>\frac{2.12}{1.5811}\right)= Pr\left(Z>1.3418\right)\\
+	&=&1 - Pr\left(Z<1.3418\right)\\
+	&=&1-0.9099 = 0.0901~\text{from the Normal distribution table}
+\end{eqnarray*}
+
+`r unhide()`
+
+
+What is the correct interpretation of the p-value?
+	
+* (A) The p-value represents the probability that $H_0$ is correct.
+* (B) The p-value represents the probability that $H_A$ is correct.
+* (C) The p-value represents the probability that assuming $H_0$ is correct we should obtain a sample (or more extreme) as we did.
+* (D) The p-value represents the probability that the sample mean is larger than 0.	
+
+`r mcq(c("A","B",answer="C","D"))`
+
+
+`r hide("Solution")`
+Recall that, to calculate the p-value we need to assume that $H_0$ is correct. It then represents the probability, under that assumption, that we should obtain a sample with a sample mean at least as extreme as the one we observed.
+`r unhide()`
+
+:::
+

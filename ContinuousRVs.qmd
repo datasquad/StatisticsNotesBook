@@ -522,7 +522,7 @@ The probability density function can be used to find the probability that the ra
 
 As the distance between $a$ and $b$ increases, the density at any particular value within the distribution boundaries decreases. Since the probability density function integrates to 1, the height of the probability density function decreases as the base length increases. 
 
-![pdf of uniform distribution](images/uniform.jpg)#fig-uniform
+![pdf of uniform distribution](images/uniform.jpg){#fig-uniform}
 
 #### cdf of uniform distribution
 
