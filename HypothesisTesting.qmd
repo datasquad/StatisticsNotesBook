@@ -527,7 +527,7 @@ You can get the spreadsheet used from [here](data/Simulatedhypothesistest.xlsx)
 
 As stated above, the decision rule for a hypothesis test can be formulated as follows:
 
-** Reject $H_0$ if p-value is smaller than $\alpha$ (the significance level).**
+**Reject $H_0$ if p-value is smaller than $\alpha$ (the significance level).**
 
 The significance level ($\alpha$) is to be set by the researcher in advance and the calculation of the p-value will depend on the sample evidence and on the hypotheses formulated. As the p-value has a very clear (if somewhat awkward) interpretation (The probability of getting an outcome which is at least as extreme as the sample result **assuming** that the null hypothesis is true), it is very useful to think of decision rules in this manner.
 
@@ -684,10 +684,10 @@ If the sample mean is 26.8. What is your decision?
 The critical value is calculated as $25+1.645*(4/\sqrt{20})$. As the sample mean is larger than that critical value we reject $H_0$.
 `r unhide()`
 	
-Random Variable: $Y$: $\sigma_Y = 6$ \\
-Sample: $n=40$\\
-Hypothesis: $ H_{0}:\mu \geq 0;	H_{A}:\mu < 0$\\
-Significance level: $\alpha = 0.10$\\
+Random Variable: $Y$: $\sigma_Y = 6$  
+Sample: $n=40$  
+Hypothesis: $ H_{0}:\mu \geq 0;	H_{A}:\mu < 0$  
+Significance level: $\alpha = 0.10$
 
 The three possible decision rules are:
 
@@ -704,9 +704,9 @@ The critical value is calculated as $0-1.28*(6/\sqrt{40})$. As the sample mean i
 `r unhide()`
 
 	
-Random Variable: $Q$: $\sigma_Q = 7$ \\
-Sample: $n=100$\\
-Hypothesis: $ H_{0}:\mu = 12;	H_{A}:\mu \neq 12 $\\
+Random Variable: $Q$: $\sigma_Q = 7$  
+Sample: $n=100$  
+Hypothesis: $ H_{0}:\mu = 12;	H_{A}:\mu \neq 12 $  
 Significance level: $\alpha = 0.01$
 
 The three possible decision rules are:
@@ -741,7 +741,7 @@ In an earlier example we worked with the following information:
 
 Random Variable: $Q$: $\sigma_Q = 7$  
 Sample: $n=100$  
-Hypothesis: $ H_{0}:\mu = 12;	H_{A}:\mu \neq 12 $  
+Hypothesis: $H_{0}:\mu = 12;	H_{A}:\mu \neq 12$  
 Significance level: $\alpha = 0.01$
 	
 The resulting decision rule was:
@@ -782,15 +782,18 @@ This means that the sample size required is 144.4003, or in practice 145.
 
 Consider the following knowledge  
 
-Random Variable: $X$: $\sigma_X = 4$
-Hypothesis: $H_{0}:\mu \leq 25;	H_{A}:\mu > 25$ \\
-Significance level: $\alpha = 0.05$\\
+Random Variable: $X$: $\sigma_X = 4$  
+Hypothesis: $H_{0}:\mu \leq 25;	H_{A}:\mu > 25$  
+Significance level: $\alpha = 0.05$
 
 How large a sample would you need to make sure that you can reject the null hypothesis (at $\alpha=0.05$) if the sample mean is 0.01 larger than the hypothesised population mean?
 
 `r fitb(4327)`
 
 `r hide("Solution")`
+
+Use the following argument:
+
 \begin{eqnarray*}
 	25.1&=&25+1.645 \cdot (4/\sqrt{n})\\
 	25.1-25&=&1.645 \cdot (4/\sqrt{n})\\
@@ -1110,5 +1113,496 @@ In this video I walk through two examples and l explain in detail how you decide
 
 {{< video https://youtu.be/CayhsIJCyMs >}}
 
-The video uses [this scheme](data/HT_for_mean_Overview_YT.pdf).
+The video uses [this scheme](data/HT_for_mean_Overview_YT.pdf) which can help you in deciding which distribution to use in your hypothesis test.
+
+
+
+## Other hypothesis tests
+
+In everything we discussed before we assumed that we were testing a hypothesis about an unknown population mean. We used that example to explain the principle of hypothesis testing. However, there are many different population parameters you may wish to test hypotheses about. You may wish to test hypotheses about the type of population distribution, about the population variance or about population correlations between two random variables. Later you will learn how we test hypothesis about regression coefficients. Here we will introduce you to three more hypothesis tests. Testing of a population proportion, testing for the equality of two population means and testing for independence of two categorical random variables.
+
+This is a short intro to the common elements of hypothesis testing you should recognise as we introduce the next three hypothesis tests (YouTube, 2min)
+
+{{< video https://youtu.be/vxgGUmzrUlI >}}
+
+### Testing for a population proportion
+
+Proportions often describe features of a population we are very interested in. Here are some examples
+
+* The proportion of local Manchester trains running on time.
+* The proportion of students reading the course material.
+* The proportion of students who replace studying with asking ChatGPT.
+* The proportion of restaurant customers who are vegan.
+* The proportion of adults likely to vote.
+* The proportion of employees wishing to work from home.
+* The proportion of visitors to a website that have a university degree.
+
+You can see that many interesting characteristics of a population can be expressed as a proportion and a university, a teacher, a business, a political party, a government and any other institution may well be interested in estimating such a proportion in a population. We call such a population proportion $p$. Usually that population proportion $p$ is unknown and we have to rely on survey (sample) evidence. There is a host of companies which have made a business out of providing such evidence (e.g. [YouGov](https://yougov.co.uk/), [Pew Research Center](https://www.pewresearch.org/) and [GFK](https://nielseniq.com/global/en/). 
+
+In the section on descriptive statistics you learned that proportions can be thought about as a mean of a binary variable. The example used was a small sample of survey respondents who were asked whether they have a University degree.
+
+| Respondent | Uni Degree | u |
+|------------|------------|---|
+| 1          | No         | 0 |
+| 2          | No         | 0 |
+| 3          | Yes        | 1 |
+| 4          | Yes        | 1 |
+| 5          | Yes        | 1 |
+| 6          | No         | 0 |
+| 7          | Yes        | 1 |
+
+
+In this sample 4 out of 7 indicated that they had a university degree. That is a percentage of 57.14\%. But you could also calculate the sample mean of a variable $U$ that takes the value of 1 if a respondent has a university degree and 0 if they have not:
+
+\begin{equation*}
+	\bar{u}=\frac{1}{7}\sum_{i=1}^{7} u_{i}=\frac{1}{7} \cdot 4 = \frac{4}{7} = 0.5714
+\end{equation*}
+
+This is the sample mean of the variable $U$. When thinking of proportions we will often call this the estimated sample proportion $\hat{p}$. When you understand that a sample proportion $\hat{p}$ can be thought of as a mean, then it will not be surprising that much of the details of a hypothesis test for a population proportion are similar to tests of a population mean. Recall that a sample mean $\bar{x}$ was a realisation of a random variable $\bar{X}$. Now, a particular sample proportion $\hat{p}$ is a realisation of a random variable $\hat{P}$.
+
+In the case of testing for the population mean, at the core of the testing procedure was the knowledge of the sampling distribution of $\bar{X}$. In the case of testing for a population proportion we need to know what the sampling distribution of $\hat{P}$ is. Without any further detail we state here that (again using the power of a CLT) the sampling distribution of the $\hat{P}$ is:
+
+\begin{equation*}
+	\hat{P} \sim N(p,\sigma^2_{\hat{P}}).
+\end{equation*}
+
+As this result is due to a CLT  this is a large sample result. You need to know how to calculate the variance of the sample proportion:
+
+\begin{equation*}
+	\sigma^2_{\hat{P}} = \frac{p(1-p)}{n}.
+\end{equation*}
+
+The variance of the sample proportion is a function of the underlying population proportion. When we perform a hypothesis test we will assume a certain value for $p$, say $p_0$. We will therefore use that value in the calculation of the test statistic. Recall that all calculations of a hypothesis test are undertaken under the assumption that the null hypothesis is correct. Therefore we shall use the following test statistic
+
+\begin{equation*}
+	Z= \frac{\hat{p}-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}} \sim N(0,1)
+\end{equation*} 
+
+Let's work through an example.
+
+::: {.callout-note}
+
+#### Example
+
+A university is interested in the proportion of students who think that they receive a good learning experience. A random sample of 1,021 students is asked whether they agree or not agree with the statement that they have received a good learning experience. Of those 841 agreed with the statement and 180 disagreed.
+	
+The University's target is to have 85\% of its students feel that they have a good learning experience and they therefore wish to test the following hypothesis (with an $\alpha = 0.01$):
+	
+\begin{equation*}
+	H_0: p \geq 0.85;~H_A:p < 0.85 
+\end{equation*}
+
+This allows us to calculate  $\sigma^2_{\hat{P}}=\frac{0.85 \cdot (1-0.85)}{1021} = 0.0001249$ and therefore $\sigma_{\hat{P}}=\sqrt{\sigma^2_{\hat{P}}}= \sqrt{0.0001249}=0.0112$. 
+	
+Note, if you calculate the variance you will often get very small numbers. If you want to achieve 4dp precision for $s_{\hat{P}}$ you will have to keep more digits than 4 for $s^2_{\hat{P}}$. If you rounded  $s^2_{\hat{P}}$ to 0.0001 and then taken the square root you would have gotten 0.0100.
+	
+The decision rule is that $H_0$ should be rejected if the p-value is smaller than 0.01.
+	
+The sample proportion is $\hat{p}=\frac{841}{1021} = 0.8237$. 
+	
+This now allows us to calculate the test statistic:
+
+\begin{equation*}
+	Z= \frac{0.8237-0.85}{0.0112} = \frac{-0.0263}{0.0112} = -2.3482
+\end{equation*} 
+	
+With this value we can go to the standard normal table and identify that $Pr(Z < -2.35) = 0.0094$ and therefore the p-value is 0.0094, which is smaller than 0.01 and hence we decide to reject $H_0$.
+	
+![](images/NormalTableExtract3.png)
+	
+The University, on this instance, would have to concede that they have not reached their target.
+
+:::
+
+
+Hopefully you realise that the process of hypothesis testing for a proportion is very similar to testing a population mean. All you need to know is how to estimate $\sigma^2_{\hat{P}}$. That in combination with the knowledge that (for large samples) the test statistic is normally distributed delivers all the information you need.
+
+::: {.callout-note icon=false}
+
+#### Exercise
+
+You are producer of iPhone covers. You have just \href{https://99designs.co.uk/blog/trends/color-trends/}{read} that the latest colour trend is to use a Tangerine Disco colour schemes (well that was trendy in the 2026 version, trends will have totally changed if you read this any later). You are sceptical and before investing into new designs you decide to ask a random sample of your customers whether they would be interested to buy such a phone cover for their next phone.
+	
+You decide that it will be worth investing into this new trend if more than 20% of your customers indicate that they would indeed consider buying such a phone cover.
+	
+What should be your set of hypotheses to test?
+	
+* (A) $H_0: p = 0.2;~H_A:p \neq 0.2$
+* (B) $H_0: p \leq 0.2;~H_A:p > 0.2$
+* (C) $H_0: p \geq 0.2;~H_A:p < 0.2$
+* (D) $H_0: p \leq 0.19;~H_A:p > 0.19$
+* (E) $H_0: p \geq 0.21;~H_A:p < 0.21$
+
+`r mcq(c("A.",answer = "B.","C.","D.","E."))`
+
+`r hide("Solution")`
+
+$H_0: p \leq 0.2;~H_A:p > 0.2$ is the right hypothesis. You want to be confident that there are more than 20\% of customers interested. So you stick that into the alternative hypothesis and only reject $H_0$ (no investment) if there is sufficient evidence that it should be rejected.
+`r unhide()`
+
+In a sample of 367 randomly selected customers you find 92 customers that are interested in a 70s colour scheme phone cover. 
+
+What is the sample proportion?
+
+$\hat{p} =$ `r fitb(0.2507)`
+
+What is the test statistic?
+
+$z =$ `r fitb(2.4282, tol = 0.0001)`
+
+What is the p-value?
+
+$p-value = $ `r fitb(0.0075,tol = 0.001)`
+	
+`r hide("Solution")`
+The sample proportion is:	$\hat{p} = \frac{92}{367}=0.2507$  
+The test stat is:	$Z = \frac{\hat{p}-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}} = \frac{0.2507-0.2}{\sqrt{\frac{0.2 (1-0.2)}{367}}} = \frac{0.0507}{0.02088} = 2.4282$  
+And the p-value is:	$p-value = 0.0075$ which comes from the standard normal table or from EXCEL.
+`r unhide()`
+
+At what level of significance would you reject $H_0$? (multiple correct answers are possible)
+	
+* $\alpha = 0.2$ `r mcq(c(answer = "Reject H0", "Do not reject H0"))`
+* $\alpha = 0.1$ `r mcq(c(answer = "Reject H0", "Do not reject H0"))`
+* $\alpha = 0.05$ `r mcq(c(answer = "Reject H0", "Do not reject H0"))`
+* $\alpha = 0.01$ `r mcq(c(answer = "Reject H0", "Do not reject H0"))`
+* $\alpha = 0.001$ `r mcq(c("Reject H0",answer =  "Do not reject H0"))`
+
+:::
+
+
+### Testing for the equality of means
+
+Let us continue thinking about you as the potential producer of iPhone covers. In the previous section you have discovered that there is potentially enough interest from your customers to purchase new phone covers in a 70s colour scheme. In that same survey where you asked that question, you also asked whether customers may be interested in purchasing new phone covers in "walnut retro" (rated on place seven in the 2026 version of [this listing of trendy colour schemes](https://www.vistaprint.com/hub/color-trends). For that you equally had fairly strong interest. However, you only want to pay designers for one of these two schemes. It is your suspicion that there is no difference in the price you could charge for such a phone cover. However, your marketing department decides to run a survey in which they ask customers how much they would be willing to pay for the respective premium phone cover. 
+
+The marketing team actually send out two different questionnaires such that you get the sample information on your customers' willingness to pay from two different samples.
+
+Here is the information you get ($\bar{w}$ represents the average willingness to pay in the respective sample):
+
+Sample "tangerine disco":
+\begin{itemize}
+	\item $n_1 = 187 $
+	\item $\bar{w}_1 = 11.54 $
+	\item $s_1 = 1.23$
+\end{itemize}
+
+Sample "walnut retro":
+\begin{itemize}
+	\item $n_2 = 132 $
+	\item $\bar{w}_2 = 12.01 $
+	\item $s_2 =  0.94$
+\end{itemize}
+
+Let $\mu_1$ and $\mu_2$ be the respective values for the unknown population willingness to pay. How would you use this information to test whether your suspicion that the willingness to pay is identical is correct?
+
+If you look up any Business or Economics Statistics textbook you are likely to find a chapter on "Comparing two population means". From there you will find the information that the test statistic for testing $H_0: \mu_2 - \mu_1 = 0; ~H_A: \mu_2 - \mu_1 \neq 0$ is 
+
+\begin{equation*}
+	t = \frac{(\bar{w}_2-\bar{w}_1)-(\mu_2 - \mu_1)}{\sqrt{\frac{s^2_p}{n_1}+\frac{s^2_p}{n_2}}}
+\end{equation*}
+
+where $s^2_p$ is a pooled estimate of the variance
+
+\begin{equation*}
+	s^2_p = \frac{(n_1 - 1)s^2_1+(n_2-1)s^2_2}{n_1+n_2-2}
+\end{equation*}
+
+This follows a t-distribution with $n_1+n_2-2$ degrees of freedom if
+
+1. the two samples are independent
+2. the two populations are normally distributed
+3. the two population variances are identical (although unknown), which is why we estimate one pooled variance from the two samples
+
+Following our earlier discussion it is clear that these are quite restrictive assumptions, in particular that on the population normality and the equality of population variance. In our example above there is no a-priori reason to think that this should be the case.
+
+As it turns out, the appropriate testing procedure, if any of these assumptions are breached, is the subject of substantial debate in the community of statisticians (For a good summary read the introduction and conclusion of Nguyen, D.T. et al. (2016) "Parametric Tests for Two Population Means under Normal and Non-Normal Distributions," Journal of Modern Applied Statistical Methods: Vol. 15 : Issue 1 , Article 9. DOI: 10.22237/jmasm/1462075680). 
+
+In the case of unequal variances and/or non-normal distributions, the test statistic is the Satterthwaite t-test for the equality of means:
+
+\begin{equation*}
+	t = \frac{(\bar{w}_2-\bar{w}_1)-(\mu_2 - \mu_1)}{\sqrt{\frac{s^2_1}{n_1}+\frac{s^2_2}{n_2}}}
+\end{equation*}
+
+This is almost the same as the earlier one with the difference being that we do not first calculate a pooled variance estimate, but just use the variance estimates of the two samples ($s^1_1$ and $s^2_2$) directly. There is also an adjusting (downwards) of the degrees of freedom in the t-distribution used to calculate the p-value. For instance, in the above example the degrees of freedom, if the assumptions were met, would be $n_1+n_2-2= 187+132-2=317$. For the Satterthwaite t-test the degrees of freedom are adjusted downwards. The downwards adjustment is more severe if the sample variances are very unequal (no details of the Satterthwaite adjustment are needed). 
+
+As we know that for large degrees of freedom the t-distribution converges to the $N(0,1)$ distribution, the correction in the degrees of freedom will only matter if the corrected degrees of freedom make a substantial difference in the distribution. A very conservative correction would be to use the smaller of $n_1-1$ and $n_2-1$ as the degrees of freedom instead. In this case this would be $132-1 = 131$ degrees of freedom. Even with these degrees of freedom the t-distribution is still well approximated by the $N(0,1)$ distribution. You can see in the table below that 120 is the largest degrees of freedom reported. If the degrees of freedom are larger than that we approximate the t-distribution with the $N(0,1)$.
+
+![Extract from the t-distribution table, illustrating that for degrees of freedom larger than 120 the t-distribution is well approximated by the standard normal distribution.](images/tTableExtract2.png)
+
+This means that we can continue our example without having to assume population normality and equal variances. Let us calculate the test-statistic;
+
+\begin{eqnarray*}
+	t &=& \frac{(\bar{w}_2-\bar{w}_1)-(\mu_2 - \mu_1)}{\sqrt{\frac{s^2_1}{n_1}+\frac{s^2_2}{n_2}}} \\
+	 &=&\frac{(12.01-11.54)-0}{\sqrt{\frac{1.23^2}{187}+\frac{0.94^2}{132}}}\\
+	 &=&\frac{0.47}{0.1216} = 3.8651
+\end{eqnarray*}
+
+What is the resulting p-value? We go to the t-distribution table and see that 3.8651 is to the right of 3.297 (using $N(0,1)$). That means that the tail probability $Pr(t>3.8651)$ has to be smaller than 0.0005 (which is the tail probability for 3.297). As we are performing a two-tailed test we have to double that tail probability to get the p-value. We therefore know that the p-value is smaller than $0.001~(=2 \cdot 0.0005)$. This implies that there is very little support from the data for $H_0: \mu_2 - \mu_1 = 0$. We would reject the null hypothesis that there is equal willingness to pay for the "tangerine disco" and the "walnut retro" themed phone covers at significance levels as low as 0.001. The data suggest that the company could charge more for "walnut retro" themed phone covers.
+
+::: {.callout-note}
+
+#### Testing for equality of means in EXCEL
+
+In Excel's data analysis tool-pack you can chose three different options for testing for the equality of means, as shown in the image.
+
+![Choice of two sample mean tests in EXCEL.](images/Excel two sample mean choice.png)
+
+The option "Two-Sample Assuming Equal Variances" will apply the t-test using the pooled variance estimator and using $n_1+n_2-2$ degrees of freedom. The option "Two-Sample Assuming Unequal Variances" does calculate the Satterthwaite t-test with adjusted degrees of freedom.
+
+The "Paired Two Sample for Means" is a test we did not discuss here. This is the version you want to use when you get two observations from each subject, e.g. the same person tells you what they are willing to pay for phone cases in the two different colour schemes.
+
+:::
+
+::: {.callout-note icon=false}
+
+#### Exercise
+
+You obtain the following two sets of sample information:
+	
+Sample A:
+* $n_A = 58 $
+* $\bar{x}_A = 4.85 $
+* $s_A = 0.69$
+
+Sample B:
+* $n_B = 46 $
+* $\bar{x}_B = 5.15 $
+* $s_B =  0.54$
+
+You wish to test the following hypotheses: $H_0: \mu_B - \mu_A = 0; ~H_A: \mu_B - \mu_A > 0$.
+	
+Calculate the test statistic:
+
+$t=$ `r fitb(2.4872)`
+
+If you were very concerned about unequal population variances and non-normal population distributions, what would be the degrees of freedom you would use? 
+
+adjusted d.o.f = `r fitb(45)`
+
+
+What is the test statistic's p-value in this scenario? 
+
+`r fitb(0.001)` $< p-value <$ `r fitb(0.005)`
+
+`r hide("Solution")`
+\begin{equation*}
+	t = \frac{(5.15-4.85)-0}{\sqrt{\frac{0.69^2}{58}+\frac{0.54^2}{46}}} = 2.4872
+\end{equation*}
+
+d.o.f.: The smaller of (58-1) and (46-1), hence 45.
+	
+p-value: $0.005<p-value<0.01$ (use the closest degrees of freedom available, here 40. The test statistic is between 2.423 and 2.704, which have tail probabilities 0.001 and 0.005. hence the p-value is between these two values.)
+
+`r unhide()`
+
+If you were confident that the population distributions were normally distributed and had equal population variances, what would be the degrees of freedom you would use? 
+
+d.o.f = `r fitb(102)`
+
+What is the test statistics p-value in this scenario? 
+
+`r fitb(0.005)` $< p-value <$ `r fitb(0.01)`
+
+`r hide("Solution")`
+
+d.o.b: $n_A+n_B + 2 = 102$.
+
+p-value: $0.005<p-value<0.01$ (use the closest degrees of freedom available, here 90. The test statistic is between 2.368 and 2.632, which have tail probabilities 0.001 and 0.005. hence the p-value is between these two values.)
+
+`r unhide()`	
+
+:::
+
+
+### Testing for independence of two categorical random variables
+
+[Here](data/titanic.xlsx) you can find a spreadsheet with information on (a subset of) the Passengers on the ill-fated 1912 voyage on the Titanic. This is an image of the first few entries on that spreadsheet.
+
+![An snapshot of the titanic.xlsx spreadsheet.](images/Titanic_spreadsheet.png)
+
+Two of the pieces of information we have on each passenger is which class they were booked in and whether they survived (1=yes, 0=no). Both of these are categorical variables and a good way to display that information is in a contingency table.
+
+| Obs ($O_{ij}$) | Class |     |     |       |
+|----------------|-------|-----|-----|-------|
+| Survived       | 1st   | 2nd | 3rd | Total |
+| No = 0         | 129   | 161 | 573 | 863   |
+| Yes = 1        | 193   | 119 | 138 | 450   |
+| Total          | 322   | 280 | 711 | 1313  |
+
+The next table shows the joint probabilities.
+
+| Obs: $\Pr(C \cap S )$ | Class ($C$) | ~      | ~      | ~        |
+|-----------------------|-------------|--------|--------|----------|
+| Survived $S$          | 1st         | 2nd    | 3rd    | Marginal |
+| No =0                 | 0.0982      | 0.1226 | 0.4364 | 0.6573   |
+| Yes = 1               | 0.1470      | 0.0906 | 0.1051 | 0.3427   |
+| Marginal              | 0.2452      | 0.2133 | 0.5415 | 1.0000   |
+
+
+Recall that we see, in the center of the table, joint probabilities and $\Pr((C=c) \cap (S=s) )$, and in the margins of the table we see the marginal probabilities ($\Pr(S=s)$ and $\Pr(C=c)$).
+
+We may now ask the question whether the two variables Passenger Class ($C$) and Survival ($S$) are dependent or independent. In other words, did your probability of survival depend on which class you were booked on. We will investigate this question with a hypothesis test. Let us spell out the hypotheses we would use in such a context.
+
+\begin{eqnarray*}
+	H_0&:& C ~ and ~ S ~ are~ independent\\
+	H_A&:& C ~ and ~ S ~ are ~ dependent
+\end{eqnarray*}
+
+To continue with that question we, as usual when performing hypothesis tests, assume that the null hypothesis is true. If the null hypothesis was true, the two random variables are independent, then we should be able to reconstruct the joint probabilities from the marginal probabilities.
+
+\begin{equation}
+	\Pr((C=c) \cap (S=s) ) = \Pr(C=c) \cdot \Pr(S=s) 
+\end{equation}
+
+This equation is only correct if $S$ and $C$ are independent. In general $	\Pr((C=c) \cap (S=s) ) = \Pr(C=c) \cdot \Pr(S=s|C=c) $ which comes from Bayes Theorem. We now reconstruct all the joint probabilities assuming independence. For instance
+
+\begin{equation}
+	\Pr((C=2nd) \cap (S=1) ) = \Pr(C=2nd) \cdot \Pr(S=1) = 0.2133 \cdot 0.3427   = 0.0731
+\end{equation}
+
+We can do similar calculations for the other five joint probabilities and they are all shown in the Table below (note that the marginal probabilities remain unchanged).
+
+| Indep: $\Pr(C) \Pr(S)$ | Class ($C$) | ~      | ~      | ~        |
+|------------------------|-------------|--------|--------|----------|
+| Survived $S$           | 1st         | 2nd    | 3rd    | Marginal |
+| No =0                  | 0.1612      | 0.1402 | 0.3559 | 0.6573   |
+| Yes = 1                | 0.0841      | 0.0731 | 0.1856 | 0.3427   |
+| Marginal               | 0.2452      | 0.2133 | 0.5415 | 1.0000   |
+
+These probabilities are different to those that we observed. We could now continue and ask, how many of our 1313 Titanic passengers on our database we would have expected to come from 2nd class and have survived if the two variables were independent. We know that this should be 7.31% of the total of 1313, that is 95.96.
+
+We can perform a similar calculation for all the six combinations of outcomes for the variables $C$ and $S$. The folowing table shows both, the original number of observations ($O_{sc}$) and the expected number of observations ($E_{sc}$) if $C$ and $S$ were independent.
+
+| $O_{sc}$ ($E_{sc}$) | Class        |              |              |       |
+|---------------------|--------------|--------------|--------------|-------|
+| Survived            | 1st          | 2nd          | 3rd          | Total |
+| No = 0              | 129 (211.64) | 161 (184.04) | 573 (467.32) |       |
+| Yes = 1             | 193 (110.35) | 119 (95.96)  | 138 (243.68) |       |
+| Total               |              |              |              | 1313  |
+
+You can already see from this table that, if the two variables were independent we should expect to see more survivors from the 3rd class passengers (243.68 compared to 138). In reverse, we do see more 1st class survivors than we would expect under independence (193 compared to 110.35). These differences seem suggestive of the two random variables not being independent, but, as we are trained as good statisticians, we know that, even if the null hypothesis of independence was correct, we would expect to see some sample variations.
+
+The question is, however, how likely is it to see differences like the ones we can see in the last table (or more extreme) if the null hypothesis was true. In other words, we wish to calculate a p-value for the above hypothesis.   
+
+As you know from previous applications for hypothesis testing, to calculate a p-value we need a test statistic and a distribution. The test statistic is defined as
+
+\begin{equation*}
+	C^2 = \Sigma_{all~S} \Sigma_{all~C}  \frac{(O_{cs} - E_{cs})^2}{E_{sc}}
+\end{equation*}
+
+The double sum merely achieves that we calculate this difference for all joint categories (here six) and the index $sc$ indexes the survival status ($S=s$) and the class ($C=c$) respectively. 
+
+The test statistic $C^2$ increases as the differences ( $O_{cs} - E_{cs}$ ) increase. The question is when is it too big (or the probability of it occurring under the validity of the null hypothesis too small) to be consistent with the null hypothesis. This can be determined once you know the test statistic's distribution. 
+
+\begin{equation*}
+	C^2 \sim \chi^2_{(rows-1)(cols-1)}
+\end{equation*}
+
+The $\chi^2$ distribution, like the t-distribution has one degrees of freedom parameter. For this particular test, that degrees of freedom parameter is calculated as $(rows-1)(cols-1)$ where $rows$ is the number of row categories (here 2 as the survival variable has two categories) and $cols$ is the number of column categories (here 3, the number of classes on the Titanic). Therefore, in our example the degrees of freedom parameter take the value $1\cdot2=2$.
+
+Depending on the degrees of freedom, $\chi^2$ distributions can take quite different shapes. The following image provides a few examples.
+
+![$\chi^2$ distributions with various degrees of freedom.](chisq.png)
+
+As for the t- and Normal distribution there are statistical tables. You could also use the Excel function "=CHISQ.DIST(X,dof,TRUE)" to get $\Pr(\chi^2_{dof}\leq X)$ to obtain probabilities from the cdf.
+So, let's calculate that test statistic for our example
+
+\begin{eqnarray*}
+	C^2 &=& \frac{(129 - 211.64)^2}{211.64} + \frac{(161 - 184.04.64)^2}{184.04} + \frac{(573 - 467.32)^2}{467.32} +\\ &&\frac{(193 - 110.35)^2}{110.35} + \frac{(119 - 95.96)^2}{95.96} + \frac{(138 - 243.68)^2}{243.68}\\ 
+	&=&  172.30  
+\end{eqnarray*}
+
+To calculate the p-value we now need to figure out $\Pr(\chi^2_{2}\geq 172.30)=1-\Pr(\chi^2_{2}< 172.30)$ recognising that we are looking at 2 degrees of freedom. By visually inspecting the $\chi^2$ cdf with two degrees of freedom you can already tell that virtually all density is to the left of 172.30 (with the largest X value being 20 on the graph). So in this example $\Pr(\chi^2_{2}\geq 172.30)=1-1=0$. So the p-value of our test is virtually 0 and hence we reject $H_0$. This means, for this example we reject the null hypothesis and we conclude that there is dependence between $S$ and $C$ and we confirm what we suspected after looking at the earlier table. As a first class passenger you had a higher probability of surviving the sinking of the Titanic.
+
+For this test statistic to provide reliable results we need two things:
+
+1. the data need to be a random sample from a population 
+2. sufficient observations, such that in each of the categories we have $E_{sc} \geq 5$
+
+In case you do have categories which are too small you can consider combining categories to greater larger categories.
+
+
+::: {.callout-note}
+
+#### Example
+
+You are the manager of a record store ([For the younger of you a visit to Picadilly Records may be useful, like this one in Manchester, UK](https://www.piccadillyrecords.com/)). One of your unique selling points is that you have staff members who are very knowledgable in particular genres of music. You wonder whether on different days your customers' music taste is significantly different.
+	
+For one (typical) week you record the number of customers and ask them for their favourite music genres.
+	
+| Observed        | Music ($M$)   |      |       |     |       |
+|-----------------|---------------|------|-------|-----|-------|
+| Weekday ($W$)   | Hip Hop       | Rock | Metal | Pop | Total |
+| Monday          | 40            | 60   | 92    | 98  | 290   |
+| Tuesday         | 36            | 66   | 67    | 67  | 236   |
+| Wednesday       | 29            | 69   | 54    | 58  | 210   |
+| Thursday        | 43            | 90   | 98    | 78  | 309   |
+| Friday          | 82            | 156  | 132   | 134 | 504   |
+| Saturday        | 78            | 134  | 151   | 144 | 507   |
+| Total           | 308           | 575  | 594   | 579 | 2056  |
+
+	 
+What is the test statistic? 
+
+$\chi^2 =$ `r fitb(19.3011, tol =0.001)`
+
+What are the d.o.f. for the distribution of the test statistic under the null hypothesis? 
+
+d.o.f = `r fitb(15)`
+
+What is the test's p-value? 
+
+p-value = `r fitb(0.2004)`
+
+What is your conclusion?
+
+* A. There is very little evidence to support the null hypothesis that customer's music tastes differ by weekday.
+* B. There is very little evidence to support the null hypothesis that customer's music tastes are the same on different weekday..
+* C. There is not sufficient evidence to reject the null hypothesis that customer's music tastes differ by weekday.
+* D. There is not sufficient evidence to reject the null hypothesis that customer's music tastes are the same on different weekday.
+
+`r hide("Solution")`
+
+Test stat: $\chi^2 = 19.3011$ (best to use EXCEL)  
+$dof = (6-5)(4-1)=15$  
+$p-val = 0.2004$
+
+Here is a video walk-through for the above problem (YouTube, 27min)
+
+{{< video https://youtu.be/R723nbR2pdI >}}
+
+`r unhide()`
+
+:::
+
+### Summary
+
+The last three examples were examples of hypothesis tests that test for other things but for a value of the population mean. There are many other tests you could perform. Commonly you may want to perform a test on the variance (or equality of variances) in a population or on the type of distribution in the population.
+
+If you are an applied economist you may frequently refer to textbooks or the internet to search for "Hypothesis test of XX". Here we cannot cover any of these details, but hopefully, by now, you realise that hypothesis tests have some common features:
+
+* A set of hypotheses
+* A test statistic
+* A distribution for this test statistic (assuming $H_0$ is correct and potentially the validity of some further assumptions)
+* Calculate a p-value to see how compatible the data are with the null hypothesis
+
+If you look for these elements in any hypothesis test then you should be able to navigate new tests (YouTube, 2min).
+
+{{< video https://youtu.be/4Vql2gOh6V8 >}}
+
+::: {.callout-important}
+
+### Statistical v. Economic significance
+
+There is an additional aspect of hypothesis tests you should be aware of. You may well conclude, after performing a hypothesis test that there is sufficient statistical evidence to reject a null hypothesis. We sometimes call this a statistically significant test result. If this is formulated carefully it will not say just "siginificant test result", i.e. without the "statistically". Because, what is statistically significant is not necessarily substantially, or economically, significant. 
+
+Especially in times where we can use large amounts of data, we may find statistically significant results which are not really substantially significant. A good example of such a case is described by [David Spiegelhalter in this blog post](https://understandinguncertainty.org/risks-big-data-%E2%80%93-or-why-i-am-not-worried-about-brain-tumours). Here he describes why the finding that people with university degrees are statistically more likely to have brain tumors should not keep you awake at night.
+
+:::
+
+## Extra reading
+
+If you want to know more about the subtleties of p-values, then this is a good read: Lew, M.J. (2020) [A Reckless Guide to P-values: Local Evidence, Global Errors, Part of the Handbook of Experimental Pharmacology book series](https://link.springer.com/chapter/10.1007/164_2019_286) (HEP,volume 257).
+
+
 
