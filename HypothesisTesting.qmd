@@ -1502,7 +1502,7 @@ The $\chi^2$ distribution, like the t-distribution has one degrees of freedom pa
 
 Depending on the degrees of freedom, $\chi^2$ distributions can take quite different shapes. The following image provides a few examples.
 
-![$\chi^2$ distributions with various degrees of freedom.](chisq.png)
+![$\chi^2$ distributions with various degrees of freedom.](images/chisq.png)
 
 As for the t- and Normal distribution there are statistical tables. You could also use the Excel function "=CHISQ.DIST(X,dof,TRUE)" to get $\Pr(\chi^2_{dof}\leq X)$ to obtain probabilities from the cdf.
 So, let's calculate that test statistic for our example
