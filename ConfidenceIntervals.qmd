@@ -1,0 +1,179 @@
+# Confidence Intervals
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(webexercises)
+```
+
+
+
+## Introduction to Point and Interval Estimation
+
+In the section on sampling distribution we established the link between population parameters and their sample estimators, in particular the link between the population mean and its sample average. In the Section on Hypothesis Testing we then established a particular technique (hypothesis testing) we can use when we want to learn from a (known) sample something about the unknown population parameter. Of course, different samples will yield different estimates of the population parameter: this is the idea of **sampling variability**. It is because of this sampling variability that hypothesis testing could only make probabilistic statements.
+
+In this section we will learn about an alternative (yet linked) way to express the uncertainty arising from sampling variability. Confidence intervals are a popular tool to communicate this uncertainty, one which, in some respects, may deliver a more intuitive way of presenting the uncertainty we are facing (YouTube, 2min)
+
+{{< video https://youtu.be/qZDKiUmtpP4 >}}
+
+
+### Sampling Variability
+
+Let's recall the link between population parameter (here population mean $\mu$) and sample statistic (here sample mean $\bar{X}$). Consider the simplest case of sampling from a normal distribution, $X\sim N\left( \mu ,\sigma ^{2}\right) $ with the intention of estimating $\mu $. The obvious estimator is the sample mean, $\bar{X}$, with sampling distribution $\bar{X}\thicksim N\left( \mu ,\sigma^{2}/n\right)$. Here, $\mu$ is unknown but for now we assume that $\sigma ^{2}$ is known. 
+
+The variance of the distribution of $\bar{X}$ measures the dispersion of this distribution, and thus gives some idea of the range of values of $\bar{X}$ that might be obtained in drawing different samples of size $n$. This measure, $\sigma^2_{\bar{X}}=\sigma^2/n$, is therefore a measure of sampling variability and can be combined with the actual sample estimate, $\bar{x}$, in the following way: 
+
+\begin{equation*}
+	\bar{x}\pm k \sigma_{\bar{X}} ,
+\end{equation*}
+
+with the value $k$ chosen suitably (we will get to that later). What we get from this is an interval that is centred around the sample mean $\bar{x}$. The actual (unknown) population mean will or will not be contained in this interval, we just don't know.  
+
+So how could such an interval be useful? Before we get to this, let's calculate a **related but different** interval we were able to calculate following our understanding of sampling distributions.
+
+Assume that $X \sim N(7,9)$ and that you draw a sample of size $n=20$. Then we can calculate the probability that $\Pr(5.685 \leq \bar{X} \leq 8.314)$. To calculate this we use our knowledge that $\bar{X} \sim N(7,9/20)$ which then allows us to calculate the value of that probability to be
+
+\begin{eqnarray*}
+	\Pr(5.685 \leq \bar{X} \leq 8.314) &=& \Pr\left(\frac{5.685-7}{\sqrt{9/20}} \leq Z \leq \frac{8.314-7}{\sqrt{9/20}}\right)\\
+	&=& \Pr\left(\frac{5.685-7}{\sqrt{9/20}} \leq Z \leq \frac{8.314-7}{\sqrt{9/20}}\right)\\
+	&=& \Pr\left(-1.96 \leq Z \leq 1.96\right) = 0.95
+\end{eqnarray*}
+
+where you can get the probability from the normal probability table. So, if we knew that the population mean was 7, then we would expect that with a 95\% probability we would get a sample mean between 5.685 and 8.314. Where did these two values actually come from? They were calculated from 
+
+\begin{equation*}
+	\mu \pm k \sigma_{\bar{X}} 
+\end{equation*}
+
+where we used $\sigma^2_{\bar{X}}=9/20$ and $k=1.96$ value as that is the value in the standard normal distribution that cuts off 2.5\% in each tail. This is the interval into which, with a 95\% probability we should expect the sample mean to fall, **if we knew** the population mean ($\mu=7$).
+
+Of course we do not know the population mean in most interesting applications and all we have is a sample mean $\bar{x}$. Can we just replace the unknown population mean $\mu$ with $\bar{x}$? Yes we can, that is how we get to
+
+\begin{equation*}
+	\bar{x}\pm k \sigma_{\bar{X}} ,
+\end{equation*}
+
+If we again chose the $k=1.96$ we call this the 95\% confidence interval for the population mean. Continuing with the example we now learn that we obtained a sample mean of 7.931. This now allows us to calculate a 95\% confidence interval
+
+\begin{equation*}
+	7.931 \pm 1.96 \cdot \sqrt{9/20} \Rightarrow [6.2031,9.6589]
+\end{equation*}
+
+What interpretation can we give this confidence interval with lower limit/bound $c_L = 6.2031$ and upper limit/bound $c_U=9.6589$? An intuitive interpretation would be "There is a 95\% probability that the population mean is inside this interval." Unfortunately that is an incorrect interpretation. This interpretation treats the unknown population mean as if it was a random variable, but it is not. It is assumed to be fixed but unknown. What is random is the outcome of the sample mean $\bar{x}$ and therefore the confidence interval (as the lower and upper limits, $c_L$ and $c_U$, of that interval are centred around the particular outcome $\bar{x}=7.931$ of the random variable $\bar{X}$ these limits are also random variables, $C_L$ and $C_U$). Recall, capital letters represent the random variable (like $C_L$) and small letters represent sample draws of that random variable (e.g. $c_L$). 
+
+Therefore, the correct interpretation is the following. If you did take 100 samples, then 95\% of the associated confidence intervals should contain the population mean, $\mu$.
+
+::: {.callout-note}
+
+#### Example
+
+Suppose that a random sample of size $50$ is drawn from the distribution of household incomes, where the latter is supposed to be $N\left( \mu ,5\right)$, and that the mean of the sample is $\bar{x}=18$. If we choose k=1.96, the 95\% confidence interval is 
+
+\begin{equation*}
+	18 \pm 1.96 \cdot \sqrt{5/50} \Rightarrow [17.3802,18.6198]
+\end{equation*}
+
+If you were to calculate the 99\% confidence interval, the interval would
+
+`r mcq(c("stay unchanged", answer = "become wider", "become narrower"))`
+
+
+If you increased the sample size, the interval would
+
+`r mcq(c("stay unchanged", "become wider", answer = "become narrower"))`
+
+:::
+
+### Interpreting Confidence Intervals
+
+This interval is defined by the sample values of $C_{L}$ and $C_{U}$: these are the lower and upper confidence bounds and they have sample realisations:
+
+\begin{equation*}
+	c_{L}=\bar{x}-1.96SE\left( \bar{X}\right) ,\;\;\;c_{U}=\bar{x}+1.96 SE\left( \bar{X}\right) .
+\end{equation*}
+
+The interval estimate
+
+\begin{equation*}
+	\bar{x}\pm 1.96SE\left( \bar{X}\right)
+\end{equation*}
+
+contains the measure of sampling variability ($SE\left( \bar{X}\right)=\sigma_{\bar{X}}$). 
+
+The choice of $k$ as $k=1.96$ is now determined by the desired confidence level. Why choose the latter to be 0.95 or 95%? This is really a matter of convention and you will often also see 90% or 99% confidence intervals.
+
+It is a common abuse of language to call the interval
+
+\begin{equation*}
+	\bar{x}\pm 1.96SE\left( \bar{X}\right)
+\end{equation*}%
+
+**the** confidence interval - indeed it is so common that this abuse will be allowed. Strictly, this is **an** interval estimate, which is now seen to be a combination of a point estimate, $\bar{x}$, of $\mu$, and a measure of sampling variability determined by the constant $k$, which sets the confidence coefficient or level, in this case, 0.95.
+
+There is a common misinterpretation of a confidence interval, based on this abuse of language, which says that **the confidence interval**
+
+\begin{equation*}
+	\bar{x}\pm 1.96SE\left( \bar{X}\right)
+\end{equation*}
+
+**$\mu$  \emph{with} 95\% confidence**. Why is this a misinterpretation? For the following reasons:
+
+* $\mu$ is unknown but not random
+* so this "confidence interval" does or does not contain $\mu$;
+* since $\mu$ is unknown, we will **never** know  whether a particular conficence interval does or does not contain $\mu$;
+
+A better interpretation is based on the relative frequency interpretation of probability. If samples are repeatedly drawn from the population, say $X\thicksim N\left( \mu ,\sigma ^{2}\right)$, and the interval estimates ("confidence interval") for a 95\% confidence level calculated for each sample, about 95\% of them will contain $\mu$. 
+
+This video illustrates this interpretation using a simple Excel simulation (YouTube, 11 min)
+
+{{< video https://youtu.be/Uby0i8GcJww >}}
+
+You can get the spreadsheet used from [here](data/Simulatedconfidenceintervals.xlsx)
+
+The image illustrates thirty 90% confidence intervals from a population with mean 7. Of these two confidence intervals do not include the true population mean (they are highlighted in red).
+
+![Illustration of confidence intervals. 30 confidence interval which are centred around the point estimate $\bar{x}$ represented by grey dots. $c_L$ and $c_U$ are in blue. The yellow line indicates the population mean, $\mu=7$. The red confidence intervals are the ones which do not contain the population mean](images/ConfInt.png)
+
+However, this doesn't help when only a single sample is drawn. You just don't know whether that particular confidence interval does, or does not contain the true population mean. The way you should really interpret a particular confidence interval is that it shows a point estimate ($\bar{x}$) of what you wish to estimate and displays the amount of sampling uncertainty.
+
+::: {.callout-note}
+
+#### Example
+
+Suppose that a random sample of size 50 is drawn from the distribution of household incomes, where the latter is supposed to be $N\left( \mu ,5\right)$. Notice that $\sigma ^{2}$ here is supposed to be **known** to equal 5. Suppose that the mean of the sample is $\bar{x}=18$. Then, the 95% confidence interval for $\mu$ is (allowing the abuse of language)
+	
+\begin{eqnarray*}
+	\bar{x}\pm 1.96SE\left( \bar{X}\right) &=&18\pm 1.96\sqrt{\dfrac{5}{50}} \\
+	&=&18\pm 0.62 \\
+	&=&\left[ 17.38,18.62\right] .
+\end{eqnarray*}
+	
+Here the measure of sampling variability around $\bar{x}=18$ is $\pm 0.62$. One might reasonably conclude that since this measure of sampling variability is small compared to $\bar{x}$, $\bar{x}=18$ is a relatively precise estimate of $\mu$. To refer to **precision** here is fair, since we are utilising the variance of the sampling distribution of $\bar{X}$.
+
+:::
+
+::: {.callout-note}
+
+#### Example
+
+A random sample of size 20 is drawn from the distribution of household savings (measured in 1000s of UKP, negative numbers mean that a household is in debt), where the latter is supposed to be $N\left( \mu ,9\right)$. Notice that $\sigma ^{2}$ here is supposed to be **known** to equal 9. Your sample mean is $\bar{x}=-12$. Then, the 95\% confidence interval for $\mu$ is
+
+\begin{eqnarray*}
+	\bar{x}\pm 1.96~SE\left( \bar{X}\right) &=&-12\pm 1.96\sqrt{\dfrac{9}{20}} \\
+	&=&-12\pm 1.2003 \\
+	&=&\left[ -13.2002,-10.7998\right] .
+\end{eqnarray*}
+	
+How big should your sample be such that the measure of sampling variability ($1.96~SE\left( \bar{X}\right)$) is smaller than 1?
+
+$n$ should be at least `r fitb(35)`
+
+`r hide("Solution")`
+$1.96~SE\left( \bar{X}\right)=1.96 \cdot \sqrt{\frac{\sigma^2}{n}}<1$. Either try in Excel which value does reduce this value below 1, or solve the inequality to get $n>1.96^2 \cdot \sigma^2$ which here delivers that the smalles $n$ that achieves that is 35.
+`r unhide()`
+
+This video goes through the workings required in the above example (YouTube, 10min).
+
+{{< video https://youtu.be/ljPZY9Q41WE >}}
+
+:::

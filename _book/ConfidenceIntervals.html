@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ralf Becker">
-<meta name="dcterms.date" content="2028-01-01">
 
-<title>Statistics Notes</title>
+<title>15&nbsp; Confidence Intervals – Statistics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./summary.html" rel="next">
+<link href="./HypothesisTesting.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -72,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="include/webex.css">
 </head>
@@ -85,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ConfidenceIntervals.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -112,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -202,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ConfidenceIntervals.html" class="sidebar-item-text sidebar-link">
+  <a href="./ConfidenceIntervals.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
   </div>
 </li>
@@ -228,7 +256,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#introduction-to-point-and-interval-estimation" id="toc-introduction-to-point-and-interval-estimation" class="nav-link active" data-scroll-target="#introduction-to-point-and-interval-estimation"><span class="header-section-number">15.1</span> Introduction to Point and Interval Estimation</a>
+  <ul class="collapse">
+  <li><a href="#sampling-variability" id="toc-sampling-variability" class="nav-link" data-scroll-target="#sampling-variability"><span class="header-section-number">15.1.1</span> Sampling Variability</a></li>
+  <li><a href="#interpreting-confidence-intervals" id="toc-interpreting-confidence-intervals" class="nav-link" data-scroll-target="#interpreting-confidence-intervals"><span class="header-section-number">15.1.2</span> Interpreting Confidence Intervals</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -237,26 +269,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Statistics Notes</h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ralf Becker </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 1, 2028</p>
-    </div>
-  </div>
   
     
   </div>
@@ -266,12 +286,151 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>Here are resources that are being used for the Advanced Statstics course taught to Economics Students at The University of Manchester</p>
-<p><a href="https://datasquad.github.io/ralffbecker/index.html">Ralf Becker</a></p>
+<section id="introduction-to-point-and-interval-estimation" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="introduction-to-point-and-interval-estimation"><span class="header-section-number">15.1</span> Introduction to Point and Interval Estimation</h2>
+<p>In the section on sampling distribution we established the link between population parameters and their sample estimators, in particular the link between the population mean and its sample average. In the Section on Hypothesis Testing we then established a particular technique (hypothesis testing) we can use when we want to learn from a (known) sample something about the unknown population parameter. Of course, different samples will yield different estimates of the population parameter: this is the idea of <strong>sampling variability</strong>. It is because of this sampling variability that hypothesis testing could only make probabilistic statements.</p>
+<p>In this section we will learn about an alternative (yet linked) way to express the uncertainty arising from sampling variability. Confidence intervals are a popular tool to communicate this uncertainty, one which, in some respects, may deliver a more intuitive way of presenting the uncertainty we are facing (YouTube, 2min)</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/qZDKiUmtpP4" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="sampling-variability" class="level3" data-number="15.1.1">
+<h3 data-number="15.1.1" class="anchored" data-anchor-id="sampling-variability"><span class="header-section-number">15.1.1</span> Sampling Variability</h3>
+<p>Let’s recall the link between population parameter (here population mean <span class="math inline">\(\mu\)</span>) and sample statistic (here sample mean <span class="math inline">\(\bar{X}\)</span>). Consider the simplest case of sampling from a normal distribution, $XN( ,^{2}) $ with the intention of estimating $$. The obvious estimator is the sample mean, <span class="math inline">\(\bar{X}\)</span>, with sampling distribution <span class="math inline">\(\bar{X}\thicksim N\left( \mu ,\sigma^{2}/n\right)\)</span>. Here, <span class="math inline">\(\mu\)</span> is unknown but for now we assume that <span class="math inline">\(\sigma ^{2}\)</span> is known.</p>
+<p>The variance of the distribution of <span class="math inline">\(\bar{X}\)</span> measures the dispersion of this distribution, and thus gives some idea of the range of values of <span class="math inline">\(\bar{X}\)</span> that might be obtained in drawing different samples of size <span class="math inline">\(n\)</span>. This measure, <span class="math inline">\(\sigma^2_{\bar{X}}=\sigma^2/n\)</span>, is therefore a measure of sampling variability and can be combined with the actual sample estimate, <span class="math inline">\(\bar{x}\)</span>, in the following way:</p>
+<p><span class="math display">\[\begin{equation*}
+    \bar{x}\pm k \sigma_{\bar{X}} ,
+\end{equation*}\]</span></p>
+<p>with the value <span class="math inline">\(k\)</span> chosen suitably (we will get to that later). What we get from this is an interval that is centred around the sample mean <span class="math inline">\(\bar{x}\)</span>. The actual (unknown) population mean will or will not be contained in this interval, we just don’t know.</p>
+<p>So how could such an interval be useful? Before we get to this, let’s calculate a <strong>related but different</strong> interval we were able to calculate following our understanding of sampling distributions.</p>
+<p>Assume that <span class="math inline">\(X \sim N(7,9)\)</span> and that you draw a sample of size <span class="math inline">\(n=20\)</span>. Then we can calculate the probability that <span class="math inline">\(\Pr(5.685 \leq \bar{X} \leq 8.314)\)</span>. To calculate this we use our knowledge that <span class="math inline">\(\bar{X} \sim N(7,9/20)\)</span> which then allows us to calculate the value of that probability to be</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \Pr(5.685 \leq \bar{X} \leq 8.314) &amp;=&amp; \Pr\left(\frac{5.685-7}{\sqrt{9/20}} \leq Z \leq \frac{8.314-7}{\sqrt{9/20}}\right)\\
+    &amp;=&amp; \Pr\left(\frac{5.685-7}{\sqrt{9/20}} \leq Z \leq \frac{8.314-7}{\sqrt{9/20}}\right)\\
+    &amp;=&amp; \Pr\left(-1.96 \leq Z \leq 1.96\right) = 0.95
+\end{eqnarray*}\]</span></p>
+<p>where you can get the probability from the normal probability table. So, if we knew that the population mean was 7, then we would expect that with a 95% probability we would get a sample mean between 5.685 and 8.314. Where did these two values actually come from? They were calculated from</p>
+<p><span class="math display">\[\begin{equation*}
+    \mu \pm k \sigma_{\bar{X}}
+\end{equation*}\]</span></p>
+<p>where we used <span class="math inline">\(\sigma^2_{\bar{X}}=9/20\)</span> and <span class="math inline">\(k=1.96\)</span> value as that is the value in the standard normal distribution that cuts off 2.5% in each tail. This is the interval into which, with a 95% probability we should expect the sample mean to fall, <strong>if we knew</strong> the population mean (<span class="math inline">\(\mu=7\)</span>).</p>
+<p>Of course we do not know the population mean in most interesting applications and all we have is a sample mean <span class="math inline">\(\bar{x}\)</span>. Can we just replace the unknown population mean <span class="math inline">\(\mu\)</span> with <span class="math inline">\(\bar{x}\)</span>? Yes we can, that is how we get to</p>
+<p><span class="math display">\[\begin{equation*}
+    \bar{x}\pm k \sigma_{\bar{X}} ,
+\end{equation*}\]</span></p>
+<p>If we again chose the <span class="math inline">\(k=1.96\)</span> we call this the 95% confidence interval for the population mean. Continuing with the example we now learn that we obtained a sample mean of 7.931. This now allows us to calculate a 95% confidence interval</p>
+<p><span class="math display">\[\begin{equation*}
+    7.931 \pm 1.96 \cdot \sqrt{9/20} \Rightarrow [6.2031,9.6589]
+\end{equation*}\]</span></p>
+<p>What interpretation can we give this confidence interval with lower limit/bound <span class="math inline">\(c_L = 6.2031\)</span> and upper limit/bound <span class="math inline">\(c_U=9.6589\)</span>? An intuitive interpretation would be “There is a 95% probability that the population mean is inside this interval.” Unfortunately that is an incorrect interpretation. This interpretation treats the unknown population mean as if it was a random variable, but it is not. It is assumed to be fixed but unknown. What is random is the outcome of the sample mean <span class="math inline">\(\bar{x}\)</span> and therefore the confidence interval (as the lower and upper limits, <span class="math inline">\(c_L\)</span> and <span class="math inline">\(c_U\)</span>, of that interval are centred around the particular outcome <span class="math inline">\(\bar{x}=7.931\)</span> of the random variable <span class="math inline">\(\bar{X}\)</span> these limits are also random variables, <span class="math inline">\(C_L\)</span> and <span class="math inline">\(C_U\)</span>). Recall, capital letters represent the random variable (like <span class="math inline">\(C_L\)</span>) and small letters represent sample draws of that random variable (e.g.&nbsp;<span class="math inline">\(c_L\)</span>).</p>
+<p>Therefore, the correct interpretation is the following. If you did take 100 samples, then 95% of the associated confidence intervals should contain the population mean, <span class="math inline">\(\mu\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose that a random sample of size <span class="math inline">\(50\)</span> is drawn from the distribution of household incomes, where the latter is supposed to be <span class="math inline">\(N\left( \mu ,5\right)\)</span>, and that the mean of the sample is <span class="math inline">\(\bar{x}=18\)</span>. If we choose k=1.96, the 95% confidence interval is</p>
+<p><span class="math display">\[\begin{equation*}
+    18 \pm 1.96 \cdot \sqrt{5/50} \Rightarrow [17.3802,18.6198]
+\end{equation*}\]</span></p>
+<p>If you were to calculate the 99% confidence interval, the interval would</p>
+<p><select class="webex-select"><option value="blank"></option><option value="">stay unchanged</option><option value="answer">become wider</option><option value="">become narrower</option></select></p>
+<p>If you increased the sample size, the interval would</p>
+<p><select class="webex-select"><option value="blank"></option><option value="">stay unchanged</option><option value="">become wider</option><option value="answer">become narrower</option></select></p>
+</div>
+</div>
+</section>
+<section id="interpreting-confidence-intervals" class="level3" data-number="15.1.2">
+<h3 data-number="15.1.2" class="anchored" data-anchor-id="interpreting-confidence-intervals"><span class="header-section-number">15.1.2</span> Interpreting Confidence Intervals</h3>
+<p>This interval is defined by the sample values of <span class="math inline">\(C_{L}\)</span> and <span class="math inline">\(C_{U}\)</span>: these are the lower and upper confidence bounds and they have sample realisations:</p>
+<p><span class="math display">\[\begin{equation*}
+    c_{L}=\bar{x}-1.96SE\left( \bar{X}\right) ,\;\;\;c_{U}=\bar{x}+1.96 SE\left( \bar{X}\right) .
+\end{equation*}\]</span></p>
+<p>The interval estimate</p>
+<p><span class="math display">\[\begin{equation*}
+    \bar{x}\pm 1.96SE\left( \bar{X}\right)
+\end{equation*}\]</span></p>
+<p>contains the measure of sampling variability (<span class="math inline">\(SE\left( \bar{X}\right)=\sigma_{\bar{X}}\)</span>).</p>
+<p>The choice of <span class="math inline">\(k\)</span> as <span class="math inline">\(k=1.96\)</span> is now determined by the desired confidence level. Why choose the latter to be 0.95 or 95%? This is really a matter of convention and you will often also see 90% or 99% confidence intervals.</p>
+<p>It is a common abuse of language to call the interval</p>
+<p><span class="math display">\[\begin{equation*}
+    \bar{x}\pm 1.96SE\left( \bar{X}\right)
+\end{equation*}\]</span>%</p>
+<p><strong>the</strong> confidence interval - indeed it is so common that this abuse will be allowed. Strictly, this is <strong>an</strong> interval estimate, which is now seen to be a combination of a point estimate, <span class="math inline">\(\bar{x}\)</span>, of <span class="math inline">\(\mu\)</span>, and a measure of sampling variability determined by the constant <span class="math inline">\(k\)</span>, which sets the confidence coefficient or level, in this case, 0.95.</p>
+<p>There is a common misinterpretation of a confidence interval, based on this abuse of language, which says that <strong>the confidence interval</strong></p>
+<p><span class="math display">\[\begin{equation*}
+    \bar{x}\pm 1.96SE\left( \bar{X}\right)
+\end{equation*}\]</span></p>
+<p><strong><span class="math inline">\(\mu\)</span> 95% confidence</strong>. Why is this a misinterpretation? For the following reasons:</p>
+<ul>
+<li><span class="math inline">\(\mu\)</span> is unknown but not random</li>
+<li>so this “confidence interval” does or does not contain <span class="math inline">\(\mu\)</span>;</li>
+<li>since <span class="math inline">\(\mu\)</span> is unknown, we will <strong>never</strong> know whether a particular conficence interval does or does not contain <span class="math inline">\(\mu\)</span>;</li>
+</ul>
+<p>A better interpretation is based on the relative frequency interpretation of probability. If samples are repeatedly drawn from the population, say <span class="math inline">\(X\thicksim N\left( \mu ,\sigma ^{2}\right)\)</span>, and the interval estimates (“confidence interval”) for a 95% confidence level calculated for each sample, about 95% of them will contain <span class="math inline">\(\mu\)</span>.</p>
+<p>This video illustrates this interpretation using a simple Excel simulation (YouTube, 11 min)</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Uby0i8GcJww" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>You can get the spreadsheet used from <a href="data/Simulatedconfidenceintervals.xlsx">here</a></p>
+<p>The image illustrates thirty 90% confidence intervals from a population with mean 7. Of these two confidence intervals do not include the true population mean (they are highlighted in red).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ConfInt.png" class="img-fluid figure-img"></p>
+<figcaption>Illustration of confidence intervals. 30 confidence interval which are centred around the point estimate <span class="math inline">\(\bar{x}\)</span> represented by grey dots. <span class="math inline">\(c_L\)</span> and <span class="math inline">\(c_U\)</span> are in blue. The yellow line indicates the population mean, <span class="math inline">\(\mu=7\)</span>. The red confidence intervals are the ones which do not contain the population mean</figcaption>
+</figure>
+</div>
+<p>However, this doesn’t help when only a single sample is drawn. You just don’t know whether that particular confidence interval does, or does not contain the true population mean. The way you should really interpret a particular confidence interval is that it shows a point estimate (<span class="math inline">\(\bar{x}\)</span>) of what you wish to estimate and displays the amount of sampling uncertainty.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose that a random sample of size 50 is drawn from the distribution of household incomes, where the latter is supposed to be <span class="math inline">\(N\left( \mu ,5\right)\)</span>. Notice that <span class="math inline">\(\sigma ^{2}\)</span> here is supposed to be <strong>known</strong> to equal 5. Suppose that the mean of the sample is <span class="math inline">\(\bar{x}=18\)</span>. Then, the 95% confidence interval for <span class="math inline">\(\mu\)</span> is (allowing the abuse of language)</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \bar{x}\pm 1.96SE\left( \bar{X}\right) &amp;=&amp;18\pm 1.96\sqrt{\dfrac{5}{50}} \\
+    &amp;=&amp;18\pm 0.62 \\
+    &amp;=&amp;\left[ 17.38,18.62\right] .
+\end{eqnarray*}\]</span></p>
+<p>Here the measure of sampling variability around <span class="math inline">\(\bar{x}=18\)</span> is <span class="math inline">\(\pm 0.62\)</span>. One might reasonably conclude that since this measure of sampling variability is small compared to <span class="math inline">\(\bar{x}\)</span>, <span class="math inline">\(\bar{x}=18\)</span> is a relatively precise estimate of <span class="math inline">\(\mu\)</span>. To refer to <strong>precision</strong> here is fair, since we are utilising the variance of the sampling distribution of <span class="math inline">\(\bar{X}\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A random sample of size 20 is drawn from the distribution of household savings (measured in 1000s of UKP, negative numbers mean that a household is in debt), where the latter is supposed to be <span class="math inline">\(N\left( \mu ,9\right)\)</span>. Notice that <span class="math inline">\(\sigma ^{2}\)</span> here is supposed to be <strong>known</strong> to equal 9. Your sample mean is <span class="math inline">\(\bar{x}=-12\)</span>. Then, the 95% confidence interval for <span class="math inline">\(\mu\)</span> is</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \bar{x}\pm 1.96~SE\left( \bar{X}\right) &amp;=&amp;-12\pm 1.96\sqrt{\dfrac{9}{20}} \\
+    &amp;=&amp;-12\pm 1.2003 \\
+    &amp;=&amp;\left[ -13.2002,-10.7998\right] .
+\end{eqnarray*}\]</span></p>
+<p>How big should your sample be such that the measure of sampling variability (<span class="math inline">\(1.96~SE\left( \bar{X}\right)\)</span>) is smaller than 1?</p>
+<p><span class="math inline">\(n\)</span> should be at least <input class="webex-solveme nospaces" size="2" data-answer="[&quot;35&quot;]"></p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p><span class="math inline">\(1.96~SE\left( \bar{X}\right)=1.96 \cdot \sqrt{\frac{\sigma^2}{n}}&lt;1\)</span>. Either try in Excel which value does reduce this value below 1, or solve the inequality to get <span class="math inline">\(n&gt;1.96^2 \cdot \sigma^2\)</span> which here delivers that the smalles <span class="math inline">\(n\)</span> that achieves that is 35.</p>
+</div>
+<p>This video goes through the workings required in the above example (YouTube, 10min).</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/ljPZY9Q41WE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -678,10 +837,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./HypothesisTesting.html" class="pagination-link" aria-label="Hypothesis Testing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
