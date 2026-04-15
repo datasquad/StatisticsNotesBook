@@ -260,7 +260,16 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#sampling-variability" id="toc-sampling-variability" class="nav-link" data-scroll-target="#sampling-variability"><span class="header-section-number">15.1.1</span> Sampling Variability</a></li>
   <li><a href="#interpreting-confidence-intervals" id="toc-interpreting-confidence-intervals" class="nav-link" data-scroll-target="#interpreting-confidence-intervals"><span class="header-section-number">15.1.2</span> Interpreting Confidence Intervals</a></li>
+  <li><a href="#other-confidence-levels" id="toc-other-confidence-levels" class="nav-link" data-scroll-target="#other-confidence-levels"><span class="header-section-number">15.1.3</span> Other Confidence Levels</a></li>
+  <li><a href="#which-distribution-to-use" id="toc-which-distribution-to-use" class="nav-link" data-scroll-target="#which-distribution-to-use"><span class="header-section-number">15.1.4</span> Which distribution to use?</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">15.1.5</span> Additional Resources</a></li>
   </ul></li>
+  <li><a href="#confidence-intervals-for-population-proportions" id="toc-confidence-intervals-for-population-proportions" class="nav-link" data-scroll-target="#confidence-intervals-for-population-proportions"><span class="header-section-number">15.2</span> Confidence intervals for population proportions</a>
+  <ul class="collapse">
+  <li><a href="#additional-resources-1" id="toc-additional-resources-1" class="nav-link" data-scroll-target="#additional-resources-1"><span class="header-section-number">15.2.1</span> Additional resources</a></li>
+  <li><a href="#opinion-polling-reality" id="toc-opinion-polling-reality" class="nav-link" data-scroll-target="#opinion-polling-reality"><span class="header-section-number">15.2.2</span> Opinion polling reality</a></li>
+  </ul></li>
+  <li><a href="#summary-and-outlook" id="toc-summary-and-outlook" class="nav-link" data-scroll-target="#summary-and-outlook"><span class="header-section-number">15.3</span> Summary and Outlook</a></li>
   </ul>
 </nav>
     </div>
@@ -423,14 +432,481 @@ window.Quarto = {
 Solution
 </button>
 <p><span class="math inline">\(1.96~SE\left( \bar{X}\right)=1.96 \cdot \sqrt{\frac{\sigma^2}{n}}&lt;1\)</span>. Either try in Excel which value does reduce this value below 1, or solve the inequality to get <span class="math inline">\(n&gt;1.96^2 \cdot \sigma^2\)</span> which here delivers that the smalles <span class="math inline">\(n\)</span> that achieves that is 35.</p>
-</div>
 <p>This video goes through the workings required in the above example (YouTube, 10min).</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/ljPZY9Q41WE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 </div>
-
-
+</div>
 </section>
+<section id="other-confidence-levels" class="level3" data-number="15.1.3">
+<h3 data-number="15.1.3" class="anchored" data-anchor-id="other-confidence-levels"><span class="header-section-number">15.1.3</span> Other Confidence Levels</h3>
+<p>Instead of choosing <span class="math inline">\(k\)</span> so that</p>
+<p><span class="math display">\[\begin{equation*}
+    \Pr \left( -k\leqslant \dfrac{\bar{X}-\mu }{SE\left( \bar{X}\right) }\leqslant k\right) =0.95,
+\end{equation*}\]</span></p>
+<p>we can choose <span class="math inline">\(k\)</span> such as to deliver any desired probability, usually expressed as <span class="math inline">\(1-\alpha\)</span>:</p>
+<p><span class="math display">\[\begin{equation*}
+    \Pr \left( -k\leqslant \dfrac{\bar{X}-\mu }{SE\left( \bar{X}\right) }\leqslant k\right) =1-\alpha
+\end{equation*}\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[\begin{equation*}
+    Z=\dfrac{\bar{X}-\mu }{SE\left( \bar{X}\right) }\thicksim N\left(0,1\right) ,
+\end{equation*}\]</span></p>
+<p>we can find from the table of the standard normal distribution the value (percentage point) <span class="math inline">\(z_{\alpha /2}\)</span> such that</p>
+<p><span class="math display">\[\begin{equation*}
+    \Pr \left( Z&gt;z_{\alpha /2}\right) =\dfrac{\alpha }{2}.
+\end{equation*}\]</span></p>
+<p>This implies that</p>
+<p><span class="math display">\[\begin{equation*}
+    \Pr \left( -z_{\alpha /2}\leqslant Z\leqslant z_{\alpha /2}\right) =1-\alpha.
+\end{equation*}\]</span></p>
+<p>This is clear from the familiar picture in the Figure below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/norm01.jpg" class="img-fluid figure-img"></p>
+<figcaption>Illustration of how to find the value <span class="math inline">\(k\)</span>.</figcaption>
+</figure>
+</div>
+<p>This delivers the following, commonly used values, to calculate confidence intervals assuming that the sample mean follows a normal distribution (as it does when the population is normal and the population variance is known):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\alpha\)</span></th>
+<th><span class="math inline">\(k=z_{\alpha/2}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.20</td>
+<td>1.28</td>
+</tr>
+<tr class="even">
+<td>0.10</td>
+<td>1.65</td>
+</tr>
+<tr class="odd">
+<td>0.05</td>
+<td>1.96</td>
+</tr>
+<tr class="even">
+<td>0.01</td>
+<td>2.58</td>
+</tr>
+</tbody>
+</table>
+<p>If we were to chose <span class="math inline">\(\alpha = 0.01\)</span> the confidence interval’s lower and upper confidence bounds for the earlier example (population normally distributed with <span class="math inline">\(\sigma^2=5\)</span>, sample size <span class="math inline">\(n=50\)</span> and sample mean <span class="math inline">\(\bar{x}= 18\)</span> ) would be calculated as:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \left[ c_{L},c_{U}\right] &amp;=&amp;\bar{x}\pm z_{\alpha /2}SE\left( \bar{X}\right) \\
+    &amp;=&amp;18\pm 2.58\sqrt{\dfrac{5}{50}} \\
+    &amp;=&amp;18\pm 0.82 \\
+    &amp;=&amp;\left[ 17.18,18.82\right] .
+\end{eqnarray*}\]</span></p>
+<p>Notice that the measure of sampling variability has increased from 0.62 for a 95% confidence interval to 0.82 for a 99% confidence interval. This illustrates the general proposition that the confidence interval gets wider as the confidence coefficient (<span class="math inline">\(1-\alpha\)</span>) is increased. There has been no change in the precision of estimation here.</p>
+<p>Why the use of <span class="math inline">\(1-\alpha\)</span> in the probability statement underlying the confidence interval? The random variables <span class="math inline">\(C_L\)</span> and <span class="math inline">\(C_U\)</span> are designed here to make</p>
+<p><span class="math display">\[\begin{equation*}
+    \Pr \left( \mu \in \left[ C_{L},C_{U}\right] \right) =1-\alpha
+\end{equation*}\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[\begin{equation*}
+    \Pr \left( \mu \notin \left[ C_{L},C_{U}\right] \right) =\alpha .
+\end{equation*}\]</span></p>
+<p>Recall that in this probability statement it is the lower and upper bounds which are random variables, and not the population mean <span class="math inline">\(\mu\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A random sample of size 20 is drawn from the distribution of household incomes, where the latter is supposed to be <span class="math inline">\(N\left( \mu ,9\right)\)</span>. Notice that <span class="math inline">\(\sigma ^{2}\)</span> here is <strong>known</strong> to be equa to 9. Your sample mean is <span class="math inline">\(\bar{x}=-12\)</span>. Then, the 90% confidence interval for <span class="math inline">\(\mu\)</span> is</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \bar{x}\pm 1.645~SE\left( \bar{X}\right) &amp;=&amp;-12\pm 1.645\sqrt{\dfrac{9}{20}} \\
+    &amp;=&amp;-12\pm 1.1035 \\
+    &amp;=&amp;\left[ -13.1035,-10.8965\right] .
+\end{eqnarray*}\]</span></p>
+<p>How big should your sample be such that the measure of sampling variability (<span class="math inline">\(1.645~SE\left( \bar{X}\right)\)</span>) is smaller than 1?</p>
+<p><span class="math inline">\(n\)</span> should be at least <input class="webex-solveme nospaces" size="2" data-answer="[&quot;25&quot;]">.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p><span class="math inline">\(1.645~SE\left( \bar{X}\right)=1.645 \cdot \sqrt{\frac{\sigma^2}{n}}&lt;1\)</span>. Either try in Excel which value does reduce this value below 1, or solve the inequality to get <span class="math inline">\(n&gt;1.645^2 \cdot \sigma^2\)</span>. This leads to <span class="math inline">\(n\)</span> having to be at least 25.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="which-distribution-to-use" class="level3" data-number="15.1.4">
+<h3 data-number="15.1.4" class="anchored" data-anchor-id="which-distribution-to-use"><span class="header-section-number">15.1.4</span> Which distribution to use?</h3>
+<p>We started the argument with a calculation we were familiar with from the discussion of sampling distributions. We asked a question like “What is <span class="math inline">\(\Pr(c_L \leq \bar{X} \leq c_U)\)</span>?” and then based our calculation on what we knew about the sampling distribution of <span class="math inline">\(\bar{X}\)</span>. In the case we discussed <span class="math inline">\(\bar{X} \sim N(\mu,\frac{\sigma^2}{n})\)</span> as the population was assumed to be normally distributed with known <span class="math inline">\(\sigma^2=5\)</span>.</p>
+<p>The assumption, amongst these, which seemed the most problematic was that of a known population variance (<span class="math inline">\(sigma^2\)</span>). In a situation where we wish to estimate an unknown population mean (<span class="math inline">\(\mu\)</span>) it is unlikely that we know the population variance <span class="math inline">\(\sigma^2\)</span>. In the section on hypothesis testing we discussed how the sample mean <span class="math inline">\(\bar{X}\)</span> is distributed when <span class="math inline">\(\sigma^2\)</span> has to be estimated by the sample variance <span class="math inline">\(s^2\)</span>. The following table represents what we know about the sampling distribution of the standardised sample mean <span class="math inline">\(\bar{X}\)</span>, <span class="math inline">\(t=\frac{\bar{X}-\mu}{\sqrt{s^2/n}}\)</span> in this situation:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Sample Size (<span class="math inline">\(n\)</span>)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dist of <span class="math inline">\(X\)</span></td>
+<td>small</td>
+<td>large</td>
+</tr>
+<tr class="even">
+<td>Normal</td>
+<td><span class="math inline">\(t \sim t_{n-1}\)</span></td>
+<td><span class="math inline">\(t \sim N(0,1)\)</span></td>
+</tr>
+<tr class="odd">
+<td>not Normal</td>
+<td><span class="math inline">\(t \sim ?\)</span></td>
+<td><span class="math inline">\(t \sim N(0,1)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>This will lead us to adjust the way in which we calculate confidence intervals. In the situation where we could assume that <span class="math inline">\(\bar{X}\)</span> was normally distributed the lower and upper confidence bounds were calculated as follows:</p>
+<p><span class="math display">\[\begin{equation*}
+    \left[ c_{L},c_{U}\right] =\bar{x}\pm z_{\alpha /2}SE\left( \bar{X}\right) = \bar{x}\pm z_{\alpha /2} \sqrt{\frac{\sigma^2}{n}}  
+\end{equation*}\]</span></p>
+<p>Now, we shall adjust this, acknowledging that we usually have to estimate the population variance from the sample, using <span class="math inline">\(s^2\)</span>:</p>
+<p><span class="math display">\[\begin{equation*}
+    \left[ c_{L},c_{U}\right] =\bar{x}\pm t_{n-1,\alpha /2}SE\left( \bar{X}\right) = \bar{x}\pm t_{n-1,\alpha /2} \sqrt{\frac{s^2}{n}}  
+\end{equation*}\]</span></p>
+<p>The interpretation stays exactly the same as earlier and you should note that the only difference is that we use the sample estmate <span class="math inline">\(s^2\)</span> and we use the t-distribution to obtain our estimate of the sampling variation $ t_{n-1,/2} $. You understand that, for large sample sizes the t-distribution tends towards the standard normal distribution.</p>
+<p>This video walks you through the different cases (YouTube, 10min).</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/LdH4rqus9iw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is the same as the previous example, but now assuming that the population variance <span class="math inline">\(\sigma^{2}\)</span> is unknown. Household income in 1000s of UKP is $XN( ,^{2}) $, where <strong>both</strong> <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma ^{2}\)</span> are unknown. A random sample of size <span class="math inline">\(n=5\)</span> (previously 50) yields <span class="math inline">\(\bar{x}=18\)</span> (as before) and <span class="math inline">\(s^{2}=4.5\)</span>. Here,</p>
+<p><span class="math display">\[\begin{equation*}
+    T=\dfrac{\bar{X}-\mu }{\sqrt{\dfrac{S^{2}}{n}}}\thicksim t_{4}.
+\end{equation*}\]</span></p>
+<p>For a 95% confidence interval for <span class="math inline">\(\mu\)</span>, we need the percentage point <span class="math inline">\(t_{4,0.025}\)</span> such that</p>
+<p><span class="math display">\[\begin{equation*}
+    \Pr \left( T\leqslant t_{4,0.025}\right) =0.975.
+\end{equation*}\]</span></p>
+<p>Note that we need to find the values in the t-distribution that cut off <span class="math inline">\(\alpha/2\)</span> of the probability in the tail. From the the t-distribution this is found to be</p>
+<p><span class="math display">\[\begin{equation*}
+    t_{4,0.025}=2.776.
+\end{equation*}\]</span></p>
+<p>The confidence interval for <span class="math inline">\(\mu\)</span> is then</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \bar{x}\pm t_{n-1,\alpha /2}\sqrt{\dfrac{s^{2}}{n}} &amp;=&amp;18\pm \left(2.776\right) \sqrt{\dfrac{4.5}{5}} \\
+    &amp;=&amp;18\pm 2.634 \\
+    &amp;=&amp;\left[ 15.366,20.634\right] .
+\end{eqnarray*}\]</span></p>
+<p>For comparison with the original example, if we had used <span class="math inline">\(\sigma ^{2}=5\)</span> with a sample of size 5 the resulting normal-based confidence interval would be</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \bar{x}\pm z_{\alpha /2}\sqrt{\dfrac{\sigma ^{2}}{n}} &amp;=&amp;18\pm \left(1.96\right) \sqrt{\dfrac{5}{5}} \\
+    &amp;=&amp;18\pm 1.96 \\
+    &amp;=&amp;\left[ 16.04,19.96\right] .
+\end{eqnarray*}\]</span>%</p>
+<p>This normal-based confidence interval is narrower than the <span class="math inline">\(t\)</span> based one: this is the consequence of the extra dispersion of the <span class="math inline">\(t\)</span> distribution compared with the <span class="math inline">\(N\left( 0,1\right)\)</span> distribution. The underlying reason for the increased dispersion is, of course, the fact that we do not know the value of <span class="math inline">\(\sigma^2\)</span>. Although we have a sample estimate <span class="math inline">\(s^2\)</span> we need to acknowledge that there is sampling variation with respect to this estimate on top of the sampling variation we have for <span class="math inline">\(\bar{x}\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A random sample of size 10 is drawn from the distribution of household incomes, where the latter is known to be <span class="math inline">\(N\left( \mu ,\sigma^2\right)\)</span>. Notice that <span class="math inline">\(\sigma ^{2}\)</span> has to be estimated with the sample variance, here <span class="math inline">\(s^2 = 8.2\)</span>. Your sample mean is <span class="math inline">\(\bar{x}=-12\)</span>. Then, the 90% confidence interval for <span class="math inline">\(\mu\)</span> is</p>
+<p><span class="math inline">\(\left[\)</span> <input class="webex-solveme nospaces" data-tol="0.001" size="8" data-answer="[&quot;-13.6599&quot;]"> , <input class="webex-solveme nospaces" data-tol="0.001" size="8" data-answer="[&quot;-10.3401&quot;]"> <span class="math inline">\(\right]\)</span></p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>Calculations are exactly as in the previous example. Note that you need to use the t-table.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \bar{x}\pm t_{10-1,0.10/2}~SE\left( \bar{X}\right) &amp;=&amp;-12\pm 1.833\sqrt{\dfrac{8.2}{10}} \\
+    &amp;=&amp;-12\pm 1.6599 \\
+    &amp;=&amp;\left[ -13.6599,-10.3401\right] .
+\end{eqnarray*}\]</span></p>
+<p>Note that this confidence interval is centered around the sample mean of <span class="math inline">\(-12\)</span>.</p>
+</div>
+</div>
+</div>
+<p>From the earlier table you will see that the t-distribution is only the right distribution to use if you know that the population distribution is actually a normal distribution. But as when we discussed hypothesis testing, the central limit theorem will ensure that a sample mean is normally distributed if the sample size is sufficiently large. In that case we will construct a <span class="math inline">\(100\left( 1-\alpha \right)\)</span> confidence interval from</p>
+<p><span class="math display">\[\begin{equation*}
+    \bar{x}\pm z_{\alpha /2}\sqrt{\dfrac{s^{2}}{n}}.
+\end{equation*}\]</span></p>
+<p>Consider the earlier example (using <span class="math inline">\(n=50\)</span>), but now not assuming that sampling takes place from a normal distribution. We assume that the sample information is <span class="math inline">\(n=50\)</span>, <span class="math inline">\(\bar{x}=18\)</span> and <span class="math inline">\(s^{2}=4.5\)</span>. Then, an approximate <span class="math inline">\(95\%\)</span> confidence interval is (assuming that the sample size is sufficiently large for the CLT to do its magic) is calculated as follows:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \bar{x}\pm z_{\alpha /2}\sqrt{\dfrac{s^{2}}{n}} &amp;=&amp;18\pm 1.96\sqrt{\dfrac{4.5}{50}} \\
+    &amp;=&amp;18\pm 0.588 \\
+    &amp;=&amp;\left[ 17.412,18.588\right] .
+\end{eqnarray*}\]</span></p>
+<p>In general, how this compares with the exact confidence interval based on knowledge of <span class="math inline">\(\sigma ^{2}\)</span> depends on how good <span class="math inline">\(s^{2}\)</span> is as an estimate of <span class="math inline">\(\sigma ^{2}\)</span>. Nothing can be said about this usually.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A random sample of size 70 is drawn from the distribution of household incomes. You recognise that you should not assume that these incomes are normally distributed. Notice that <span class="math inline">\(\sigma ^{2}\)</span> has to be estimated with the sample variance, here <span class="math inline">\(s^2 = 8.2\)</span>. Your sample mean is <span class="math inline">\(\bar{x}=-12\)</span>. Then, the 90% confidence interval for <span class="math inline">\(\mu\)</span> is:</p>
+<p><span class="math inline">\(\left[\)</span> <input class="webex-solveme nospaces" data-tol="0.001" size="8" data-answer="[&quot;-12.5647&quot;]"> , <input class="webex-solveme nospaces" data-tol="0.001" size="8" data-answer="[&quot;-11.4353&quot;]"> <span class="math inline">\(\right]\)</span></p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>Note that we are now using the normal distribution.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \bar{x}\pm z_{0.10/2}~SE\left( \bar{X}\right) &amp;=&amp;-12\pm 1.65\sqrt{\dfrac{8.2}{70}} \\
+    &amp;=&amp;-12\pm 0.5647 \\
+    &amp;=&amp;\left[ -12.5647,-11.4353\right] .
+\end{eqnarray*}\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="additional-resources" class="level3" data-number="15.1.5">
+<h3 data-number="15.1.5" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">15.1.5</span> Additional Resources</h3>
+<ul>
+<li><a href="https://www.khanacademy.org/math/statistics-probability/confidence-intervals-one-sample/old-confidence-interval-videos/v/small-sample-size-confidence-intervals">Salman Khan on such a confidence interval</a>.</li>
+</ul>
+</section>
+</section>
+<section id="confidence-intervals-for-population-proportions" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="confidence-intervals-for-population-proportions"><span class="header-section-number">15.2</span> Confidence intervals for population proportions</h2>
+<p>As for hypothesis testing you will learn that we can perform inference on many unknown parameters. Here we will merely introduce one extra such confidence interval, a confidence interval for a population proportion <span class="math inline">\(\pi\)</span>. We assumed that a random sample is obtained from the distribution of a Bernoulli random variable, a random variable <span class="math inline">\(X\)</span> taking on values 0 and 1 with probabilities <span class="math inline">\(1-\pi\)</span> and <span class="math inline">\(\pi\)</span> respectively. The sample mean <span class="math inline">\(\bar{X}\)</span> here is the random variable representing the sample proportion of <span class="math inline">\(1^{\prime }s\)</span>, and so is usually denoted <span class="math inline">\(P\)</span> or <span class="math inline">\(\hat{P}\)</span>, “the” sample proportion. (Note, here we use <span class="math inline">\(\hat{P}\)</span> to denote the sample estimator of the proportion and <span class="math inline">\(\hat{p}\)</span> as the actual sample proportion. In some books and websites you will see <span class="math inline">\(P\)</span> and <span class="math inline">\(p\)</span> only representing these two objects. As the population proportion is usually labelled <span class="math inline">\(\pi\)</span> this would be sufficient.)</p>
+<p>When you learned about descriptive statistics you learnt that proportions can be seen as means of a variable which only takes values of 0 and 1. It is therefore not a surprise that the CLT works on sample proportions (<span class="math inline">\(\hat{P}\)</span>) as well and makes them, for sufficiently large samples, normally distributed random variables.</p>
+<p>Since</p>
+<p><span class="math display">\[\begin{equation*}
+    E\left[ \hat{P}\right] =\pi ,\;\;\;\;var\left[ \hat{P}\right] =\dfrac{\pi \left( 1-\pi \right) }{n},
+\end{equation*}\]</span></p>
+<p><span class="math display">\[\begin{equation*}
+    \dfrac{\hat{P}-\pi }{\sqrt{var\left[\hat{P}\right] }}\thicksim N\left(0,1\right) \;\;\;\;\;\text{approximately.}
+\end{equation*}\]</span></p>
+<p>So, one could hope to use this to provide an approximate confidence interval for <span class="math inline">\(\pi\)</span>. There is a minor complication here in that $var$ depends on the unknown parameter <span class="math inline">\(\pi\)</span> , but, there is an obvious estimator (<span class="math inline">\(\hat{P}\)</span>) available which could used to provide an estimator of $var$.</p>
+<p>Following the previous reasoning, we argue that</p>
+<p><span class="math display">\[\begin{equation*}
+    \dfrac{\hat{P}-\pi }{\sqrt{\dfrac{\hat{P}\left( 1-\hat{P}\right) }{n}}}\thicksim N\left(0,1\right) \;\;\;\;\;\text{approximately.}
+\end{equation*}\]</span></p>
+<p>This knowledge can then be used to construct a sample confidence interval from</p>
+<p><span class="math display">\[\begin{equation*}
+    \hat{p}\pm z_{\alpha /2}\sqrt{\dfrac{\hat{p}\left( 1-\hat{p}\right) }{n}}.
+\end{equation*}\]</span></p>
+<p>Note that this differed from the approach taken when we required the variance of <span class="math inline">\(\hat{P}\)</span> when hypothesis testing. In that case we did not use the sample proportion <span class="math inline">\(\hat{p}\)</span> but rather the hypothesised (under <span class="math inline">\(H_0\)</span>) population proportion to calculate <span class="math inline">\(Var[\hat{P}]\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A random sample of 300 households is obtained, with 28% of the sample owning a tablet computer. An approximate 95% confidence interval for the population proportion of households owning a tablet computer is</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \hat{p}\pm z_{\alpha /2}\sqrt{\dfrac{\hat{p}\left( 1-\hat{p}\right) }{n}} &amp;=&amp;0.28\pm \left(1.96\right) \sqrt{\dfrac{0.28\left( 1-0.28\right) }{300}} \\
+    &amp;=&amp;0.28\pm 0.0508 \\
+    &amp;=&amp;\left[ 0.229,0.331\right] .
+\end{eqnarray*}\]</span></p>
+<p>For such an apparently large sample size, this is quite a wide confidence interval. Better precision of estimation would require a larger sample size.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A random sample of 1021 randomly selected students is asked whether they intend to vote at the next election (in whichever country they are registered to vote). In the sample 780 students indicate that they intend to vote at the next general election in their country. Calculate a 99% confidence interval for the population proportion of students intending to vote</p>
+<p><span class="math inline">\(\left[\)</span> <input class="webex-solveme nospaces" data-tol="0.001" size="6" data-answer="[&quot;0.7297&quot;,&quot;.7297&quot;]"> , <input class="webex-solveme nospaces" data-tol="0.001" size="6" data-answer="[&quot;0.7982&quot;,&quot;.7982&quot;]"> <span class="math inline">\(\right]\)</span></p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>Note that we are now using the normal distribution.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+        \hat{p}\pm z_{\alpha /2}\sqrt{\dfrac{\hat{p}\left( 1-\hat{p}\right) }{n}} &amp;=&amp;0.7640\pm \left(2.58\right) \sqrt{\dfrac{0.7640\left( 1-0.7640\right) }{1021}} \\
+        &amp;=&amp;0.7640\pm 0.0343 \\
+        &amp;=&amp;\left[ 0.7297,0.7982\right] .
+\end{eqnarray*}\]</span></p>
+</div>
+</div>
+</div>
+<section id="additional-resources-1" class="level3" data-number="15.2.1">
+<h3 data-number="15.2.1" class="anchored" data-anchor-id="additional-resources-1"><span class="header-section-number">15.2.1</span> Additional resources</h3>
+<ul>
+<li>This is the Khan Academy example of a <a href="https://www.khanacademy.org/math/probability/statistics-inferential/confidence-intervals/v/confidence-interval-example">confidence interval for a proportion</a>. The standard error of <span class="math inline">\(\hat{P}\)</span> is calculated in a different way but with the same result.</li>
+</ul>
+</section>
+<section id="opinion-polling-reality" class="level3" data-number="15.2.2">
+<h3 data-number="15.2.2" class="anchored" data-anchor-id="opinion-polling-reality"><span class="header-section-number">15.2.2</span> Opinion polling reality</h3>
+<p>Estimating proportions is a very common task. Market research companies will often do this on behalf of clients. One of the companies which is busy in this sphere is <a href="https://yougov.co.uk/">YouGov</a>. Visit their website to see the wide variety of research they undertake. One of the regular pieces of research undertaken is an investigation of voting intentions. Here is a link to the <a href="https://yougov.com/en-gb/trackers/voting-intention">voting intentions page</a>. You will remember from earlier discussions that, when sampling, we would normally assume that we have taken a random sample from the population of interest. One interesting aspect of such work is that organisations like YouGov will often reweigh the observations. This means that not all observations will get the same weights. We dealt with this in the descriptive statistics section. The reason why this is done is to ensure that the investigated sample has demographic properties that the population of interest is assumed to have.</p>
+<p>In this we can get survey details for the 31 March 2023 YouGov voting intention survey. In there you can see (on the bottom of page 4) that YouGov targets (amongst others) the following characteristics</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 20%">
+<col style="width: 12%">
+<col style="width: 20%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Brexit Vote</th>
+<th>Target percentage</th>
+<th>Actual obs</th>
+<th>Actual percentage</th>
+<th>Weighted obs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Remain</td>
+<td>35.2%</td>
+<td>801</td>
+<td>40.0%</td>
+<td>705</td>
+</tr>
+<tr class="even">
+<td>Leave</td>
+<td>37.2%</td>
+<td>768</td>
+<td>38.4%</td>
+<td>745</td>
+</tr>
+<tr class="odd">
+<td>Did not vote / Did not know</td>
+<td>27.5%</td>
+<td>433</td>
+<td>21.6%</td>
+<td>551</td>
+</tr>
+</tbody>
+</table>
+<p>There were 2002 responses and for instance there were 801 respondents that voted remain in the Brexit vote. That is an actual percentage of 40% which is more than the 35.2% targeted. Therefore, the weights of these observations are down-weighted such that they effectively represent only 705 observations (approximately the target percentage). Equally, there were too few respondents who did not vote and therefore these observations receive a larger weight.</p>
+<p>Below you can see a snippet from the resulting voting intention. The numbers in the table represent percentages.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/YouGovVotingIntention.png" class="img-fluid figure-img"></p>
+<figcaption>Voting intention. Source: YouGov, 31 March 2023.</figcaption>
+</figure>
+</div>
+<p>As you can see YouGov estimates that 46% of votes will go to the Labour party. When performing a hypothesis test or calculating a confidence interval you will need the standard error for the sample proportion <span class="math inline">\(\hat{P}\)</span>. When performing hypothesis tests we use the hypothesised proportion in the calculation of <span class="math inline">\(\sigma^2_{\hat{P}}\)</span>. When calculating a confidence interval we use, as in the previous example:</p>
+<p><span class="math display">\[\begin{equation*}
+    \sigma^2_{\hat{P}}=\dfrac{\hat{p}\left( 1-\hat{p}\right) }{n}
+\end{equation*}\]</span></p>
+<p>Unfortunately, when using weighted observations as in the YouGov example, this formula is not correct, as it does not take into account that some observations had a higher weight than others. How to calculate the standard error for a weighted sample proportion is beyond the scope of this document. For the example below use <span class="math inline">\(\sigma^2_{\hat{P}}\)</span> as introduced above, it will continue to be in the right ballpark.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Calculate the 90% confidence interval for the proportion of Labour votes.</p>
+<p><span class="math inline">\([\)</span> <input class="webex-solveme nospaces" data-tol="0.001" size="6" data-answer="[&quot;0.4416&quot;,&quot;.4416&quot;]"> , <input class="webex-solveme nospaces" data-tol="0.001" size="6" data-answer="[&quot;0.4784&quot;,&quot;.4784&quot;]"> <span class="math inline">\(]\)</span></p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p><span class="math display">\[\begin{eqnarray*}
+    p\pm z_{\alpha /2}\sqrt{\dfrac{p\left( 1-p\right) }{n}} &amp;=&amp;0.46\pm \left(1.65\right) \sqrt{\dfrac{0.46\left( 1-0.46\right) }{2002}} \\
+    &amp;=&amp;0.46\pm 0.0184 \\
+    &amp;=&amp;\left[ 0.4416,0.4784\right] .
+\end{eqnarray*}\]</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="summary-and-outlook" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="summary-and-outlook"><span class="header-section-number">15.3</span> Summary and Outlook</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Summary Questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose that a random sample of size 60 is drawn from the distribution of household incomes, where the latter is supposed to be <span class="math inline">\(N(\mu,8)\)</span>, and that the mean of the sample is <span class="math inline">\(\bar{x}=22\)</span>.</p>
+<p>The following 95% confidence interval has been correctly calculated:</p>
+<p>95% CI: <span class="math inline">\([21.2843, 22.7156]\)</span></p>
+<p>Answer the following questions:</p>
+<p>We are 95% confident that the average household income in this sample is between 21.2843 and 22.7156. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p>False, the CI contains the sample mean 100% of times as it is cenrtered around it.</p>
+</div>
+<p>95% of the household incomes are between 21.2843 and 22.7156. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p>False, the CI is for covering the population mean (<span class="math inline">\(\mu\)</span>) not a proportion of the original population.</p>
+</div>
+<p>There is 0.95 probability that the true mean household income falls in 21.2843 and 22.7156. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p>False, the population mean <span class="math inline">\(\mu\)</span> is not a random variable, the CI itself is. For a particular CI like the one calculated here <span class="math inline">\(\mu\)</span> is in the CI or it is not, we just don’t know which of the two it is.</p>
+</div>
+<p>The lower and upper limits of the confidence interval are random variables. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p>True, they are based on the sample mean and the sample mean is a random variable itself. Therefore the limits of the CI are also random variables.</p>
+</div>
+</div>
+</div>
+<p>In this section we discussed confidence intervals. They are a very powerful and popular way to communicate that any estimate for a population quantity (say the mean or proportion) is merely an estimate and that really we are not certain. As the p-value in hypothesis testing, the confidence interval has a slightly “stilted” interpretation. However, confidence intervals are a very intuitive way to communicate the uncertainty or margin of error.</p>
+<p>Having said that, often the communication of opinion poll results (say in TV, TikTok or newspapers) does not acknowledge such uncertainty. Here is an example of typical reporting on opinion polls. An institution (here Quinnipac University, well known for their polling operation) <a href="https://poll.qu.edu/poll-release?releaseid=3863">conducted some opinion polls</a> and presents a write-up of the results. At the bottom of that report you do get a clear statement about the margins of error (typically calculated as 95% confidence intervals). Then some other organisation picks up on these poll results and does not mention any margin of error (here the respectable <a href="https://www.brookings.edu/blog/fixgov/2023/01/06/polls-show-americans-are-divided-on-the-significance-of-january-6/">Brookings Institute</a>. This is a very typical pattern which you can confirm by checking how another <a href="https://poll.qu.edu/poll-release?releaseid=3842">Quinnipac poll on the conservative US Supreme Court judge Thomas</a> was reported on by <a href="https://edition.cnn.com/2022/04/06/politics/justice-clarence-thomas-wife-ginni-poll-recusal/index.html">CNN</a>.</p>
+<p>In the UK, the BBC actually does have <a href="https://www.bbc.com/editorialguidelines/guidance/surveys#reportingopinionpolls">guidance on how opinion polls are to be reported</a>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/BBCpolladvice.png" class="img-fluid figure-img"></p>
+<figcaption>Guidance by the BBC on how its programmes should report on opinion polls.</figcaption>
+</figure>
+</div>
+<p>But that does not ensure that this guidance is always adhered to as reading through <a href="https://www.bbc.com/news/world-us-canada-44324545">this BBC news story confirms</a>.</p>
+<p>What should you take away from this? Reporting on statistical uncertainty is not easily done correctly (recall the awkward interpretations of p-values and confidence intervals). It is therefore perhaps not surprising that many news organisations shy away from such communication. It is therefore some of your skill, after having studies on this course, to properly understand such uncertainty and contribute to communicating it properly.</p>
+<p>Here are two additional pieces of interesting reading in this area.</p>
+<ul>
+<li><a href="https://publications.parliament.uk/pa/ld201719/ldselect/ldppdm/106/10606.htm">This is an interesting report by the UK Parliament on the way Media report on polling results</a>.</li>
+<li><a href="https://probability.kucharski.io">This is an interesting post by Adam Kucharski on the probabilities the public associate with terms like “very likely” or “almost impossible”.</a>. If you complete the short survey you will get a result like the below which shows you whether your interpretations coincide with those of others.<br>
+<img src="images/probability-perception-results.png" class="img-fluid"></li>
+</ul>
+<p>:::</p>
+
+
 </section>
 
 </main> <!-- /main -->
