@@ -23,6 +23,7 @@ book:
   - Sampling_Dist.qmd
   - HypothesisTesting.qmd
   - ConfidenceIntervals.qmd
+  - RegressionInference.qmd
   - summary.qmd
   - references.qmd
 bibliography: references.bib

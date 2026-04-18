@@ -717,7 +717,7 @@ If you had an Advanced Mathematics grade of 50, what would be your expected Adva
 $\hat{s}=$ `r fitb(53.521)`
 
 `r hide("Hint")`
-$\hat{s}=$ 26.4310 + 0.5418 \cdot 50 = 53.521$
+$\hat{s}= 26.4310 + 0.5418 \cdot 50 = 53.521$
 `r unhide()`	
 
 :::
