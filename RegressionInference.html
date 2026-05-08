@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>16&nbsp; Hypothesis Testing – Statistics Notes</title>
+<title>16&nbsp; Inference in Regressions – Statistics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,7 +113,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./RegressionInference.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./RegressionInference.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Inference in Regressions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -237,7 +237,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./RegressionInference.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Inference in Regressions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -296,7 +296,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Inference in Regressions</span></h1>
 </div>
 
 
@@ -806,7 +806,7 @@ Feedback
 </div>
 <div class="callout-body-container callout-body">
 <p>Calculate a 80% confidence interval for <span class="math inline">\(\alpha\)</span>.</p>
-<p><span class="math inline">\([\)</span> <input class="webex-solveme nospaces" data-tol="0.001" size="9" data-answer="[&quot;-11537.02&quot;]">, <input class="webex-solveme nospaces" data-tol="0.001" size="6" data-answer="[&quot;-6.122&quot;]"> <span class="math inline">\(]\)</span></p>
+<p><span class="math inline">\([\)</span> <input class="webex-solveme nospaces" data-tol="0.001" size="9" data-answer="[&quot;-115.3702&quot;]">, <input class="webex-solveme nospaces" data-tol="0.001" size="6" data-answer="[&quot;-6.122&quot;]"> <span class="math inline">\(]\)</span></p>
 <div class="webex-solution">
 <button>
 Feedback
@@ -1093,8 +1093,8 @@ b_2=\partial{\hat{y}}/\partial{x_2}
 <p>What is the predicted wage for a male employee with the same age and education?</p>
 <p><span class="math inline">\(\widehat{wages} =\)</span> <input class="webex-solveme nospaces" size="4" data-answer="[&quot;3138&quot;]"></p>
 <p>Which of the following are correct interpretations of the estimated regression?</p>
-<div id="radio_KWWADJFCIQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_KWWADJFCIQ" value=""> <span>On average female employees earn UKP 312 more than males, everything else being equal.</span></label><label><input type="radio" autocomplete="off" name="radio_KWWADJFCIQ" value=""> <span>On average an additional year of education is related to an increased average income of UKP 58</span></label><label><input type="radio" autocomplete="off" name="radio_KWWADJFCIQ" value="answer"> <span>On average an additional year of education is related to an increased average income of UKP 58, everything else being equal.</span></label><label><input type="radio" autocomplete="off" name="radio_KWWADJFCIQ" value=""> <span>As employees get older by a year, the expected income increases by UKP 312, c.p.</span></label><label><input type="radio" autocomplete="off" name="radio_KWWADJFCIQ" value=""> <span>We expect a 58 year old employee to earn UKP 1000 more per month than a 18 year old, c.p.</span></label>
+<div id="radio_XCHITKAEMM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XCHITKAEMM" value=""> <span>On average female employees earn UKP 312 more than males, everything else being equal.</span></label><label><input type="radio" autocomplete="off" name="radio_XCHITKAEMM" value=""> <span>On average an additional year of education is related to an increased average income of UKP 58</span></label><label><input type="radio" autocomplete="off" name="radio_XCHITKAEMM" value="answer"> <span>On average an additional year of education is related to an increased average income of UKP 58, everything else being equal.</span></label><label><input type="radio" autocomplete="off" name="radio_XCHITKAEMM" value=""> <span>As employees get older by a year, the expected income increases by UKP 312, c.p.</span></label><label><input type="radio" autocomplete="off" name="radio_XCHITKAEMM" value=""> <span>We expect a 58 year old employee to earn UKP 1000 more per month than a 18 year old, c.p.</span></label>
 </div>
 <div class="webex-solution">
 <button>
