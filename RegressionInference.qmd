@@ -1,4 +1,4 @@
-# Hypothesis Testing
+# Inference in Regressions
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -575,7 +575,7 @@ Let's calculate a 99% confidence interval for $\beta$.
 
 Calculate a 80% confidence interval for $\alpha$.
 
-$[$ `r fitb(-11537.02,tol = 0.001)`, `r fitb(-6.1220,tol = 0.001)` $]$
+$[$ `r fitb(-115.3702,tol = 0.001)`, `r fitb(-6.1220,tol = 0.001)` $]$
 
 `r hide("Feedback")`
 \begin{eqnarray*}

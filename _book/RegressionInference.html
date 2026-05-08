@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>regressioninference</title>
+<title>16&nbsp; Hypothesis Testing – Statistics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,18 +23,53 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="RegressionInference_files/libs/clipboard/clipboard.min.js"></script>
-<script src="RegressionInference_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="RegressionInference_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="RegressionInference_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="RegressionInference_files/libs/quarto-html/popper.min.js"></script>
-<script src="RegressionInference_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="RegressionInference_files/libs/quarto-html/anchor.min.js"></script>
-<link href="RegressionInference_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="RegressionInference_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="RegressionInference_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="RegressionInference_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="RegressionInference_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./summary.html" rel="next">
+<link href="./ConfidenceIntervals.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -66,21 +101,220 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="include/webex.css">
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./RegressionInference.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistics Notes</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datatypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Types</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./graphical_descriptive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Graphical Descriptive Statistics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./descriptive_stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Numerical Descriptive Statistics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CorrelationRegressionCausation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Correlation, Regression and Causation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DealingWithDataSets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dealing with real life datasets</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./IntroToProbability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introducing Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ConditionalProbability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conditional Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DiscreteRVs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Discrete Random Variables and Probability Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ContinuousRVs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Continuous Random Variables and Probability Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Normal_RV.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Normally Distributed Random Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Comb_of_RVs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Combination of Random Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Sampling_Dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Sampling Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./HypothesisTesting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ConfidenceIntervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./RegressionInference.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#recap-simple-regression" id="toc-recap-simple-regression" class="nav-link active" data-scroll-target="#recap-simple-regression"><span class="header-section-number">16.1</span> Recap: Simple Regression</a></li>
+  <li><a href="#linear-regression-model" id="toc-linear-regression-model" class="nav-link" data-scroll-target="#linear-regression-model"><span class="header-section-number">16.2</span> Linear Regression Model</a>
+  <ul class="collapse">
+  <li><a href="#estimation" id="toc-estimation" class="nav-link" data-scroll-target="#estimation"><span class="header-section-number">16.2.1</span> Estimation</a></li>
+  <li><a href="#goodness-of-fit" id="toc-goodness-of-fit" class="nav-link" data-scroll-target="#goodness-of-fit"><span class="header-section-number">16.2.2</span> Goodness of Fit</a></li>
+  <li><a href="#excel-application" id="toc-excel-application" class="nav-link" data-scroll-target="#excel-application"><span class="header-section-number">16.2.3</span> Excel application</a></li>
+  <li><a href="#interpretation-of-simple-regression-equation" id="toc-interpretation-of-simple-regression-equation" class="nav-link" data-scroll-target="#interpretation-of-simple-regression-equation"><span class="header-section-number">16.2.4</span> Interpretation of Simple Regression Equation</a></li>
+  </ul></li>
+  <li><a href="#statistical-inference-hypothesis-tests-and-confidence-intervals" id="toc-statistical-inference-hypothesis-tests-and-confidence-intervals" class="nav-link" data-scroll-target="#statistical-inference-hypothesis-tests-and-confidence-intervals"><span class="header-section-number">16.3</span> Statistical Inference: Hypothesis Tests and Confidence Intervals</a>
+  <ul class="collapse">
+  <li><a href="#hypothesis-tests" id="toc-hypothesis-tests" class="nav-link" data-scroll-target="#hypothesis-tests"><span class="header-section-number">16.3.1</span> Hypothesis Tests</a></li>
+  <li><a href="#confidence-interval" id="toc-confidence-interval" class="nav-link" data-scroll-target="#confidence-interval"><span class="header-section-number">16.3.2</span> Confidence Interval</a></li>
+  </ul></li>
+  <li><a href="#multiple-regression" id="toc-multiple-regression" class="nav-link" data-scroll-target="#multiple-regression"><span class="header-section-number">16.4</span> Multiple Regression</a>
+  <ul class="collapse">
+  <li><a href="#model-specification" id="toc-model-specification" class="nav-link" data-scroll-target="#model-specification"><span class="header-section-number">16.4.1</span> Model Specification</a></li>
+  <li><a href="#estimation-1" id="toc-estimation-1" class="nav-link" data-scroll-target="#estimation-1"><span class="header-section-number">16.4.2</span> Estimation</a></li>
+  <li><a href="#goodness-of-fit-1" id="toc-goodness-of-fit-1" class="nav-link" data-scroll-target="#goodness-of-fit-1"><span class="header-section-number">16.4.3</span> Goodness of Fit</a></li>
+  <li><a href="#interpretation-of-multiple-regression-equation" id="toc-interpretation-of-multiple-regression-equation" class="nav-link" data-scroll-target="#interpretation-of-multiple-regression-equation"><span class="header-section-number">16.4.4</span> Interpretation of Multiple Regression Equation</a></li>
+  </ul></li>
+  <li><a href="#statistical-inference-hypothesis-tests-and-confidence-intervals-1" id="toc-statistical-inference-hypothesis-tests-and-confidence-intervals-1" class="nav-link" data-scroll-target="#statistical-inference-hypothesis-tests-and-confidence-intervals-1"><span class="header-section-number">16.5</span> Statistical Inference: Hypothesis Tests and Confidence Intervals</a>
+  <ul class="collapse">
+  <li><a href="#hypothesis-tests-1" id="toc-hypothesis-tests-1" class="nav-link" data-scroll-target="#hypothesis-tests-1"><span class="header-section-number">16.5.1</span> Hypothesis Tests</a></li>
+  <li><a href="#confidence-interval-1" id="toc-confidence-interval-1" class="nav-link" data-scroll-target="#confidence-interval-1"><span class="header-section-number">16.5.2</span> Confidence Interval</a></li>
+  </ul></li>
+  <li><a href="#worked-example-and-outlook" id="toc-worked-example-and-outlook" class="nav-link" data-scroll-target="#worked-example-and-outlook"><span class="header-section-number">16.6</span> Worked Example and outlook</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></h1>
+</div>
 
 
 
-<section id="hypothesis-testing" class="level1">
-<h1>Hypothesis Testing</h1>
-<section id="recap-simple-regression" class="level2">
-<h2 class="anchored" data-anchor-id="recap-simple-regression">Recap: Simple Regression</h2>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="recap-simple-regression" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="recap-simple-regression"><span class="header-section-number">16.1</span> Recap: Simple Regression</h2>
 <p>In Correlation and Regression section (part of Descriptive Statistics), we saw how the relationship between two variables can be described by using scatter plots to provide a picture of the relationship and correlation coefficients to provide a numerical measure. In many economic and business problems, a specific functional relationship is needed. For instance,</p>
 <ul>
 <li>A manager would like to know what mean level of sales can be expected if the price is set at UKP 15 per unit.</li>
@@ -114,8 +348,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="linear-regression-model" class="level2">
-<h2 class="anchored" data-anchor-id="linear-regression-model">Linear Regression Model</h2>
+<section id="linear-regression-model" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="linear-regression-model"><span class="header-section-number">16.2</span> Linear Regression Model</h2>
 <p>We first look at what we have studied before. the following linear sample regression relationship was proposed:</p>
 <p><span class="math display">\[\begin{equation*}
     y_i = a + b x_i + res_i
@@ -155,8 +389,8 @@ window.Quarto = {
     \textrm{Other Factors}\\
     \end{array}}{\epsilon_i}
 \end{equation*}\]</span></p>
-<section id="estimation" class="level3">
-<h3 class="anchored" data-anchor-id="estimation">Estimation</h3>
+<section id="estimation" class="level3" data-number="16.2.1">
+<h3 data-number="16.2.1" class="anchored" data-anchor-id="estimation"><span class="header-section-number">16.2.1</span> Estimation</h3>
 <p>The population regression line is a theoretical construct and it is not observed. In applications we will typically aim to obtain an estimate for this regression line using sample data. Regression analysis is the statistical technique that finds the <strong>optimal</strong> values for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> given a particular sample. We return to the example of 12 observations with height (taking the role of <span class="math inline">\(x\)</span>) and weight (in this example representing <span class="math inline">\(y\)</span>) data.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -255,8 +489,8 @@ Feedback
 </div>
 </div>
 </section>
-<section id="goodness-of-fit" class="level3">
-<h3 class="anchored" data-anchor-id="goodness-of-fit">Goodness of Fit</h3>
+<section id="goodness-of-fit" class="level3" data-number="16.2.2">
+<h3 data-number="16.2.2" class="anchored" data-anchor-id="goodness-of-fit"><span class="header-section-number">16.2.2</span> Goodness of Fit</h3>
 <p>Now we are ready to develop measures that indicate how effectively variation in the variable <span class="math inline">\(X\)</span> explains the behaviour of <span class="math inline">\(Y\)</span>. In our height-weight example Weight, <span class="math inline">\(Y\)</span>, tends to increase with Height, <span class="math inline">\(X\)</span>, and, thus, Height explains some of the variation in Weight. The points, however, are not all on the line, so the explanation is not perfect. Here, we develop measures based on the partitioning of variability that measure the capability of <span class="math inline">\(X\)</span> to explain <span class="math inline">\(Y\)</span> in a specific regression application.</p>
 <p>The analysis of variance, ANOVA, for least squares regression is developed by partitioning the total variability of <span class="math inline">\(Y\)</span> into an explained component and an error component. In the Figure below we show that the deviation of an individual <span class="math inline">\(Y\)</span> value from its mean can be partitioned into the deviation of the predicted value from the mean and the deviation of the observed value from the predicted value:</p>
 <p><span class="math display">\[\begin{equation*}
@@ -312,8 +546,8 @@ $R^2 = \frac{1250}{6000}=0.2083$</code></pre>
 </div>
 </div>
 </section>
-<section id="excel-application" class="level3">
-<h3 class="anchored" data-anchor-id="excel-application">Excel application</h3>
+<section id="excel-application" class="level3" data-number="16.2.3">
+<h3 data-number="16.2.3" class="anchored" data-anchor-id="excel-application"><span class="header-section-number">16.2.3</span> Excel application</h3>
 <p>With this background let us return to our height-weight example with data and look at how we use ANOVA to determine how well our model explains the process being studied. In most situations we use a spreadsheet such as Excel to obtain the regression coefficients to reduce the work load and improve computational accuracy.</p>
 <p>This video is a walkthrough of how to perform a simple regression estimation in EXCEL.</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/RWtEtNPZInQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
@@ -373,8 +607,8 @@ Feedback
 </div>
 </div>
 </section>
-<section id="interpretation-of-simple-regression-equation" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation-of-simple-regression-equation">Interpretation of Simple Regression Equation</h3>
+<section id="interpretation-of-simple-regression-equation" class="level3" data-number="16.2.4">
+<h3 data-number="16.2.4" class="anchored" data-anchor-id="interpretation-of-simple-regression-equation"><span class="header-section-number">16.2.4</span> Interpretation of Simple Regression Equation</h3>
 <p>We return to the interpretations of simple regression equation with some key points.</p>
 <p>First, in most cases the data available to run a regression will be sample data. Therefore, the values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> that describe the line of best fit, are sample estimates of some unknown population parameters (usually labeled, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>).</p>
 <p>Second, note that <span class="math inline">\(b\)</span> is the slope of the fitted line, <span class="math inline">\(\hat{y}=a+bx\)</span>; i.e., the derivative of <span class="math inline">\(\hat{y}\)</span> with respect to <span class="math inline">\(x\)</span>:</p>
@@ -413,11 +647,11 @@ Feedback
 <p>where <span class="math inline">\(\beta =2.54 \cdot \delta\)</span>. And indeed, the original coefficient estimated (in the inches model) is 2.54 times larger than that estimated in the centimeter model.</p>
 </section>
 </section>
-<section id="statistical-inference-hypothesis-tests-and-confidence-intervals" class="level2">
-<h2 class="anchored" data-anchor-id="statistical-inference-hypothesis-tests-and-confidence-intervals">Statistical Inference: Hypothesis Tests and Confidence Intervals</h2>
+<section id="statistical-inference-hypothesis-tests-and-confidence-intervals" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="statistical-inference-hypothesis-tests-and-confidence-intervals"><span class="header-section-number">16.3</span> Statistical Inference: Hypothesis Tests and Confidence Intervals</h2>
 <p>Now that we have developed the coefficient estimators, we are ready to perform inference on the population model parameters. The basic approach follows that developed in hypothesis test and confidence interval. We use the estimated parameters to test hypotheses on the unknown population parameters or alternatively we calculate confidence intervals. We do that as we are typically interested in the unknown population parameters and not the particular sample parameter estimates.</p>
-<section id="hypothesis-tests" class="level3">
-<h3 class="anchored" data-anchor-id="hypothesis-tests">Hypothesis Tests</h3>
+<section id="hypothesis-tests" class="level3" data-number="16.3.1">
+<h3 data-number="16.3.1" class="anchored" data-anchor-id="hypothesis-tests"><span class="header-section-number">16.3.1</span> Hypothesis Tests</h3>
 <p>The true population regression line is</p>
 <p><span class="math display">\[\begin{equation*}
     y_i = \alpha + \beta x_i + \epsilon_i
@@ -523,8 +757,8 @@ Feedback
 </div>
 </div>
 </section>
-<section id="confidence-interval" class="level3">
-<h3 class="anchored" data-anchor-id="confidence-interval">Confidence Interval</h3>
+<section id="confidence-interval" class="level3" data-number="16.3.2">
+<h3 data-number="16.3.2" class="anchored" data-anchor-id="confidence-interval"><span class="header-section-number">16.3.2</span> Confidence Interval</h3>
 <p>You may not be interested in actually testing a particular hypothesis but merely to communicate that your sample estimate will not tell you exactly what the unknown population parameter is. The tool of choice is to present a confidence interval, say, for the slope coefficient <span class="math inline">\(\beta\)</span> of the population regression line. A <span class="math inline">\(100(1 - \alpha)\%\)</span> confidence interval for the population regression slope <span class="math inline">\(\beta\)</span> is given by:</p>
 <p><span class="math display">\[\begin{equation*}
     \left[ c_{L},c_{U}\right] =b\pm t_{n-2,\alpha /2}SE\left[b\right]
@@ -583,20 +817,462 @@ Feedback
     &amp;\Rightarrow&amp;\left[ -115.3702,-6.1220\right]
 \end{eqnarray*}\]</span></p>
 </div>
-</div>
-</div>
 <p>Note that the 80% confidence interval does not contain 0. This is equivalent to the the p-value being smaller than 20% and hence we would reject a two-sided hypothesis test with null hypothesis <span class="math inline">\(H_0: \alpha = 0\)</span> at <span class="math inline">\(\alpha = 0.2\)</span>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="multiple-regression" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="multiple-regression"><span class="header-section-number">16.4</span> Multiple Regression</h2>
+<p>So far, we developed simple regression as a procedure for obtaining a linear equation that predicts a dependent or endogenous variable as a function of a single independent or exogenous variable for example, weight as a function of height. However, in many situations, you would want several explanatory variables to jointly influence a dependent variable. Multiple regression enables us to determine the simultaneous effect of several independent variables on a dependent variable using the least squares principle.</p>
+<p>Many important applications of multiple regression occur in business and economics. These applications include the following:</p>
+<ul>
+<li>The quantity of goods sold is a function of price, income, advertising, price of substitute goods, and other variables.</li>
+<li>Salary is a function of experience, education, age, and job rank.</li>
+<li>Capital investment occurs when a business person believes that a profit can be made. Thus, capital investment is a function of variables related to the potential for profit, including interest rate, gross domestic product, consumer expectations, disposable income, and technological level.</li>
+</ul>
+<p>Business and economic analysis has some unique characteristics compared to analysis in other disciplines. Some natural scientists work in a laboratory, where many—but not all—variables can be controlled. If you wanted to figure out what the impact of one variable is you could vary that one (and keep all others constant) and then observe the impact these changes have on an outcome variable. In contrast, the economist’s and manager’s laboratory is the world, and conditions cannot be controlled. Thus, we need tools such as multiple regression to estimate the simultaneous effect of several variables. Multiple regression as a “lab tool” is very important for the work of managers and economists.</p>
+<p>The “miracle” of multiple regression is going to be that it will be able to “partial” out effects of individual explanatory variables, even though you do not have control over the experimental setup. However, while, if you can control the experimental setup, you can easily establish causal relationships, in the context where we merely used observed data (observational studies) we cannot easily claim to discover causal relationships.</p>
+<section id="model-specification" class="level3" data-number="16.4.1">
+<h3 data-number="16.4.1" class="anchored" data-anchor-id="model-specification"><span class="header-section-number">16.4.1</span> Model Specification</h3>
+<p>Model specification includes selection of the explanatory variables and the functional form of the model. We return to the Height-Weight example but we will discuss more than one factor this time. We previously specified:</p>
+<p><span class="math display">\[\begin{equation*}
+    \underset{\begin{array}{c}
+            \textrm{Weight}\\
+        \end{array}}{y_i} = \alpha + \beta \underset{\begin{array}{c}
+        \textrm{Height}\\
+        \end{array}}{x_i} + \underset{\begin{array}{c}
+    \textrm{Other Factors}\\
+    \end{array}}{\epsilon_i}
+\end{equation*}\]</span></p>
+<p>In a simple linear equation we model the effect of all other factors to be part of the random error term, labeled as <span class="math inline">\(\epsilon_i\)</span>. However, some factors in error term could be measured as well so we can move them out from the error term and include them as explanatory variables. As we have discussed, weight could be affected by gender.</p>
+<p>Linear regression assumes that the numerical amounts in all independent, or explanatory, variables are meaningful data points. However, sex is a binary categorical variable (this is mainly true, sex referring to biological attributes. Gender identification used to be modeled as a binary variable as well, but today there is a better understanding that the gender people identify as may be better represented more flexibly than only with two categories). Regression analysis requires numerical values to work with and therefore sex has to be coded. Categorical variables with two categories are coded as dummy variables. A dummy variable is a variable created to assign a numerical value to the levels of the categorical variable. Here we will define such a variable, called “male” which takes the value 1 if the individual is a male and 0 if it is not.</p>
+<p>Here we have a categorical variable which takes one of two categories and we needed one variable to code this up. In general, if you have a categorical variable with <span class="math inline">\(k\)</span> categories then you need <span class="math inline">\(k-1\)</span> categories to code these up. That would be done with <span class="math inline">\(k-1\)</span> dummy variables.</p>
+<p>This would lead us to specify the following multiple regression model:</p>
+<p><span class="math display">\[\begin{equation*}
+    \underset{\begin{array}{c}
+            \textrm{Weight}\\
+        \end{array}}{y_i} = \alpha + \beta_1 \underset{\begin{array}{c}
+        \textrm{Height}\\
+        \end{array}}{x_{1i}} + \beta_2 \underset{\begin{array}{c}
+    \textrm{Male}\\
+        \end{array}}{x_{2i}} + \underset{\begin{array}{c}
+    \textrm{Other Factors}\\
+    \end{array}}{\epsilon_i}
+\end{equation*}\]</span></p>
+<p>Now we have an intercept coefficient (<span class="math inline">\(\alpha\)</span>) and two slope coefficients, <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> which relate to the Height and Male variables respectively. These are all unknown population coefficients.</p>
+<p>The following table shows the data with the sex and the derived male dummy variable.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Weight(Y, pounds)</th>
+<th>Height(inches)</th>
+<th>Sex</th>
+<th>male</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>155</td>
+<td>70</td>
+<td>Female</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>150</td>
+<td>63</td>
+<td>Female</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>180</td>
+<td>72</td>
+<td>Male</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>135</td>
+<td>60</td>
+<td>Female</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>156</td>
+<td>66</td>
+<td>Female</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>168</td>
+<td>70</td>
+<td>Male</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>178</td>
+<td>74</td>
+<td>Male</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>160</td>
+<td>65</td>
+<td>Female</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>132</td>
+<td>62</td>
+<td>Female</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>145</td>
+<td>67</td>
+<td>Female</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>139</td>
+<td>65</td>
+<td>Female</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>152</td>
+<td>68</td>
+<td>Female</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="estimation-1" class="level3" data-number="16.4.2">
+<h3 data-number="16.4.2" class="anchored" data-anchor-id="estimation-1"><span class="header-section-number">16.4.2</span> Estimation</h3>
+<p>In general a researcher is interested in the unknown intercept coefficient (<span class="math inline">\(\alpha\)</span>) and two the two slope coefficients, <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span>. We will use sample data to obtain sample estimates for these. Multiple regression coefficients are computed using estimators obtained by the least squares procedure. This least squares procedure is similar to that presented in simple regression. However, the estimators are complicated by the relationships between the explanatory <span class="math inline">\(X_i\)</span> variables.</p>
+<p>The least squares procedure for multiple regression computes the estimated coefficients so as to minimise the sum of the residuals squared. In this case, the sample estimated regression equation is</p>
+<p><span class="math display">\[\begin{equation*}
+    \widehat{y}_{i} = a + b_1 {x_{1i}}+b_2 {x_{2i}}
+\end{equation*}\]</span></p>
+<p>The residual is:</p>
+<p><span class="math display">\[\begin{equation*}
+    res_i=y_i-\widehat{y}_i =  y_i - (a + b_1 {x_{1i}}+b_2 {x_{2i}}) = y_i - a - b_1 {x_{1i}}-b_2 {x_{2i}}.
+\end{equation*}\]</span></p>
+<p>Formally, we minimise <span class="math inline">\(SSE\)</span>:</p>
+<p><span class="math display">\[\begin{equation*}
+    SSE =(y_{1}-\widehat{y}_{1})^{2}+(y_{2}-\widehat{y}_{2})^{2}+...+(y_{12}-\widehat{y}_{12})^{2}=\sum_{i=1}^{n}res_i^{2}=\sum_{i=1}^{n}(y_{i}-\widehat{y}_{i})^{2}= \sum_{i=1}^{n}(y_{i}-a-b_1 {x_{1i}}-b_2 {x_{2i}})^{2}
+\end{equation*}\]</span></p>
+<p>To carry out the process formally, we use partial derivatives to develop a set of simultaneous equations that are then solved to obtain the coefficient estimators. Fortunately, the complex computations are always performed using a statistical software such as EXCEL. Our objective here is to understand how to interpret the regression results and use them to solve problems. You may learn more about the actual magic that is going on in later units.</p>
+</section>
+<section id="goodness-of-fit-1" class="level3" data-number="16.4.3">
+<h3 data-number="16.4.3" class="anchored" data-anchor-id="goodness-of-fit-1"><span class="header-section-number">16.4.3</span> Goodness of Fit</h3>
+<p>Similar to the simple regression model, we can develop a measure of the proportion of the variability in the dependent variable that can be explained by the multiple regression model. The model variability can be partitioned into the components</p>
+<p><span class="math display">\[\begin{equation*}
+    SST=SSR+SSE
+\end{equation*}\]</span></p>
+<p>where these components are defined as follows:</p>
+<p>Sum of Squares Total <span class="math display">\[\begin{equation*}
+    SST=\sum_{i=1}^{12}(y_{i}-\bar{y})^{2}
+\end{equation*}\]</span></p>
+<p>Sum of Squares Regression <span class="math display">\[\begin{equation*}
+    SSR=\sum_{i=1}^{12}(\widehat{y_i}-\bar{y})^{2}
+\end{equation*}\]</span></p>
+<p>Sum of Squares Error <span class="math display">\[\begin{equation*}
+    SSE=\sum_{i=1}^{n}res_i^{2}=\sum_{i=1}^{n}(y_{i}-\widehat{y}_{i})^{2}= \sum_{i=1}^{n}(y_{i}-a-b_1 {x_{1i}}-b_2 {x_{2i}})^{2}
+\end{equation*}\]</span></p>
+<p>This decomposition can be interpreted as follows:</p>
+<p>total sample variability = explained variability + unexplained variability</p>
+<p>The coefficient of determination, <span class="math inline">\(R^2\)</span>, of the fitted regression is defined as the proportion of the total sample variability explained by the regression</p>
+<p><span class="math display">\[\begin{equation*}
+    R^2=\frac{SSR}{SST}=1-\frac{SSE}{SST}
+\end{equation*}\]</span></p>
+<p>and it follows that</p>
+<p><span class="math display">\[\begin{equation*}
+    0 \le R^2 \le1
+\end{equation*}\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this video we you can follow all the steps required to estimate a multiple regression model in EXCEL (YouTube, 10min).</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/dCsI3yGMdmE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>The next figure is a screenprint of the regression output you obtain when estimating this regression.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/EXCEL_Reg4.png" class="img-fluid figure-img"></p>
+<figcaption>EXCEL Regression Output.</figcaption>
+</figure>
+</div>
+<p>From this EXCEL regression output, we could get some key information:</p>
+<ul>
+<li>R square statistic is 0.815549 so <span class="math inline">\(R^2=0.815549\)</span>, which we can see that here 81.6% of the variation is explained by that linear relationship.</li>
+<li>The sample size (Observations) of 12.</li>
+<li>Sum of Squared Regression (<span class="math inline">\(SSR)\)</span> is 2169.08901, which is <span class="math inline">\(\sum_{i=1}^{12}(\widehat{y_i}-\bar{y})^{2}\)</span>.<br>
+It shows The amount of variability explained by the regression equation.</li>
+<li>Sum of Squared Residuals (<span class="math inline">\(SSE)\)</span> is 490.577661, which is <span class="math inline">\(\sum_{i=1}^{12}(y_{i}-\widehat{y_i})^{2}\)</span>.<br>
+</li>
+<li>Sum of Squares Total (<span class="math inline">\(SST)\)</span> is 2659.66667, which is <span class="math inline">\(\sum_{i=1}^{12}(y_{i}-\bar{y})^{2}\)</span>.<br>
+It measures the amount of variation we can see in the dependent variable. <span class="math inline">\(SST=SSR+SSE\)</span>.</li>
+<li>The intercept estimator <span class="math inline">\(a\)</span> is 9.9005</li>
+<li>The coefficient estimates <span class="math inline">\(b_1\)</span> is 2.1073 and <span class="math inline">\(b_2\)</span> is 13.7051</li>
+<li>The standard errors of the coefficient estimates are <span class="math inline">\(SE(b_1)=0.08013\)</span> nd <span class="math inline">\(SE(b_2)=7.3959\)</span></li>
+<li>The regression line (line of best fit) is therefore defined as:<br>
+<span class="math inline">\(\hat{y}=9.9005+2.1073x_1+13.7051x_2\)</span></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="interpretation-of-multiple-regression-equation" class="level3" data-number="16.4.4">
+<h3 data-number="16.4.4" class="anchored" data-anchor-id="interpretation-of-multiple-regression-equation"><span class="header-section-number">16.4.4</span> Interpretation of Multiple Regression Equation</h3>
+<p>Note that the multiple regression coefficients typically change as you include additional explanatory variables. For instance, when we estimated the simple regression with only height as an explanatory variable, the estimated coefficient for the height variable was 3.2156. In the multiple regression model, after including the male dummy variable, the estimated coefficient came out as 2.1073, so a reduction of approximately 50% in this case. This will always happen if the two explanatory variables (as is the case here) are correlated.</p>
+<p>The sample estimated regression equation is</p>
+<p><span class="math display">\[\begin{equation*}
+    \widehat{y}_{i} = a + b_1 {x_{1i}}+b_2 {x_{2i}}
+\end{equation*}\]</span></p>
+<p>For multiple regression, we would interpret the coefficients as being the partial derivatives.</p>
+<p><span class="math display">\[\begin{equation*}
+b_1=\partial{\hat{y}}/\partial{x_1}
+\end{equation*}\]</span></p>
+<p>This is consistent with our usual idea that, as we increase <span class="math inline">\(x_1\)</span> by one unit <span class="math inline">\(\hat{y}\)</span> changes by <span class="math inline">\(b_1\)</span>. But importantly, now we also have to specify that this is true if we leave <span class="math inline">\(x_2\)</span> unchanged.</p>
+<p><span class="math display">\[\begin{equation*}
+b_2=\partial{\hat{y}}/\partial{x_2}
+\end{equation*}\]</span></p>
+<p>When we increase <span class="math inline">\(x_2\)</span> by one unit and leave <span class="math inline">\(x_1\)</span> unchanged, <span class="math inline">\(\hat{y}\)</span> changes by <span class="math inline">\(b_2\)</span>.</p>
+<p>We return to the height-weight example, the estimated coefficients are identified in the EXCEL output. The regression line is defined as</p>
+<p><span class="math display">\[\begin{equation*}
+    \hat{y}=9.9005+2.1073~x_1+13.7051~x_2
+\end{equation*}\]</span></p>
+<p>Make use of the information of the units in which the dependent and explanatory variables are measured. From above we know, Height (<span class="math inline">\(x_1\)</span>) is measured in inches (1 inch = 2.54 cm) and the Weight (<span class="math inline">\(y\)</span>) is measured in pounds (1 pound = 1 lbs = 0.454 kg).</p>
+<p>We know that when we interpret regression results, we should be aware of the units in which the dependent and explanatory variables are measured. With this knowledge, the interpretations of <span class="math inline">\(b_1=2.1073\)</span> are</p>
+<ul>
+<li>“The expected weight (<span class="math inline">\(\hat{y}\)</span>) increases by 2.1073 pounds for every height increase of 1 inch, if the other variable does not change”</li>
+<li>“On average weight (<span class="math inline">\(\hat{y}\)</span>) increases by 2.1073 pounds for every height increase of 1 inch, if the other variable does not change”</li>
+</ul>
+<p>You will note here we add the sentence “if the other variable does not change” for multiple regression. Sometimes you see the term ceteris paribus (“other things being equal”) to express this. This can be abbreviated as “c.p.”.</p>
+<p>Again, note that the coefficient for height is 2.1073, which is clearly different from from 3.2157 for the simple regression. This is because we added the male dummy variable into the model and as height and male are correlated (males tend to be taller) the inclusion of the male dummy variable will change the coefficient of height.</p>
+<p>When interpreting the coefficients to dummy variables we need to be less mechanical. Before interpreting <span class="math inline">\(b_2\)</span>, let’s look at the following argument.</p>
+<p>When <span class="math inline">\({x_{2i}=0}\)</span> (Female respondents), the regression specification simplifies to</p>
+<p><span class="math display">\[\begin{equation*}
+    \widehat{y}_{i}= a + b_1 {x_{1i}}
+\end{equation*}\]</span></p>
+<p>but when <span class="math inline">\({x_{2i}=1}\)</span> (Male respondents),</p>
+<p><span class="math display">\[\begin{equation*}
+    \widehat{y}_{i} = a + b_1 {x_{1i}} + b_2 \times1 = \underbrace{ a + b_2}_{\text{constant}} + b_1 {x_{1i}}
+\end{equation*}\]</span></p>
+<p>the constant is <span class="math inline">\(a+b_2\)</span>. We can illustrate the two regression lines in the following plot where the data are visually separated by sex (Green = males, black = females). The fact that the two lines are parallel is enforced by the specification as we are estimating the same slope coefficient (for height, <span class="math inline">\(x_1\)</span>) for males and females.The vertical difference between the two lines is equivalent to <span class="math inline">\(b_2\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MultipleRegressionScatter.png" class="img-fluid figure-img"></p>
+<figcaption>Regression lines of best fit for Males and Females</figcaption>
+</figure>
+</div>
+<p>We see that the dummy variable shifts the linear relationship between <span class="math inline">\({y_i}\)</span> and <span class="math inline">\({x_{1i}}\)</span> by the value of the coefficient <span class="math inline">\(b_2\)</span>. In this way we can represent the effect of shifts in our regression equation. With this knowledge, the interpretation of <span class="math inline">\(b_2=13.7051\)</span> is that male weights are, on average, 13.7051 pounds higher than female weights. When dealing with dummy variables this is the correct way to interpret regression coefficients.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your colleague provides you with the following regression output which relates monthly wages (measured in UKPs) of individuals within a company to the employees age, sex and the years they spent in education (e.g.&nbsp;<span class="math inline">\(educ_i = 13\)</span> for someone who spend 13 years in education which is typical for someone whose highest education level is a High School degree). male is a dummy variable which takes the value 1 for male employees.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    \widehat{wage}&amp;=&amp;a+b_1~age+b_2~male+b_3~educ\\
+    \widehat{wage}&amp;=&amp;505+58~age+312~male + 50~educ
+\end{eqnarray*}\]</span></p>
+<p>What is the predicted monthly wage for a female employee of age 27 and with 16 years of education?</p>
+<p><span class="math inline">\(\widehat{wages} =\)</span> <input class="webex-solveme nospaces" size="4" data-answer="[&quot;2871&quot;]"></p>
+<p>What is the predicted wage for a male employee with the same age and education?</p>
+<p><span class="math inline">\(\widehat{wages} =\)</span> <input class="webex-solveme nospaces" size="4" data-answer="[&quot;3138&quot;]"></p>
+<p>Which of the following are correct interpretations of the estimated regression?</p>
+<div id="radio_KWWADJFCIQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KWWADJFCIQ" value=""> <span>On average female employees earn UKP 312 more than males, everything else being equal.</span></label><label><input type="radio" autocomplete="off" name="radio_KWWADJFCIQ" value=""> <span>On average an additional year of education is related to an increased average income of UKP 58</span></label><label><input type="radio" autocomplete="off" name="radio_KWWADJFCIQ" value="answer"> <span>On average an additional year of education is related to an increased average income of UKP 58, everything else being equal.</span></label><label><input type="radio" autocomplete="off" name="radio_KWWADJFCIQ" value=""> <span>As employees get older by a year, the expected income increases by UKP 312, c.p.</span></label><label><input type="radio" autocomplete="off" name="radio_KWWADJFCIQ" value=""> <span>We expect a 58 year old employee to earn UKP 1000 more per month than a 18 year old, c.p.</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p>Predicted monthly wage for a female employee of age 27 and with 16 years of education?</p>
+<pre><code>\begin{eqnarray*}
+    \widehat{wages}=505+58 \cdot 27+312 \cdot 0 + 50 \cdot 16 = 2871
+\end{eqnarray*}</code></pre>
+<p>Predicted wage for a male employee with the same age and education?</p>
+<pre><code>\begin{eqnarray*}
+    \widehat{wages}=505+58 \cdot 27+312 \cdot 1 + 50 \cdot 16 = 3138
+\end{eqnarray*}</code></pre>
+<p>Whenever we have a multiple regression you need to use the “everything else being equal (ceteris paribus, c.p.)” addition to make your interpretation correct. Having said that, as in this case the other variable is only the sex of a respondent and that would not change. Therefore, on this occasion, you could get away without the c.p. addition.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="statistical-inference-hypothesis-tests-and-confidence-intervals-1" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="statistical-inference-hypothesis-tests-and-confidence-intervals-1"><span class="header-section-number">16.5</span> Statistical Inference: Hypothesis Tests and Confidence Intervals</h2>
+<p>We shall demonstrate how to use regression results to perform hypothesis tests and calculate confidence intervals. In the example above we extended the simple regression model to a model with two explanatory variables. Using generic variable names we could have represented this model as</p>
+<p><span class="math display">\[\begin{equation*}
+    y_i=\alpha + \beta_1 x_{1i} + \beta_2 x_{2i} + \epsilon_i
+\end{equation*}\]</span></p>
+<p>However, everything discussed in this section generalises to regression models that contain <span class="math inline">\(Q\)</span> explanatory variables (as long as <span class="math inline">\(Q&lt;n\)</span>). A more generic representation of a multiple regression model is</p>
+<p><span class="math display">\[\begin{equation*}
+    y_i=\alpha + \beta_1 x_{1i} + \beta_2 x_{2i} + ... + \beta_Q x_{Qi} + \epsilon_i
+\end{equation*}\]</span></p>
+<p>If you were to estimate such a model with sample data you would obtain the sample regression model:</p>
+<p><span class="math display">\[\begin{equation*}
+    \hat{y}_i=a + b_1 x_{1i} + b_2 x_{2i} + ... + b_Q x_{Qi}
+\end{equation*}\]</span></p>
+<p>where <span class="math inline">\(a\)</span> and <span class="math inline">\(b_j\)</span> for <span class="math inline">\(j=1,...,Q\)</span> are sample coefficient estimates.</p>
+<section id="hypothesis-tests-1" class="level3" data-number="16.5.1">
+<h3 data-number="16.5.1" class="anchored" data-anchor-id="hypothesis-tests-1"><span class="header-section-number">16.5.1</span> Hypothesis Tests</h3>
+<p>Once you estimated a multiple regression model and obtained its regression output, performing inference on regression coefficients is really not much different to performing inference on regression coefficients in a simple regression. Let’s start by re-stating the population regression model for two explanatory variables</p>
+<p><span class="math display">\[\begin{equation*}
+    y_i = \alpha + \beta_1 x_{1i} + \beta_2 x_{2i}+ \epsilon_i
+\end{equation*}\]</span></p>
+<p>We obtain sample estimates for the unknown population parameters <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span>. The sample estimates are <span class="math inline">\(a\)</span>, <span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span> which then define the sample regression line (actually a 2D plane in a 3D space)</p>
+<p><span class="math display">\[\begin{equation*}
+    \hat{y}_i = a + b_1 x_{1i} + b_2 x_{2i}
+\end{equation*}\]</span></p>
+<p>As usual we recognise that a different sample would have given us different sample estimates. This is why we need to use statistical inference techniques.</p>
+<p>Let’s say we wish to test whether the respondent’s sex matters for explaining their weight. We would then want to test the hypothesis</p>
+<p><span class="math display">\[\begin{equation*}
+    H_{0}:\beta_2 = 0
+\end{equation*}\]</span></p>
+<p>versus</p>
+<p><span class="math display">\[\begin{equation*}
+    H_{0}:\beta_2 \neq 0
+\end{equation*}\]</span></p>
+<p>It turns out that inference on regression coefficients works very much like inference on a population mean with unknown population variance. We use a <span class="math inline">\(T\)</span> test</p>
+<p><span class="math display">\[\begin{equation*}
+    t= \dfrac{b_2-\beta_{20}}{SE\left(b_2\right)}\sim t_{n-3}
+\end{equation*}\]</span></p>
+<p>where <span class="math inline">\(\beta_{20}\)</span> is the hypothesised value for <span class="math inline">\(\beta_{2}\)</span> in the null hypothesis and the test statistic is distributed according to a Student’s t distribution with <span class="math inline">\((n-3)\)</span> degrees of freedom. The degree of freedom parameter is <span class="math inline">\((n-3)\)</span> as our regression model uses three estimated parameters, <span class="math inline">\(a\)</span>, <span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span>. <span class="math inline">\(SE\left(b_2\right)\)</span> represents the standard error of slope coefficient <span class="math inline">\(b_2\)</span>. In general the degrees of freedom are calculated from <span class="math inline">\(n-k\)</span>, where <span class="math inline">\(k\)</span> is the number of estimated coefficients. Recall that in this unit we do not cover how to calculate that standard error, we shall rely on EXCEL doing that work. Here we show again the EXCEL regression output.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/EXCEL_Reg4.png" class="img-fluid figure-img"></p>
+<figcaption>EXCEL Regression Output.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let us test the hypothesis that sex does not matter when explaining weight. Use <span class="math inline">\(\alpha = 0.1\)</span>.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    H_0&amp;:&amp; \beta_2 = 0\\
+    H_A&amp;:&amp; \beta_2 \neq 0\\
+\end{eqnarray*}\]</span></p>
+<p>The test statistic is <span class="math inline">\(T=\frac{b_2 - \beta_{20}}{SE{b_2}} \sim t_{n-3}\)</span>, where <span class="math inline">\(\beta_{20}\)</span> is the hypothesised value for <span class="math inline">\(\beta_{2}\)</span> in the null hypothesis. The decision rule is to reject <span class="math inline">\(H_0\)</span> if the absolute value of the sample test statistic is greater than 1.833 (from the t-table with 9 degrees of freedom, two tailed test!).</p>
+<p><span class="math display">\[\begin{equation*}
+    t = \frac{13.7051-0}{7.3959}= 1.8531
+\end{equation*}\]</span></p>
+<p>You can also find that test statistic from the regression output as EXCEL (t Stat column), by default does test exactly the hypothesis we are testing here). As the absolute value of the test statistic is larger than the critical value the null hypothesis is rejected at <span class="math inline">\(\alpha = 0.1\)</span>.</p>
+<p>Let’s also calculate the p-value by referring to the t-distribution Table:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tTableextract.png" class="img-fluid figure-img"></p>
+<figcaption>Distributional table for the t-distribution with 9 degrees of freedom.</figcaption>
+</figure>
+</div>
+<p>Our test statistic is between the values of 1.833 and 2.262 which relate to the (two tailed) p-values of 0.1 and 0.05. Therefore we conclude that the p-value is between 0.05 and 0.1. If you were to use EXCEL to calculate this p-value you would use the following formula “=2*(1-T.DIST(1.8531,9,TRUE))” which delivers a precise p-value of 0.0969.</p>
+<p>At an <span class="math inline">\(\alpha=0.1\)</span> we conclude that the sample delivers evidence to reject the null hypothesis. Sex matters for explaining variation in weight.</p>
+</div>
+</div>
+<p>When comparing this procedure to the hypothesis test we performed for a simple regression you will realise that the only difference in procedure was the degrees of freedom for the t-distribution. Otherwise everything was identical. Also, to conclude this section recall that, as this example used a small sample, we have to assume that the error terms are normally distributed in order to be able to use the t-distribution. When you use large sample sizes (justifying the application of a CLT) then we do not require this assumption.</p>
+<p>Finally, in the discussion above, we discussed testing hypothesis on the coefficient <span class="math inline">\(\beta_2\)</span>. The exactly same process applies to testing any of the coefficients in a multiple regression model.</p>
+<p><span class="math display">\[\begin{equation*}
+    y_i=\alpha + \beta_1 x_{1i} + \beta_2 x_{2i} + ... + \beta_Q x_{Qi} + \epsilon_i
+\end{equation*}\]</span></p>
+<p>If you wanted to test a hypothesis on any of the <span class="math inline">\(\beta_j\)</span> coefficients (or indeed on <span class="math inline">\(\alpha\)</span>) you would use the following test statistic</p>
+<p><span class="math display">\[\begin{equation*}
+    t = \frac{b_j-\beta_{j0}}{SE(b_j)} \sim t_{n-Q-1}
+\end{equation*}\]</span></p>
+<p>where <span class="math inline">\(\beta_{j0}\)</span> is the value being hypothesised. The degrees of freedom are <span class="math inline">\(n-Q-1\)</span> or <span class="math inline">\(n-k\)</span> where <span class="math inline">\(k=Q+1\)</span> is the number of estimated coefficients.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let us test the hypothesis that an additional inch of height, on average, adds two pounds of weight against the alternative that it adds more than two pounds. Use <span class="math inline">\(\alpha = 0.01\)</span>.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+    H_0&amp;:&amp; \beta_1 \leq 2\\
+    H_A&amp;:&amp; \beta_1 &gt; 2\\
+\end{eqnarray*}\]</span></p>
+<p>The test statistic is <span class="math inline">\(T=\frac{b_1 - \beta_{10}}{SE{b_1}} \sim t_{n-3}\)</span>, where <span class="math inline">\(\beta_{10}\)</span> is the hypothesised value for <span class="math inline">\(\beta_{1}\)</span> in the null hypothesis. The decision rule is to reject <span class="math inline">\(H_0\)</span> if the value of the sample test statistic is greater than 2.821 (from the t-table with 9 degrees of freedom, one tailed test!).</p>
+<p><span class="math display">\[\begin{equation*}
+    t = \frac{2.1073-2}{0.8013}= 0.1339
+\end{equation*}\]</span></p>
+<p>The test statistic is not larger than the critical value of 2.821 and therefore we cannot reject the null hypothesis. Let us also calculate the p-value. We require <span class="math inline">\(\Pr(T_9&gt;0.1339)\)</span>. From the table all we can tell is that the p-value is larger than 0.1. To get a more precise p-value you will have to use EXCEL: “=1-T.DIST(0.1339,9,TRUE)” and as a result you get 0.4482.</p>
+</div>
+</div>
+</section>
+<section id="confidence-interval-1" class="level3" data-number="16.5.2">
+<h3 data-number="16.5.2" class="anchored" data-anchor-id="confidence-interval-1"><span class="header-section-number">16.5.2</span> Confidence Interval</h3>
+<p>If we want to present uncertainty about estimated coefficients we turn to confidence intervals. When we revisited hypothesis testing we realised that the only difference to hypothesis testing from a simple regression was the degrees of freedom. In fact the simple regression was just a special case of the multiple regression case. If you calculate the degrees of freedom as <span class="math inline">\(n\)</span> minus the number of estimated coefficients you will get it right in any case.</p>
+<p>The same applies to the calculation of confidence intervals. As long as you remember how to get the degrees of freedom this works exactly as in the case of simple regression. Let us calculate a 99% confidence interval for <span class="math inline">\(\beta_2\)</span> the coefficient for the male variable.</p>
+<p><span class="math display">\[\begin{equation*}
+    \left[ c_{L},c_{U}\right] =b_2\pm t_{n-3,\alpha /2}SE\left[b_2\right]
+\end{equation*}\]</span></p>
+<p>Substituting what we get from the regression output we obtain</p>
+<p><span class="math display">\[\begin{equation*}
+    13.7051\pm 3.250 \cdot 7.3959 = 13.7051\pm 24.0366 \Rightarrow \left[ -10.3315,37.7416\right]
+\end{equation*}\]</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Calculate a 95% confidence interval for <span class="math inline">\(\beta_1\)</span> the coefficient for the height variable.</p>
+<p><span class="math inline">\([\)</span> <input class="webex-solveme nospaces" data-tol="0.001" size="6" data-answer="[&quot;0.2947&quot;,&quot;.2947&quot;]">, <input class="webex-solveme nospaces" data-tol="0.001" size="6" data-answer="[&quot;3.9199&quot;]"> <span class="math inline">\(]\)</span></p>
+<div class="webex-solution">
+<button>
+Feedback
+</button>
+<p><span class="math display">\[\begin{equation*}
+    \left[ c_{L},c_{U}\right] =b_1\pm t_{n-3,\alpha /2}SE\left[b_1\right]
+\end{equation*}\]</span></p>
+<p>Substituting what we get from the regression output we obtain:</p>
+<p><span class="math display">\[\begin{equation*}
+    2.1073\pm 2.262 \cdot 0.8013 = 2.1073\pm 1.8126 \Rightarrow \left[ 0.2947,3.9199\right]
+\end{equation*}\]</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="worked-example-and-outlook" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="worked-example-and-outlook"><span class="header-section-number">16.6</span> Worked Example and outlook</h2>
+<p>Regression analysis is the workhorse technique of empirical economics. It is the swiss-army knife of statistical techniques. While regression analysis, as it is presented here, is fairly straightforward, many more complicated statistical techniques are either variations on linear regression models or use linear regression as an ingredient. So knowing regression analysis will carry you far.</p>
+<p>We conclude this with a worked example of multiple regression analysis. This video (YouTube,19min) provides a work-through a multiple regression analysis. It uses the “<a href="https://github.com/datasquad/StatisticsNotesBook/raw/refs/heads/master/data/CountryIndicators_2019.csv">CountryIndicators_2019.csv</a>” dataset.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/OD6DBz4EPyg?si=SrDwnCX5sdq4ipDz" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+
 
 </section>
-</section>
-<section id="extra-reading" class="level2">
-<h2 class="anchored" data-anchor-id="extra-reading">Extra reading</h2>
-<p>If you want to know more about the subtleties of p-values, then this is a good read: Lew, M.J. (2020) <a href="https://link.springer.com/chapter/10.1007/164_2019_286">A Reckless Guide to P-values: Local Evidence, Global Errors, Part of the Handbook of Experimental Pharmacology book series</a> (HEP,volume 257).</p>
-</section>
-</section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
+<script src="include/webex.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -997,6 +1673,18 @@ Feedback
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ConfidenceIntervals.html" class="pagination-link" aria-label="Confidence Intervals">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Confidence Intervals</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
